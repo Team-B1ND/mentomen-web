@@ -17,7 +17,7 @@ const Header = () => {
       <Title src={Logo} />
       <SearchBox>
         <SearchImg src={Search} />
-        <SearchInput />
+        <SearchInput placeholder="키워드를 입력하세요" />
       </SearchBox>
       <Intro>서비스 소개</Intro>
     </HeaderContainer>
