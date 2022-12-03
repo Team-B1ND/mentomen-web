@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import config from "../../../config.json";
 import { ACCESS_KEY } from "../../../constants/auth/auth.constant";
-import { StartBtn, BtnText } from "./StartButton.style";
+import { StartBtn, BtnText } from "./startButton.style";
 
 export function StartButton() {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BackImg from "../../../../Img/BackImg.png";
+import BackImg from "../../../../assets/images/BackImg.png";
 export const FirstSection = styled.div`
   width: 100%;
   height: 100vh;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StartButton } from "../../../Button/StartButton/StartButton";
+import { StartButton } from "../../../button/startButton/startButton";
 import {
   ThirdSection,
   ThirdSectionImg,
@@ -7,8 +7,8 @@ import {
   ThirdSectionText1,
   ThirdSectionTextWrap,
   ThirdSectionWrap,
-} from "./IntroBottom.style";
-import IOStest from "../../../../Img/IOStest.png";
+} from "./introBottom.style";
+import IOStest from "../../../../assets/logo/IOStest.png";
 
 function IntroBottom() {
   return (

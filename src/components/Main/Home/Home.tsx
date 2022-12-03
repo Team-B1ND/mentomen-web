@@ -1,7 +1,7 @@
 import React from "react";
-import { LeftWrap, MainImg, MainText, MainWrap, MidText } from "./Home.style";
-import IOStest from "../../../Img/IOStest.png";
-import { StartButton } from "../../Button/StartButton/StartButton";
+import { LeftWrap, MainImg, MainText, MainWrap, MidText } from "./home.style";
+import IOStest from "../../../assets/logo/IOStest.png";
+import { StartButton } from "../../button/startButton/startButton";
 
 function Home() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import useSignup from "../../Hooks/login/useSignup";
+import useSignup from "../../hooks/login/useLogin";
 
 function AuthLoadingPage() {
   const { request } = useSignup();

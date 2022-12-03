@@ -4,7 +4,7 @@ import {
   SecondSectionStrongText,
   SecondSectionText,
   SecondSectionWrap,
-} from "./IntroMid.style";
+} from "./introMid.style";
 
 function IntroMid() {
   return (

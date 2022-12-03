@@ -1,11 +1,13 @@
 import React from "react";
-import Router from "./Router";
-import GlobalStyle from "./style/Global";
+import PageTemplate from "./components/common/pageTemplate/pageTemplate";
+import Router from "./router/router";
 
 function App() {
   return (
     <>
-      <Router />
+      <PageTemplate>
+        <Router />
+      </PageTemplate>
     </>
   );
 }

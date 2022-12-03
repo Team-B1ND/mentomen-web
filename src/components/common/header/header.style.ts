@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { palette } from "../../style/palette";
+import { palette } from "../../../style/palette";
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -54,7 +54,7 @@ export const SearchInput = styled.input`
 export const Intro = styled.h1`
   margin-left: 500px;
   margin-top: 15px;
-  color: ${palette.color};
+  color: ${palette.color}
   font-weight: 600;
   font-size: 17px;
   line-height: 24px;
