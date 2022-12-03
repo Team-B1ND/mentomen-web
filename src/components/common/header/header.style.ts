@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { palette } from "../../../style/palette";
 
 export const HeaderContainer = styled.div`
   display: flex;
-
+  box-sizing: border-box;
   position: fixed;
   width: 100%;
   height: 60px;
@@ -11,15 +12,18 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Title = styled.img`
-  width: 121px;
+  width: 125px;
   height: 40px;
-  margin-top: 5px;
-  margin-left: 50px;
+
+  margin-left: 230px;
+  margin-top: 8px;
+
+  cursor: pointer;
 `;
 
 export const SearchBox = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   column-gap: 10px;
   margin-right: -10px;
@@ -29,7 +33,7 @@ export const SearchBox = styled.div`
   padding: 6px 12px 6px 5px;
   background: #f2f2f2;
   border-radius: 10px;
-  margin-left: 500px;
+  margin-left: 300px;
 `;
 
 export const SearchImg = styled.img`
@@ -38,10 +42,8 @@ export const SearchImg = styled.img`
 `;
 
 export const SearchInput = styled.input`
-  width: 350px;
-  height: 50px;
+  height: 20px;
   width: 300px;
-  height: 30px;
   background: #f2f2f2;
   border: 0px;
   outline: none;
@@ -50,7 +52,12 @@ export const SearchInput = styled.input`
 `;
 
 export const Intro = styled.h1`
-  font-size: 15px;
   margin-left: 500px;
   margin-top: 15px;
+  color: ${palette.color}
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 24px;
+
+  cursor: pointer;
 `;

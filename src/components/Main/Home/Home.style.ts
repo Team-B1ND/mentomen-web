@@ -3,6 +3,7 @@ import { palette } from "../../../style/palette";
 
 export const MainWrap = styled.div`
   display: flex;
+  color: ${palette.color};
 `;
 
 export const LeftWrap = styled.div`
@@ -24,15 +25,6 @@ export const MidText = styled.p`
   line-height: 90px;
 
   margin-top: 90px;
-`;
-
-export const MenLength = styled.span`
-  span {
-  }
-`;
-
-export const RightWrap = styled.div`
-  margin-left: 300px;
 `;
 
 export const MainImg = styled.img`
