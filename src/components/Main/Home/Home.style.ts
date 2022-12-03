@@ -34,5 +34,3 @@ export const MainImg = styled.img`
   margin-top: 150px;
   margin-left: 200px;
 `;
-
-export const MainBtn = styled.button``;

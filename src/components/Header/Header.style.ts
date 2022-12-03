@@ -17,6 +17,8 @@ export const Title = styled.img`
 
   margin-left: 230px;
   margin-top: 8px;
+
+  cursor: pointer;
 `;
 
 export const SearchBox = styled.div`
@@ -56,4 +58,6 @@ export const Intro = styled.h1`
   font-weight: 600;
   font-size: 17px;
   line-height: 24px;
+
+  cursor: pointer;
 `;
