@@ -1,24 +1,24 @@
 import {
   HeaderContainer,
   Intro,
-  SearchBox,
-  SearchImg,
-  SearchInput,
+  HeaderSearchBox,
+  HeaderSearchImg,
+  HeaderSearchInput,
   Title,
 } from "./header.style";
 import Logo from "../../../assets/logo/Logo.png";
 import Search from "../../../assets/images/Search.png";
-import { useState } from "react";
+import { useGetMember } from "../../../querys/member/member.query";
 
 function Header() {
-  const [isLogin, setIsLogin] = useState(false);
+  const { data } = useGetMember();
   return (
     <HeaderContainer>
       <Title onClick={() => (window.location.href = "/")} src={Logo} />
-      <SearchBox>
-        <SearchImg src={Search} />
-        <SearchInput placeholder="키워드를 입력하세요" />
-      </SearchBox>
+      <HeaderSearchBox>
+        <HeaderSearchImg src={Search} />
+        <HeaderSearchInput placeholder="키워드를 입력하세요" />
+      </HeaderSearchBox>
       <Intro onClick={() => (window.location.href = "/intro")}>
         서비스 소개
       </Intro>

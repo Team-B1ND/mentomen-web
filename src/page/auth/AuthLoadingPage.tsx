@@ -1,8 +1,9 @@
-import React from "react";
-import useSignup from "../../hooks/login/useLogin";
+import React, { useEffect } from "react";
+import useLogin from "../../hooks/login/useLogin";
 
 function AuthLoadingPage() {
-  const { request } = useSignup();
+  useLogin();
+
   return <div>authLoadingPage</div>;
 }
 

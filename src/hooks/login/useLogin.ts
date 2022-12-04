@@ -4,7 +4,7 @@ import authRepository from "../../repository/auth/auth.repository";
 import { useCallback, useEffect } from "react";
 import QueryString from "query-string";
 
-function useSignup() {
+function useLogin() {
   const { search } = useLocation();
   const query = QueryString.parse(search);
 
@@ -31,4 +31,4 @@ function useSignup() {
   };
 }
 
-export default useSignup;
+export default useLogin;
