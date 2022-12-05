@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import config from "../../../config.json";
+import config from "../../../config/config.json";
 import { ACCESS_KEY } from "../../../constants/auth/auth.constant";
 import { StartBtn, BtnText } from "./startButton.style";
 

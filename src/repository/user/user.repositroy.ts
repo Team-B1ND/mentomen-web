@@ -1,10 +1,10 @@
-import CONFIG from "../../config.json";
+import CONFIG from "../../config/config.json";
 import { UserResponse } from "../../interface/user/user.type";
 import { customAxios } from "../../lib/axios/customAxios";
 
 class UserRepository {
-  public async user(): Promise<UserResponse> {
-    const { data } = await customAxios.get(`${CONFIG.server}/user/my`);
+  public async getUser(): Promise<UserResponse> {
+    const { data } = await customAxios.get(`${CONFIG.server}user/my`);
     return data;
   }
 }
