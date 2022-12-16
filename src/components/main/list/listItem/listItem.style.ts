@@ -15,13 +15,17 @@ export const MainListSection = styled.div`
   border-radius: 5px;
 `;
 
+export const MainListLeftSection = styled.div`
+  flex-direction: column;
+  margin-left: 30px;
+`;
+
 export const MainProfileSection = styled.div`
   display: flex;
   width: 152px;
   height: 45px;
 
   padding-top: 28px;
-  padding-left: 30px;
 `;
 
 export const MainProfileImg = styled.img`
@@ -52,4 +56,30 @@ export const ListStdInfo = styled.p`
   line-height: 19px;
   width: 100px;
   color: #858585;
+`;
+
+export const ListContent = styled.p`
+  width: 600px;
+  margin-top: 100px;
+  overflow-wrap: break-word;
+`;
+
+export const CommentImg = styled.img`
+  width: 130px;
+  height: 48px;
+  cursor: pointer;
+
+  margin-top: 870px;
+`;
+
+export const MainRightSection = styled.div`
+  flex-direction: column;
+  margin-left: -30px;
+`;
+
+export const MainListImg = styled.img`
+  width: 250px;
+  height: 250px;
+
+  border-radius: 5px;
 `;
