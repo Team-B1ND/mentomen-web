@@ -13,8 +13,5 @@ export interface UserResponse extends Response {
     };
     userId: number;
   };
-  message: string;
-  status: number;
 }
-
 export type UserRole = "ADMIN" | "STUDENT";

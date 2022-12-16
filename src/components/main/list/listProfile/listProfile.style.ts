@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const ListProfileContainer = styled.div`
-  max-width: 300px;
   min-width: 300px;
-  min-height: 100vh;
-
   display: flex;
   flex-direction: column;
+
+  background-color: white;
   padding-bottom: 15px;
   box-sizing: border-box;
 
@@ -29,15 +28,15 @@ export const MainUserInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 export const MainTag = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
-  margin-left: 10px;
 `;
+
 export const FieldLine = styled.div`
   display: flex;
   margin-top: 40px;
@@ -99,7 +98,7 @@ export const MainUserGrade = styled.p`
 `;
 
 export const LogOutText = styled.p`
-  margin-top: 157px;
+  margin-top: 143px;
 
   text-align: center;
   text-decoration-line: underline;

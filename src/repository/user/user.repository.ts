@@ -4,7 +4,7 @@ import { customAxios } from "../../lib/axios/customAxios";
 
 class UserRepository {
   public async getUser(): Promise<UserResponse> {
-    const { data } = await customAxios.get(`${CONFIG.server}user/my`);
+    const { data } = await customAxios.get(`/user/my`);
     return data;
   }
 }
