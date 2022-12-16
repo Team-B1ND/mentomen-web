@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.175);
 `;
 
-export const Title = styled.img`
+export const HeaderTitle = styled.img`
   width: 125px;
   height: 40px;
 
@@ -21,7 +21,7 @@ export const Title = styled.img`
   cursor: pointer;
 `;
 
-export const SearchBox = styled.div`
+export const HeaderSearchBox = styled.div`
   display: flex;
   /* justify-content: center; */
   align-items: center;
@@ -36,12 +36,12 @@ export const SearchBox = styled.div`
   margin-left: 300px;
 `;
 
-export const SearchImg = styled.img`
+export const HeaderSearchImg = styled.img`
   width: 19px;
   height: 19px;
 `;
 
-export const SearchInput = styled.input`
+export const HeaderSearchInput = styled.input`
   height: 20px;
   width: 300px;
   background: #f2f2f2;
@@ -51,7 +51,7 @@ export const SearchInput = styled.input`
   font-size: 15px;
 `;
 
-export const Intro = styled.h1`
+export const HeaderIntro = styled.h1`
   margin-left: 500px;
   margin-top: 15px;
   color: ${palette.color}

@@ -1,11 +1,11 @@
 import axios from "axios";
-import CONFIG from "../../config.json";
+import CONFIG from "../../config/config.json";
 import { LoginResponse } from "../../interface/login/login.type";
 import { LoginParam } from "./auth.param";
 
 class AuthRepository {
   public async login({ code }: LoginParam): Promise<LoginResponse> {
-    const { data } = await axios.post(`${CONFIG}/auth/code`, { code });
+    const { data } = await axios.post(`${CONFIG.server}/auth/code`, { code });
     return data;
   }
 }

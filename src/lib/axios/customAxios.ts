@@ -4,7 +4,7 @@ import {
   REFRESH_KEY,
   REQUEST_KEY,
 } from "../../constants/auth/auth.constant";
-import CONFIG from "../../config.json";
+import CONFIG from "../../config/config.json";
 
 export const customAxios = axios.create({
   baseURL: `${CONFIG.server}`,
