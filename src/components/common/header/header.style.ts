@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.175);
 `;
 
-export const Title = styled.img`
+export const HeaderTitle = styled.img`
   width: 125px;
   height: 40px;
 
@@ -51,7 +51,7 @@ export const HeaderSearchInput = styled.input`
   font-size: 15px;
 `;
 
-export const Intro = styled.h1`
+export const HeaderIntro = styled.h1`
   margin-left: 500px;
   margin-top: 15px;
   color: ${palette.color}

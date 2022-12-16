@@ -13,11 +13,8 @@ import {
 } from "./listItem.style";
 import aprofile from "../../../../assets/images/aprofile.png";
 import Comment from "../../../../assets/images/CommentBt.png";
-function ListItem({ data }: any, idx: number) {
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
+function ListItem({ data }: any) {
   return (
     <MainListSection>
       <MainListLeftSection>
