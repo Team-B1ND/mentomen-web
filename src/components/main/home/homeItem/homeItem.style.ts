@@ -6,7 +6,7 @@ export const MainListSection = styled.div`
   width: 800px;
   height: 500px;
   margin-top: 100px;
-  margin-left: 200px;
+  margin-left: 150px;
 
   background: #ffffff;
   /* web_shadow */
@@ -22,7 +22,7 @@ export const MainListLeftSection = styled.div`
 
 export const MainProfileSection = styled.div`
   display: flex;
-  width: 152px;
+  width: 200px;
   height: 45px;
 
   padding-top: 28px;
@@ -54,7 +54,7 @@ export const ListStdInfo = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  width: 100px;
+  width: 110px;
   color: #858585;
 `;
 
@@ -69,7 +69,7 @@ export const CommentImg = styled.img`
   height: 48px;
   cursor: pointer;
 
-  margin-top: 870px;
+  margin-top: 880px;
 `;
 
 export const MainRightSection = styled.div`

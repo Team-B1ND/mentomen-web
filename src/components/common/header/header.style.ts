@@ -3,8 +3,8 @@ import { palette } from "../../../style/palette";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  box-sizing: border-box;
   position: fixed;
+  justify-content: space-between;
   width: 100%;
   height: 60px;
   background-color: rgb(255, 255, 255);
@@ -15,7 +15,7 @@ export const HeaderTitle = styled.img`
   width: 125px;
   height: 40px;
 
-  margin-left: 230px;
+  margin-left: 180px;
   margin-top: 8px;
 
   cursor: pointer;
@@ -26,7 +26,6 @@ export const HeaderSearchBox = styled.div`
   /* justify-content: center; */
   align-items: center;
   column-gap: 10px;
-  margin-right: -10px;
 
   box-sizing: border-box;
   border-radius: 10px;
@@ -52,8 +51,8 @@ export const HeaderSearchInput = styled.input`
 `;
 
 export const HeaderIntro = styled.h1`
-  margin-left: 500px;
-  margin-top: 15px;
+  margin-left: 400px;
+  margin-top: 20px;
   color: ${palette.color}
   font-weight: 600;
   font-size: 17px;

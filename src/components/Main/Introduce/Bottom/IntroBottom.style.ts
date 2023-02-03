@@ -10,7 +10,7 @@ export const ThirdSection = styled.div`
 export const ThirdSectionWrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 280px;
+  margin-left: 200px;
 
   font-style: normal;
   font-size: 40px;
@@ -43,7 +43,7 @@ export const ThirdSectionText1 = styled.p`
 
 export const ThirdSectionImg = styled.img`
   margin-left: 100px;
-  margin-top: -50px;
+  margin-top: -80px;
   width: 500px;
   height: 700px;
 `;

@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
 import {
   CommentImg,
   ListContent,
   ListStdInfo,
   ListUserInfo,
   ListUserName,
-  MainListImg,
   MainListLeftSection,
   MainListSection,
   MainProfileImg,
   MainProfileSection,
-} from "./listItem.style";
+} from "./homeItem.style";
 import aprofile from "../../../../assets/images/aprofile.png";
 import Comment from "../../../../assets/images/CommentBt.png";
 
-function ListItem({ data }: any) {
+function HomeItem({ data }: any) {
   return (
     <MainListSection>
       <MainListLeftSection>
@@ -30,9 +28,8 @@ function ListItem({ data }: any) {
         <ListContent>{data?.content}</ListContent>
         <CommentImg src={Comment} />
       </MainListLeftSection>
-      <MainListImg src={data?.profileUrl ? data?.imgUrls : null} />
     </MainListSection>
   );
 }
 
-export default ListItem;
+export default HomeItem;

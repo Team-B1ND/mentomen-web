@@ -12,7 +12,7 @@ import {
   PathContainer,
   PathMyList,
   PathText,
-} from "./listProfile.style";
+} from "./homeProfile.style";
 import aprofile from "../../../../assets/images/aprofile.png";
 import copy from "../../../../assets/images/copy.png";
 import { useGetMember } from "../../../../querys/member/member.query";
@@ -22,7 +22,7 @@ import {
 } from "../../../../constants/auth/auth.constant";
 import { useNavigate } from "react-router-dom";
 
-function ListProfile() {
+function HomeProfile() {
   const { data } = useGetMember();
   const navigate = useNavigate();
   return (
@@ -60,4 +60,4 @@ function ListProfile() {
   );
 }
 
-export default ListProfile;
+export default HomeProfile;

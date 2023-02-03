@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ListProfileContainer = styled.div`
   min-width: 300px;
+  height: calc(100%-60px);
   display: flex;
   flex-direction: column;
 
