@@ -15,7 +15,7 @@ function useLogin() {
       });
       localStorage.setItem(ACCESS_KEY, data.accessToken);
       localStorage.setItem(REFRESH_KEY, data.refreshToken);
-      navigate("/list");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

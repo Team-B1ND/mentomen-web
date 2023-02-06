@@ -4,7 +4,7 @@ import Server from "../../assets/logo/Server.svg";
 import Design from "../../assets/logo/Design.svg";
 import Ios from "../../assets/logo/Ios.svg";
 
-export const FILED = [
+export const FILEDITEM = [
   {
     title: "DESIGN",
     color: "#EC6B77",

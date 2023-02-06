@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import List from "../components/main/home/home";
 import AuthLoadingPage from "../page/auth/AuthLoadingPage";
-import Homepage from "../page/HomePage";
+import HomePage from "../page/HomePage";
 import IntroducePage from "../page/IntroducePage";
+import StartPage from "../page/StartPage";
 
 function Router() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/intro" element={<IntroducePage />} />
+        <Route path="/start" element={<StartPage />} />
         <Route path="/callback" element={<AuthLoadingPage />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/intro" element={<IntroducePage />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </>
   );
