@@ -1,5 +1,5 @@
 import config from "../../../config/config.json";
-import { BtnText, StartBtn } from "./StartButton.style";
+import { BtnText, StartBtn } from "./style";
 
 function StartButton() {
   const authUrl = `http://dauth.b1nd.com/login?client_id=${config.CLIENTID}&redirect_uri=http://localhost:3000/callback`;
