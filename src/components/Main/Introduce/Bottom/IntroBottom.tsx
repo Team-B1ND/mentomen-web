@@ -1,6 +1,6 @@
 import React from "react";
 import IOStest from "../../../../assets/logo/IOStest.png";
-import StartButton from "../../../button/StartButton/StartButton";
+import StartButton from "../../../Button/StartButton/StartButton";
 import {
   ThirdSection,
   ThirdSectionImg,
@@ -8,7 +8,7 @@ import {
   ThirdSectionText1,
   ThirdSectionTextWrap,
   ThirdSectionWrap,
-} from "./IntroBotoom.style";
+} from "./IntroBottom.style";
 
 function IntroBottom() {
   return (
