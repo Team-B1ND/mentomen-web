@@ -1,7 +1,7 @@
 import React from "react";
-import IntroBottom from "../components/main/introduce/bottom/introBottom";
-import IntroMid from "../components/main/introduce/mid/introMid";
-import IntroTop from "../components/main/introduce/top/introTop";
+import IntroBottom from "../components/Main/Introduce/Bottom/IntroBottom";
+import IntroMid from "../components/Main/Introduce/Mid/IntroMid";
+import IntroTop from "../components/Main/Introduce/Top/IntroTop";
 
 function IntroducePage() {
   return (

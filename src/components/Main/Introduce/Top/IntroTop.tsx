@@ -1,5 +1,5 @@
 import React from "react";
-import { FirstSection, FirstSectionTitle } from "./introTop.style";
+import { FirstSection, FirstSectionTitle } from "./IntroTop.style";
 
 function IntroTop() {
   return (

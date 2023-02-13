@@ -27,8 +27,17 @@ const ProfileBar = () => {
         <UserProfile
           src={data?.data.profileImage ? data?.data.profileImage : Lover}
         />
-        <UserName>{data?.data.name}</UserName>
-        <UserGrade>{`${data?.data.stdInfo.grade}년 ${data?.data.stdInfo.room}반 ${data?.data.stdInfo.number}번`}</UserGrade>
+        {
+          data?.data ?
+          (
+            <>
+              <UserName>{data?.data.name}</UserName>
+              <UserGrade>{`${data?.data.stdInfo.grade}년 ${data?.data.stdInfo.room}반 ${data?.data.stdInfo.number}번`}</UserGrade>
+            </>
+          )
+          :
+          '학생정보가 없습니다.'
+        }
       </UserInfo>
       <FiledContainer>
         {FILEDITEM.map((item) => (

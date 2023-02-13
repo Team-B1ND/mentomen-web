@@ -1,10 +1,10 @@
 import React from "react";
-import {
-  SecondSection,
-  SecondSectionStrongText,
-  SecondSectionText,
-  SecondSectionWrap,
-} from "./introMid.style";
+import { 
+  SecondSection, 
+  SecondSectionStrongText, 
+  SecondSectionText, 
+  SecondSectionWrap 
+} from "./IntroMid.style";
 
 function IntroMid() {
   return (

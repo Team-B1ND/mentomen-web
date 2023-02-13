@@ -1,6 +1,6 @@
 import React from "react";
 import IOStest from "../../../assets/logo/IOStest.png";
-import { StartButton } from "../../button/startButton/startButton";
+import { StartButton } from ".././../Button/StartButton/StartButton";
 import {
   StartContainer,
   StartImg,
