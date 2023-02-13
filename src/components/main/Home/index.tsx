@@ -7,7 +7,7 @@ const Home = () => {
   const navigate = useNavigate();
   if (!isAuthority) {
     window.alert("유효한토큰");
-    navigate("/startf");
+    navigate("/start");
   }
   return <ProfileBar />;
 };

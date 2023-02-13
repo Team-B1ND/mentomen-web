@@ -1,6 +1,6 @@
 import CONFIG from "../../config/config.json";
-import { UserResponse } from "../../interface/user/user.type";
 import { customAxios } from "../../lib/axios/customAxios";
+import { UserResponse } from "../../types/user/user.type";
 
 class UserRepository {
   public async getUser(): Promise<UserResponse> {

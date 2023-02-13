@@ -1,6 +1,6 @@
 import axios from "axios";
 import CONFIG from "../../config/config.json";
-import { LoginResponse } from "../../interface/login/login.type";
+import { LoginResponse } from "../../types/login/login.type";
 import { LoginParam } from "./auth.param";
 
 class AuthRepository {

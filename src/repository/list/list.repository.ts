@@ -1,5 +1,5 @@
-import { ListResponse } from "../../interface/list/list.type";
 import { customAxios } from "../../lib/axios/customAxios";
+import { ListResponse } from "../../types/list/list.type";
 
 class ListRepository {
   public async getList(): Promise<ListResponse> {
