@@ -1,14 +1,14 @@
 import React from "react";
 import IOStest from "../../../../assets/logo/IOStest.png";
-import { StartButton } from "../.././../Button/StartButton/StartButton";
-import { 
-  ThirdSection, 
-  ThirdSectionImg, 
-  ThirdSectionText, 
-  ThirdSectionText1, 
-  ThirdSectionTextWrap, 
-  ThirdSectionWrap 
-} from "./IntroBottom.style";
+import StartButton from "../../../button/StartButton/StartButton";
+import {
+  ThirdSection,
+  ThirdSectionImg,
+  ThirdSectionText,
+  ThirdSectionText1,
+  ThirdSectionTextWrap,
+  ThirdSectionWrap,
+} from "./IntroBotoom.style";
 
 function IntroBottom() {
   return (

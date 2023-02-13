@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import AuthLoadingPage from "../page/auth/AuthLoadingPage";
-import HomePage from "../page/HomePage";
-import IntroducePage from "../page/IntroducePage";
-import StartPage from "../page/StartPage";
+import AuthLoadingPage from "../pages/auth/AuthLoadingPage";
+import HomePage from "../pages/HomePage";
+import IntroducePage from "../pages/IntroducePage";
+import StartPage from "../pages/StartPage";
 
 function Router() {
   return (

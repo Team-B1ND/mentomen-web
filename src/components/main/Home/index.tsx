@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useTokenCheck from "../../../hooks/auth/useTokenCheck";
-import ProfileBar from "../../common/profile";
+import ProfileBar from "../../common/Profile";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();

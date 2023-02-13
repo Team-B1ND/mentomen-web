@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProfileBarContainer = styled.div`
   width: 300px;
   height: calc(100vh - 75px);
-  background-color: pink;
+  background-color: white;
   position: fixed;
   top: 75px;
   left: 0;

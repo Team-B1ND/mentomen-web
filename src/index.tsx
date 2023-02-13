@@ -5,7 +5,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <div>
+  <div style={{ width: "100%", minHeight: "100vh", background: "#F4F4F4" }}>
     <App />
   </div>
 );

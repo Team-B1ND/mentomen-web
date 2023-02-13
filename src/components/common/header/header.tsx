@@ -5,7 +5,7 @@ import {
   HeaderSearchInput,
   HeaderTitle,
   HeaderIntro,
-} from "./header.style";
+} from "./Header.style";
 import Logo from "../../../assets/logo/Logo.png";
 import Search from "../../../assets/images/Search.png";
 import { useNavigate } from "react-router-dom";

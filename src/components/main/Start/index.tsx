@@ -1,13 +1,12 @@
-import React from "react";
 import IOStest from "../../../assets/logo/IOStest.png";
-import { StartButton } from ".././../Button/StartButton/StartButton";
+import StartButton from "../../button/StartButton/StartButton";
 import {
   StartContainer,
   StartImg,
   StartLeftWrap,
   StartMidText,
   StartText,
-} from "./start.style";
+} from "./style";
 
 function Start() {
   return (

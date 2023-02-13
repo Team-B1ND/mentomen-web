@@ -1,7 +1,7 @@
 import config from "../../../config/config.json";
 import { BtnText, StartBtn } from "./StartButton.style";
 
-export function StartButton() {
+function StartButton() {
   const authUrl = `http://dauth.b1nd.com/login?client_id=${config.CLIENTID}&redirect_uri=http://localhost:3000/callback`;
   return (
     <StartBtn onClick={() => (window.location.href = authUrl)}>
@@ -9,3 +9,5 @@ export function StartButton() {
     </StartBtn>
   );
 }
+
+export default StartButton;
