@@ -3,11 +3,11 @@ import useTokenCheck from "../../../hooks/auth/useTokenCheck";
 import ProfileBar from "../../common/Profile";
 import * as S from './style';
 import { Lists } from "./HomeDummy";
-import android from '.././../../assets/logo2/Android.svg';
-import design from '.././../../assets/logo2/Design.svg';
-import ios from '.././../../assets/logo2/Ios.svg';
-import server from '.././../../assets/logo2/Server.svg';
-import web from '.././../../assets/logo2/Web1.svg';
+import android from '.././../../assets/logo/Android.svg';
+import design from '.././../../assets/logo/Design.svg';
+import ios from '.././../../assets/logo/Ios.svg';
+import server from '.././../../assets/logo/Server.svg';
+import web from '.././../../assets/logo/Web1.svg';
 import commentBt from '.././../../assets/images/CommentBt.png';
 
 
@@ -19,6 +19,7 @@ const Home = () => {
     window.alert("유효한토큰");
     navigate("/start");
   }
+
   return (
     <div>
       <ProfileBar />
@@ -32,13 +33,7 @@ const Home = () => {
                   
                   <div style={{display:'flex'}}>
                     <S.HomeMiniProfile src={data.profileUrl} />
-                  
                     <S.HomeAuthor>{data.userName}</S.HomeAuthor>
-                    <S.HomeDevLogo src={
-                      data.tag ==='Web' ? web : data.tag==='Server' 
-                      ? server : data.tag ==='iOS'
-                      ? ios : data.tag ==='Design'
-                      ? design : android}  alt='개발' />
                   </div>
 
                   <S.HomeClassInfoContainer>
@@ -50,6 +45,12 @@ const Home = () => {
                 <S.HomeContentContainer>
                   {data.content}
                 </S.HomeContentContainer>
+
+                <S.HomeDevLogo src={
+                  data.tag ==='Web' ? web : data.tag==='Server' 
+                  ? server : data.tag ==='iOS'
+                  ? ios : data.tag ==='Design'
+                  ? design : android}  alt='개발' />
 
                 <S.HomePostImage src={data.imgUrls[0]} />
 

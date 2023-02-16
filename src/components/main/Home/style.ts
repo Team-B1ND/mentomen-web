@@ -46,6 +46,7 @@ export const HomeMiniProfile = styled.img`
     height: 46px;
     border-radius: 81px;
     background-color:gray;
+    object-fit:cover;
 `;
 
 export const HomeAuthor = styled.span`
@@ -55,9 +56,10 @@ export const HomeAuthor = styled.span`
 `;
 
 export const HomeDevLogo = styled.img`
-    width:60px;
-    height: 20px;
-    margin-top: 4px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 30px;
 `;
 
 export const HomeClassInfoContainer = styled.div`
@@ -83,9 +85,6 @@ export const HomePostImage = styled.img`
     float:right;
     margin-top:20px;
     margin-right:30px;
-    /* position:absolute;
-    top:90px;
-    right:30px; */
 `;
 
 export const HomeComment = styled.img`
@@ -94,4 +93,5 @@ export const HomeComment = styled.img`
     position:absolute;
     bottom:15px;
     left:25px;
+    cursor: pointer;
 `;
