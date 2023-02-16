@@ -32,7 +32,7 @@ const ProfileBar = () => {
           (
             <>
               <UserName>{data?.data.name}</UserName>
-              <UserGrade>{`${data?.data.stdInfo.grade}년 ${data?.data.stdInfo.room}반 ${data?.data.stdInfo.number}번`}</UserGrade>
+              <UserGrade>{`${data?.data.stdInfo.grade}학년 ${data?.data.stdInfo.room}반 ${data?.data.stdInfo.number}번`}</UserGrade>
             </>
           )
           :

@@ -95,9 +95,7 @@ export interface ListsType {
             updateStatus?:string|number,
             userName:string
         }
-    ],
-    message?:string,
-    status?: number
+    ]
 };
 
 export const Lists:ListsType = {
