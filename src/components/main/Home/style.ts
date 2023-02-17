@@ -23,6 +23,22 @@ export const HomeWrap = styled.div`
     }
 `;
 
+export const HomeMentoReguestContainer = styled.div`
+    width: 912px;
+    height: 200px;
+    background-color: #FFFFFF;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top:10px;
+`;
+
+export const HomeImgContainer = styled.div`
+    width:200px;
+    height: 200px;
+    background-color:#D8D8D8;
+    text-align: center;
+`;
+
 export const HomePostLists = styled.div`
     width:912px;
     height:413px;
@@ -57,7 +73,7 @@ export const HomeAuthor = styled.span`
 
 export const HomeDevLogo = styled.img`
     position: absolute;
-    top: 0;
+    top: 18px;
     right: 30px;
     width: 30px;
 `;

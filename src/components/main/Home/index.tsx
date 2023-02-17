@@ -9,8 +9,7 @@ import ios from '.././../../assets/logo/Ios.svg';
 import server from '.././../../assets/logo/Server.svg';
 import web from '.././../../assets/logo/Web1.svg';
 import commentBt from '.././../../assets/images/CommentBt.png';
-
-
+import { useGetAllPosts } from "../../../querys/Posts/posts.query";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();
@@ -20,14 +19,21 @@ const Home = () => {
     navigate("/start");
   }
 
+  const { data } = useGetAllPosts();
+
   return (
     <div>
       <ProfileBar />
 
       <S.HomeContainer>
         <S.HomeWrap>
+
+          <S.HomeMentoReguestContainer>
+
+          </S.HomeMentoReguestContainer>
+          
           {
-            Lists?.data?.map(data => 
+            Lists?.data.map(data => 
               <S.HomePostLists key={data.postId}>
                 <S.HomeMiniProfileContainer>
                   
@@ -54,7 +60,7 @@ const Home = () => {
 
                 <S.HomePostImage src={data.imgUrls[0]} />
 
-                <S.HomeComment src={commentBt} alt='코멘트'/>
+                <S.HomeComment src={commentBt} alt='코멘트' onClick={()=>navigate(`/detail/${data.postId}`)}/>
               </S.HomePostLists>)
           }
         </S.HomeWrap>
