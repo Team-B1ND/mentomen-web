@@ -12,6 +12,7 @@ export const DetailContainer = styled.div`
 export const DetailViewContainer = styled.div`
     display:flex;
     flex-direction:column;
+    flex-wrap:wrap;
 `;
 
 export const DetailView = styled.div`
@@ -22,6 +23,7 @@ export const DetailView = styled.div`
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
     margin:0 auto;
     margin-top:70px;
+    border: 1px solid rgba(0, 0, 0, 0.175);
 `;
 
 
@@ -52,6 +54,56 @@ export const DetailCommentSubmitContainer = styled.div`
 export const DetailCommentSubmit = styled(IoSend)`
     width: 40px;
     height: 40px;
-    color:blue;
+    color:#4D61FA;
     cursor: pointer;
+`;
+
+export const DetailCommentsWrap = styled.div`
+    overflow-y: scroll;
+    height:300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content: center;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+`;
+
+export const DetailCommentsContainer = styled.div`
+    width: 912px;
+    height: 80px;
+    margin-top:50px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.175);
+    display:flex;
+    flex-direction:row;
+`;
+
+export const DetailCommentProfileContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+    width: 110px;
+    height: 50px;
+`;
+
+export const DetailCommentProfileImg = styled.img`
+    width:50px;
+    height:50px;
+    border-radius: 40px;
+`;
+
+export const DetailCommentProfileName = styled.div`
+    margin: auto;
+    margin-left: 10px;
+    font-size: 19px;
+`;
+
+export const DetailCommentAnswer = styled.div`
+    width: 702px;
+    height: 50px;
+    margin-left: 40px;
+    font-size:19px;
+    line-height: 50px;
+    overflow-y:scroll;
 `;
