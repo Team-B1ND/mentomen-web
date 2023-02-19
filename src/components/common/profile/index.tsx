@@ -30,23 +30,27 @@ const ProfileBar = () => {
         {
           data?.data ?
           (
-            <>
+            <div>
               <UserName>{data?.data.name}</UserName>
               <UserGrade>{`${data?.data.stdInfo.grade}학년 ${data?.data.stdInfo.room}반 ${data?.data.stdInfo.number}번`}</UserGrade>
-            </>
+            </div>
           )
           :
-          '학생정보가 없습니다.'
+          (
+            <div>
+              학생정보가 없습니다.
+            </div>
+          )
         }
       </UserInfo>
       <FiledContainer>
         {FILEDITEM.map((item) => (
-          <>
+          <div key={item.color}>
             <FiledItemWrap>
               <FiledImg src={item.image} />
               <FiledName>{item.title}</FiledName>
             </FiledItemWrap>
-          </>
+          </div>
         ))}
       </FiledContainer>
       <MyInfoPathContainer>

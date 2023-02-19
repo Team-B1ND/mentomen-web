@@ -19,12 +19,10 @@ const Home = () => {
     navigate("/start");
   }
 
-  const { data } = useGetAllPosts();
+  const { data } = useGetAllPosts(); //모든 게시글 불러오기
 
   return (
     <div>
-      <ProfileBar />
-
       <S.HomeContainer>
         <S.HomeWrap>
 
@@ -35,30 +33,34 @@ const Home = () => {
           {
             Lists?.data.map(data => 
               <S.HomePostLists key={data.postId}>
-                <S.HomeMiniProfileContainer>
+                <div style={{display:'flex',justifyContent:"space-between"}}>
+                  <S.HomeMiniProfileContainer>
                   
-                  <div style={{display:'flex'}}>
-                    <S.HomeMiniProfile src={data.profileUrl} />
-                    <S.HomeAuthor>{data.userName}</S.HomeAuthor>
-                  </div>
+                    <div style={{display:'flex'}}>
+                      <S.HomeMiniProfile src={data.profileUrl} />
 
-                  <S.HomeClassInfoContainer>
-                    {data.stdInfo.grade}학년 {data.stdInfo.room}반 {data.stdInfo.number}번
-                  </S.HomeClassInfoContainer>
+                      <div style={{display:'flex',flexDirection:'column'}}>
+                        <S.HomeAuthor>{data.userName}</S.HomeAuthor>
+                        <S.HomeClassInfoContainer>
+                          {data.stdInfo.grade}학년 {data.stdInfo.room}반 {data.stdInfo.number}번
+                        </S.HomeClassInfoContainer>
+                      </div>
+                    </div>
 
-                </S.HomeMiniProfileContainer>
+                  </S.HomeMiniProfileContainer>
 
-                <S.HomeContentContainer>
-                  {data.content}
-                </S.HomeContentContainer>
-
-                <S.HomeDevLogo src={
-                  data.tag ==='Web' ? web : data.tag==='Server' 
-                  ? server : data.tag ==='iOS'
-                  ? ios : data.tag ==='Design'
-                  ? design : android}  alt='개발' />
-
-                <S.HomePostImage src={data.imgUrls[0]} />
+                  <S.HomeDevLogo src={
+                    data.tag ==='Web' ? web : data.tag==='Server' 
+                    ? server : data.tag ==='iOS'
+                    ? ios : data.tag ==='Design'
+                    ? design : android}  alt='개발' 
+                  />
+                </div>
+                
+                <div style={{display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+                  <S.HomeContentContainer>{data.content}</S.HomeContentContainer>
+                  <S.HomePostImage src={data.imgUrls[0]} />
+                </div>
 
                 <S.HomeComment src={commentBt} alt='코멘트' onClick={()=>navigate(`/detail/${data.postId}`)}/>
               </S.HomePostLists>)

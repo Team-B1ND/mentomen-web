@@ -17,7 +17,7 @@ export const HomeWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-
+    height: 95%;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -54,7 +54,6 @@ export const HomeMiniProfileContainer = styled.div`
     height: 46px;
     margin-top: 28px;
     margin-left: 30px;
-    position: relative;
 `;
 
 export const HomeMiniProfile = styled.img`
@@ -72,23 +71,21 @@ export const HomeAuthor = styled.span`
 `;
 
 export const HomeDevLogo = styled.img`
-    position: absolute;
-    top: 18px;
     right: 30px;
     width: 30px;
+    margin-right: 30px;
+    margin-top:18px;
 `;
 
 export const HomeClassInfoContainer = styled.div`
     color:#858585;
-    position:absolute;
-    bottom:0;
-    left:54px;
+    margin-left: 9px;
+    margin-top:5px;
 `;
 
 export const HomeContentContainer = styled.div`
     width:472px;
     height:228px;
-    float:left;
     margin-top:22px;
     margin-left:30px;
     line-height:22px;
@@ -98,7 +95,6 @@ export const HomePostImage = styled.img`
     width:240px;
     height:228px;
     border-radius:10px;
-    float:right;
     margin-top:20px;
     margin-right:30px;
 `;
