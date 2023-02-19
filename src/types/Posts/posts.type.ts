@@ -1,4 +1,6 @@
-export interface PostsType{
+import { Response } from "../util/response.type"
+
+export interface PostsType extends Response{
     data: [
         {
             author?: number,

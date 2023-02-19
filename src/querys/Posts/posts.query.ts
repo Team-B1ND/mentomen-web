@@ -9,8 +9,8 @@ export const useGetAllPosts = () =>
         cacheTime: 1000 * 60 * 60,
     });
 
-export const useGetMyPost = ({postId}:ParamType) =>
-    useQuery('post/read-one',() => userRepository.getMyPost({postId}),{
+export const useGetPost = ({postId}:ParamType) =>
+    useQuery('post/read-one',() => userRepository.getPost({postId}),{
         staleTime: 1000 * 60 * 60,
         cacheTime: 1000 * 60 * 60,
     });

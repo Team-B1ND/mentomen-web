@@ -15,7 +15,7 @@ class UserRepository {
     return data;
   }
 
-  public async getMyPost({postId}:ParamType):Promise<PostsType>{
+  public async getPost({postId}:ParamType):Promise<PostsType>{
     const { data } = await customAxios.get(`post/read-one/${postId}`);
     return data;
   }
