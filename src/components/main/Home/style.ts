@@ -17,7 +17,8 @@ export const HomeWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    height: 95%;
+    margin-top: 30px;
+    height: 700px;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -25,11 +26,11 @@ export const HomeWrap = styled.div`
 
 export const HomeMentoReguestContainer = styled.div`
     width: 912px;
-    height: 200px;
+    height: 230px;
     background-color: #FFFFFF;
     border-radius: 0 0 10px 10px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    margin-top:10px;
+    margin-top:5px;
 `;
 
 export const HomeImgContainer = styled.div`
@@ -46,14 +47,12 @@ export const HomePostLists = styled.div`
     margin-top: 40px;
     border-radius:10px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    position:relative;
 `;
 
 export const HomeMiniProfileContainer = styled.div`
     width: 166px;
     height: 46px;
-    margin-top: 28px;
-    margin-left: 30px;
+    margin: 28px 0 0 30px;
 `;
 
 export const HomeMiniProfile = styled.img`
@@ -73,37 +72,42 @@ export const HomeAuthor = styled.span`
 export const HomeDevLogo = styled.img`
     right: 30px;
     width: 30px;
-    margin-right: 30px;
-    margin-top:18px;
+    margin: 18px 30px 0 0;
 `;
 
 export const HomeClassInfoContainer = styled.div`
     color:#858585;
-    margin-left: 9px;
-    margin-top:5px;
+    margin: 5px 0 0 9px;
 `;
 
 export const HomeContentContainer = styled.div`
     width:472px;
     height:228px;
-    margin-top:22px;
-    margin-left:30px;
+    margin: 22px 0 0 30px;
     line-height:22px;
+    font-size:20px;
 `;
 
 export const HomePostImage = styled.img`
     width:240px;
     height:228px;
     border-radius:10px;
-    margin-top:20px;
-    margin-right:30px;
+`;
+
+export const HomePostImgNone = styled.div`
+    background-color:red;
+    width:240px;
+    height:228px;
+    text-align:center;
+    line-height:228px;
+    font-size:20px;
+    border-radius:10px;
+    background-color: rgba(0, 0, 0, 0.175);
 `;
 
 export const HomeComment = styled.img`
     width:96px;
     height:32px;
-    position:absolute;
-    bottom:15px;
-    left:25px;
     cursor: pointer;
+    margin: 40px 0 0 25px;
 `;
