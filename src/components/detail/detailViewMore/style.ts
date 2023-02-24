@@ -44,12 +44,20 @@ export const DetailViewContentContainer = styled.div`
     height:228px;
     margin-left:30px;
     line-height: 20px;
+    font-size:20px;
 `;
 
 export const DetailViewImg = styled.img`
     width:240px;
     height:228px;
     border-radius:10px;
-    background-color:gray;
-    margin-right:30px;
+`;
+
+export const DetailViewNoneImg = styled.div`
+    width:240px;
+    height:228px;
+    border-radius:10px;
+    background-color: rgba(0,0,0,0.175);
+    text-align:center;
+    line-height:228px;
 `;

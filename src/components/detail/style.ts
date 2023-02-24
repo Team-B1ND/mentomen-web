@@ -26,6 +26,13 @@ export const DetailView = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.175);
 `;
 
+export const DetailCommentForm = styled.form`
+    display:flex;
+    margin: 0 auto;
+    margin-top:70px;
+    margin-bottom:20px;
+`;
+
 
 export const DetailComment = styled.textarea`
     width: 862px;
