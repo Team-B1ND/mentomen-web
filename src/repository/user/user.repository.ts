@@ -1,7 +1,7 @@
 import CONFIG from "../../config/config.json";
 import { customAxios } from "../../lib/axios/customAxios";
 import { UserResponse } from "../../types/user/user.type";
-import { PostsType } from "../../types/Posts/posts.type";
+import { ListResponse } from "../../types/list/list.type"; 
 import { ParamType } from "../../types/param/param.type";
 
 class UserRepository {
@@ -10,12 +10,7 @@ class UserRepository {
     return data;
   }
 
-  public async getAllPost():Promise<PostsType>{
-    const { data } = await customAxios.get(`post/read-all`);
-    return data;
-  }
-
-  public async getPost({postId}:ParamType):Promise<PostsType>{
+  public async getApost({postId}:ParamType):Promise<ListResponse>{
     const { data } = await customAxios.get(`post/read-one/${postId}`);
     return data;
   }
