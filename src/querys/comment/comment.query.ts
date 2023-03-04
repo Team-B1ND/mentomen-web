@@ -14,4 +14,4 @@ export const usePostComment = () => {
 };
 
 export const useGetComment = ({ postId }: ParamType) =>
-  useQuery("comment/read", () => commentRepository.getComment({ postId }));
+  useQuery(["comment/read",postId], () => commentRepository.getComment({ postId }));
