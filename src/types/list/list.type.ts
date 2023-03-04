@@ -3,7 +3,7 @@ import { Response } from "../util/response.type";
 export interface ListItem {
   author: number;
   content:string;
-  createDateTime:string|number;
+  createDateTime?:string|number;
   imgUrls: [
       string
   ],
@@ -34,4 +34,12 @@ export interface PostSubmitType {
   content: string;
   imgUrls: string[],
   tag: string;
+}
+
+export interface TagType {
+  tag:string;
+}
+
+export interface KeyWordType {
+  keyword:string;
 }

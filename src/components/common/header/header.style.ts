@@ -52,11 +52,17 @@ export const HeaderSearchInput = styled.input`
   font-size: 15px;
 `;
 
+export const HeaderIntroAlarmContainer = styled.div`
+  width: 250px;
+  height: 40px;
+  background-color: red;
+`;
+
 export const HeaderIntro = styled.h1`
   color: ${palette.color};
   font-weight: 600;
   font-size: 17px;
-  line-height: 24px;
+  line-height: 40px;
 
   cursor: pointer;
   margin-right: 180px;
