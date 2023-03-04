@@ -1,16 +1,18 @@
 import * as S from '../style';
 import aprofile from '../../.././assets/images/aprofile.png';
 import { useGetComment } from '../../../querys/comment/comment.query';
-import { ParamType } from '../../../types/param/param.type';
-export default function DetailCommentLists({postId}:ParamType){
+import React from 'react';
+
+interface Props{
+  postId:number;
+}
+
+function DetailCommentLists({postId}:Props){
     const { data: getComment } = useGetComment({postId}); //댓글 불러오기
     return(
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
             {getComment?.data.map((getComment) => (
-            <div
-              key={getComment.commentId}
-              style={{ display: "flex", flexDirection: "column-reverse" }}
-            >
+            <div key={getComment.commentId}>
               <S.DetailCommentsContainer>
                 <S.DetailCommentProfileContainer>
                   <S.DetailCommentProfileImg src={aprofile} />
@@ -28,3 +30,5 @@ export default function DetailCommentLists({postId}:ParamType){
         </div>
     );
 }
+
+export default React.memo(DetailCommentLists);

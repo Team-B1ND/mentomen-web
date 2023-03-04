@@ -1,22 +1,27 @@
-import * as S from '../style';
-import { ParamType } from '../../../types/param/param.type';
-import { useDetailCommentWrite } from '../../../hooks/detail/useDetailCommentWrite';
-export default function DetailCommentWrite({postId}:ParamType){
+import * as S from "../style";
+import { useDetailCommentWrite } from "../../../hooks/detail/DetailCommentWrite/useDetailCommentWrite";
 
-    const { onClick, onKeyPress, comment, onChange } = useDetailCommentWrite({postId});
+interface Props{
+  postId:number;
+}
 
-    return(
-        <>
-            <S.DetailComment
-              autoComplete="off"
-              value={comment}
-              onChange={onChange}
-              placeholder="댓글을 입력해주세요"
-              onKeyPress={onKeyPress}
-            />
-            <S.DetailCommentSubmitContainer>
-              <S.DetailCommentSubmit onClick={onClick} />
-            </S.DetailCommentSubmitContainer>
-        </>
-    );
+export default function DetailCommentWrite({ postId }: Props) {
+  const { onClick, onKeyPress, comment, onChange } = useDetailCommentWrite({
+    postId,
+  });
+  return (
+    <>
+      <S.DetailComment
+        autoComplete="off"
+        value={comment}
+        onChange={onChange}
+        placeholder="댓글을 입력해주세요"
+        onKeyPress={onKeyPress}
+        type='text'
+      />
+      <S.DetailCommentSubmitContainer>
+        <S.DetailCommentSubmit onClick={onClick} />
+      </S.DetailCommentSubmitContainer>
+    </>
+  );
 }

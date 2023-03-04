@@ -34,11 +34,10 @@ export const DetailCommentForm = styled.form`
 `;
 
 
-export const DetailComment = styled.textarea`
+export const DetailComment = styled.input`
     width: 862px;
     height: 50px;
     padding-left:20px;
-    padding-top:10px;
     font-size:24px;
     border-radius:40px 0 0 40px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
