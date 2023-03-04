@@ -4,6 +4,7 @@ import useTokenCheck from "../../../hooks/auth/useTokenCheck";
 import * as S from './style';
 import HomeMentoRequest from "./HomeMentoreqRuest";
 import HomeList from "./HomeList";
+import ProfileBar from "../../common/Profile";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <div>
+      <ProfileBar/>
       <S.HomeContainer>
         <div style={{margin: '0 auto'}}>
           <S.HomeMentoReguestContainer>

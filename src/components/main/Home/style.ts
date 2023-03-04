@@ -106,8 +106,8 @@ export const HomePostImgNone = styled.div`
 `;
 
 export const HomeComment = styled.img`
-    width:96px;
-    height:32px;
+    width:115px;
+    height:42px;
     cursor: pointer;
-    margin: 40px 0 0 25px;
+    margin: 30px 0 0 25px;
 `;
