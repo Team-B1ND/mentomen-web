@@ -5,7 +5,6 @@ import {
   HeaderSearchInput,
   HeaderTitle,
   HeaderIntro,
-  HeaderIntroAlarmContainer,
 } from "./Header.style";
 import Logo from "../../../assets/logo/Logo.png";
 import Search from "../../../assets/images/Search.png";
@@ -28,9 +27,7 @@ function Header() {
           onChange={onChange} 
           onKeyPress={onKeyPress}/>
       </HeaderSearchBox>
-      <HeaderIntroAlarmContainer>
-        <HeaderIntro onClick={() => navigate("/intro")}>서비스 소개</HeaderIntro>
-      </HeaderIntroAlarmContainer>
+      <HeaderIntro onClick={() => navigate("/intro")}>서비스 소개</HeaderIntro>
     </HeaderContainer>
   );
 }
