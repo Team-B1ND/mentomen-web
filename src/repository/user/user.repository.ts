@@ -1,8 +1,7 @@
 import CONFIG from "../../config/config.json";
 import { customAxios } from "../../lib/axios/customAxios";
+import { ListItemResponse } from "../../types/list/list.type";
 import { UserResponse } from "../../types/user/user.type";
-import { ListResponse } from "../../types/list/list.type"; 
-import { ParamType } from "../../types/param/param.type";
 
 class UserRepository {
   public async getUser(): Promise<UserResponse> {
@@ -10,10 +9,11 @@ class UserRepository {
     return data;
   }
 
-  public async getApost({postId}:ParamType):Promise<ListResponse>{
-    const { data } = await customAxios.get(`post/read-one/${postId}`);
+  public async myPost(): Promise<ListItemResponse>{
+    const { data } = await customAxios.get(`/user/post`);
     return data;
   }
+
 }
 
 export default new UserRepository();
