@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { QueryClient } from "react-query";
 import { usePostComment } from "../../../querys/comment/comment.query";
 import { ParamType } from "../../../types/param/param.type";
+import { B1ndToast } from "@b1nd/b1nd-toastify";
 
 export const useDetailCommentWrite = ({ postId }: ParamType) => {
   const [comment, SetComment] = useState<string>("");
@@ -23,18 +24,18 @@ export const useDetailCommentWrite = ({ postId }: ParamType) => {
           },
           {
             onSuccess: () => {
-              window.alert("댓글이 작성되었습니다!");
+              B1ndToast.showSuccess("댓글이 작성되었습니다!");
               SetComment("");
               queryClient.invalidateQueries(["comment/submit", postId]);
             },
             onError: (err: any) => {
               console.log(err);
-              window.alert("댓글을 작성하지 못했습니다!");
+              B1ndToast.showError("댓글을 작성하지 못했습니다!");
             },
           }
         );
       }
-    } else window.alert("댓글을 작성해주세요!");
+    } else B1ndToast.showInfo('댓글을 작성해주세요!');
   }, [comment, postId, commentMutaion]);
 
   const onKeyPress = useCallback(

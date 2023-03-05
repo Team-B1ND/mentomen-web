@@ -5,9 +5,7 @@ import { QueryClient } from "react-query";
 import { customAxios } from "../../../lib/axios/customAxios";
 import { useCallback } from "react";
 import { PostSubmitType } from "../../../types/list/list.type";
-import {
-  Dev,
-} from "../../../components/main/Home/HomeMentoreqRuest/devlogo";
+import { B1ndToast } from "@b1nd/b1nd-toastify";
 
 export const useHomeContent = () => {
   const [text, SetText] = useRecoilState<string>(Text);
@@ -35,11 +33,11 @@ export const useHomeContent = () => {
         };
         MyPostMutation.mutate(data, {
           onSuccess: () => {
-            window.alert("글이 등록되었습니다!");
+            B1ndToast.showSuccess("글이 등록되었습니다!");
             queryClient.invalidateQueries("/post/submit");
           },
           onError: (err: any) => {
-            window.alert("글을 등록하지 못했습니다!");
+            B1ndToast.showError("글을 등록하지 못했습니다!");
             console.log(err);
           },
           onSettled: () => {
@@ -74,7 +72,7 @@ export const useHomeContent = () => {
           } catch (e: any) {
             console.log(e);
           }
-        } else window.alert("제대로 입력해주세요!");
+        } else B1ndToast.showInfo("제대로 입력해주세요!");
       }
     },
     [imgList, onSubmit, tag, text]
