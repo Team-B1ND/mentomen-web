@@ -103,7 +103,9 @@ export default function TagLists({ tag }: Props) {
             />
           </div>
         </S.TagListPostLists>
-      ))):(<div style={{fontSize:'25px'}}>데이터가 없습니다</div>)}
+      ))):(<div style={{fontSize:'25px'}}>
+        {getTag?.data.map((data)=><div>{data.tag} 게시글이 없습니다</div>)}
+      </div>)}
     </>
   );
 }

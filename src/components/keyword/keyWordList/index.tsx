@@ -103,7 +103,7 @@ export default function KeyWordList({ keyword }: Props) {
             />
           </div>
         </S.KeyWordPostLists>
-        ))):(<div style={{fontSize:'25px'}}>데이터가 없습니다</div>)}
+        ))):(<div style={{fontSize:'25px'}}>알맞지 않는 키워드입니다</div>)}
     </>
   );
 }

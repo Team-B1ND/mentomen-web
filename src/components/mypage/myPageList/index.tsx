@@ -98,7 +98,7 @@ function MyPageList({data}:{data:ListItemResponse|undefined}){
                             </div>
                         </div>
                      </S.MyPagePostLists>)
-            ):(<div style={{fontSize:'25px'}}>데이터가 없습니다</div>)}
+            ):(<div style={{fontSize:'25px'}}>내 게시글이 없습니다</div>)}
         </>
     );
 }
