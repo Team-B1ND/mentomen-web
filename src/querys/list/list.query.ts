@@ -11,7 +11,7 @@ export const useGetList = () => {
 export const useGetApost = ({ postId }: ParamType) =>
   useQuery(
     ["post/read-one", postId],
-    () => listRepository.getApost({ postId }),
+    () => listRepository.getPostById({ postId }),
     {
       staleTime: 60,
       cacheTime: 60,
@@ -26,13 +26,13 @@ export const usePostMySubmit = () => {
 };
 
 export const useGetTag = ({ tag }: TagType) =>
-  useQuery(["post/GetTagQuery", tag], () => listRepository.getTag({ tag }), {
+  useQuery(["post/GetTagQuery", tag], () => listRepository.getPostByTag({ tag }), {
     cacheTime: 1000 * 60 * 5,
     staleTime: 1000 * 60,
   });
 
 export const useGetKeyWord = ({keyword}:KeyWordType) => 
-  useQuery(['search/keyword',keyword], () => listRepository.getKeyWord({ keyword }),{
+  useQuery(['search/keyword',keyword], () => listRepository.getPostByKeyWord({ keyword }),{
     cacheTime: 1000 * 60 * 5,
     staleTime: 1000 * 60,
   });

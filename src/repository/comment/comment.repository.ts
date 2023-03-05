@@ -1,5 +1,5 @@
 import { customAxios } from "../../lib/axios/customAxios";
-import { postCommentType, getCommentType} from "../../types/comment/comment.type";
+import { postCommentType, getCommentResponse} from "../../types/comment/comment.type";
 import { ParamType } from "../../types/param/param.type";
 
 class CommentRepository {
@@ -13,7 +13,7 @@ class CommentRepository {
         });
     }
 
-    public async getComment({postId}:ParamType):Promise<getCommentType> {
+    public async getComment({postId}:ParamType):Promise<getCommentResponse> {
         const { data } = await customAxios.get(`/comment/read/${postId}`);
         return data;
     }

@@ -14,17 +14,17 @@ class ListRepository {
     await customAxios.post('/post/submit',data);
   }
 
-  public async getApost({postId}:ParamType):Promise<ListResponse>{
+  public async getPostById({postId}:ParamType):Promise<ListResponse>{
     const { data } = await customAxios.get(`post/read-one/${postId}`);
     return data;
   }
 
-  public async getTag({tag}:TagType):Promise<ListItemResponse>{
+  public async getPostByTag({tag}:TagType):Promise<ListItemResponse>{
     const { data } = await customAxios.get(`post/read-all/${tag}`);
     return data;
   }
 
-  public async getKeyWord({keyword}:KeyWordType):Promise<ListItemResponse>{
+  public async getPostByKeyWord({keyword}:KeyWordType):Promise<ListItemResponse>{
     const { data } = await customAxios.get(`post/search/${keyword}`);
     return data
   }

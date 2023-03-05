@@ -6,21 +6,21 @@ export interface postCommentType {
 };
 
 export interface getCommentType extends Response {
-    data: [
-        {
-          commentId: number;
-          content: string;
-          createDateTime?: string|number;
-          postId: number;
-          profileUrl: string;
-          stdInfo: {
-            grade: number;
-            number: number;
-            room: number
-          };
-          updateDateTime?: string|number;
-          userId: number;
-          userName: string
-        },
-    ],
+  commentId: number;
+  content: string;
+  createDateTime?: string|number;
+  postId: number;
+  profileUrl: string;
+  stdInfo: {
+    grade: number;
+    number: number;
+    room: number
+  };
+  updateDateTime?: string|number;
+  userId: number;
+  userName: string;
+};
+
+export interface getCommentResponse extends Response {
+  data: getCommentType[];
 };

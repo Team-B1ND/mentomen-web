@@ -14,8 +14,3 @@ export const Tag = atom<string>({
     key: "Tag",
     default: "",
 });
-
-export const Cnt = atom<number>({
-    key: "Cnt",
-    default: 0,
-});
