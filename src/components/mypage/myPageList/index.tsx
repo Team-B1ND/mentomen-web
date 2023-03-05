@@ -11,14 +11,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ListItem, ListItemResponse } from "../../../types/list/list.type";
-import { QueryClient } from "react-query";
-import { useDel } from '../../../querys/del/del.query';
 import React from 'react';
+import { useDelMyPost } from '../../../hooks/del/mypage/useDelMyPost';
 
-function MyPageList({data}:{data:ListItemResponse|undefined}){
+function MyPageList({data}:{data:ListItemResponse}){
     const navigate = useNavigate();
-    const del = useDel();
-    const queryClient = new QueryClient();
 
     const settings = {
         dots: true,
@@ -28,23 +25,7 @@ function MyPageList({data}:{data:ListItemResponse|undefined}){
         slidesToScroll: 1,
     };
 
-    const onDelete = (postId:number)=>{
-        const answer = window.confirm('게시글을 삭제하시겠습니까?');
-        if (answer === true){
-            del.mutate(
-                {
-                    postId:postId,
-                },
-                {
-                    onSuccess: () => {
-                        window.alert('게시글이 삭제되었습니다!');
-                        queryClient.invalidateQueries('/post/delete');
-                    },
-                    onError: (err:any) => { console.log(err); }
-                }
-            )
-        }
-    };
+    const { onDelete } = useDelMyPost();
 
     return(
         <>

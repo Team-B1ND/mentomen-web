@@ -9,7 +9,7 @@ export const useHomeTagChoice = () => {
     (devName: string) => {
       SetTag(devName);
     },
-    [] //cnt
+    []
   );
 
   return { onClick };
