@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { ImgList, Text, Tag, Cnt } from "../../../recoil/home/HomeAtom";
+import { ImgList, Text, Tag } from "../../../recoil/home/HomeAtom";
 import { usePostMySubmit } from "../../../querys/list/list.query";
 import { QueryClient } from "react-query";
 import { customAxios } from "../../../lib/axios/customAxios";
@@ -7,14 +7,12 @@ import { useCallback } from "react";
 import { PostSubmitType } from "../../../types/list/list.type";
 import {
   Dev,
-  DevOrigin,
 } from "../../../components/main/Home/HomeMentoreqRuest/devlogo";
 
 export const useHomeContent = () => {
   const [text, SetText] = useRecoilState<string>(Text);
   const [imgList, SetImgList] = useRecoilState<string[]>(ImgList);
   const [tag, SetTag] = useRecoilState<string>(Tag);
-  const [cnt, SetCnt] = useRecoilState<number>(Cnt);
 
   const MyPostMutation = usePostMySubmit();
   const queryClient = new QueryClient();
@@ -45,13 +43,9 @@ export const useHomeContent = () => {
             console.log(err);
           },
           onSettled: () => {
-            SetCnt(0);
             SetTag("");
             SetText("");
             SetImgList([]);
-            for (let i = 0; i < 5; i++) {
-              Dev[i].logo = DevOrigin[i].logo;
-            }
           },
         });
       }
