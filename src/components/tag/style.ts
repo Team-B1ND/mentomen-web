@@ -15,8 +15,8 @@ export const TagWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    margin-top: 30px;
-    height: 90%;
+    margin-top:25px;
+    height: 945px;
     &::-webkit-scrollbar {
         display: none;
     }
