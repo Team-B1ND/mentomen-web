@@ -17,7 +17,7 @@ export const HomeWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 5px;
     height: 700px;
     &::-webkit-scrollbar {
         display: none;
