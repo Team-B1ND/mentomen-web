@@ -13,7 +13,7 @@ function Mypage(){
             <ProfileBar />
             <S.MyPageContainer>
                 <S.MyPageWrap>
-                    <MyPageList data={MyPost}/>
+                    <MyPageList data={MyPost!!}/>
                 </S.MyPageWrap>
             </S.MyPageContainer>
         </>
