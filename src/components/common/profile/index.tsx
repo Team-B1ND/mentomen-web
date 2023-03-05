@@ -43,7 +43,7 @@ const ProfileBar = () => {
         {FILEDITEM.map((item) => (
           <div
             key={item.color}
-            onClick={() => navigate(`/${item.title}`)}
+            onClick={() => navigate(`/tag/${item.title}`)}
             style={{ cursor: "pointer" }}
           >
             <FiledItemWrap>
