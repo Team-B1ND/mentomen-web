@@ -52,6 +52,19 @@ export const HeaderSearchInput = styled.input`
   font-size: 15px;
 `;
 
+export const HeaderAbleContainer = styled.div`
+  display:flex;
+  flex-direction:row;
+  margin-right: 180px;
+`;
+
+export const HeaderNoticeImg = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-top:2px;
+  margin-right:30px;
+`;
+
 export const HeaderIntro = styled.h1`
   color: ${palette.color};
   font-weight: 600;
@@ -59,5 +72,4 @@ export const HeaderIntro = styled.h1`
   line-height: 40px;
 
   cursor: pointer;
-  margin-right: 180px;
 `;
