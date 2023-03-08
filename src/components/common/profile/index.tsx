@@ -19,11 +19,12 @@ import aprofile from "../../../assets/images/aprofile.png";
 import { FILEDITEM } from "../../../constants/filed/filed";
 import copy from "../../../assets/images/copy.svg";
 import { useNavigate } from "react-router-dom";
+import { useLogOut } from "../../../hooks/logout/useLogOut";
 
 const ProfileBar = () => {
   const { data } = useGetMember();
   const navigate = useNavigate();
-
+  const { onLogOut } = useLogOut();
   return (
     <ProfileBarContainer>
       <UserInfo>
@@ -59,7 +60,7 @@ const ProfileBar = () => {
           내가 쓴 멘토 요청글
         </MyInfoPathText>
       </MyInfoPathContainer>
-      <LogoutText>로그아웃</LogoutText>
+      <LogoutText onClick={onLogOut}>로그아웃</LogoutText>
     </ProfileBarContainer>
   );
 };
