@@ -63,6 +63,7 @@ export const HeaderNoticeImg = styled.img`
   height: 35px;
   margin-top:2px;
   margin-right:30px;
+  cursor: pointer;
 `;
 
 export const HeaderIntro = styled.h1`
