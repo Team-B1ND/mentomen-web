@@ -3,7 +3,7 @@ import DetailViewMore from "./detailViewMore";
 import * as S from "./style";
 import DetailCommentLists from "./detailCommentList";
 import DetailCommentWrite from "./detailCommentWrite";
-import ProfileBar from "../common/Profile";
+import ProfileBar from "../common/profile";
 
 export default function Detail() {
   const { postId } = useParams();

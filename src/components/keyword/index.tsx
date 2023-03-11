@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import ProfileBar from "../common/Profile";
+import ProfileBar from "../common/profile";
 import KeyWordList from "./keyWordList";
 import * as S from './style';
 

@@ -1,7 +1,7 @@
 import * as S from './style';
 import React from 'react';
 import { useMyPost, useUserInfo } from '../../querys/user/user.query';
-import ProfileBar from '../common/Profile';
+import ProfileBar from '../common/profile';
 import MyPageList from './myPageList';
 
 function Mypage(){
