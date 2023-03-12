@@ -1,7 +1,7 @@
 import { customAxios } from "../../lib/axios/customAxios";
 import { NoticeCheckResponse, NoticeListResponse } from "../../types/notice/notice.type";
 
-class noticeRepository{
+class NoticeRepository{
     public async getNoticeCheck():Promise<NoticeCheckResponse>{
         const { data } = await customAxios.get('/notice/check');
         return data;
@@ -13,4 +13,4 @@ class noticeRepository{
     }
 }
 
-export default new noticeRepository();
+export default new NoticeRepository();

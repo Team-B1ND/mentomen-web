@@ -1,10 +1,10 @@
 import { useMutation } from "react-query";
-import deleteRepository from "../../repository/del/del.repository";
+import DeleteRepository from "../../repository/del/del.repository";
 import { ParamType } from "../../types/param/param.type";
 
-export const useDel = () => {
+export const useDelPost = () => {
     const mutation = useMutation('/post/delete',
     ({postId}:ParamType)=>
-        deleteRepository.delPost({postId}));
+        DeleteRepository.delPost({postId}));
     return mutation;
 }

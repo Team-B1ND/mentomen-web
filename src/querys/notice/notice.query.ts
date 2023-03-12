@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
-import noticeRepository from "../../repository/notice/notice.repository";
+import NoticeRepository from "../../repository/notice/notice.repository";
 
 export const useGetNoticeCheck = () =>
-  useQuery("notice/check", () => noticeRepository.getNoticeCheck());
+  useQuery("notice/check", () => NoticeRepository.getNoticeCheck());
 
 export const useGetNoticeList = () =>
-  useQuery("notice/list", () => noticeRepository.getNoticeList());
+  useQuery("notice/list", () => NoticeRepository.getNoticeList());
