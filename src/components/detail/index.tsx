@@ -9,7 +9,7 @@ export default function Detail() {
   const { postId } = useParams();
   return (
     <div>
-      <ProfileBar/>
+      <ProfileBar />
       <S.DetailContainer>
         <S.DetailViewContainer>
           <S.DetailView>
@@ -17,7 +17,7 @@ export default function Detail() {
           </S.DetailView>
 
           <S.DetailCommentForm>
-            <DetailCommentWrite postId={Number(postId)}/>
+            <DetailCommentWrite postId={Number(postId)} />
           </S.DetailCommentForm>
         </S.DetailViewContainer>
 

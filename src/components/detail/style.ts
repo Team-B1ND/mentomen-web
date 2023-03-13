@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoSend } from "react-icons/io5";
+import { AiOutlineMore } from "react-icons/ai";
 
 export const DetailContainer = styled.div`
     width:calc(100% - 300px);
@@ -112,4 +113,15 @@ export const DetailCommentAnswer = styled.div`
     font-size:19px;
     line-height: 50px;
     overflow-y:scroll;
+`;
+
+export const DetailCommentBtnContainer = styled.div`
+`;
+
+export const DetailCommentMoreBtn = styled(AiOutlineMore)`
+    line-height:60px;
+    width: 30px;
+    height: 30px;
+    margin-left:20px;
+    cursor: pointer;
 `;

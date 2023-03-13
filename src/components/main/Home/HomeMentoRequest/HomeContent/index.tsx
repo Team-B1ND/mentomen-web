@@ -8,8 +8,8 @@ export default function HomeContent(){
 
     return(
         <>
-            <S.HomeMentoReguestTextProfile src={aprofile} alt='' />
-                <S.HomeMentoReguestTextArea 
+            <S.HomeMentoRequestTextProfile src={aprofile} alt='' />
+                <S.HomeMentoRequestTextArea 
                     placeholder='멘토 요청할 내용을 작성하세요'
                     onChange={onChange}
                     value={text}

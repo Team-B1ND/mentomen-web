@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
-export const HomeMentoReguestTextContainer = styled.div`
+export const HomeMentoRequestTextContainer = styled.div`
     width: 137px;
     height: 30px;
     margin: 30px 0 0 30px;
     padding-top:15px;
 `;
 
-export const HomeMentoReguestText = styled.div`
+export const HomeMentoRequestText = styled.div`
     text-align:left;
     font-size:25px;
     color: #06207D;
     font-weight:bold;
 `;
 
-export const HomeMentoReguestContainer = styled.div`
+export const HomeMentoRequestContainer = styled.div`
     display: flex;
     flex-direction:row;
     justify-content:space-between;
     margin-top:10px;
 `;
 
-export const HomeMentoReguestProfileTextAreaContainer = styled.div`
+export const HomeMentoRequestProfileTextAreaContainer = styled.div`
     display:flex;
     flex-direction:row;
     width: 550px;
@@ -29,14 +29,30 @@ export const HomeMentoReguestProfileTextAreaContainer = styled.div`
     margin: 10px 0 0 30px;
 `;
 
-export const HomeMentoReguestTextProfile = styled.img`
+export const HomeMentoRequestContentAndTagContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+`;
+
+export const HomeMentoRequestContentContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+`;
+
+export const HomeMentoRequestTagContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+    margin:20px 0 0 53px;
+`;
+
+export const HomeMentoRequestTextProfile = styled.img`
     width:45px;
     height:46px;
     border-radius:40px;
     object-fit:cover;
 `;
 
-export const HomeMentoReguestTextArea = styled.textarea`
+export const HomeMentoRequestTextArea = styled.textarea`
     resize:none;
     width:500px;
     height:100px;
@@ -47,19 +63,19 @@ export const HomeMentoReguestTextArea = styled.textarea`
     border:none;
 `;
 
-export const HomeMentoReguestImgContainer = styled.div`
+export const HomeMentoRequestImgContainer = styled.div`
     display:flex;
     flex-direction: row;
     margin:10px 30px 0 0;
 `;
 
-export const HomeMentoReguestUploadImg = styled.img`
+export const HomeMentoRequestUploadImg = styled.img`
     width: 200px;
     height: 150px;
     border-radius:10px;
 `;
 
-export const HomeMentoReguestUploadNoneImg = styled.div`
+export const HomeMentoRequestUploadNoneImg = styled.div`
     width: 200px;
     height: 150px;
     background-color:rgba(0, 0, 0, 0.175);
@@ -68,9 +84,14 @@ export const HomeMentoReguestUploadNoneImg = styled.div`
     line-height:150px;
 `;
 
-export const HomeMentoReguestUploadImgBtn = styled.img`
+export const HomeMentoRequestUploadImgBtn = styled.img`
     width: 51px;
     height: 41px;
     cursor: pointer;
     margin-left:10px;
+`;
+
+export const HomeMentoRequestTagImg = styled.img`
+    width:70px;
+    height:30px;
 `;

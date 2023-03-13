@@ -29,7 +29,7 @@ export default function HomeImgShow() {
           <Slider {...settings}>
             {imgList.map((img: any, idx) => {
               return (
-                <S.HomeMentoReguestUploadImg
+                <S.HomeMentoRequestUploadImg
                   key={idx}
                   src={URL.createObjectURL(img)}
                 />
@@ -37,14 +37,14 @@ export default function HomeImgShow() {
             })}
           </Slider>
         ) : (
-          <S.HomeMentoReguestUploadNoneImg>
+          <S.HomeMentoRequestUploadNoneImg>
             이미지가 없습니다.
-          </S.HomeMentoReguestUploadNoneImg>
+          </S.HomeMentoRequestUploadNoneImg>
         )}
       </div>
 
       <label htmlFor="Img">
-        <S.HomeMentoReguestUploadImgBtn src={uploadImg} alt="" />
+        <S.HomeMentoRequestUploadImgBtn src={uploadImg} alt="" />
       </label>
       <input
         type="file"
