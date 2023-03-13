@@ -4,9 +4,12 @@ import { MdDelete } from "react-icons/md";
 export const MyPageContainer = styled.div`
     width:calc(100% - 300px);
     height:calc(100vh - 75px);
-    position:fixed;
+    position:absolute;
     right:0;
     bottom:0;
+    display:flex;
+    flex-direction:column;
+    background-color:#F2F2F2;
 `;
 
 export const MyPageWrap = styled.div`
@@ -16,8 +19,8 @@ export const MyPageWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    margin-top:25px;
-    height: 945px;
+    margin-top: 45px;
+    height: 90%;
     &::-webkit-scrollbar {
         display: none;
     }

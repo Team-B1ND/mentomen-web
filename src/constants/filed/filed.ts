@@ -26,7 +26,7 @@ export const FILEDITEM = [
     image: Server,
   },
   {
-    title: "IOS",
+    title: "iOS",
     color: "#4C4C4C",
     image: Ios,
   },
