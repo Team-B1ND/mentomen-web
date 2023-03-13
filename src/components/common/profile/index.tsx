@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGetMember } from "../../../querys/member/member.query";
 import {
   FiledContainer,
@@ -20,11 +20,19 @@ import { FILEDITEM } from "../../../constants/filed/filed";
 import copy from "../../../assets/images/copy.svg";
 import { useNavigate } from "react-router-dom";
 import { useLogOut } from "../../../hooks/logout/useLogOut";
+import { useRecoilState } from "recoil";
+import { USERID } from "../../../recoil/user/UserAtom";
 
 const ProfileBar = () => {
   const { data } = useGetMember();
   const navigate = useNavigate();
   const { onLogOut } = useLogOut();
+  const [userId,SetUserId] = useRecoilState(USERID);
+
+  useEffect(()=>{
+    SetUserId(data?.data.userId!!);
+  },[SetUserId,data?.data.userId]);
+  
   return (
     <ProfileBarContainer>
       <UserInfo>
@@ -44,7 +52,7 @@ const ProfileBar = () => {
         {FILEDITEM.map((item) => (
           <div
             key={item.color}
-            onClick={() => navigate(`/tag/${item.title}`)}
+            onClick={() => navigate(`/tag/${item.title.toUpperCase()}`)}
             style={{ cursor: "pointer" }}
           >
             <FiledItemWrap>

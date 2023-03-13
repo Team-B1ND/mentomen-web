@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { Modal } from '../../../recoil/detail/DetailAtom';
+import { ImgModal } from '../../../recoil/detail/DetailAtom';
 import * as S from './style';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,7 +11,7 @@ interface Props{
 }
 export default function DetailViewImg({Img}:Props){
 
-    const [modal,SetModal] = useRecoilState<boolean>(Modal);
+    const [modal,SetModal] = useRecoilState<boolean>(ImgModal);
       
     const settings = {
         dots: true,

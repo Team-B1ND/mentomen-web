@@ -1,5 +1,5 @@
 import * as S from "../style";
-import { useDetailCommentWrite } from "../../../hooks/detail/DetailCommentWrite/useDetailCommentWrite";
+import { useDetailCommentWrite } from "../../../hooks/detail/DetailComment/useDetailCommentWrite";
 
 interface Props{
   postId:number;

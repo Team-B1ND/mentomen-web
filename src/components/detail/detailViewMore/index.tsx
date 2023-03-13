@@ -12,12 +12,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import DetailViewImg from '../detailViewImg';
 import { useRecoilState } from 'recoil';
-import { Modal } from '../../../recoil/detail/DetailAtom';
+import { ImgModal } from '../../../recoil/detail/DetailAtom';
 
 export default function DetailViewMore({postId}:ParamType){
     
     const { data: getPost } = useGetApost({postId}); //게시글 정보 가져오기
-    const [modal,SetModal] = useRecoilState<boolean>(Modal);
+    const [modal,SetModal] = useRecoilState<boolean>(ImgModal);
 
     const settings = {
         dots: true,
