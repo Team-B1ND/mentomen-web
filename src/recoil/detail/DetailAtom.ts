@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const Modal = atom<boolean>({
-    key: "Modal",
+export const ImgModal = atom<boolean>({
+    key: "ImgModal",
     default: false,
 })
