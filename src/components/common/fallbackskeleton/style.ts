@@ -48,7 +48,7 @@ export const SkeletonNoitceLists = styled.div`
 
 export const SkeletonCommentWrap = styled.div`
     overflow-y: scroll;
-    height:300px;
+    height:90%;
     box-sizing: border-box;
     display: flex;
     flex-wrap:wrap;
