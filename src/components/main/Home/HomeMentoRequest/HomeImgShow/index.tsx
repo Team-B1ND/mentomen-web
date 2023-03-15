@@ -8,7 +8,7 @@ import uploadImg from "../../.././../.././assets/images/uploadImg.svg";
 import { useRef, useCallback } from "react";
 
 export default function HomeImgShow() {
-  const [imgList, SetImgList] = useRecoilState(ImgList);
+  const [imgList, SetImgList] = useRecoilState<string[]>(ImgList);
   const imgRef = useRef<any>();
 
   const saveImgFile = useCallback(() => {

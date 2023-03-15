@@ -27,7 +27,7 @@ const ProfileBar = () => {
   const { data } = useGetMember();
   const navigate = useNavigate();
   const { onLogOut } = useLogOut();
-  const [userId,SetUserId] = useRecoilState(USERID);
+  const [userId,SetUserId] = useRecoilState<number>(USERID);
 
   useEffect(()=>{
     SetUserId(data?.data.userId!!);

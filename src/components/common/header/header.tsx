@@ -26,7 +26,7 @@ function Header() {
   const { onKeyPress, onChange, search } = useKeyWordSearch();
   const { data: getNoticeCheck } = useGetNoticeCheck();
   const { onNoticeModal } = useNotice();
-  const [NoticeChk,SetNoticeChk] = useRecoilState(NOTICECHK);
+  const [NoticeChk,SetNoticeChk] = useRecoilState<string>(NOTICECHK);
 
   useEffect(()=>{
     if (getNoticeCheck?.data.noticeStatus!! === 'EXIST') SetNoticeChk(getNoticeCheck?.data.noticeStatus!!);

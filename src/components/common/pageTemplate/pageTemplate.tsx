@@ -10,7 +10,7 @@ interface Props {
 }
 
 function PageTemplate({ children }: Props) {
-  const [NoticeModal, SetNoticeModal] = useRecoilState(NOTICE);
+  const [NoticeModal, SetNoticeModal] = useRecoilState<boolean>(NOTICE);
 
   return (
     <>
