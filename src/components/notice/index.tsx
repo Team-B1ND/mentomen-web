@@ -1,17 +1,15 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { useGetNoticeList } from "../../querys/notice/notice.query";
 import { NOTICE, NOTICECHK } from "../../recoil/notice/noticeAtom";
 import * as S from "./style";
-import aprofile from "../.././assets/images/aprofile.png";
-import { useNavigate } from "react-router-dom";
+import NoticeLists from "./noticeLists";
+import ErrorBoundary from "../common/errorboundary";
+import FallbackSkeletonNotice from "../common/fallbackskeleton/notice";
 
 export default function Notice() {
-  const [NoticeModal, SetNoticeModal] = useRecoilState(NOTICE);
-  const [NoticeChk, SetNoticeChk] = useRecoilState(NOTICECHK);
-  const navigate = useNavigate();
-  const { data: getNoticeList } = useGetNoticeList();
-  
+  const [NoticeModal, SetNoticeModal] = useRecoilState<boolean>(NOTICE);
+  const [NoticeChk, SetNoticeChk] = useRecoilState<string>(NOTICECHK);
+
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
@@ -24,6 +22,8 @@ export default function Notice() {
       window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
     };
   }, []);
+
+  //알람버튼을 누르면 빨간점이 없어져야하므로 아래 useEffect 코드로 해준다.
   useEffect(() => {
     if (NoticeChk === "EXIST") SetNoticeChk("NONE");
   }, [SetNoticeChk, NoticeChk]);
@@ -32,40 +32,11 @@ export default function Notice() {
     <S.NoitceContainer onClick={() => SetNoticeModal(!NoticeModal)}>
       <S.NoitceLayOut onClick={(e) => e.stopPropagation()}>
         <S.NoticeWrap>
-          {getNoticeList?.data.length!! !== 0 ? (
-            getNoticeList?.data.map((lists, idx) => (
-              <S.NoticeLists
-                key={idx}
-                onClick={() => {
-                  navigate(`/detail/${lists?.postId}`);
-                  SetNoticeModal(!NoticeModal);
-                }}
-              >
-                <S.NoticeAbleContaienr>
-                  <S.NoticeProfileContainer>
-                    <S.NoticeProfileImg
-                      src={
-                        lists.senderProfileImage
-                          ? lists.senderProfileImage
-                          : aprofile
-                      }
-                      alt=""
-                    />
-                    <S.NoticeProfileName>
-                      {lists.senderName}
-                    </S.NoticeProfileName>
-                  </S.NoticeProfileContainer>
-
-                  <S.NoticeCommentContainer>
-                    <div>댓글이 달렸습니다!</div>
-                    <S.NoticeComment>{lists.commentContent}</S.NoticeComment>
-                  </S.NoticeCommentContainer>
-                </S.NoticeAbleContaienr>
-              </S.NoticeLists>
-            ))
-          ) : (
-            <S.NoneNotice>알람이 없쓰껄</S.NoneNotice>
-          )}
+          <ErrorBoundary fallback={<>Error :)</>}>
+            <Suspense fallback={<FallbackSkeletonNotice />}>
+              <NoticeLists />
+            </Suspense>
+          </ErrorBoundary>
         </S.NoticeWrap>
       </S.NoitceLayOut>
     </S.NoitceContainer>

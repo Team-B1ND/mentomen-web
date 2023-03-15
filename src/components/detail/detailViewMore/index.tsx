@@ -15,7 +15,7 @@ import { useRecoilState } from "recoil";
 import { ImgModal } from "../../../recoil/detail/DetailAtom";
 
 export default function DetailViewMore({ postId }: ParamType) {
-  const { data: getPost } = useGetApost({ postId }); //게시글 정보 가져오기
+  const { data: getPost } = useGetApost({ postId },{suspense:true}); //게시글 정보 가져오기
   const [modal, SetModal] = useRecoilState<boolean>(ImgModal);
 
   const settings = {

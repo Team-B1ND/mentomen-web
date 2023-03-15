@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function KeyWordList({ keyword }: Props) {
-  const { data: getKeyWord } = useGetKeyWord({ keyword });
+  const { data: getKeyWord } = useGetKeyWord({ keyword },{suspense:true});
   const navigate = useNavigate();
 
   const settings = {

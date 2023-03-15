@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { Suspense } from "react";
 import useTokenCheck from "../../../hooks/auth/useTokenCheck";
 import * as S from "./style";
 import HomeMentoRequest from "./HomeMentoRequest";
 import HomeList from "./HomeList";
 import ProfileBar from "../../common/profile";
+import ErrorBoundary from "../../common/errorboundary";
+import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
+
 const Home = () => {
   const { isAuthority } = useTokenCheck();
 
@@ -23,7 +26,11 @@ const Home = () => {
             <S.HomeMentoReguestContainer>
               <HomeMentoRequest />
             </S.HomeMentoReguestContainer>
-            <HomeList />
+            <ErrorBoundary fallback={<>Error :)</>}>
+              <Suspense fallback={<FallbackSkeletonLists />}>
+                <HomeList />
+              </Suspense>
+            </ErrorBoundary>
           </div>
         </S.HomeWrap>
       </S.HomeContainer>

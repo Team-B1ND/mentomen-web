@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function TagLists({ tag }: Props) {
-  const { data: getTag } = useGetTag({ tag });
+  const { data: getTag } = useGetTag({ tag },{suspense:true});
   const navigate = useNavigate();
 
   const settings = {

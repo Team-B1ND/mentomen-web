@@ -10,13 +10,14 @@ import { useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ListItem, ListItemResponse } from "../../../types/list/list.type";
+import { ListItem } from "../../../types/list/list.type";
 import React from 'react';
 import { useDelMyPost } from '../../../hooks/del/mypage/useDelMyPost';
+import { useMyPost } from '../../../querys/user/user.query';
 
-function MyPageList({data}:{data:ListItemResponse}){
+function MyPageList(){
     const navigate = useNavigate();
-
+    const { data: MyPost } = useMyPost({suspense:true});
     const settings = {
         dots: true,
         infinite: true,
@@ -30,8 +31,8 @@ function MyPageList({data}:{data:ListItemResponse}){
     return(
         <>
             {
-                data?.data.length !==0 ? (
-                data?.data.map((data:ListItem) => 
+                MyPost?.data.length !==0 ? (
+                MyPost?.data.map((data:ListItem) => 
                     <S.MyPagePostLists key={data.postId}>
                         <div style={{display:'flex',justifyContent:"space-between"}}>
                             <S.MyPageMiniProfileContainer>

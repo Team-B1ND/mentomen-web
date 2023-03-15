@@ -18,8 +18,8 @@ import { useDelMyPost } from "../../../../hooks/del/mypage/useDelMyPost";
 
 function HomeList() {
   const navigate = useNavigate();
-  const { data: allList } = useGetList(); //모든 게시글 불러오기
-  const [userId, SetUserId] = useRecoilState(USERID);
+  const { data: allList } = useGetList({suspense:true}); //모든 게시글 불러오기
+  const [userId, SetUserId] = useRecoilState<number>(USERID);
   const { onDelete } = useDelMyPost();
 
   const settings = {
