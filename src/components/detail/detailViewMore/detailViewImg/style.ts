@@ -65,4 +65,5 @@ export const DetailViewImg = styled.img`
   width: 1200px;
   height: 700px;
   border-radius: 10px;
+  cursor: pointer;
 `;

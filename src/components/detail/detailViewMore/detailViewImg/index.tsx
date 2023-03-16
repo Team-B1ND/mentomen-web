@@ -10,7 +10,7 @@ interface Props {
   Img: string[];
 }
 export default function DetailViewImg({ Img }: Props) {
-  const [modal, SetModal] = useRecoilState<boolean>(ImgModal);
+  const [imgmodal, SetImgModal] = useRecoilState<boolean>(ImgModal);
 
   const settings = {
     dots: true,
@@ -35,11 +35,17 @@ export default function DetailViewImg({ Img }: Props) {
   }, []);
 
   return (
-    <S.DetailViewImgContainer onClick={() => SetModal(!modal)}>
+    <S.DetailViewImgContainer onClick={() => SetImgModal(!imgmodal)}>
       <S.DetailViewImgLayOut onClick={(e) => e.stopPropagation()}>
         <Slider {...settings}>
           {Img.map((imgs: string, idx) => {
-            return <S.DetailViewImg key={idx} src={imgs} />;
+            return (
+              <S.DetailViewImg
+                key={idx}
+                src={imgs}
+                onClick={() => window.open(imgs, "_blank")}
+              />
+            );
           })}
         </Slider>
       </S.DetailViewImgLayOut>

@@ -4,16 +4,20 @@ import { useDetailCommentDelete } from "../../../../hooks/detail/detailComment/u
 import {
   CommentEdit,
   CommentModal,
-  CommentPostId,
+  CommentId,
+  CommentContent,
+  ContentPrev,
 } from "../../../../recoil/detail/DetailAtom";
 import * as S from "./style";
-
 export default function DetailCommentModal() {
   const [commentModal, SetCommentModal] = useRecoilState<boolean>(CommentModal);
-  const [commentPostId, SetCommentPostId] =
-    useRecoilState<number>(CommentPostId);
+  const [commentId, SetCommentId] =
+    useRecoilState<number>(CommentId);
   const [commentEdit, SetCommentEdit] = useRecoilState(CommentEdit);
   const { onCommentDelete } = useDetailCommentDelete();
+  const [contentPrev, SetContentPrev] = useRecoilState<string>(ContentPrev);
+  const [commentContent, SetCommentContent] =
+  useRecoilState<string>(CommentContent);
   useEffect(() => {
     document.body.style.cssText = `
           position: fixed; 
@@ -30,7 +34,7 @@ export default function DetailCommentModal() {
     <S.CommentModalContainer onClick={() => SetCommentModal(!commentModal)}>
       <S.CommentModalLayOut onClick={(e) => e.stopPropagation()}>
         <S.CommentDeleteContainer>
-          <S.CommentDelete onClick={() => onCommentDelete(commentPostId)}>
+          <S.CommentDelete onClick={() => onCommentDelete(commentId)}>
             삭제하기
           </S.CommentDelete>
         </S.CommentDeleteContainer>
@@ -39,7 +43,9 @@ export default function DetailCommentModal() {
           <S.CommentModify
             onClick={() => {
               SetCommentModal(!commentModal);
-              SetCommentEdit(!commentEdit);
+              // SetCommentEdit(!commentEdit);
+              SetCommentEdit(true);
+              SetCommentContent(contentPrev);
             }}
           >
             수정하기

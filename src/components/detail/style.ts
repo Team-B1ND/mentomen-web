@@ -115,6 +115,11 @@ export const DetailCommentAnswer = styled.div`
     overflow-y:scroll;
 `;
 
+export const DetailCommentEditCancel = styled.div`
+    cursor: pointer;
+    font-size:20px;
+`;
+
 export const DetailCommentEdit = styled.input`
     width: 862px;
     height: 50px;
