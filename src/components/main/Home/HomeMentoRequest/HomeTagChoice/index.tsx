@@ -13,7 +13,6 @@ export default function HomeTagChoice() {
       {Dev.map((dev) => (
         <div key={dev.name} onClick={() => onClick(dev.name)}>
           <S.HomeMentoRequestTagImg
-            style={{ cursor: "pointer" }}
             src={tag === dev.name ? dev.logo2 : dev.logo}
             alt={dev.name}
           />

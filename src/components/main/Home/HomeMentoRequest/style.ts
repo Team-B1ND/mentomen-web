@@ -94,4 +94,5 @@ export const HomeMentoRequestUploadImgBtn = styled.img`
 export const HomeMentoRequestTagImg = styled.img`
     width:70px;
     height:30px;
+    cursor: pointer;
 `;
