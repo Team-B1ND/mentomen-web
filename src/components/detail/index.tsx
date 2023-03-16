@@ -6,7 +6,7 @@ import DetailCommentWrite from "./detailCommentWrite";
 import ProfileBar from "../common/profile";
 import { useRecoilState } from "recoil";
 import { CommentModal } from "../../recoil/detail/DetailAtom";
-import DetailCommentModal from "./detailCommentModal";
+import DetailCommentModal from "./detailCommentList/detailCommentModal";
 import { Suspense } from "react";
 import FallbackSkeletonDetailPost from "../common/fallbackskeleton/detail/post";
 import ErrorBoundary from "../common/errorboundary";
