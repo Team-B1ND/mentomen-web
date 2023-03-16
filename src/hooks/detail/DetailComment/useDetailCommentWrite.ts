@@ -1,22 +1,22 @@
 import { useCallback, useState } from "react";
 import { QueryClient } from "react-query";
 import { usePostComment } from "../../../querys/comment/comment.query";
-import { ParamType } from "../../../types/param/param.type";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 
-export const useDetailCommentWrite = ({ postId }: ParamType) => {
+export const useDetailCommentWrite = (postId: number) => {
   const [comment, SetComment] = useState<string>("");
   const commentMutaion = usePostComment(); //댓글 등록하기
   const queryClient = new QueryClient();
 
-  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const onRegisterChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     SetComment(e.target.value);
   }, []);
 
-  const onClick = useCallback(() => {
+  const onRegisterClick = useCallback((e?:React.MouseEvent<SVGElement>) => {
     if (comment !== "") {
       const answer = window.confirm("댓글을 등록하시겠습니까?");
       if (answer === true) {
+        e?.preventDefault();
         commentMutaion.mutate(
           {
             content: comment,
@@ -38,15 +38,15 @@ export const useDetailCommentWrite = ({ postId }: ParamType) => {
     } else B1ndToast.showInfo('댓글을 작성해주세요!');
   }, [comment, postId, commentMutaion]);
 
-  const onKeyPress = useCallback(
+  const onRegisterKeyPress = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        onClick();
+        onRegisterClick();
       }
     },
-    [onClick]
+    [onRegisterClick]
   );
 
-  return { onClick, onKeyPress, onChange, comment };
+  return { onRegisterClick, onRegisterKeyPress, onRegisterChange, comment };
 };

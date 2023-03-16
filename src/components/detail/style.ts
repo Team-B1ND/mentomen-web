@@ -115,7 +115,16 @@ export const DetailCommentAnswer = styled.div`
     overflow-y:scroll;
 `;
 
-export const DetailCommentBtnContainer = styled.div`
+export const DetailCommentEdit = styled.input`
+    width: 862px;
+    height: 50px;
+    padding-left:20px;
+    font-size:24px;
+    border-radius:40px 0 0 40px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    border:none;
+    outline:none;
+    resize:none;
 `;
 
 export const DetailCommentMoreBtn = styled(AiOutlineMore)`
