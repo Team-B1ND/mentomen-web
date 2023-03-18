@@ -29,9 +29,9 @@ export const DetailView = styled.div`
 
 export const DetailCommentForm = styled.form`
     display:flex;
-    margin: 0 auto;
     margin-top:70px;
-    margin-bottom:20px;
+    margin-bottom:10px;
+    justify-content:center;
 `;
 
 

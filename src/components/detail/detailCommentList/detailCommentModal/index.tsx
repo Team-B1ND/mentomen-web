@@ -11,13 +11,12 @@ import {
 import * as S from "./style";
 export default function DetailCommentModal() {
   const [commentModal, SetCommentModal] = useRecoilState<boolean>(CommentModal);
-  const [commentId, SetCommentId] =
-    useRecoilState<number>(CommentId);
+  const [commentId, SetCommentId] = useRecoilState<number>(CommentId);
   const [commentEdit, SetCommentEdit] = useRecoilState(CommentEdit);
   const { onCommentDelete } = useDetailCommentDelete();
   const [contentPrev, SetContentPrev] = useRecoilState<string>(ContentPrev);
   const [commentContent, SetCommentContent] =
-  useRecoilState<string>(CommentContent);
+    useRecoilState<string>(CommentContent);
   useEffect(() => {
     document.body.style.cssText = `
           position: fixed; 
@@ -31,7 +30,12 @@ export default function DetailCommentModal() {
     };
   }, []);
   return (
-    <S.CommentModalContainer onClick={() => SetCommentModal(!commentModal)}>
+    <S.CommentModalContainer
+      onClick={() => {
+        SetCommentModal(!commentModal);
+        SetCommentEdit(false);
+      }}
+    >
       <S.CommentModalLayOut onClick={(e) => e.stopPropagation()}>
         <S.CommentDeleteContainer>
           <S.CommentDelete onClick={() => onCommentDelete(commentId)}>
@@ -43,7 +47,6 @@ export default function DetailCommentModal() {
           <S.CommentModify
             onClick={() => {
               SetCommentModal(!commentModal);
-              // SetCommentEdit(!commentEdit);
               SetCommentEdit(true);
               SetCommentContent(contentPrev);
             }}

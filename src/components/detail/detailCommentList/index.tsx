@@ -43,7 +43,7 @@ function DetailCommentLists({ postId }: Props) {
                 <>
                   {commentEdit && contentPrev === getComment.content ? (
                     <S.DetailCommentEditCancel
-                      onClick={() => SetCommentEdit(!commentEdit)}
+                      onClick={() => SetCommentEdit(false)}
                     >
                       취소
                     </S.DetailCommentEditCancel>
@@ -52,6 +52,7 @@ function DetailCommentLists({ postId }: Props) {
                       onClick={() => {
                         SetCommentModal(!commentModal);
                         //수정을 위한 commentId와 content를 상태관리로 저장
+                        //commentId는 삭제할 때도 쓰임
                         SetCommentId(getComment.commentId);
                         SetContentPrev(getComment.content);
                       }}
