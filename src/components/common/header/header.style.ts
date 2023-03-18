@@ -29,7 +29,6 @@ export const HeaderSearchBox = styled.div`
   display: flex;
   width: 600px;
   height: 49px;
-
   padding: 15px;
   border-radius: 10px;
   background: #f2f2f2;
@@ -55,7 +54,7 @@ export const HeaderSearchInput = styled.input`
 export const HeaderAbleContainer = styled.div`
   display:flex;
   flex-direction:row;
-  margin-right: 180px;
+  margin-right: 200px;
 `;
 
 export const HeaderNoticeImg = styled.img`
@@ -71,6 +70,7 @@ export const HeaderIntro = styled.h1`
   font-weight: 600;
   font-size: 17px;
   line-height: 40px;
-
+  position:fixed;
+  margin-left:50px;
   cursor: pointer;
 `;

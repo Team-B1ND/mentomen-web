@@ -16,17 +16,16 @@ import { useNavigate } from "react-router-dom";
 import { useKeyWordSearch } from "../../../hooks/header/search/useKeyWordSearch";
 import { ACCESS_KEY } from "../../../constants/auth/auth.constant";
 import { useGetNoticeCheck } from "../../../querys/notice/notice.query";
-import { useNotice } from "../../../hooks/header/notice/useNotice";
-import { NOTICECHK } from "../../../recoil/notice/noticeAtom";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { useEffect } from "react";
+import { NOTICE } from "../../../recoil/notice/noticeAtom";
 
 function Header() {
   const navigate = useNavigate();
   const { onKeyPress, onChange, search } = useKeyWordSearch();
   const { data: getNoticeCheck } = useGetNoticeCheck();
-  const { onNoticeModal } = useNotice();
-  const [NoticeChk,SetNoticeChk] = useRecoilState<string>(NOTICECHK);
+  const [NoticeChk,SetNoticeChk] = useState<string>("NONE");
+  const [NoticeModal,SetNoticeModal] = useRecoilState(NOTICE);
 
   useEffect(()=>{
     if (getNoticeCheck?.data.noticeStatus!! === 'EXIST') SetNoticeChk(getNoticeCheck?.data.noticeStatus!!);
@@ -58,7 +57,7 @@ function Header() {
                   ? notice
                   : Nonotice
               }
-              onClick={onNoticeModal}
+              onClick={() => {SetNoticeChk("NONE");SetNoticeModal(true);}}
               alt=""
             />
           ) : (
