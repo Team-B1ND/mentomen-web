@@ -15,7 +15,7 @@ import React from "react";
 import { useMyPost } from "../../../querys/user/user.query";
 import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
 import { useRecoilState } from "recoil";
-import { MyPageModal, MyPagePostId, MyPostContent, MyPostTag, TagPrev } from "../../../recoil/mypage/mypageAtom";
+import { MyPageModal, MyPagePostId, MyPostContent, MyPostImg, MyPostTag, TagPrev } from "../../../recoil/mypage/mypageAtom";
 import { ContentPrev } from "../../../recoil/detail/DetailAtom";
 
 function MyPageList() {
@@ -27,6 +27,7 @@ function MyPageList() {
   const [myPostTag,SetMyPostTag] = useRecoilState<string>(MyPostTag);
   const [contentPrev,SetContentPrev] = useRecoilState<string>(ContentPrev);
   const [tagPev,SetTagPev] = useRecoilState<string>(TagPrev);
+  const [myPostImg, SetMyPostImg] = useRecoilState<string[]>(MyPostImg);
   return (
     <>
       {MyPost?.data.length !== 0 ? (
@@ -117,6 +118,7 @@ function MyPageList() {
                     SetMyPostTag(data.tag);
                     SetContentPrev(data.content);
                     SetTagPev(data.tag);
+                    SetMyPostImg([]);
                   }}
                 />
               </div>

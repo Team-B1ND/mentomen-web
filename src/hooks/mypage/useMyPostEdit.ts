@@ -58,6 +58,9 @@ export function useMyPostEdit() {
           },
           onError: () => {
             B1ndToast.showError("글을 수정하지 못했습니다!");
+          },
+          onSettled: () => {
+            SetMyPostImg([]);
           }
         });
       }
@@ -72,7 +75,7 @@ export function useMyPostEdit() {
   const onMyPageEditKeyPress = useCallback(
     async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if (e.key === "Enter") {
-        if ((myPostContent !== "" && myPostContent !== contentPrev) || myPostTag !== tagPev) {
+        if ((myPostContent !== "" && myPostContent !== contentPrev) || myPostTag !== tagPev || myPostImg.length >=1) {
           const arr: string[] = [];
           const formData = new FormData();
           try {
@@ -85,7 +88,6 @@ export function useMyPostEdit() {
                 arr.push(value);
               });
             }
-            console.log(arr);
             onPatch(arr, e);
           } catch (err) {
             console.log(err);

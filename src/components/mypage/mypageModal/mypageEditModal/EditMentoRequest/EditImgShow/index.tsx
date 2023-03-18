@@ -10,16 +10,16 @@ import * as S from "../../../../../main/Home/HomeMentoRequest/style";
 
 export default function EditImgShow() {
   const [myPostImg, SetMyPostImg] = useRecoilState<string[]>(MyPostImg);
-  const imgRef = useRef<any>();
+  const imgRefEdit = useRef<any>();
 
-  const saveImgFile = useCallback(() => {
-    SetMyPostImg([...imgRef.current.files]);
+  const saveEditImgFile = useCallback(() => {
+    SetMyPostImg([...imgRefEdit.current.files]);
   }, []);
 
   return (
     <>
       <div style={{ width: "200px", height: "180px" }}>
-        {myPostImg.length>=1 ? (
+        {myPostImg.length!==0 ? (
           <Slider {...useSlideSettings}>
             {myPostImg.map((img: any, idx) => {
               return (
@@ -45,8 +45,8 @@ export default function EditImgShow() {
         id="Img"
         accept="image/*"
         multiple
-        onChange={saveImgFile}
-        ref={imgRef}
+        onChange={saveEditImgFile}
+        ref={imgRefEdit}
         style={{ display: "none" }}
       />
     </>

@@ -12,22 +12,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
-import { useRecoilState } from "recoil";
-import { USERID } from "../../../../recoil/user/UserAtom";
 import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
-import { MyPageModal, MyPagePostId, MyPostContent, MyPostTag, TagPrev } from "../../../../recoil/mypage/mypageAtom";
-import { ContentPrev } from "../../../../recoil/detail/DetailAtom";
 
 function HomeList() {
   const navigate = useNavigate();
   const { data: allList } = useGetList({ suspense: true }); //모든 게시글 불러오기
-  const [userId, SetUserId] = useRecoilState<number>(USERID);
-  const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
-  const [myPagePostId, SetMyPagePostId] = useRecoilState<number>(MyPagePostId);
-  const [myPostContent, SetMyPostContent] = useRecoilState<string>(MyPostContent);
-  const [myPostTag,SetMyPostTag] = useRecoilState<string>(MyPostTag);
-  const [contentPrev,SetContentPrev] = useRecoilState<string>(ContentPrev);
-  const [tagPev,SetTagPev] = useRecoilState<string>(TagPrev);
 
   return (
     <>
@@ -87,21 +76,6 @@ function HomeList() {
                 alt="코멘트"
                 onClick={() => navigate(`/detail/${data.postId}`)}
               />
-
-              {data.author === userId ? (
-                <S.HomeDeleteBtn
-                  onClick={() => {
-                    SetMyPageModal(true);
-                    SetMyPagePostId(data.postId);
-                    SetMyPostContent(data.content);
-                    SetMyPostTag(data.tag);
-                    SetContentPrev(data.content);
-                    SetTagPev(data.tag);
-                  }}
-                />
-              ) : (
-                ""
-              )}
             </S.HomeCommentAndDelete>
           </S.HomeAbleContainer>
         </S.HomePostLists>

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { useDelMyPost } from "../../../hooks/del/mypage/useDelMyPost";
 import { MypageEditModal, MyPageModal, MyPagePostId } from "../../../recoil/mypage/mypageAtom";
-import MyPageEditModal from "./mypageEditModal/indext";
 import * as S from "./style";
 
 export default function MypageModal() {
@@ -40,7 +39,6 @@ export default function MypageModal() {
         </S.MyPageModifyContainer>
       </S.MyPageModalLayOut>
     </S.MyPageModalContainer>
-    {myPageEditModal && <MyPageEditModal />}
     </>
   );
 }

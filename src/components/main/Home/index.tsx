@@ -8,8 +8,9 @@ import ProfileBar from "../../common/profile";
 import ErrorBoundary from "../../common/errorboundary";
 import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
 import MypageModal from "../../mypage/mypageModal";
-import { MyPageModal } from "../../../recoil/mypage/mypageAtom";
+import { MypageEditModal, MyPageModal } from "../../../recoil/mypage/mypageAtom";
 import { useRecoilState } from "recoil";
+import MyPageEditModal from "../../mypage/mypageModal/mypageEditModal/indext";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();
