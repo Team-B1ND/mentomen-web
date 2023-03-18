@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
 
 interface Props {
   keyword: string;
@@ -19,14 +20,6 @@ interface Props {
 export default function KeyWordList({ keyword }: Props) {
   const { data: getKeyWord } = useGetKeyWord({ keyword },{suspense:true});
   const navigate = useNavigate();
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
   return (
     <>
@@ -72,7 +65,7 @@ export default function KeyWordList({ keyword }: Props) {
                 </S.KeyWordContentContainer>
                 <S.KeyWordImgContainer>
                   {data.imgUrls?.length >= 1 ? (
-                    <Slider {...settings}>
+                    <Slider {...useSlideSettings}>
                       {data.imgUrls.map((imgs: string, idx: any) => {
                         return (
                           <S.KeyWordPostImage key={idx} src={imgs} alt="" />

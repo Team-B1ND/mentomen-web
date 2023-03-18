@@ -13,18 +13,11 @@ import "slick-carousel/slick/slick-theme.css";
 import DetailViewImg from "./detailViewImg";
 import { useRecoilState } from "recoil";
 import { ImgModal } from "../../../recoil/detail/DetailAtom";
+import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
 
 export default function DetailViewMore({ postId }: ParamType) {
   const { data: getPost } = useGetApost({ postId },{suspense:true}); //게시글 정보 가져오기
   const [modal, SetModal] = useRecoilState<boolean>(ImgModal);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
   return (
     <div>
@@ -33,13 +26,7 @@ export default function DetailViewMore({ postId }: ParamType) {
           <S.DetailViewProfileImg
             src={getPost?.data.profileUrl ? getPost?.data.profileUrl : aprofile}
           />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginTop: "13px",
-            }}
-          >
+          <S.DetailViewClassInfoContainer>
             <S.DetailViewProfileName>
               {getPost?.data.userName}
             </S.DetailViewProfileName>
@@ -47,7 +34,7 @@ export default function DetailViewMore({ postId }: ParamType) {
               {getPost?.data.stdInfo.grade}학년 {getPost?.data.stdInfo.room}반{" "}
               {getPost?.data.stdInfo.number}번
             </S.DetailViewClassInfo>
-          </div>
+          </S.DetailViewClassInfoContainer>
         </S.DetailViewProfileContainer>
 
         <S.DetailViewDevLogo
@@ -66,22 +53,15 @@ export default function DetailViewMore({ postId }: ParamType) {
         />
       </S.DetailViewProfileDevLogoContainer>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          marginTop: "30px",
-        }}
-      >
+      <S.DetailViewAble>
         <S.DetailViewContentContainer>
           {getPost?.data.content}
         </S.DetailViewContentContainer>
 
-        <div style={{ width: "240px", height: "228px", marginRight: "30px" }}>
+        <S.DetailViewImgContainer>
           {getPost?.data.imgUrls && getPost?.data.imgUrls.length >= 1 ? (
             <div style={{ cursor: "pointer" }}>
-              <Slider {...settings}>
+              <Slider {...useSlideSettings}>
                 {getPost?.data.imgUrls.map((imgs: string, idx) => {
                   return (
                     <S.DetailViewImg
@@ -96,9 +76,9 @@ export default function DetailViewMore({ postId }: ParamType) {
           ) : (
             <S.DetailViewNoneImg>이미지가 없음</S.DetailViewNoneImg>
           )}
-        </div>
+        </S.DetailViewImgContainer>
         {modal && <DetailViewImg Img={getPost?.data.imgUrls!!} />}
-      </div>
+      </S.DetailViewAble>
     </div>
   );
 }

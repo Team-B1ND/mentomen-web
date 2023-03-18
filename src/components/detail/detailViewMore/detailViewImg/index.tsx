@@ -5,21 +5,13 @@ import * as S from "./style";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
 
 interface Props {
   Img: string[];
 }
 export default function DetailViewImg({ Img }: Props) {
   const [imgmodal, SetImgModal] = useRecoilState<boolean>(ImgModal);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrow: false,
-  };
 
   useEffect(() => {
     document.body.style.cssText = `
@@ -37,7 +29,7 @@ export default function DetailViewImg({ Img }: Props) {
   return (
     <S.DetailViewImgContainer onClick={() => SetImgModal(!imgmodal)}>
       <S.DetailViewImgLayOut onClick={(e) => e.stopPropagation()}>
-        <Slider {...settings}>
+        <Slider {...useSlideSettings}>
           {Img.map((imgs: string, idx) => {
             return (
               <S.DetailViewImg

@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { ImgList } from "../../../../../recoil/home/HomeAtom";
 import uploadImg from "../../.././../.././assets/images/uploadImg.svg";
 import { useRef, useCallback } from "react";
+import { useSlideSettings } from "../../../../../hooks/slide/useSlideSetting";
 
 export default function HomeImgShow() {
   const [imgList, SetImgList] = useRecoilState<string[]>(ImgList);
@@ -15,18 +16,11 @@ export default function HomeImgShow() {
     SetImgList([...imgRef.current.files]);
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
   return (
     <>
       <div style={{ width: "200px", height: "180px" }}>
         {imgList.length !== 0 ? (
-          <Slider {...settings}>
+          <Slider {...useSlideSettings}>
             {imgList.map((img: any, idx) => {
               return (
                 <S.HomeMentoRequestUploadImg
