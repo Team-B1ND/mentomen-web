@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
 
 interface Props {
   tag: string;
@@ -19,14 +20,6 @@ interface Props {
 export default function TagLists({ tag }: Props) {
   const { data: getTag } = useGetTag({ tag },{suspense:true});
   const navigate = useNavigate();
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
 
   return (
     <>
@@ -85,7 +78,7 @@ export default function TagLists({ tag }: Props) {
                 }}
               >
                 {data.imgUrls?.length >= 1 ? (
-                  <Slider {...settings}>
+                  <Slider {...useSlideSettings}>
                     {data.imgUrls.map((imgs: string, idx: any) => {
                       return <S.TagListPostImage key={idx} src={imgs} alt="" />;
                     })}
