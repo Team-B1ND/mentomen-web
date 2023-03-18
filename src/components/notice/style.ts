@@ -129,6 +129,11 @@ export const NoneNotice = styled.div`
   line-height:700px;
   text-align:center;
   font-size:25px;
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 `;
 
 
