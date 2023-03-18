@@ -11,27 +11,27 @@ import Android from '../../.././.././assets/logo3/Android.svg';
 
 export const Dev = [
     {
-        name:'Web',
+        name:'WEB',
         logo:Web2,
         logo2:Web,
     },
     {
-        name:'Design',
+        name:'DESIGN',
         logo:Design2,
         logo2:Design,
     },
     {
-        name:'Ios',
+        name:'IOS',
         logo:Ios2,
         logo2:Ios,
     },
     {
-        name:'Server',
+        name:'SERVER',
         logo:Server2,
         logo2:Server,
     },
     {
-        name:'Android',
+        name:'ANDROID',
         logo:Android2,
         logo2:Android,
     }

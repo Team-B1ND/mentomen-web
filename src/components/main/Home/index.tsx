@@ -7,10 +7,13 @@ import HomeList from "./HomeList";
 import ProfileBar from "../../common/profile";
 import ErrorBoundary from "../../common/errorboundary";
 import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
+import MypageModal from "../../mypage/mypageModal";
+import { MyPageModal } from "../../../recoil/mypage/mypageAtom";
+import { useRecoilState } from "recoil";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();
-
+  const [myPageModal,SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
   const navigate = useNavigate();
   if (!isAuthority) {
     window.alert("유효한토큰");
@@ -23,9 +26,9 @@ const Home = () => {
       <S.HomeContainer>
         <S.HomeWrap>
           <div>
-            <S.HomeMentoReguestContainer>
+            <S.HomeMentoRequestContainer>
               <HomeMentoRequest />
-            </S.HomeMentoReguestContainer>
+            </S.HomeMentoRequestContainer>
             <ErrorBoundary fallback={<>Error :)</>}>
               <Suspense fallback={<FallbackSkeletonLists />}>
                 <HomeList />
@@ -34,6 +37,7 @@ const Home = () => {
           </div>
         </S.HomeWrap>
       </S.HomeContainer>
+      {myPageModal && <MypageModal />}
     </div>
   );
 };

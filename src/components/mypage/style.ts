@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MdDelete } from "react-icons/md";
+import { AiOutlineMore } from "react-icons/ai";
 
 export const MyPageContainer = styled.div`
     width:calc(100% - 300px);
@@ -98,7 +98,7 @@ export const MyPageComment = styled.img`
     margin: 30px 0 0 25px;
 `;
 
-export const MyPageDeleteBtn = styled(MdDelete)`
+export const MyPageDeleteBtn = styled(AiOutlineMore)`
     width:30px;
     height:30px;
     margin:30px 30px 0 0;

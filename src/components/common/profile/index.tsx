@@ -21,17 +21,22 @@ import copy from "../../../assets/images/copy.svg";
 import { useNavigate } from "react-router-dom";
 import { useLogOut } from "../../../hooks/logout/useLogOut";
 import { useRecoilState } from "recoil";
-import { USERID } from "../../../recoil/user/UserAtom";
+import { USERID, USERPROFILE } from "../../../recoil/user/UserAtom";
 
 const ProfileBar = () => {
   const { data } = useGetMember();
   const navigate = useNavigate();
   const { onLogOut } = useLogOut();
-  const [userId,SetUserId] = useRecoilState<number>(USERID);
+  const [userId,SetUserId] = useRecoilState<number>(USERID); //댓글 수정에 필요한 아이디가져오기
+  const [userProfile,SetUserProfile] = useRecoilState<string>(USERPROFILE); // 게시글 수정에 필요한 프로필 정보가져오기
 
   useEffect(()=>{
     SetUserId(data?.data.userId!!);
   },[SetUserId,data?.data.userId]);
+
+  useEffect(()=>{
+    SetUserProfile(data?.data.profileImage!!);
+  },[SetUserProfile,data?.data.profileImage]);
   
   return (
     <ProfileBarContainer>

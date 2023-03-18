@@ -20,6 +20,7 @@ export default function DetailCommentWrite({ postId }: Props) {
           autoComplete="off"
           value={commentEditContent}
           onChange={onEditChange}
+          placeholder="댓글을 수정해주세요"
           onKeyPress={onEditKeyPress}
           type="text"
         />

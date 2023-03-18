@@ -20,6 +20,13 @@ export interface ListItem {
   userName:string;
 }
 
+export interface ListPatchItem {
+  content: string;
+  imgUrls: string[];
+  postId: number;
+  tag: string;
+}
+
 //단일 게시글 불러오기
 export interface ListResponse extends Response {
   data:ListItem;

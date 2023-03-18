@@ -14,22 +14,21 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { USERID } from "../../../../recoil/user/UserAtom";
-import { useDelMyPost } from "../../../../hooks/del/mypage/useDelMyPost";
+import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
+import { MyPageModal, MyPagePostId, MyPostContent, MyPostTag, TagPrev } from "../../../../recoil/mypage/mypageAtom";
+import { ContentPrev } from "../../../../recoil/detail/DetailAtom";
 
 function HomeList() {
   const navigate = useNavigate();
-  const { data: allList } = useGetList({suspense:true}); //모든 게시글 불러오기
+  const { data: allList } = useGetList({ suspense: true }); //모든 게시글 불러오기
   const [userId, SetUserId] = useRecoilState<number>(USERID);
-  const { onDelete } = useDelMyPost();
+  const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
+  const [myPagePostId, SetMyPagePostId] = useRecoilState<number>(MyPagePostId);
+  const [myPostContent, SetMyPostContent] = useRecoilState<string>(MyPostContent);
+  const [myPostTag,SetMyPostTag] = useRecoilState<string>(MyPostTag);
+  const [contentPrev,SetContentPrev] = useRecoilState<string>(ContentPrev);
+  const [tagPev,SetTagPev] = useRecoilState<string>(TagPrev);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  // console.log(allList);
   return (
     <>
       {allList?.data.map((data) => (
@@ -67,17 +66,11 @@ function HomeList() {
           </S.HomeListContainer>
 
           <S.HomeAbleContainer>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
+            <S.HomeAble>
               <S.HomeContentContainer>{data.content}</S.HomeContentContainer>
               <S.HomeContentAndImgContainer>
                 {data.imgUrls?.length >= 1 ? (
-                  <Slider {...settings}>
+                  <Slider {...useSlideSettings}>
                     {data.imgUrls.map((imgs: string, idx) => {
                       return <S.HomePostImage key={idx} src={imgs} alt="" />;
                     })}
@@ -86,7 +79,7 @@ function HomeList() {
                   <S.HomePostImgNone>이미지 없음</S.HomePostImgNone>
                 )}
               </S.HomeContentAndImgContainer>
-            </div>
+            </S.HomeAble>
 
             <S.HomeCommentAndDelete>
               <S.HomeComment
@@ -97,7 +90,14 @@ function HomeList() {
 
               {data.author === userId ? (
                 <S.HomeDeleteBtn
-                  onClick={() => onDelete(Number(data.postId))}
+                  onClick={() => {
+                    SetMyPageModal(true);
+                    SetMyPagePostId(data.postId);
+                    SetMyPostContent(data.content);
+                    SetMyPostTag(data.tag);
+                    SetContentPrev(data.content);
+                    SetTagPev(data.tag);
+                  }}
                 />
               ) : (
                 ""

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MdDelete } from "react-icons/md";
+import { AiOutlineMore } from "react-icons/ai";
 
 export const HomeContainer = styled.div`
     width:calc(100% - 300px);
@@ -26,7 +26,7 @@ export const HomeWrap = styled.div`
     }
 `;
 
-export const HomeMentoReguestContainer = styled.div`
+export const HomeMentoRequestContainer = styled.div`
     width: 912px;
     height: 230px;
     background-color: #FFFFFF;
@@ -97,6 +97,12 @@ export const HomeAbleContainer = styled.div`
     flex-direction: column;
 `;
 
+export const HomeAble = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
 export const HomeContentAndImgContainer = styled.div`
     width:240px;
     height:228px;
@@ -141,7 +147,7 @@ export const HomeComment = styled.img`
     margin: 30px 0 0 25px;
 `;
 
-export const HomeDeleteBtn = styled(MdDelete)`
+export const HomeDeleteBtn = styled(AiOutlineMore)`
     width:30px;
     height:30px;
     margin:30px 30px 0 0;

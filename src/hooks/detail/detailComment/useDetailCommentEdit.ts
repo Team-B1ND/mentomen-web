@@ -2,12 +2,12 @@ import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { usePatchComment } from "../../../querys/comment/comment.query";
-import { CommentContent, CommentEdit } from "../../../recoil/detail/DetailAtom";
+import { CommentContent, CommentEdit, ContentPrev } from "../../../recoil/detail/DetailAtom";
 
 export function useDeleteCommentEdit(commentPostId:number){
     const [commentEditContent,SetCommentEditContent] = useRecoilState<string>(CommentContent);
     const [commentEdit, SetCommentEdit] = useRecoilState<boolean>(CommentEdit);
-
+    const [contentPrev,SetCotentPrev] = useRecoilState<string>(ContentPrev);
     const patch = usePatchComment();
 
     const onEditChange = useCallback((e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -15,7 +15,7 @@ export function useDeleteCommentEdit(commentPostId:number){
     },[]);
 
     const onEditClick = useCallback((e?:React.MouseEvent<SVGElement>)=>{
-        if (commentEditContent !== ""){
+        if (commentEditContent !== "" && commentEditContent !== contentPrev){
             const answer = window.confirm('댓글을 수정하시겠습니까?');
             if (answer === true){
                 e?.preventDefault();
