@@ -15,18 +15,27 @@ import React from "react";
 import { useMyPost } from "../../../querys/user/user.query";
 import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
 import { useRecoilState } from "recoil";
-import { MyPageModal, MyPagePostId, MyPostContent, MyPostImg, MyPostTag, TagPrev } from "../../../recoil/mypage/mypageAtom";
+import {
+  MyPageModal,
+  MyPagePostId,
+  MyPostContent,
+  MyPostImg,
+  MyPostTag,
+  TagPrev,
+} from "../../../recoil/mypage/mypageAtom";
 import { ContentPrev } from "../../../recoil/detail/DetailAtom";
+import { detailDate } from "../../date/useDate";
 
 function MyPageList() {
   const navigate = useNavigate();
   const { data: MyPost } = useMyPost({ suspense: true });
   const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
   const [myPagePostId, SetMyPagePostId] = useRecoilState<number>(MyPagePostId);
-  const [myPostContent, SetMyPostContent] = useRecoilState<string>(MyPostContent);
-  const [myPostTag,SetMyPostTag] = useRecoilState<string>(MyPostTag);
-  const [contentPrev,SetContentPrev] = useRecoilState<string>(ContentPrev);
-  const [tagPev,SetTagPev] = useRecoilState<string>(TagPrev);
+  const [myPostContent, SetMyPostContent] =
+    useRecoilState<string>(MyPostContent);
+  const [myPostTag, SetMyPostTag] = useRecoilState<string>(MyPostTag);
+  const [contentPrev, SetContentPrev] = useRecoilState<string>(ContentPrev);
+  const [tagPev, SetTagPev] = useRecoilState<string>(TagPrev);
   const [myPostImg, SetMyPostImg] = useRecoilState<string[]>(MyPostImg);
   return (
     <>
@@ -98,30 +107,27 @@ function MyPageList() {
                 </div>
               </div>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
+              <S.MyPageAbleContainer>
                 <S.MyPageComment
                   src={commentBt}
                   alt="코멘트"
                   onClick={() => navigate(`/detail/${data.postId}`)}
                 />
-                <S.MyPageDeleteBtn
-                  onClick={() => {
-                    SetMyPageModal(true);
-                    SetMyPagePostId(data.postId);
-                    SetMyPostContent(data.content);
-                    SetMyPostTag(data.tag);
-                    SetContentPrev(data.content);
-                    SetTagPev(data.tag);
-                    SetMyPostImg([]);
-                  }}
-                />
-              </div>
+                <S.MyPageDelAndEditAndDateContainer>
+                  <S.MyPageDate>{detailDate(new Date(data.createDateTime))}</S.MyPageDate>
+                  <S.MyPageDelAndEdit
+                    onClick={() => {
+                      SetMyPageModal(true);
+                      SetMyPagePostId(data.postId);
+                      SetMyPostContent(data.content);
+                      SetMyPostTag(data.tag);
+                      SetContentPrev(data.content);
+                      SetTagPev(data.tag);
+                      SetMyPostImg([]);
+                    }}
+                  />
+                </S.MyPageDelAndEditAndDateContainer>
+              </S.MyPageAbleContainer>
             </div>
           </S.MyPagePostLists>
         ))

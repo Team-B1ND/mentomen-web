@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
+import { detailDate } from "../../date/useDate";
 
 interface Props {
   tag: string;
@@ -89,11 +90,14 @@ export default function TagLists({ tag }: Props) {
               </div>
             </div>
 
+            <S.TagListCommentAndDate>
             <S.TagListComment
               src={commentBt}
               alt="코멘트"
               onClick={() => navigate(`/detail/${data.postId}`)}
             />
+            <S.TagListDate>{detailDate(new Date(data.createDateTime))}</S.TagListDate>
+            </S.TagListCommentAndDate>
           </div>
         </S.TagListPostLists>
       ))):(<div style={{fontSize:'25px'}}>
