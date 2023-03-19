@@ -63,7 +63,9 @@ export const DetailViewContentContainer = styled.div`
 export const DetailViewImgContainer = styled.div`
     width:240px;
     height:228px;
-    margin-right:30px
+    margin-right:30px;
+    display:flex;
+    flex-direction:column;
 `;
 
 export const DetailViewImg = styled.img`
@@ -79,4 +81,10 @@ export const DetailViewNoneImg = styled.div`
     background-color: rgba(0,0,0,0.175);
     text-align:center;
     line-height:228px;
+`;
+
+export const DetailViewDate = styled.div`
+    margin:50px 0 0 30px;
+    font-size:18px;
+    width: 300px;
 `;

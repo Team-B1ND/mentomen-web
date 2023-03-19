@@ -76,6 +76,7 @@ export default function DetailViewMore({ postId }: ParamType) {
           ) : (
             <S.DetailViewNoneImg>이미지가 없음</S.DetailViewNoneImg>
           )}
+          <S.DetailViewDate>{new Date(getPost?.data.createDateTime!!).toLocaleString()}</S.DetailViewDate>
         </S.DetailViewImgContainer>
         {modal && <DetailViewImg Img={getPost?.data.imgUrls!!} />}
       </S.DetailViewAble>

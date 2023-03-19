@@ -110,13 +110,14 @@ export const MyPageDelAndEditAndDateContainer = styled.div`
 `;
 
 export const MyPageDate = styled.div`
-    margin:35px 10px 0 0;
+    margin: 42px 20px 0 0;
+    font-size:18px;
 `;
 
 export const MyPageDelAndEdit = styled(AiOutlineMore)`
     width:30px;
     height:30px;
-    margin:30px 30px 0 0;
+    margin:30px 21px 0 0;
     cursor: pointer;
     transition: all 0.5s;
 `;

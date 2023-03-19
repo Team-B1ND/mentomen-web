@@ -4,7 +4,6 @@ import { useGetNoticeList } from "../../../querys/notice/notice.query";
 import { NOTICE } from "../../../recoil/notice/noticeAtom";
 import * as S from "../style";
 import aprofile from '../../../assets/images/aprofile.png';
-import { detailDate } from "../../date/useDate";
 
 export default function NoticeLists() {
   const navigate = useNavigate();
@@ -37,7 +36,7 @@ export default function NoticeLists() {
               <S.NoticeCommentContainer>
                 <S.NoticeCommentAbleContainer>
                   <div>댓글이 달렸습니다!</div>
-                  <div style={{marginRight:'20px'}}>{detailDate(new Date(lists.createDateTime))}</div>
+                  <div style={{marginRight:'20px'}}>{new Date(lists.createDateTime).toLocaleString()}</div>
                 </S.NoticeCommentAbleContainer>
                 <S.NoticeComment>{lists.commentContent}</S.NoticeComment>
               </S.NoticeCommentContainer>

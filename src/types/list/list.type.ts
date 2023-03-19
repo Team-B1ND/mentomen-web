@@ -3,7 +3,7 @@ import { Response } from "../util/response.type";
 export interface ListItem {
   author: number;
   content:string;
-  createDateTime?:any;
+  createDateTime:string;
   imgUrls: [
       string
   ],

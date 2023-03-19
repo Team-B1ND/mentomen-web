@@ -135,7 +135,7 @@ export const KeyWordComment = styled.img`
 `;
 
 export const KeyWordDate = styled.div`
-    margin:40px 30px 0 0;
+    margin:50px 35px 0 0;
 `;
 
 export const KeyWordNoneKeyWord = styled.div`

@@ -24,7 +24,6 @@ import {
   TagPrev,
 } from "../../../recoil/mypage/mypageAtom";
 import { ContentPrev } from "../../../recoil/detail/DetailAtom";
-import { detailDate } from "../../date/useDate";
 
 function MyPageList() {
   const navigate = useNavigate();
@@ -114,7 +113,7 @@ function MyPageList() {
                   onClick={() => navigate(`/detail/${data.postId}`)}
                 />
                 <S.MyPageDelAndEditAndDateContainer>
-                  <S.MyPageDate>{detailDate(new Date(data.createDateTime))}</S.MyPageDate>
+                  <S.MyPageDate>{new Date(data.createDateTime).toLocaleString()}</S.MyPageDate>
                   <S.MyPageDelAndEdit
                     onClick={() => {
                       SetMyPageModal(true);

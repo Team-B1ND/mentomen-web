@@ -104,5 +104,5 @@ export const TagListComment = styled.img`
 `;
 
 export const TagListDate = styled.div`
-    margin: 40px 30px 0 0;
+    margin: 40px 35px 0 0;
 `;
