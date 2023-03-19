@@ -13,11 +13,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
+import { detailDate } from "../../../date/useDate";
 
 function HomeList() {
   const navigate = useNavigate();
   const { data: allList } = useGetList({ suspense: true }); //모든 게시글 불러오기
-
   return (
     <>
       {allList?.data.map((data) => (
@@ -69,14 +69,14 @@ function HomeList() {
                 )}
               </S.HomeContentAndImgContainer>
             </S.HomeAble>
-
-            <S.HomeCommentAndDelete>
+            <S.HomeCommentAndDate>
               <S.HomeComment
                 src={commentBt}
                 alt="코멘트"
                 onClick={() => navigate(`/detail/${data.postId}`)}
               />
-            </S.HomeCommentAndDelete>
+              <S.HomeDate>{detailDate(new Date(data.createDateTime))}</S.HomeDate>
+            </S.HomeCommentAndDate>
           </S.HomeAbleContainer>
         </S.HomePostLists>
       ))}
