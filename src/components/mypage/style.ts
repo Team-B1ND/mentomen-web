@@ -91,6 +91,12 @@ export const MyPagePostImgNone = styled.div`
     background-color: rgba(0, 0, 0, 0.175);
 `;
 
+export const MyPageAbleContainer = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
 export const MyPageComment = styled.img`
     width:115px;
     height:42px;
@@ -98,7 +104,16 @@ export const MyPageComment = styled.img`
     margin: 30px 0 0 25px;
 `;
 
-export const MyPageDeleteBtn = styled(AiOutlineMore)`
+export const MyPageDelAndEditAndDateContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+export const MyPageDate = styled.div`
+    margin:35px 10px 0 0;
+`;
+
+export const MyPageDelAndEdit = styled(AiOutlineMore)`
     width:30px;
     height:30px;
     margin:30px 30px 0 0;

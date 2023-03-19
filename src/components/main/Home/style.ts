@@ -134,7 +134,7 @@ export const HomePostImgNone = styled.div`
     background-color: rgba(0, 0, 0, 0.175);
 `;
 
-export const HomeCommentAndDelete = styled.div`
+export const HomeCommentAndDate = styled.div`
     display: flex;
     flex-direction:row;
     justify-content:space-between;
@@ -147,10 +147,8 @@ export const HomeComment = styled.img`
     margin: 30px 0 0 25px;
 `;
 
-export const HomeDeleteBtn = styled(AiOutlineMore)`
-    width:30px;
-    height:30px;
-    margin:30px 30px 0 0;
-    cursor: pointer;
-    transition: all 0.5s;
+
+
+export const HomeDate = styled.div`
+    margin:40px 30px 0 0;
 `;

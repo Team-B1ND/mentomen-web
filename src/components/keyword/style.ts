@@ -121,11 +121,21 @@ export const KeyWordPostImgNone = styled.div`
     background-color: rgba(0, 0, 0, 0.175);
 `;
 
+export const KeyWordCommentAndDate = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
 export const KeyWordComment = styled.img`
     width:115px;
     height:42px;
     cursor: pointer;
     margin: 30px 0 0 25px;
+`;
+
+export const KeyWordDate = styled.div`
+    margin:40px 30px 0 0;
 `;
 
 export const KeyWordNoneKeyWord = styled.div`

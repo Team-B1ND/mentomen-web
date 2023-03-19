@@ -65,7 +65,7 @@ export const NoticeWrap = styled.div`
     box-sizing:border-box;
     display: flex;
     flex-direction: column;
-    height: 700px;
+    height: 90%;
     &::-webkit-scrollbar{
         display: none;
     }
@@ -119,6 +119,12 @@ export const NoticeCommentContainer = styled.div`
     font-size:20px;
     display:flex;
     flex-direction:column;
+`;
+
+export const NoticeCommentAbleContainer = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
 `;
 
 export const NoticeComment = styled.div`
