@@ -15,7 +15,7 @@ export default function TagList() {
       <S.TagListContainer>
         <S.TagWrap>
           <ErrorBoundary fallback={<>Error :)</>}>
-            <Suspense fallback={<FallbackSkeletonLists />}>
+            <Suspense fallback={<FallbackSkeletonLists len={6} />}>
               <TagLists tag={tag!!} />
             </Suspense>
           </ErrorBoundary>

@@ -8,7 +8,7 @@ import { useRecoilState } from "recoil";
 import { CommentModal } from "../../recoil/detail/DetailAtom";
 import DetailCommentModal from "./detailCommentList/detailCommentModal";
 import { Suspense } from "react";
-import FallbackSkeletonDetailPost from "../common/fallbackskeleton/detail/post";
+import FallbackSkeletonLists from "../common/fallbackskeleton/lists";
 import ErrorBoundary from "../common/errorboundary";
 import FallbackSkeletonDetailComments from "../common/fallbackskeleton/detail/comments";
 
@@ -21,7 +21,7 @@ export default function Detail() {
       <S.DetailContainer>
         <S.DetailViewContainer>
           <ErrorBoundary fallback={<>Error:)</>}>
-            <Suspense fallback={<FallbackSkeletonDetailPost />}>
+            <Suspense fallback={<FallbackSkeletonLists len={1} />}>
               <S.DetailView>
                 <DetailViewMore postId={Number(postId)} />
               </S.DetailView>

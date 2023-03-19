@@ -31,7 +31,7 @@ const Home = () => {
               <HomeMentoRequest />
             </S.HomeMentoRequestContainer>
             <ErrorBoundary fallback={<>Error :)</>}>
-              <Suspense fallback={<FallbackSkeletonLists />}>
+              <Suspense fallback={<FallbackSkeletonLists len={6} />}>
                 <HomeList />
               </Suspense>
             </ErrorBoundary>

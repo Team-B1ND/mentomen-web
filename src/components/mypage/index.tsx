@@ -18,7 +18,7 @@ function Mypage() {
       <S.MyPageContainer>
         <S.MyPageWrap>
           <ErrorBoundary fallback={<>Error :)</>}>
-            <Suspense fallback={<FallbackSkeletonLists />}>
+            <Suspense fallback={<FallbackSkeletonLists len={6} />}>
               <MyPageList />
             </Suspense>
           </ErrorBoundary>

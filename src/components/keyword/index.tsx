@@ -14,7 +14,7 @@ export default function KeyWord() {
       <S.KeyWordContainer>
         <S.KeyWordWrap>
           <ErrorBoundary fallback={<>Error :)</>}>
-            <Suspense fallback={<FallbackSkeletonLists />}>
+            <Suspense fallback={<FallbackSkeletonLists len={6} />}>
               <KeyWordList keyword={keyword!!} />
             </Suspense>
           </ErrorBoundary>
