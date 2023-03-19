@@ -8,7 +8,7 @@ export interface postCommentType {
 export interface getCommentType extends Response {
   commentId: number;
   content: string;
-  createDateTime?: string | number;
+  createDateTime?: any;
   postId: number;
   profileUrl: string;
   stdInfo: {
