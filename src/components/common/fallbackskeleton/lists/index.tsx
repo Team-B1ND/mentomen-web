@@ -1,9 +1,13 @@
 import * as S from "../style";
 
-export default function FallbackSkeletonLists() {
+interface Props {
+  len: number;
+}
+
+export default function FallbackSkeletonLists({len}:Props) {
   return (
     <>
-      {Array.from({ length: 6 }).map((item, idx) => (
+      {Array.from({ length: len }).map((item, idx) => (
         <div key={idx}>
           <S.SkeletonPostWrap>
             <S.SkeletonPostLists />
