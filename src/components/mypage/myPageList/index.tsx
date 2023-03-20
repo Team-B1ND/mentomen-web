@@ -24,6 +24,7 @@ import {
   TagPrev,
 } from "../../../recoil/mypage/mypageAtom";
 import { ContentPrev } from "../../../recoil/detail/DetailAtom";
+import { uploadDateTime } from "../../../hooks/date/uploadDateTime";
 
 function MyPageList() {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function MyPageList() {
   const [contentPrev, SetContentPrev] = useRecoilState<string>(ContentPrev);
   const [tagPev, SetTagPev] = useRecoilState<string>(TagPrev);
   const [myPostImg, SetMyPostImg] = useRecoilState<string[]>(MyPostImg);
+
   return (
     <>
       {MyPost?.data.length !== 0 ? (
@@ -113,7 +115,7 @@ function MyPageList() {
                   onClick={() => navigate(`/detail/${data.postId}`)}
                 />
                 <S.MyPageDelAndEditAndDateContainer>
-                  <S.MyPageDate>{new Date(data.createDateTime).toLocaleString()}</S.MyPageDate>
+                  <S.MyPageDate>{uploadDateTime(new Date(data.createDateTime))}</S.MyPageDate>
                   <S.MyPageDelAndEdit
                     onClick={() => {
                       SetMyPageModal(true);

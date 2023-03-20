@@ -84,7 +84,7 @@ export const DetailViewNoneImg = styled.div`
 `;
 
 export const DetailViewDate = styled.div`
-    margin:50px 0 0 30px;
+    margin:50px 0 0 100px;
     font-size:18px;
     width: 300px;
 `;

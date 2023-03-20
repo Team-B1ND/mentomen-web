@@ -1,11 +1,10 @@
 import * as S from "../style";
 import aprofile from "../../.././assets/images/aprofile.png";
 import { useGetComment } from "../../../querys/comment/comment.query";
-import React, { useState } from "react";
+import React from "react";
 import { USERID } from "../../../recoil/user/UserAtom";
 import { useRecoilState } from "recoil";
 import {
-  CommentContent,
   CommentEdit,
   CommentModal,
   CommentId,

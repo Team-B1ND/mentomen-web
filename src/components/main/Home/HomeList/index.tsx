@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
+import { uploadDateTime } from "../../../../hooks/date/uploadDateTime";
 
 function HomeList() {
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ function HomeList() {
                 alt="코멘트"
                 onClick={() => navigate(`/detail/${data.postId}`)}
               />
-              <S.HomeDate>{new Date(data.createDateTime).toLocaleString()}</S.HomeDate>
+              <S.HomeDate>{uploadDateTime(new Date(data.createDateTime))}</S.HomeDate>
             </S.HomeCommentAndDate>
           </S.HomeAbleContainer>
         </S.HomePostLists>

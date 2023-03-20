@@ -14,6 +14,7 @@ import DetailViewImg from "./detailViewImg";
 import { useRecoilState } from "recoil";
 import { ImgModal } from "../../../recoil/detail/DetailAtom";
 import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
+import { uploadDateTime } from "../../../hooks/date/uploadDateTime";
 
 export default function DetailViewMore({ postId }: ParamType) {
   const { data: getPost } = useGetApost({ postId },{suspense:true}); //게시글 정보 가져오기
@@ -76,7 +77,7 @@ export default function DetailViewMore({ postId }: ParamType) {
           ) : (
             <S.DetailViewNoneImg>이미지가 없음</S.DetailViewNoneImg>
           )}
-          <S.DetailViewDate>{new Date(getPost?.data.createDateTime!!).toLocaleString()}</S.DetailViewDate>
+          <S.DetailViewDate>{uploadDateTime(new Date(getPost?.data.createDateTime!!))}</S.DetailViewDate>
         </S.DetailViewImgContainer>
         {modal && <DetailViewImg Img={getPost?.data.imgUrls!!} />}
       </S.DetailViewAble>
