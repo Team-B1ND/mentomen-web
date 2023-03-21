@@ -5,7 +5,7 @@ import { NOTICE } from "../../../recoil/notice/noticeAtom";
 import GlobalStyle from "../../../style/Global";
 import MyPageEditModal from "../../mypage/mypageModal/mypageEditModal";
 import Notice from "../../notice";
-import Header from "../header/header";
+import Header from "../Header/header";
 
 interface Props {
   children: ReactNode;
