@@ -13,7 +13,7 @@ import Search from "../../../assets/images/Search.png";
 import Nonotice from "../../../assets/images/notice.png";
 import notice from "../../../assets/images/noticeImg.png";
 import { useNavigate } from "react-router-dom";
-import { useKeyWordSearch } from "../../../hooks/header/search/useKeyWordSearch";
+import { useKeyWordSearch } from "../../../hooks/header/Search/useKeyWordSearch";
 import { ACCESS_KEY } from "../../../constants/auth/auth.constant";
 import { useGetNoticeCheck } from "../../../querys/notice/notice.query";
 import { useEffect, useState } from "react";

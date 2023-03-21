@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import ErrorBoundary from "../common/errorboundary";
 import FallbackSkeletonLists from "../common/fallbackskeleton/lists";
-import ProfileBar from "../common/profile";
+import ProfileBar from "../common/Profile";
 import KeyWordList from "./keyWordList";
 import * as S from "./style";
 
