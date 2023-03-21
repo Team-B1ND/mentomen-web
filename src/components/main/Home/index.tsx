@@ -4,7 +4,7 @@ import useTokenCheck from "../../../hooks/auth/useTokenCheck";
 import * as S from "./style";
 import HomeMentoRequest from "./HomeMentoRequest";
 import HomeList from "./HomeList";
-import ProfileBar from "../../common/profile";
+import ProfileBar from "../../common/Profile";
 import ErrorBoundary from "../../common/errorboundary";
 import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
 import MypageModal from "../../mypage/mypageModal";
