@@ -5,11 +5,11 @@ import {
   HeaderSearchInput,
   HeaderTitle,
   HeaderIntro,
-} from "./Header.style";
+} from "./header.style";
 import Logo from "../../../assets/logo/Logo.png";
 import Search from "../../../assets/images/Search.png";
 import { useNavigate } from "react-router-dom";
-import { useKeyWordSearch } from "../../../hooks/header/Search/useKeyWordSearch";
+import { useKeyWordSearch } from "../../../hooks/header/search/useKeyWordSearch";
 
 function Header() {
   const navigate = useNavigate();
