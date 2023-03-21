@@ -7,7 +7,7 @@ import {
   HeaderIntro,
   HeaderNoticeImg,
   HeaderAbleContainer,
-} from "./Header.style";
+} from "./header.style";
 import Logo from "../../../assets/logo/Logo.png";
 import Search from "../../../assets/images/Search.png";
 import Nonotice from "../../../assets/images/notice.png";
