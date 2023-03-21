@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import { MdDelete } from "react-icons/md";
+import { AiOutlineMore } from "react-icons/ai";
 
 export const MyPageContainer = styled.div`
     width:calc(100% - 300px);
     height:calc(100vh - 75px);
-    position:fixed;
+    position:absolute;
     right:0;
     bottom:0;
+    display:flex;
+    flex-direction:column;
+    background-color:#F2F2F2;
 `;
 
 export const MyPageWrap = styled.div`
@@ -16,8 +19,8 @@ export const MyPageWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    margin-top:25px;
-    height: 945px;
+    margin-top: 45px;
+    height: 90%;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -88,6 +91,12 @@ export const MyPagePostImgNone = styled.div`
     background-color: rgba(0, 0, 0, 0.175);
 `;
 
+export const MyPageAbleContainer = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
 export const MyPageComment = styled.img`
     width:115px;
     height:42px;
@@ -95,10 +104,20 @@ export const MyPageComment = styled.img`
     margin: 30px 0 0 25px;
 `;
 
-export const MyPageDeleteBtn = styled(MdDelete)`
+export const MyPageDelAndEditAndDateContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+export const MyPageDate = styled.div`
+    margin: 42px 20px 0 0;
+    font-size:18px;
+`;
+
+export const MyPageDelAndEdit = styled(AiOutlineMore)`
     width:30px;
     height:30px;
-    margin:30px 30px 0 0;
+    margin:30px 21px 0 0;
     cursor: pointer;
     transition: all 0.5s;
 `;

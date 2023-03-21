@@ -1,13 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { Suspense } from "react";
 import useTokenCheck from "../../../hooks/auth/useTokenCheck";
-import * as S from './style';
-import HomeMentoRequest from "./HomeMentoreqRuest";
+import * as S from "./style";
+import HomeMentoRequest from "./HomeMentoRequest";
 import HomeList from "./HomeList";
-import ProfileBar from "../../common/Profile";
+import ProfileBar from "../../common/profile";
+import ErrorBoundary from "../../common/errorboundary";
+import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
+import MypageModal from "../../mypage/mypageModal";
+import {
+  MypageEditModal,
+  MyPageModal,
+} from "../../../recoil/mypage/mypageAtom";
+import { useRecoilState } from "recoil";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();
+  const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
   const navigate = useNavigate();
   if (!isAuthority) {
     window.alert("유효한토큰");
@@ -16,17 +25,22 @@ const Home = () => {
 
   return (
     <div>
-      <ProfileBar/>
+      <ProfileBar />
       <S.HomeContainer>
-        <div style={{margin: '0 auto'}}>
-          <S.HomeMentoReguestContainer>
-            <HomeMentoRequest />
-          </S.HomeMentoReguestContainer>
-        </div>
         <S.HomeWrap>
-          <HomeList />
+          <div>
+            <S.HomeMentoRequestContainer>
+              <HomeMentoRequest />
+            </S.HomeMentoRequestContainer>
+            <ErrorBoundary fallback={<>Error :)</>}>
+              <Suspense fallback={<FallbackSkeletonLists len={6} />}>
+                <HomeList />
+              </Suspense>
+            </ErrorBoundary>
+          </div>
         </S.HomeWrap>
       </S.HomeContainer>
+      {myPageModal && <MypageModal />}
     </div>
   );
 };

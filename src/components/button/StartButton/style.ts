@@ -13,4 +13,6 @@ export const StartBtn = styled.button`
   margin-top: 200px;
 `;
 
-export const BtnText = styled.h1``;
+export const BtnText = styled.h1`
+  cursor: pointer;
+`;

@@ -3,9 +3,12 @@ import styled from "styled-components";
 export const TagListContainer = styled.div`
     width:calc(100% - 300px);
     height:calc(100vh - 75px);
-    position:fixed;
+    position:absolute;
     right:0;
     bottom:0;
+    display:flex;
+    flex-direction:column;
+    background-color:#F2F2F2;
 `;
 
 export const TagWrap = styled.div`
@@ -15,8 +18,8 @@ export const TagWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    margin-top:25px;
-    height: 945px;
+    margin-top: 45px;
+    height: 90%;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -87,9 +90,19 @@ export const TagListPostImgNone = styled.div`
     background-color: rgba(0, 0, 0, 0.175);
 `;
 
+export const TagListCommentAndDate = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
 export const TagListComment = styled.img`
     width:115px;
     height:42px;
     cursor: pointer;
     margin: 30px 0 0 25px;
+`;
+
+export const TagListDate = styled.div`
+    margin: 40px 35px 0 0;
 `;

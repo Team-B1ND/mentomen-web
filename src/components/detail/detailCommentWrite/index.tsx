@@ -1,26 +1,44 @@
 import * as S from "../style";
-import { useDetailCommentWrite } from "../../../hooks/detail/DetailCommentWrite/useDetailCommentWrite";
-
-interface Props{
-  postId:number;
+import { useDetailCommentWrite } from "../../../hooks/detail/DetailComment/useDetailCommentWrite";
+import { CommentEdit, CommentId } from "../../../recoil/detail/DetailAtom";
+import { useRecoilState } from "recoil";
+import { useDeleteCommentEdit } from "../../../hooks/detail/DetailComment/useDetailCommentEdit";
+interface Props {
+  postId: number;
 }
 
 export default function DetailCommentWrite({ postId }: Props) {
-  const { onClick, onKeyPress, comment, onChange } = useDetailCommentWrite({
-    postId,
-  });
+  const [commentEdit, SetCommentEdit] = useRecoilState<boolean>(CommentEdit);
+  const { onRegisterClick, onRegisterKeyPress, comment, onRegisterChange } =useDetailCommentWrite(postId);
+  const [commentId, SetCommentId] = useRecoilState<number>(CommentId);
+  const { onEditChange, commentEditContent, onEditClick, onEditKeyPress } = useDeleteCommentEdit(commentId);
   return (
     <>
-      <S.DetailComment
-        autoComplete="off"
-        value={comment}
-        onChange={onChange}
-        placeholder="댓글을 입력해주세요"
-        onKeyPress={onKeyPress}
-        type='text'
-      />
+      {commentEdit ? (
+        <S.DetailCommentEdit
+          autoComplete="off"
+          value={commentEditContent}
+          onChange={onEditChange}
+          placeholder="댓글을 수정해주세요"
+          onKeyPress={onEditKeyPress}
+          type="text"
+        />
+      ) : (
+        <S.DetailComment
+          autoComplete="off"
+          value={comment}
+          onChange={onRegisterChange}
+          placeholder="댓글을 입력해주세요"
+          onKeyPress={onRegisterKeyPress}
+          type="text"
+        />
+      )}
       <S.DetailCommentSubmitContainer>
-        <S.DetailCommentSubmit onClick={onClick} />
+        {commentEdit ? (
+          <S.DetailCommentSubmit onClick={onEditClick} />
+        ) : (
+          <S.DetailCommentSubmit onClick={onRegisterClick} />
+        )}
       </S.DetailCommentSubmitContainer>
     </>
   );

@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import { AiOutlineMore } from "react-icons/ai";
 
 export const HomeContainer = styled.div`
     width:calc(100% - 300px);
     height:calc(100vh - 75px);
-    position:fixed;
+    position:absolute;
     right:0;
     bottom:0;
     display:flex;
     flex-direction:column;
+    background-color:#F2F2F2;
 `;
 
 export const HomeWrap = styled.div`
@@ -17,18 +19,18 @@ export const HomeWrap = styled.div`
     flex-wrap: wrap;
     align-items:center;
     justify-content: center;
-    margin-top: 5px;
-    height: 700px;
+    margin-top: 45px;
+    height: 90%;
     &::-webkit-scrollbar {
         display: none;
     }
 `;
 
-export const HomeMentoReguestContainer = styled.div`
+export const HomeMentoRequestContainer = styled.div`
     width: 912px;
     height: 230px;
     background-color: #FFFFFF;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
     margin-top:5px;
 `;
@@ -49,6 +51,11 @@ export const HomePostLists = styled.div`
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 `;
 
+export const HomeListContainer = styled.div`
+    display:flex;
+    justify-content:space-between;
+`;
+
 export const HomeMiniProfileContainer = styled.div`
     width: 166px;
     height: 46px;
@@ -61,6 +68,11 @@ export const HomeMiniProfile = styled.img`
     border-radius: 81px;
     background-color:gray;
     object-fit:cover;
+`;
+
+export const HomeProfileContainer = styled.div`
+    display:flex;
+    flex-direction:column;
 `;
 
 export const HomeAuthor = styled.span`
@@ -78,6 +90,23 @@ export const HomeDevLogo = styled.img`
 export const HomeClassInfoContainer = styled.div`
     color:#858585;
     margin: 5px 0 0 9px;
+`;
+
+export const HomeAbleContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const HomeAble = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
+export const HomeContentAndImgContainer = styled.div`
+    width:240px;
+    height:228px;
+    margin: 30px 30px 0 0;
 `;
 
 export const HomeContentContainer = styled.div`
@@ -105,9 +134,21 @@ export const HomePostImgNone = styled.div`
     background-color: rgba(0, 0, 0, 0.175);
 `;
 
+export const HomeCommentAndDate = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+`;
+
 export const HomeComment = styled.img`
     width:115px;
     height:42px;
     cursor: pointer;
     margin: 30px 0 0 25px;
+`;
+
+
+
+export const HomeDate = styled.div`
+   margin: 40px 35px 0 0;
 `;

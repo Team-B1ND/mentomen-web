@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGetMember } from "../../../querys/member/member.query";
 import {
   FiledContainer,
@@ -19,11 +19,25 @@ import aprofile from "../../../assets/images/aprofile.png";
 import { FILEDITEM } from "../../../constants/filed/filed";
 import copy from "../../../assets/images/copy.svg";
 import { useNavigate } from "react-router-dom";
+import { useLogOut } from "../../../hooks/logout/useLogOut";
+import { useRecoilState } from "recoil";
+import { USERID, USERPROFILE } from "../../../recoil/user/UserAtom";
 
 const ProfileBar = () => {
   const { data } = useGetMember();
   const navigate = useNavigate();
+  const { onLogOut } = useLogOut();
+  const [userId,SetUserId] = useRecoilState<number>(USERID); //댓글 수정에 필요한 아이디가져오기
+  const [userProfile,SetUserProfile] = useRecoilState<string>(USERPROFILE); // 게시글 수정에 필요한 프로필 정보가져오기
 
+  useEffect(()=>{
+    SetUserId(data?.data.userId!!);
+  },[SetUserId,data?.data.userId]);
+
+  useEffect(()=>{
+    SetUserProfile(data?.data.profileImage!!);
+  },[SetUserProfile,data?.data.profileImage]);
+  
   return (
     <ProfileBarContainer>
       <UserInfo>
@@ -43,7 +57,7 @@ const ProfileBar = () => {
         {FILEDITEM.map((item) => (
           <div
             key={item.color}
-            onClick={() => navigate(`/tag/${item.title}`)}
+            onClick={() => navigate(`/tag/${item.title.toUpperCase()}`)}
             style={{ cursor: "pointer" }}
           >
             <FiledItemWrap>
@@ -59,7 +73,7 @@ const ProfileBar = () => {
           내가 쓴 멘토 요청글
         </MyInfoPathText>
       </MyInfoPathContainer>
-      <LogoutText>로그아웃</LogoutText>
+      <LogoutText onClick={onLogOut}>로그아웃</LogoutText>
     </ProfileBarContainer>
   );
 };

@@ -1,5 +1,8 @@
+import { Suspense } from "react";
 import { useParams } from "react-router-dom";
-import ProfileBar from "../common/Profile";
+import ErrorBoundary from "../common/errorboundary";
+import FallbackSkeletonLists from "../common/fallbackskeleton/lists";
+import ProfileBar from "../common/profile";
 import * as S from "./style";
 import TagLists from "./taglists";
 
@@ -11,7 +14,11 @@ export default function TagList() {
       <ProfileBar />
       <S.TagListContainer>
         <S.TagWrap>
-          <TagLists tag={tag!!} />
+          <ErrorBoundary fallback={<>Error :)</>}>
+            <Suspense fallback={<FallbackSkeletonLists len={6} />}>
+              <TagLists tag={tag!!} />
+            </Suspense>
+          </ErrorBoundary>
         </S.TagWrap>
       </S.TagListContainer>
     </>

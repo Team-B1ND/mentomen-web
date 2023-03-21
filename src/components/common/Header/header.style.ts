@@ -29,7 +29,6 @@ export const HeaderSearchBox = styled.div`
   display: flex;
   width: 600px;
   height: 49px;
-
   padding: 15px;
   border-radius: 10px;
   background: #f2f2f2;
@@ -52,12 +51,26 @@ export const HeaderSearchInput = styled.input`
   font-size: 15px;
 `;
 
+export const HeaderAbleContainer = styled.div`
+  display:flex;
+  flex-direction:row;
+  margin-right: 200px;
+`;
+
+export const HeaderNoticeImg = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-top:2px;
+  margin-right:30px;
+  cursor: pointer;
+`;
+
 export const HeaderIntro = styled.h1`
   color: ${palette.color};
   font-weight: 600;
   font-size: 17px;
   line-height: 40px;
-
+  position:fixed;
+  margin-left:50px;
   cursor: pointer;
-  margin-right: 180px;
 `;

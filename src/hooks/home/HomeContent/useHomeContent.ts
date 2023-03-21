@@ -12,7 +12,7 @@ export const useHomeContent = () => {
   const [imgList, SetImgList] = useRecoilState<string[]>(ImgList);
   const [tag, SetTag] = useRecoilState<string>(Tag);
 
-  const MyPostMutation = usePostMySubmit();
+  const myPostMutation = usePostMySubmit();
   const queryClient = new QueryClient();
 
   const onChange = useCallback(
@@ -23,22 +23,22 @@ export const useHomeContent = () => {
   );
 
   const onSubmit = useCallback(
-    (arr: string[]) => {
+    async (arr: string[],e:React.KeyboardEvent<HTMLTextAreaElement>) => {
       const answer = window.confirm("글을 올리시겠습니까?");
       if (answer === true) {
+        e.preventDefault();
         const data: PostSubmitType = {
           content: text,
           imgUrls: arr,
           tag: tag.toUpperCase(),
         };
-        MyPostMutation.mutate(data, {
+        myPostMutation.mutateAsync(data, {
           onSuccess: () => {
             B1ndToast.showSuccess("글이 등록되었습니다!");
-            queryClient.invalidateQueries("/post/submit");
+            queryClient.invalidateQueries("post/submit");
           },
-          onError: (err: any) => {
+          onError: () => {
             B1ndToast.showError("글을 등록하지 못했습니다!");
-            console.log(err);
           },
           onSettled: () => {
             SetTag("");
@@ -67,10 +67,9 @@ export const useHomeContent = () => {
                 arr.push(value);
               });
             }
-            console.log(arr);
-            onSubmit(arr);
-          } catch (e: any) {
-            console.log(e);
+            onSubmit(arr,e);
+          } catch (err) {
+            console.log(err);
           }
         } else B1ndToast.showInfo("제대로 입력해주세요!");
       }

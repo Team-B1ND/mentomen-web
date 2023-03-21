@@ -3,7 +3,7 @@ import { Response } from "../util/response.type";
 export interface ListItem {
   author: number;
   content:string;
-  createDateTime?:string|number;
+  createDateTime:string;
   imgUrls: [
       string
   ],
@@ -18,6 +18,13 @@ export interface ListItem {
   updateDateTime:string|number;
   updateStatus:string|number;
   userName:string;
+}
+
+export interface ListPatchItem {
+  content: string;
+  imgUrls: string[];
+  postId: number;
+  tag: string;
 }
 
 //단일 게시글 불러오기

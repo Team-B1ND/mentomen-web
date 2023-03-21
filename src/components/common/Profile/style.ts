@@ -106,4 +106,5 @@ export const LogoutText = styled.p`
   text-align: center;
   text-decoration-line: underline;
   color: #858585;
+  cursor: pointer;
 `;

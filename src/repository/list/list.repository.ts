@@ -1,5 +1,5 @@
 import { customAxios } from "../../lib/axios/customAxios";
-import { PostSubmitType } from "../../types/list/list.type";
+import { ListPatchItem, PostSubmitType } from "../../types/list/list.type";
 import { ListResponse, ListItemResponse } from "../../types/list/list.type"; 
 import { ParamType } from "../../types/param/param.type";
 import { TagType, KeyWordType } from "../../types/list/list.type";
@@ -27,6 +27,10 @@ class ListRepository {
   public async getPostByKeyWord({keyword}:KeyWordType):Promise<ListItemResponse>{
     const { data } = await customAxios.get(`post/search/${keyword}`);
     return data
+  }
+
+  public async patchMyPost(data:ListPatchItem):Promise<void>{
+    await customAxios.patch('post/update',data);
   }
 }
 

@@ -21,6 +21,12 @@ export const DetailViewProfileImg = styled.img`
     border-radius: 40px;
 `;
 
+export const DetailViewClassInfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 13px;
+`;
+
 export const DetailViewProfileName = styled.div`
     font-size:20px;
     margin-left:10px;
@@ -39,12 +45,27 @@ export const DetailViewDevLogo = styled.img`
     margin-right:30px;
 `;
 
+export const DetailViewAble = styled.div`
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top:30px;
+`;
+
 export const DetailViewContentContainer = styled.div`
     width:472px;
     height:228px;
     margin-left:30px;
     line-height: 20px;
     font-size:20px;
+`;
+
+export const DetailViewImgContainer = styled.div`
+    width:240px;
+    height:228px;
+    margin-right:30px;
+    display:flex;
+    flex-direction:column;
 `;
 
 export const DetailViewImg = styled.img`
@@ -60,4 +81,10 @@ export const DetailViewNoneImg = styled.div`
     background-color: rgba(0,0,0,0.175);
     text-align:center;
     line-height:228px;
+`;
+
+export const DetailViewDate = styled.div`
+    margin:50px 0 0 100px;
+    font-size:18px;
+    width: 300px;
 `;

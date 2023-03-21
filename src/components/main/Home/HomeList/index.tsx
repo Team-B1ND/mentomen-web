@@ -12,36 +12,29 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
+import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
+import { uploadDateTime } from "../../../../types/util/date/uploadDateTime";
 
 function HomeList() {
   const navigate = useNavigate();
-  const { data: allList } = useGetList(); //모든 게시글 불러오기
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  // console.log(allList);
+  const { data: allList } = useGetList({ suspense: true }); //모든 게시글 불러오기
   return (
     <>
       {allList?.data.map((data) => (
         <S.HomePostLists key={data.postId}>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <S.HomeListContainer>
             <S.HomeMiniProfileContainer>
               <div style={{ display: "flex" }}>
                 <S.HomeMiniProfile
                   src={data?.profileUrl ? data?.profileUrl : aprofile}
                 />
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <S.HomeProfileContainer>
                   <S.HomeAuthor>{data.userName}</S.HomeAuthor>
                   <S.HomeClassInfoContainer>
                     {data.stdInfo.grade}학년 {data.stdInfo.room}반{" "}
                     {data.stdInfo.number}번
                   </S.HomeClassInfoContainer>
-                </div>
+                </S.HomeProfileContainer>
               </div>
             </S.HomeMiniProfileContainer>
 
@@ -59,27 +52,14 @@ function HomeList() {
               }
               alt="개발분야"
             />
-          </div>
+          </S.HomeListContainer>
 
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
+          <S.HomeAbleContainer>
+            <S.HomeAble>
               <S.HomeContentContainer>{data.content}</S.HomeContentContainer>
-              <div
-                style={{
-                  width: "240px",
-                  height: "228px",
-                  marginRight: "30px",
-                  marginTop: "30px",
-                }}
-              >
+              <S.HomeContentAndImgContainer>
                 {data.imgUrls?.length >= 1 ? (
-                  <Slider {...settings}>
+                  <Slider {...useSlideSettings}>
                     {data.imgUrls.map((imgs: string, idx) => {
                       return <S.HomePostImage key={idx} src={imgs} alt="" />;
                     })}
@@ -87,15 +67,19 @@ function HomeList() {
                 ) : (
                   <S.HomePostImgNone>이미지 없음</S.HomePostImgNone>
                 )}
-              </div>
-            </div>
-
-            <S.HomeComment
-              src={commentBt}
-              alt="코멘트"
-              onClick={() => navigate(`/detail/${data.postId}`)}
-            />
-          </div>
+              </S.HomeContentAndImgContainer>
+            </S.HomeAble>
+            <S.HomeCommentAndDate>
+              <S.HomeComment
+                src={commentBt}
+                alt="코멘트"
+                onClick={() => navigate(`/detail/${data.postId}`)}
+              />
+              <S.HomeDate>
+                {uploadDateTime(new Date(data.createDateTime))}
+              </S.HomeDate>
+            </S.HomeCommentAndDate>
+          </S.HomeAbleContainer>
         </S.HomePostLists>
       ))}
     </>

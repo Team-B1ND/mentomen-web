@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IoSend } from "react-icons/io5";
+import { AiOutlineMore } from "react-icons/ai";
 
 export const DetailContainer = styled.div`
     width:calc(100% - 300px);
@@ -28,9 +29,9 @@ export const DetailView = styled.div`
 
 export const DetailCommentForm = styled.form`
     display:flex;
-    margin: 0 auto;
     margin-top:70px;
-    margin-bottom:20px;
+    margin-bottom:10px;
+    justify-content:center;
 `;
 
 
@@ -112,4 +113,29 @@ export const DetailCommentAnswer = styled.div`
     font-size:19px;
     line-height: 50px;
     overflow-y:scroll;
+`;
+
+export const DetailCommentEditCancel = styled.div`
+    cursor: pointer;
+    font-size:20px;
+`;
+
+export const DetailCommentEdit = styled.input`
+    width: 862px;
+    height: 50px;
+    padding-left:20px;
+    font-size:24px;
+    border-radius:40px 0 0 40px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    border:none;
+    outline:none;
+    resize:none;
+`;
+
+export const DetailCommentMoreBtn = styled(AiOutlineMore)`
+    line-height:60px;
+    width: 30px;
+    height: 30px;
+    margin-left:20px;
+    cursor: pointer;
 `;
