@@ -1,9 +1,8 @@
 import * as S from "../style";
-import { useDetailCommentWrite } from "../../../hooks/detail/detailComment/useDetailCommentWrite";
+import { useDetailCommentWrite } from "../../../hooks/detail/DetailComment/useDetailCommentWrite";
 import { CommentEdit, CommentId } from "../../../recoil/detail/DetailAtom";
 import { useRecoilState } from "recoil";
-import { useDeleteCommentEdit } from "../../../hooks/detail/detailComment/useDetailCommentEdit";
-
+import { useDeleteCommentEdit } from "../../../hooks/detail/DetailComment/useDetailCommentEdit";
 interface Props {
   postId: number;
 }

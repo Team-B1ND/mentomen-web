@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { useDetailCommentDelete } from "../../../../hooks/detail/detailComment/useDetailCommentDelete";
+import { useDetailCommentDelete } from "../../../../hooks/detail/DetailComment/useDetailCommentDelete";
 import {
   CommentEdit,
   CommentModal,
