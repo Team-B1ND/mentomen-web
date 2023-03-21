@@ -27,9 +27,8 @@ export function useDeleteCommentEdit(commentPostId:number){
                     onSuccess:() => {
                         B1ndToast.showSuccess('댓글을 수정했습니다!');
                     },
-                    onError:(e) => {
+                    onError:() => {
                         B1ndToast.showError('댓글 수정을 하지 못했습니다!');
-                        console.log(e);
                     },
                     onSettled:() => {
                         SetCommentEdit(!commentEdit);

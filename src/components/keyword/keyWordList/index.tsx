@@ -12,14 +12,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
-import { uploadDateTime } from "../../../hooks/date/uploadDateTime";
+import { uploadDateTime } from "../../../types/util/date/uploadDateTime";
 
 interface Props {
   keyword: string;
 }
 
 export default function KeyWordList({ keyword }: Props) {
-  const { data: getKeyWord } = useGetKeyWord({ keyword },{suspense:true});
+  const { data: getKeyWord } = useGetKeyWord({ keyword }, { suspense: true });
   const navigate = useNavigate();
 
   return (
@@ -80,12 +80,14 @@ export default function KeyWordList({ keyword }: Props) {
               </S.KeyWordModAbleContainer>
 
               <S.KeyWordCommentAndDate>
-              <S.KeyWordComment
-                src={commentBt}
-                alt="코멘트"
-                onClick={() => navigate(`/detail/${data.postId}`)}
-              />
-              <S.KeyWordDate>{uploadDateTime(new Date(data.createDateTime))}</S.KeyWordDate>
+                <S.KeyWordComment
+                  src={commentBt}
+                  alt="코멘트"
+                  onClick={() => navigate(`/detail/${data.postId}`)}
+                />
+                <S.KeyWordDate>
+                  {uploadDateTime(new Date(data.createDateTime))}
+                </S.KeyWordDate>
               </S.KeyWordCommentAndDate>
             </S.KeyWordModContainer>
           </S.KeyWordPostLists>

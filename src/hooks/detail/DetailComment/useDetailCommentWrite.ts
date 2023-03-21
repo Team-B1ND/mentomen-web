@@ -28,8 +28,7 @@ export const useDetailCommentWrite = (postId: number) => {
               SetComment("");
               queryClient.invalidateQueries(["comment/submit", postId]);
             },
-            onError: (err: any) => {
-              console.log(err);
+            onError: () => {
               B1ndToast.showError("댓글을 작성하지 못했습니다!");
             },
           }

@@ -21,9 +21,8 @@ export function useDetailCommentDelete() {
             B1ndToast.showSuccess('댓글이 삭제되었습니다!');
             queryClient.invalidateQueries('/comment/delete');
         },
-        onError: (e) => {
+        onError: () => {
             B1ndToast.showError('댓글을 삭제하지 못했습니다!');
-            console.log(e);
         }
       });
     }

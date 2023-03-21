@@ -24,7 +24,7 @@ import {
   TagPrev,
 } from "../../../recoil/mypage/mypageAtom";
 import { ContentPrev } from "../../../recoil/detail/DetailAtom";
-import { uploadDateTime } from "../../../hooks/date/uploadDateTime";
+import { uploadDateTime } from "../../../types/util/date/uploadDateTime";
 
 function MyPageList() {
   const navigate = useNavigate();
@@ -115,7 +115,9 @@ function MyPageList() {
                   onClick={() => navigate(`/detail/${data.postId}`)}
                 />
                 <S.MyPageDelAndEditAndDateContainer>
-                  <S.MyPageDate>{uploadDateTime(new Date(data.createDateTime))}</S.MyPageDate>
+                  <S.MyPageDate>
+                    {uploadDateTime(new Date(data.createDateTime))}
+                  </S.MyPageDate>
                   <S.MyPageDelAndEdit
                     onClick={() => {
                       SetMyPageModal(true);
