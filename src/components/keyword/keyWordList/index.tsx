@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
+import { uploadDateTime } from "../../../hooks/date/uploadDateTime";
 
 interface Props {
   keyword: string;
@@ -84,7 +85,7 @@ export default function KeyWordList({ keyword }: Props) {
                 alt="코멘트"
                 onClick={() => navigate(`/detail/${data.postId}`)}
               />
-              <S.KeyWordDate>{new Date(data.createDateTime).toLocaleString()}</S.KeyWordDate>
+              <S.KeyWordDate>{uploadDateTime(new Date(data.createDateTime))}</S.KeyWordDate>
               </S.KeyWordCommentAndDate>
             </S.KeyWordModContainer>
           </S.KeyWordPostLists>

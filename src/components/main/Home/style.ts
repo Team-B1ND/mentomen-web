@@ -150,5 +150,5 @@ export const HomeComment = styled.img`
 
 
 export const HomeDate = styled.div`
-    margin:50px 35px 0 0;
+   margin: 40px 35px 0 0;
 `;
