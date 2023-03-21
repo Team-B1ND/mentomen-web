@@ -1,7 +1,7 @@
 import * as S from "./style";
 import React, { Suspense } from "react";
 import { useUserInfo } from "../../querys/user/user.query";
-import ProfileBar from "../common/Profile";
+import ProfileBar from "../common/profile";
 import MyPageList from "./myPageList";
 import ErrorBoundary from "../common/errorboundary";
 import FallbackSkeletonLists from "../common/fallbackskeleton/lists";
