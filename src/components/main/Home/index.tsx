@@ -8,13 +8,16 @@ import ProfileBar from "../../common/profile";
 import ErrorBoundary from "../../common/errorboundary";
 import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
 import MypageModal from "../../mypage/mypageModal";
-import { MypageEditModal, MyPageModal } from "../../../recoil/mypage/mypageAtom";
+import {
+  MypageEditModal,
+  MyPageModal,
+} from "../../../recoil/mypage/mypageAtom";
 import { useRecoilState } from "recoil";
-import MyPageEditModal from "../../mypage/mypageModal/mypageEditModal/indext";
+import MyPageEditModal from "../../mypage/mypageModal/mypageEditModal";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();
-  const [myPageModal,SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
+  const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
   const navigate = useNavigate();
   if (!isAuthority) {
     window.alert("유효한토큰");

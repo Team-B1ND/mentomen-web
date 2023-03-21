@@ -1,4 +1,4 @@
-import PageTemplate from "./components/common/pageTemplate/pageTemplate";
+import PageTemplate from "./components/common/PageTemplate/PageTemplate";
 import Router from "./router/router";
 import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
