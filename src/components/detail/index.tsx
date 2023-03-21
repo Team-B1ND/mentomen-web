@@ -3,7 +3,7 @@ import DetailViewMore from "./detailViewMore";
 import * as S from "./style";
 import DetailCommentLists from "./detailCommentList";
 import DetailCommentWrite from "./detailCommentWrite";
-import ProfileBar from "../common/profile";
+import ProfileBar from "../common/Profile";
 import { useRecoilState } from "recoil";
 import { CommentModal } from "../../recoil/detail/DetailAtom";
 import DetailCommentModal from "./detailCommentList/detailCommentModal";
