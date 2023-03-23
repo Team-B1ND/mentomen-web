@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import DetailViewImg from "./DetailViewImg";
 import { useRecoilState } from "recoil";
 import { ImgModal } from "../../../recoil/Detail/DetailAtom";
-import { useSlideSettings } from "../../../hooks/Slide/useSlideSetting";
+import { useSlideSettings } from "../../../types/Slide/slide.type";
 import { uploadDateTime } from "../../../util/Date/uploadDateTime";
 
 export default function DetailViewMore({ postId }: ParamType) {

@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { ImgList } from "../../../../../recoil/Home/HomeAtom";
 import uploadImg from "../../.././../.././assets/images/uploadImg.svg";
 import { useRef, useCallback } from "react";
-import { useSlideSettings } from "../../../../../hooks/Slide/useSlideSetting";
+import { useSlideSettings } from "../../../../../types/Slide/slide.type";
 
 export default function HomeImgShow() {
   const [imgList, SetImgList] = useRecoilState<string[]>(ImgList);

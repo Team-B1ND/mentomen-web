@@ -1,5 +1,5 @@
 import IOStest from "../../../assets/logo/IOStest.png";
-import StartButton from "../../Common/Button/StartButton";
+import StartButton from "../../Common/Button/StartButton";
 import {
   StartContainer,
   StartImg,

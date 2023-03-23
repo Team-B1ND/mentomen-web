@@ -4,9 +4,9 @@ import * as S from "./style";
 import { useRecoilState } from "recoil";
 import { MyPageModal } from "../../recoil/MyPage/mypageAtom";
 import MypageModal from "./MyPageModal";
-import ProfileBar from "../\bCommon/Profile";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import FallbackSkeletonLists from "../Common/FallbackSkelethon/Lists";
+import ProfileBar from "../Common/Profile";
+import ErrorBoundary from "../Common/ErrorBoundary";
+import FallbackSkeletonLists from "../Common/FallbackSkelethon/Lists";
 import MyPageList from "./MyPageList";
 
 function Mypage() {

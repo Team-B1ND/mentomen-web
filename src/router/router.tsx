@@ -7,7 +7,7 @@ import IntroducePage from "../pages/IntroducePage";
 import MyPage from "../pages/MyPage";
 import StartPage from "../pages/StartPage";
 import KeyWord from "../components/Keyword";
-import NotFound from "../components/\bCommon/NotFound";
+import NotFound from "../components/Common/NotFound";
 
 function Router() {
   return (

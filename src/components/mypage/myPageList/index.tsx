@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ListItem } from "../../../types/List/list.type";
 import React from "react";
 import { useMyPost } from "../../../querys/User/user.query";
-import { useSlideSettings } from "../../../hooks/Slide/useSlideSetting";
+import { useSlideSettings } from "../../../types/Slide/slide.type";
 import { useRecoilState } from "recoil";
 import {
   MyPageModal,

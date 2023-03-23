@@ -3,13 +3,13 @@ import * as S from "./style";
 import { useRecoilState } from "recoil";
 import { CommentModal } from "../../recoil/Detail/DetailAtom";
 import { Suspense } from "react";
-import ProfileBar from "../\bCommon/Profile";
-import FallbackSkeletonLists from "../Common/FallbackSkelethon/Lists";
-import ErrorBoundary from "../Common/ErrorBoundary";
+import ProfileBar from "../Common/Profile";
+import FallbackSkeletonLists from "../Common/FallbackSkelethon/Lists";
+import ErrorBoundary from "../Common/ErrorBoundary";
 import DetailViewMore from "./detailViewMore";
 import DetailCommentWrite from "./detailCommentWrite";
 import DetailCommentList from "./detailCommentList";
-import FallbackSkeletonDetailComments from "../Common/FallbackSkelethon/Detail/Comments";
+import FallbackSkeletonDetailComments from "../Common/FallbackSkelethon/Detail/Comments";
 import DetailCommentModal from "./detailCommentList/detailCommentModal";
 
 export default function Detail() {

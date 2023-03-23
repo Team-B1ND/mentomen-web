@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useCallback, useRef } from "react";
 import { useRecoilState } from "recoil";
-import { useSlideSettings } from "../../../../../../hooks/Slide/useSlideSetting";
+import { useSlideSettings } from "../../../../../../types/Slide/slide.type";
 import { MyPostImg } from "../../../../../../recoil/MyPage/mypageAtom";
 import uploadImg from "../../../../.././../assets/images/uploadImg.svg";
 import * as S from "../../../../../Main/Home/HomeMentoRequest/style";

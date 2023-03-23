@@ -8,11 +8,11 @@ import {
 } from "../../../recoil/MyPage/mypageAtom";
 import { useRecoilState } from "recoil";
 import useTokenCheck from "../../../hooks/\bAuth/useTokenCheck";
-import ProfileBar from "../../\bCommon/Profile";
+import ProfileBar from "../../Common/Profile";
 import HomeMentoRequest from "./HomeMentoRequest";
 import HomeList from "./HomeList";
-import ErrorBoundary from "../../Common/ErrorBoundary";
-import FallbackSkeletonLists from "../../Common/FallbackSkelethon/Lists";
+import ErrorBoundary from "../../Common/ErrorBoundary";
+import FallbackSkeletonLists from "../../Common/FallbackSkelethon/Lists";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();

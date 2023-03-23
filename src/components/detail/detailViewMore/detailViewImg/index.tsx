@@ -5,7 +5,7 @@ import * as S from "./style";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useSlideSettings } from "../../../../hooks/Slide/useSlideSetting";
+import { useSlideSettings } from "../../../../types/Slide/slide.type";
 
 interface Props {
   Img: string[];
