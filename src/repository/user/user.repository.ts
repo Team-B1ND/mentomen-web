@@ -1,7 +1,7 @@
 import CONFIG from "../../config/config.json";
 import { customAxios } from "../../lib/Axios/customAxios";
 import { ListItemResponse } from "../../types/List/list.type";
-import { UserResponse } from "../../types/user/user.type";
+import { UserResponse } from "../../types/User/user.type";
 
 class UserRepository {
   public async getUser(): Promise<UserResponse> {

@@ -14,7 +14,7 @@ import DetailViewImg from "./detailViewImg";
 import { useRecoilState } from "recoil";
 import { ImgModal } from "../../../recoil/Detail/DetailAtom";
 import { useSlideSettings } from "../../../hooks/Slide/useSlideSetting";
-import { uploadDateTime } from "../../../types/Util/date/uploadDateTime";
+import { uploadDateTime } from "../../../util/Date/uploadDateTime";
 
 export default function DetailViewMore({ postId }: ParamType) {
   const { data: getPost } = useGetApost({ postId }, { suspense: true }); //게시글 정보 가져오기

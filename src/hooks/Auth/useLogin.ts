@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { ACCESS_KEY, REFRESH_KEY } from "../../constants/Auth/auth.constant";
-import authRepository from "../../repository/auth/auth.repository";
+import authRepository from "../../repository/Auth/auth.repository";
 import { useCallback, useEffect } from "react";
 import QueryString from "query-string";
 

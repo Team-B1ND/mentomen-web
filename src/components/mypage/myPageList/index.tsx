@@ -24,7 +24,7 @@ import {
   TagPrev,
 } from "../../../recoil/MyPage/mypageAtom";
 import { ContentPrev } from "../../../recoil/Detail/DetailAtom";
-import { uploadDateTime } from "../../../types/Util/date/uploadDateTime";
+import { uploadDateTime } from "../../../util/Date/uploadDateTime";
 
 function MyPageList() {
   const navigate = useNavigate();

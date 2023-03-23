@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import DetailViewMore from "./detailViewMore";
 import * as S from "./style";
-import DetailCommentLists from "./detailCommentList";
-import DetailCommentWrite from "./detailCommentWrite";
 import { useRecoilState } from "recoil";
 import { CommentModal } from "../../recoil/Detail/DetailAtom";
-import DetailCommentModal from "./detailCommentList/detailCommentModal";
 import { Suspense } from "react";
-import FallbackSkeletonLists from "../Common/fallbackskeleton/lists";
-import ErrorBoundary from "../Common/errorboundary";
-import FallbackSkeletonDetailComments from "../Common/fallbackskeleton/detail/comments";
-import ProfileBar from "../Common/Profile";
+import ProfileBar from "../\bCommon/Profile";
+import FallbackSkeletonLists from "../\bCommon/fallbackskeleton/lists";
+import ErrorBoundary from "../\bCommon/errorboundary";
+import DetailViewMore from "./detailViewMore";
+import DetailCommentWrite from "./detailCommentWrite";
+import DetailCommentList from "./detailCommentList";
+import FallbackSkeletonDetailComments from "../\bCommon/fallbackskeleton/detail/comments";
+import DetailCommentModal from "./detailCommentList/detailCommentModal";
 
 export default function Detail() {
   const { postId } = useParams();
@@ -36,7 +36,7 @@ export default function Detail() {
         <S.DetailCommentsWrap>
           <ErrorBoundary fallback={<>Error :)</>}>
             <Suspense fallback={<FallbackSkeletonDetailComments />}>
-              <DetailCommentLists postId={Number(postId)} />
+              <DetailCommentList postId={Number(postId)} />
             </Suspense>
           </ErrorBoundary>
         </S.DetailCommentsWrap>

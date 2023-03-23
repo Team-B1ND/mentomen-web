@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Detail from "../components/detail";
-import TagList from "../components/tag";
-import AuthLoadingPage from "../pages/auth/AuthLoadingPage";
+import Detail from "../components/Detail";
+import TagList from "../components/Tag";
+import AuthLoadingPage from "../pages/Auth/AuthLoadingPage";
 import HomePage from "../pages/HomePage";
 import IntroducePage from "../pages/IntroducePage";
 import MyPage from "../pages/MyPage";
 import StartPage from "../pages/StartPage";
-import KeyWord from "../components/keyword";
-import NotFound from "../components/Common/NotFound";
+import KeyWord from "../components/Keyword";
+import NotFound from "../components/\bCommon/NotFound";
 
 function Router() {
   return (

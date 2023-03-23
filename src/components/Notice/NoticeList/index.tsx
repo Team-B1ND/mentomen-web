@@ -4,7 +4,7 @@ import { useGetNoticeList } from "../../../querys/Notice/notice.query";
 import { NOTICE } from "../../../recoil/Notice/noticeAtom";
 import * as S from "../style";
 import aprofile from "../../../assets/images/aprofile.png";
-import { uploadDateTime } from "../../../types/Util/date/uploadDateTime";
+import { uploadDateTime } from "../../../util/Date/uploadDateTime";
 
 export default function NoticeLists() {
   const navigate = useNavigate();

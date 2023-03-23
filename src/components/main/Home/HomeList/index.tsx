@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import { useSlideSettings } from "../../../../hooks/Slide/useSlideSetting";
-import { uploadDateTime } from "../../../../types/Util/date/uploadDateTime";
+import { uploadDateTime } from "../../../../util/Date/uploadDateTime";
 
 function HomeList() {
   const navigate = useNavigate();

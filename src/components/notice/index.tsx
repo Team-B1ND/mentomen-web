@@ -1,11 +1,10 @@
 import { Suspense, useEffect } from "react";
 import { useRecoilState } from "recoil";
+import ErrorBoundary from "../\bCommon/errorboundary";
+import FallbackSkeletonNotice from "../\bCommon/fallbackskeleton/notice";
 import { NOTICE } from "../../recoil/Notice/noticeAtom";
-import * as S from "./style";
 import NoticeLists from "./NoticeList";
-import ErrorBoundary from "../Common/errorboundary";
-import FallbackSkeletonNotice from "../Common/fallbackskeleton/notice";
-
+import * as S from "./style";
 export default function Notice() {
   const [NoticeModal, SetNoticeModal] = useRecoilState<boolean>(NOTICE);
 

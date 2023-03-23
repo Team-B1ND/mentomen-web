@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
-import ErrorBoundary from "../Common/errorboundary";
-import FallbackSkeletonLists from "../Common/fallbackskeleton/lists";
-import ProfileBar from "../Common/Profile";
+import ErrorBoundary from "../\bCommon/errorboundary";
+import FallbackSkeletonLists from "../\bCommon/fallbackskeleton/lists";
+import ProfileBar from "../\bCommon/Profile";
 import * as S from "./style";
-import TagLists from "./taglists";
+import TagLists from "./TagLists";
 
 export default function TagList() {
   const { tag } = useParams();
