@@ -10,7 +10,7 @@ import web from ".././../.././assets/logo/Web1.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import DetailViewImg from "./detailViewImg";
+import DetailViewImg from "./DetailViewImg";
 import { useRecoilState } from "recoil";
 import { ImgModal } from "../../../recoil/Detail/DetailAtom";
 import { useSlideSettings } from "../../../hooks/Slide/useSlideSetting";

@@ -4,12 +4,12 @@ import { useRecoilState } from "recoil";
 import { CommentModal } from "../../recoil/Detail/DetailAtom";
 import { Suspense } from "react";
 import ProfileBar from "../\bCommon/Profile";
-import FallbackSkeletonLists from "../\bCommon/fallbackskeleton/lists";
-import ErrorBoundary from "../\bCommon/errorboundary";
+import FallbackSkeletonLists from "../Common/FallbackSkelethon/Lists";
+import ErrorBoundary from "../Common/ErrorBoundary";
 import DetailViewMore from "./detailViewMore";
 import DetailCommentWrite from "./detailCommentWrite";
 import DetailCommentList from "./detailCommentList";
-import FallbackSkeletonDetailComments from "../\bCommon/fallbackskeleton/detail/comments";
+import FallbackSkeletonDetailComments from "../Common/FallbackSkelethon/Detail/Comments";
 import DetailCommentModal from "./detailCommentList/detailCommentModal";
 
 export default function Detail() {

@@ -11,8 +11,8 @@ import useTokenCheck from "../../../hooks/\bAuth/useTokenCheck";
 import ProfileBar from "../../\bCommon/Profile";
 import HomeMentoRequest from "./HomeMentoRequest";
 import HomeList from "./HomeList";
-import ErrorBoundary from "../../\bCommon/errorboundary";
-import FallbackSkeletonLists from "../../\bCommon/fallbackskeleton/lists";
+import ErrorBoundary from "../../Common/ErrorBoundary";
+import FallbackSkeletonLists from "../../Common/FallbackSkelethon/Lists";
 
 const Home = () => {
   const { isAuthority } = useTokenCheck();

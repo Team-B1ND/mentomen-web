@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import ErrorBoundary from "../\bCommon/errorboundary";
-import FallbackSkeletonNotice from "../\bCommon/fallbackskeleton/notice";
+import ErrorBoundary from "../Common/ErrorBoundary";
+import FallbackSkeletonNotice from "../Common/FallbackSkelethon/notice";
 import { NOTICE } from "../../recoil/Notice/noticeAtom";
 import NoticeLists from "./NoticeList";
 import * as S from "./style";
