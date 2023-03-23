@@ -1,6 +1,6 @@
 import React from "react";
 import IOStest from "../../../../assets/logo/IOStest.png";
-import StartButton from "../../../Button/StartButton";
+import StartButton from "../../../Common/Button/StartButton";
 import {
   ThirdSection,
   ThirdSectionImg,

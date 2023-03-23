@@ -1,4 +1,4 @@
-import config from "../../../config/config.json";
+import config from "../../../../config/config.json";
 import { BtnText, StartBtn } from "./style";
 
 function StartButton() {
