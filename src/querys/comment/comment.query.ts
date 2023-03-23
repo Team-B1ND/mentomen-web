@@ -1,12 +1,17 @@
 import { AxiosError } from "axios";
-import { UseBaseQueryResult, useMutation, useQuery, UseQueryOptions } from "react-query";
-import CommentRepository from "../../repository/comment/comment.repository";
+import {
+  UseBaseQueryResult,
+  useMutation,
+  useQuery,
+  UseQueryOptions,
+} from "react-query";
+import CommentRepository from "../../repository/Comment/comment.repository";
 import {
   getCommentResponse,
   patchCommentType,
   postCommentType,
-} from "../../types/comment/comment.type";
-import { ParamType } from "../../types/param/param.type";
+} from "../../types/Comment/comment.type";
+import { ParamType } from "../../types/Param/param.type";
 
 export const usePostComment = () => {
   const mutation = useMutation(
@@ -20,17 +25,19 @@ export const usePostComment = () => {
 
 export const useGetComment = (
   { postId }: ParamType,
-  options?:UseQueryOptions<
+  options?: UseQueryOptions<
     getCommentResponse,
     AxiosError,
     getCommentResponse,
     ["comment/read", number]
-    >
-  ):UseBaseQueryResult<getCommentResponse,AxiosError> =>
-  useQuery(["comment/read", postId], () =>
-    CommentRepository.getComment({ postId }),{
+  >
+): UseBaseQueryResult<getCommentResponse, AxiosError> =>
+  useQuery(
+    ["comment/read", postId],
+    () => CommentRepository.getComment({ postId }),
+    {
       ...options,
-      enabled:!!postId,
+      enabled: !!postId,
     }
   );
 

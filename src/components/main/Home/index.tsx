@@ -1,17 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import React, { Suspense } from "react";
-import useTokenCheck from "../../../hooks/auth/useTokenCheck";
+import useTokenCheck from "../../../hooks/Auth/useTokenCheck";
 import * as S from "./style";
 import HomeMentoRequest from "./HomeMentoRequest";
 import HomeList from "./HomeList";
-import ProfileBar from "../../common/profile";
-import ErrorBoundary from "../../common/errorboundary";
-import FallbackSkeletonLists from "../../common/fallbackskeleton/lists";
-import MypageModal from "../../mypage/mypageModal";
+import ProfileBar from "../../Common/Profile";
+import ErrorBoundary from "../../Common/errorboundary";
+import FallbackSkeletonLists from "../../Common/fallbackskeleton/lists";
+import MypageModal from "../../MyPage/MyPageModal";
 import {
   MypageEditModal,
   MyPageModal,
-} from "../../../recoil/mypage/mypageAtom";
+} from "../../../recoil/MyPage/mypageAtom";
 import { useRecoilState } from "recoil";
 
 const Home = () => {

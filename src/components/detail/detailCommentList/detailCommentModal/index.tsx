@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { useDetailCommentDelete } from "../../../../hooks/detail/DetailComment/useDetailCommentDelete";
+import { useDetailCommentDelete } from "../../../../hooks/Detail/DetailComment/useDetailCommentDelete";
 import {
   CommentEdit,
   CommentModal,
   CommentId,
   CommentContent,
   ContentPrev,
-} from "../../../../recoil/detail/DetailAtom";
+} from "../../../../recoil/Detail/DetailAtom";
 import * as S from "./style";
 export default function DetailCommentModal() {
   const [commentModal, SetCommentModal] = useRecoilState<boolean>(CommentModal);

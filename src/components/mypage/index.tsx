@@ -1,13 +1,13 @@
 import * as S from "./style";
 import React, { Suspense } from "react";
-import { useUserInfo } from "../../querys/user/user.query";
-import ProfileBar from "../common/profile";
-import MyPageList from "./myPageList";
-import ErrorBoundary from "../common/errorboundary";
-import FallbackSkeletonLists from "../common/fallbackskeleton/lists";
+import { useUserInfo } from "../../querys/User/user.query";
+import ProfileBar from "../Common/Profile";
+import MyPageList from "./MyPageList";
+import ErrorBoundary from "../Common/errorboundary";
+import FallbackSkeletonLists from "../Common/fallbackskeleton/lists";
 import { useRecoilState } from "recoil";
-import { MyPageModal } from "../../recoil/mypage/mypageAtom";
-import MypageModal from "./mypageModal";
+import { MyPageModal } from "../../recoil/MyPage/mypageAtom";
+import MypageModal from "./MyPageModal";
 
 function Mypage() {
   const { data: UserInfo } = useUserInfo();

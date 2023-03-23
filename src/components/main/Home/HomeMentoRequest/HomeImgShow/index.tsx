@@ -3,10 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRecoilState } from "recoil";
-import { ImgList } from "../../../../../recoil/home/HomeAtom";
+import { ImgList } from "../../../../../recoil/Home/HomeAtom";
 import uploadImg from "../../.././../.././assets/images/uploadImg.svg";
 import { useRef, useCallback } from "react";
-import { useSlideSettings } from "../../../../../hooks/slide/useSlideSetting";
+import { useSlideSettings } from "../../../../../hooks/Slide/useSlideSetting";
 
 export default function HomeImgShow() {
   const [imgList, SetImgList] = useRecoilState<string[]>(ImgList);

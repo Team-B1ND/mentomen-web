@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import { useRecoilState } from "recoil";
-import { MypageEditModal } from "../../../recoil/mypage/mypageAtom";
-import { NOTICE } from "../../../recoil/notice/noticeAtom";
+import { MypageEditModal } from "../../../recoil/MyPage/mypageAtom";
+import { NOTICE } from "../../../recoil/Notice/noticeAtom";
 import GlobalStyle from "../../../style/Global";
-import MyPageEditModal from "../../mypage/mypageModal/mypageEditModal";
-import Notice from "../../notice";
-import Header from "../header/header";
+import MyPageEditModal from "../../MyPage/MyPageModal/mypageEditModal";
+import Notice from "../../Notice";
+import Header from "../Header/header";
 
 interface Props {
   children: ReactNode;

@@ -2,19 +2,19 @@ import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useCallback } from "react";
 import { QueryClient } from "react-query";
 import { useRecoilState } from "recoil";
-import { customAxios } from "../../lib/axios/customAxios";
-import { usePatchMyPost } from "../../querys/list/list.query";
-import { ContentPrev } from "../../recoil/detail/DetailAtom";
+import { customAxios } from "../../lib/Axios/customAxios";
+import { usePatchMyPost } from "../../querys/List/list.query";
+import { ContentPrev } from "../../recoil/Detail/DetailAtom";
 import {
-    MypageEditModal,
+  MypageEditModal,
   MyPageModal,
   MyPagePostId,
   MyPostContent,
   MyPostImg,
   MyPostTag,
   TagPrev,
-} from "../../recoil/mypage/mypageAtom";
-import { ListPatchItem } from "../../types/list/list.type";
+} from "../../recoil/MyPage/mypageAtom";
+import { ListPatchItem } from "../../types/List/list.type";
 
 export function useMyPostEdit() {
   const [myPostContent, SetMyPostContent] =
@@ -26,7 +26,7 @@ export function useMyPostEdit() {
   const [myPagePostId, SetMyPagePostId] = useRecoilState<number>(MyPagePostId);
   const [myPageEditModal, SetMyPageEditModal] =
     useRecoilState<boolean>(MypageEditModal);
-    const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
+  const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
 
   const queryClient = new QueryClient();
   const patchPost = usePatchMyPost();
@@ -61,7 +61,7 @@ export function useMyPostEdit() {
           },
           onSettled: () => {
             SetMyPostImg([]);
-          }
+          },
         });
       }
     },
@@ -75,7 +75,11 @@ export function useMyPostEdit() {
   const onMyPageEditKeyPress = useCallback(
     async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if (e.key === "Enter") {
-        if ((myPostContent !== "" && myPostContent !== contentPrev) || myPostTag !== tagPev || myPostImg.length >=1) {
+        if (
+          (myPostContent !== "" && myPostContent !== contentPrev) ||
+          myPostTag !== tagPev ||
+          myPostImg.length >= 1
+        ) {
           const arr: string[] = [];
           const formData = new FormData();
           try {
@@ -95,7 +99,7 @@ export function useMyPostEdit() {
         } else B1ndToast.showInfo("제대로 입력해주세요!");
       }
     },
-    [contentPrev, myPostContent, myPostTag, tagPev, myPostImg,onPatch]
+    [contentPrev, myPostContent, myPostTag, tagPev, myPostImg, onPatch]
   );
   return {
     myPostContent,

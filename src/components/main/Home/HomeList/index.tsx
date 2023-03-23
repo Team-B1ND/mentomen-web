@@ -6,14 +6,14 @@ import server from ".././.././../.././assets/logo/Server.svg";
 import web from ".././.././../.././assets/logo/Web1.svg";
 import commentBt from ".././.././../.././assets/images/CommentBt.png";
 import aprofile from ".././.././../.././assets/images/aprofile.png";
-import { useGetList } from "../../../../querys/list/list.query";
+import { useGetList } from "../../../../querys/List/list.query";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
-import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
-import { uploadDateTime } from "../../../../types/util/date/uploadDateTime";
+import { useSlideSettings } from "../../../../hooks/Slide/useSlideSetting";
+import { uploadDateTime } from "../../../../types/Util/date/uploadDateTime";
 
 function HomeList() {
   const navigate = useNavigate();

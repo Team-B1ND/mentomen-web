@@ -10,10 +10,10 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ListItem } from "../../../types/list/list.type";
+import { ListItem } from "../../../types/List/list.type";
 import React from "react";
-import { useMyPost } from "../../../querys/user/user.query";
-import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
+import { useMyPost } from "../../../querys/User/user.query";
+import { useSlideSettings } from "../../../hooks/Slide/useSlideSetting";
 import { useRecoilState } from "recoil";
 import {
   MyPageModal,
@@ -22,9 +22,9 @@ import {
   MyPostImg,
   MyPostTag,
   TagPrev,
-} from "../../../recoil/mypage/mypageAtom";
-import { ContentPrev } from "../../../recoil/detail/DetailAtom";
-import { uploadDateTime } from "../../../types/util/date/uploadDateTime";
+} from "../../../recoil/MyPage/mypageAtom";
+import { ContentPrev } from "../../../recoil/Detail/DetailAtom";
+import { uploadDateTime } from "../../../types/Util/date/uploadDateTime";
 
 function MyPageList() {
   const navigate = useNavigate();

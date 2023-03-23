@@ -1,4 +1,4 @@
-import { useGetKeyWord } from "../../../querys/list/list.query";
+import { useGetKeyWord } from "../../../querys/List/list.query";
 import * as S from "../style";
 import android from "../.././../assets/logo/Android.svg";
 import design from "../.././../assets/logo/Design.svg";
@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useSlideSettings } from "../../../hooks/slide/useSlideSetting";
-import { uploadDateTime } from "../../../types/util/date/uploadDateTime";
+import { useSlideSettings } from "../../../hooks/Slide/useSlideSetting";
+import { uploadDateTime } from "../../../types/Util/date/uploadDateTime";
 
 interface Props {
   keyword: string;

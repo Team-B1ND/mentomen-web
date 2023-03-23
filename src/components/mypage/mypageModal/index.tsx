@@ -1,13 +1,18 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { useDelMyPost } from "../../../hooks/del/mypage/useDelMyPost";
-import { MypageEditModal, MyPageModal, MyPagePostId } from "../../../recoil/mypage/mypageAtom";
+import { useDelMyPost } from "../../../hooks/Delete/MyPage/useDelMyPost";
+import {
+  MypageEditModal,
+  MyPageModal,
+  MyPagePostId,
+} from "../../../recoil/MyPage/mypageAtom";
 import * as S from "./style";
 
 export default function MypageModal() {
   const [myPageModal, SetMyPageModal] = useRecoilState<boolean>(MyPageModal);
   const [myPagePostId, SetMyPagePostId] = useRecoilState<number>(MyPagePostId);
-  const [myPageEditModal,SetMyPageEditModal] = useRecoilState<boolean>(MypageEditModal);
+  const [myPageEditModal, SetMyPageEditModal] =
+    useRecoilState<boolean>(MypageEditModal);
   const { onMyPostDelete } = useDelMyPost();
 
   useEffect(() => {
@@ -24,21 +29,21 @@ export default function MypageModal() {
   }, []);
   return (
     <>
-    <S.MyPageModalContainer onClick={() => SetMyPageModal(false)}>
-      <S.MyPageModalLayOut onClick={(e) => e.stopPropagation()}>
-        <S.MyPageDeleteContainer>
-          <S.MyPageDelete onClick={() => onMyPostDelete(myPagePostId)}>
-            삭제하기
-          </S.MyPageDelete>
-        </S.MyPageDeleteContainer>
-        <S.MyPageModalLine />
-        <S.MyPageModifyContainer>
-          <S.MyPageModify onClick={()=>SetMyPageEditModal(true)}>
-            수정하기
-          </S.MyPageModify>
-        </S.MyPageModifyContainer>
-      </S.MyPageModalLayOut>
-    </S.MyPageModalContainer>
+      <S.MyPageModalContainer onClick={() => SetMyPageModal(false)}>
+        <S.MyPageModalLayOut onClick={(e) => e.stopPropagation()}>
+          <S.MyPageDeleteContainer>
+            <S.MyPageDelete onClick={() => onMyPostDelete(myPagePostId)}>
+              삭제하기
+            </S.MyPageDelete>
+          </S.MyPageDeleteContainer>
+          <S.MyPageModalLine />
+          <S.MyPageModifyContainer>
+            <S.MyPageModify onClick={() => SetMyPageEditModal(true)}>
+              수정하기
+            </S.MyPageModify>
+          </S.MyPageModifyContainer>
+        </S.MyPageModalLayOut>
+      </S.MyPageModalContainer>
     </>
   );
 }

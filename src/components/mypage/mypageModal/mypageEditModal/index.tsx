@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { MypageEditModal } from "../../../../recoil/mypage/mypageAtom";
+import { MypageEditModal } from "../../../../recoil/MyPage/mypageAtom";
 import { MyPageModalContainer } from "../style";
 import EditMentoRequest from "./EditMentoRequest";
 import * as S from "./style";

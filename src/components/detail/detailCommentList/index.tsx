@@ -1,15 +1,15 @@
 import * as S from "../style";
 import aprofile from "../../.././assets/images/aprofile.png";
-import { useGetComment } from "../../../querys/comment/comment.query";
+import { useGetComment } from "../../../querys/Comment/comment.query";
 import React from "react";
-import { USERID } from "../../../recoil/user/UserAtom";
+import { USERID } from "../../../recoil/User/UserAtom";
 import { useRecoilState } from "recoil";
 import {
   CommentEdit,
   CommentModal,
   CommentId,
   ContentPrev,
-} from "../../../recoil/detail/DetailAtom";
+} from "../../../recoil/Detail/DetailAtom";
 
 interface Props {
   postId: number;

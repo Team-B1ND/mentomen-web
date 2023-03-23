@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useGetMember } from "../../../querys/member/member.query";
+import { useGetMember } from "../../../querys/Member/member.query";
 import {
   FiledContainer,
   FiledImg,
@@ -16,28 +16,28 @@ import {
   UserProfile,
 } from "./style";
 import aprofile from "../../../assets/images/aprofile.png";
-import { FILEDITEM } from "../../../constants/filed/filed";
+import { FILEDITEM } from "../../../constants/Filed/filed";
 import copy from "../../../assets/images/copy.svg";
 import { useNavigate } from "react-router-dom";
-import { useLogOut } from "../../../hooks/logout/useLogOut";
+import { useLogOut } from "../../../hooks/Logout/useLogOut";
 import { useRecoilState } from "recoil";
-import { USERID, USERPROFILE } from "../../../recoil/user/UserAtom";
+import { USERID, USERPROFILE } from "../../../recoil/User/UserAtom";
 
 const ProfileBar = () => {
   const { data } = useGetMember();
   const navigate = useNavigate();
   const { onLogOut } = useLogOut();
-  const [userId,SetUserId] = useRecoilState<number>(USERID); //댓글 수정에 필요한 아이디가져오기
-  const [userProfile,SetUserProfile] = useRecoilState<string>(USERPROFILE); // 게시글 수정에 필요한 프로필 정보가져오기
+  const [userId, SetUserId] = useRecoilState<number>(USERID); //댓글 수정에 필요한 아이디가져오기
+  const [userProfile, SetUserProfile] = useRecoilState<string>(USERPROFILE); // 게시글 수정에 필요한 프로필 정보가져오기
 
-  useEffect(()=>{
+  useEffect(() => {
     SetUserId(data?.data.userId!!);
-  },[SetUserId,data?.data.userId]);
+  }, [SetUserId, data?.data.userId]);
 
-  useEffect(()=>{
+  useEffect(() => {
     SetUserProfile(data?.data.profileImage!!);
-  },[SetUserProfile,data?.data.profileImage]);
-  
+  }, [SetUserProfile, data?.data.profileImage]);
+
   return (
     <ProfileBarContainer>
       <UserInfo>

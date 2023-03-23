@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ACCESS_KEY } from "../../constants/auth/auth.constant";
+import { ACCESS_KEY } from "../../constants/Auth/auth.constant";
 
 const useTokenCheck = () => {
   const [isAuthority, setIsAuthority] = useState(true);

@@ -1,4 +1,4 @@
-import { ACCESS_KEY } from "../../constants/auth/auth.constant";
+import { ACCESS_KEY } from "../../constants/Auth/auth.constant";
 
 class Token {
   public getToken(key: string): string | null {

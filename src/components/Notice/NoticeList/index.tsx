@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { useGetNoticeList } from "../../../querys/notice/notice.query";
-import { NOTICE } from "../../../recoil/notice/noticeAtom";
+import { useGetNoticeList } from "../../../querys/Notice/notice.query";
+import { NOTICE } from "../../../recoil/Notice/noticeAtom";
 import * as S from "../style";
 import aprofile from "../../../assets/images/aprofile.png";
-import { uploadDateTime } from "../../../types/util/date/uploadDateTime";
+import { uploadDateTime } from "../../../types/Util/date/uploadDateTime";
 
 export default function NoticeLists() {
   const navigate = useNavigate();

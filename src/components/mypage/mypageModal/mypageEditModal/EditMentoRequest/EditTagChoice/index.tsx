@@ -1,8 +1,8 @@
 import { useRecoilState } from "recoil";
-import { MyPostTag } from "../../../../../../recoil/mypage/mypageAtom";
-import * as S from "../../../../../main/Home/HomeMentoRequest/style";
-import { Dev } from "../../../../../main/Home/HomeMentoRequest/devlogo";
-import { useMyPostEdit } from "../../../../../../hooks/mypage/useMyPostEdit";
+import { MyPostTag } from "../../../../../../recoil/MyPage/mypageAtom";
+import * as S from "../../../../../Main/Home/HomeMentoRequest/style";
+import { Dev } from "../../../../../Main/Home/HomeMentoRequest/devlogo";
+import { useMyPostEdit } from "../../../../../../hooks/MyPage/useMyPostEdit";
 export default function EditTagChoice() {
   const [myPostTag, SetMyPostTag] = useRecoilState<string>(MyPostTag);
   const { onMyPageEditTagChocie } = useMyPostEdit();

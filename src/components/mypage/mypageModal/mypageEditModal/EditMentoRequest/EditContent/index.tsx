@@ -1,12 +1,13 @@
 import { useRecoilState } from "recoil";
 import aprofile from "../../.././.././../.././assets/images/aprofile.png";
-import { USERPROFILE } from "../../../../../../recoil/user/UserAtom";
-import * as S from "../../../../../main/Home/HomeMentoRequest/style";
-import { useMyPostEdit } from "../../../../../../hooks/mypage/useMyPostEdit";
+import { USERPROFILE } from "../../../../../../recoil/User/UserAtom";
+import * as S from "../../../../../Main/Home/HomeMentoRequest/style";
+import { useMyPostEdit } from "../../../../../../hooks/MyPage/useMyPostEdit";
 
 export default function EditContent() {
   const [userProfile, SetUserProfile] = useRecoilState<string>(USERPROFILE);
-  const {myPostContent, onMyPageEditChange,onMyPageEditKeyPress} = useMyPostEdit();
+  const { myPostContent, onMyPageEditChange, onMyPageEditKeyPress } =
+    useMyPostEdit();
   return (
     <>
       <S.HomeMentoRequestTextProfile

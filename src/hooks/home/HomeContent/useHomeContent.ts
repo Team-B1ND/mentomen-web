@@ -1,10 +1,10 @@
 import { useRecoilState } from "recoil";
-import { ImgList, Text, Tag } from "../../../recoil/home/HomeAtom";
-import { usePostMySubmit } from "../../../querys/list/list.query";
+import { ImgList, Text, Tag } from "../../../recoil/Home/HomeAtom";
+import { usePostMySubmit } from "../../../querys/List/list.query";
 import { QueryClient } from "react-query";
-import { customAxios } from "../../../lib/axios/customAxios";
+import { customAxios } from "../../../lib/Axios/customAxios";
 import { useCallback } from "react";
-import { PostSubmitType } from "../../../types/list/list.type";
+import { PostSubmitType } from "../../../types/List/list.type";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 
 export const useHomeContent = () => {
@@ -23,7 +23,7 @@ export const useHomeContent = () => {
   );
 
   const onSubmit = useCallback(
-    async (arr: string[],e:React.KeyboardEvent<HTMLTextAreaElement>) => {
+    async (arr: string[], e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       const answer = window.confirm("글을 올리시겠습니까?");
       if (answer === true) {
         e.preventDefault();
@@ -67,7 +67,7 @@ export const useHomeContent = () => {
                 arr.push(value);
               });
             }
-            onSubmit(arr,e);
+            onSubmit(arr, e);
           } catch (err) {
             console.log(err);
           }

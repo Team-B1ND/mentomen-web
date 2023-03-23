@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { ImgModal } from "../../../../recoil/detail/DetailAtom";
+import { ImgModal } from "../../../../recoil/Detail/DetailAtom";
 import * as S from "./style";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useSlideSettings } from "../../../../hooks/slide/useSlideSetting";
+import { useSlideSettings } from "../../../../hooks/Slide/useSlideSetting";
 
 interface Props {
   Img: string[];

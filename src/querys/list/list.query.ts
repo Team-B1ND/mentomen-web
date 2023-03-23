@@ -4,15 +4,15 @@ import {
   UseQueryOptions,
   UseQueryResult,
 } from "react-query";
-import ListRepository from "../../repository/list/list.repository";
-import { ParamType } from "../../types/param/param.type";
+import ListRepository from "../../repository/List/list.repository";
+import { ParamType } from "../../types/Param/param.type";
 import {
   ListPatchItem,
   ListResponse,
   PostSubmitType,
-} from "../../types/list/list.type";
-import { TagType, KeyWordType } from "../../types/list/list.type";
-import { ListItemResponse } from "../../types/list/list.type";
+} from "../../types/List/list.type";
+import { TagType, KeyWordType } from "../../types/List/list.type";
+import { ListItemResponse } from "../../types/List/list.type";
 import { AxiosError } from "axios";
 
 export const useGetList = (

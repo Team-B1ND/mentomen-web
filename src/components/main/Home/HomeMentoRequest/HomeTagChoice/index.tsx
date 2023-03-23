@@ -1,6 +1,6 @@
 import { Dev } from "../devlogo";
-import { useHomeTagChoice } from "../../../../../hooks/home/HomeTagChoice/useHomeTagChoice";
-import { Tag } from "../../../../../recoil/home/HomeAtom";
+import { useHomeTagChoice } from "../../../../../hooks/Home/HomeTagChoice/useHomeTagChoice";
+import { Tag } from "../../../../../recoil/Home/HomeAtom";
 import { useRecoilState } from "recoil";
 import * as S from "../style";
 

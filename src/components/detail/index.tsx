@@ -3,14 +3,14 @@ import DetailViewMore from "./detailViewMore";
 import * as S from "./style";
 import DetailCommentLists from "./detailCommentList";
 import DetailCommentWrite from "./detailCommentWrite";
-import ProfileBar from "../common/profile";
 import { useRecoilState } from "recoil";
-import { CommentModal } from "../../recoil/detail/DetailAtom";
+import { CommentModal } from "../../recoil/Detail/DetailAtom";
 import DetailCommentModal from "./detailCommentList/detailCommentModal";
 import { Suspense } from "react";
-import FallbackSkeletonLists from "../common/fallbackskeleton/lists";
-import ErrorBoundary from "../common/errorboundary";
-import FallbackSkeletonDetailComments from "../common/fallbackskeleton/detail/comments";
+import FallbackSkeletonLists from "../Common/fallbackskeleton/lists";
+import ErrorBoundary from "../Common/errorboundary";
+import FallbackSkeletonDetailComments from "../Common/fallbackskeleton/detail/comments";
+import ProfileBar from "../Common/Profile";
 
 export default function Detail() {
   const { postId } = useParams();

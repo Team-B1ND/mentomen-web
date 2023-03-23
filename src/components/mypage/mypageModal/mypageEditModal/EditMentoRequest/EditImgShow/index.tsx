@@ -3,10 +3,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useCallback, useRef } from "react";
 import { useRecoilState } from "recoil";
-import { useSlideSettings } from "../../../../../../hooks/slide/useSlideSetting";
-import { MyPostImg } from "../../../../../../recoil/mypage/mypageAtom";
+import { useSlideSettings } from "../../../../../../hooks/Slide/useSlideSetting";
+import { MyPostImg } from "../../../../../../recoil/MyPage/mypageAtom";
 import uploadImg from "../../../../.././../assets/images/uploadImg.svg";
-import * as S from "../../../../../main/Home/HomeMentoRequest/style";
+import * as S from "../../../../../Main/Home/HomeMentoRequest/style";
 
 export default function EditImgShow() {
   const [myPostImg, SetMyPostImg] = useRecoilState<string[]>(MyPostImg);
@@ -19,7 +19,7 @@ export default function EditImgShow() {
   return (
     <>
       <div style={{ width: "200px", height: "180px" }}>
-        {myPostImg.length!==0 ? (
+        {myPostImg.length !== 0 ? (
           <Slider {...useSlideSettings}>
             {myPostImg.map((img: any, idx) => {
               return (

@@ -1,4 +1,4 @@
-import Start from "../components/main/Start";
+import Start from "../components/Main/Start";
 
 const StartPage = () => {
   return <Start />;

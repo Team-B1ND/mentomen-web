@@ -13,23 +13,24 @@ import Search from "../../../assets/images/Search.png";
 import Nonotice from "../../../assets/images/notice.png";
 import notice from "../../../assets/images/noticeImg.png";
 import { useNavigate } from "react-router-dom";
-import { useKeyWordSearch } from "../../../hooks/header/Search/useKeyWordSearch";
-import { ACCESS_KEY } from "../../../constants/auth/auth.constant";
-import { useGetNoticeCheck } from "../../../querys/notice/notice.query";
+import { useKeyWordSearch } from "../../../hooks/Header/Search/useKeyWordSearch";
+import { ACCESS_KEY } from "../../../constants/Auth/auth.constant";
+import { useGetNoticeCheck } from "../../../querys/Notice/notice.query";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { NOTICE } from "../../../recoil/notice/noticeAtom";
+import { NOTICE } from "../../../recoil/Notice/noticeAtom";
 
 function Header() {
   const navigate = useNavigate();
   const { onKeyPress, onChange, search } = useKeyWordSearch();
   const { data: getNoticeCheck } = useGetNoticeCheck();
-  const [NoticeChk,SetNoticeChk] = useState<string>("NONE");
-  const [NoticeModal,SetNoticeModal] = useRecoilState(NOTICE);
+  const [NoticeChk, SetNoticeChk] = useState<string>("NONE");
+  const [NoticeModal, SetNoticeModal] = useRecoilState(NOTICE);
 
-  useEffect(()=>{
-    if (getNoticeCheck?.data.noticeStatus!! === 'EXIST') SetNoticeChk(getNoticeCheck?.data.noticeStatus!!);
-  },[getNoticeCheck?.data.noticeStatus,SetNoticeChk]);
+  useEffect(() => {
+    if (getNoticeCheck?.data.noticeStatus!! === "EXIST")
+      SetNoticeChk(getNoticeCheck?.data.noticeStatus!!);
+  }, [getNoticeCheck?.data.noticeStatus, SetNoticeChk]);
 
   return (
     <>
@@ -52,12 +53,11 @@ function Header() {
         <HeaderAbleContainer>
           {localStorage.getItem(ACCESS_KEY) ? (
             <HeaderNoticeImg
-              src={
-                NoticeChk === "EXIST"
-                  ? notice
-                  : Nonotice
-              }
-              onClick={() => {SetNoticeChk("NONE");SetNoticeModal(true);}}
+              src={NoticeChk === "EXIST" ? notice : Nonotice}
+              onClick={() => {
+                SetNoticeChk("NONE");
+                SetNoticeModal(true);
+              }}
               alt=""
             />
           ) : (

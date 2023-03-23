@@ -1,17 +1,19 @@
 import * as S from "../style";
-import { useDetailCommentWrite } from "../../../hooks/detail/DetailComment/useDetailCommentWrite";
-import { CommentEdit, CommentId } from "../../../recoil/detail/DetailAtom";
+import { useDetailCommentWrite } from "../../../hooks/Detail/DetailComment/useDetailCommentWrite";
+import { CommentEdit, CommentId } from "../../../recoil/Detail/DetailAtom";
 import { useRecoilState } from "recoil";
-import { useDeleteCommentEdit } from "../../../hooks/detail/DetailComment/useDetailCommentEdit";
+import { useDeleteCommentEdit } from "../../../hooks/Detail/DetailComment/useDetailCommentEdit";
 interface Props {
   postId: number;
 }
 
 export default function DetailCommentWrite({ postId }: Props) {
   const [commentEdit, SetCommentEdit] = useRecoilState<boolean>(CommentEdit);
-  const { onRegisterClick, onRegisterKeyPress, comment, onRegisterChange } =useDetailCommentWrite(postId);
+  const { onRegisterClick, onRegisterKeyPress, comment, onRegisterChange } =
+    useDetailCommentWrite(postId);
   const [commentId, SetCommentId] = useRecoilState<number>(CommentId);
-  const { onEditChange, commentEditContent, onEditClick, onEditKeyPress } = useDeleteCommentEdit(commentId);
+  const { onEditChange, commentEditContent, onEditClick, onEditKeyPress } =
+    useDeleteCommentEdit(commentId);
   return (
     <>
       {commentEdit ? (

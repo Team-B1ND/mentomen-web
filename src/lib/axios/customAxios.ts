@@ -3,7 +3,7 @@ import {
   ACCESS_KEY,
   REFRESH_KEY,
   REQUEST_KEY,
-} from "../../constants/auth/auth.constant";
+} from "../../constants/Auth/auth.constant";
 import CONFIG from "../../config/config.json";
 
 export const customAxios = axios.create({

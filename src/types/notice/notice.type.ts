@@ -1,22 +1,22 @@
-import { Response } from "../util/response.type";
+import { Response } from "../Util/response.type";
 
 export interface NoticeCheckType {
-    noticeStatus: string;
+  noticeStatus: string;
 }
 
 export interface NoticeListType {
-    commentContent: string;
-    createDateTime: string;
-    noticeStatus: string;
-    postId: number;
-    senderName: string;
-    senderProfileImage: string;
+  commentContent: string;
+  createDateTime: string;
+  noticeStatus: string;
+  postId: number;
+  senderName: string;
+  senderProfileImage: string;
 }
 
 export interface NoticeCheckResponse extends Response {
-    data: NoticeCheckType;
+  data: NoticeCheckType;
 }
 
 export interface NoticeListResponse extends Response {
-    data: NoticeListType[];
+  data: NoticeListType[];
 }
