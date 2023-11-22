@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
-import { ImgList, Text, Tag } from "../../../recoil/Home/HomeAtom";
-import { usePostMySubmit } from "../../../querys/List/list.query";
+import { ImgList, Text, Tag } from "../../../stores/Home/HomeAtom";
+import { usePostMySubmit } from "../../../queries/Post/post.query";
 import { QueryClient } from "react-query";
 import { customAxios } from "../../../lib/Axios/customAxios";
 import { useCallback } from "react";

@@ -1,11 +1,13 @@
 import { ReactNode } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { NOTICE } from "../../../recoil/Notice/noticeAtom";
+import { HideHeaderAtom } from "../../../stores/Header/header.store";
+import { HideNavAtom } from "../../../stores/Nav/nav.store";
+import { NOTICE } from "../../../stores/Notice/noticeAtom";
 import GlobalStyle from "../../../style/Global";
 import Notice from "../../Notice";
-import Header from "../Header/header";
-import ProfileBar from "../Profile";
+import Header from "../Header";
+import Nav from "../Nav";
 
 interface Props {
   children: ReactNode;
@@ -13,15 +15,17 @@ interface Props {
 
 function PageTemplate({ children }: Props) {
   const noticeModal = useRecoilValue(NOTICE);
+  const hideHeader = useRecoilValue(HideHeaderAtom);
+  const hideNav = useRecoilValue(HideNavAtom);
 
   return (
     <>
       <GlobalStyle />
       <Container>
-        <Header />
+        {!hideHeader && <Header />}
         <Wrapper>
-          <ProfileBar />
-          <ListContainer>{children}</ListContainer>
+          {!hideNav && <Nav />}
+          <Content>{children}</Content>
         </Wrapper>
       </Container>
       {noticeModal && <Notice />}
@@ -39,7 +43,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const ListContainer = styled.div`
+export const Content = styled.div`
   width: 100%;
   height: 100vh;
   padding-top: 75px;

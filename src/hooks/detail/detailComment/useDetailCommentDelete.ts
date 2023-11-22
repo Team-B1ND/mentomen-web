@@ -1,8 +1,8 @@
-import { useDeleteComment } from "../../../querys/Comment/comment.query";
+import { useDeleteComment } from "../../../queries/Comment/comment.query";
 import { QueryClient } from "react-query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useRecoilState } from "recoil";
-import { CommentModal } from "../../../recoil/Detail/DetailAtom";
+import { CommentModal } from "../../../stores/Detail/DetailAtom";
 import { useCallback } from "react";
 
 export function useDetailCommentDelete() {

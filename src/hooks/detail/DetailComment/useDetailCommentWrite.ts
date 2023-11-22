@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { QueryClient } from "react-query";
-import { usePostComment } from "../../../querys/Comment/comment.query";
+import { usePostComment } from "../../../queries/Comment/comment.query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 
 export const useDetailCommentWrite = (postId: number) => {

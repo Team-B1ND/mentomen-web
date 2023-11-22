@@ -1,12 +1,12 @@
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useCallback } from "react";
 import { useRecoilState } from "recoil";
-import { usePatchComment } from "../../../querys/Comment/comment.query";
+import { usePatchComment } from "../../../queries/Comment/comment.query";
 import {
   CommentContent,
   CommentEdit,
   ContentPrev,
-} from "../../../recoil/Detail/DetailAtom";
+} from "../../../stores/Detail/DetailAtom";
 
 export function useDeleteCommentEdit(commentPostId: number) {
   const [commentEditContent, SetCommentEditContent] =

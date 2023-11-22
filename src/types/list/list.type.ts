@@ -4,7 +4,7 @@ export interface ListItemType {
   author: number;
   content: string;
   createDateTime: string;
-  imgUrls: [string];
+  imgUrls: string[];
   postId: number;
   profileUrl: string;
   stdInfo: {
@@ -13,7 +13,7 @@ export interface ListItemType {
     room: number;
   };
   tag: string;
-  updateDateTime: string | number;
+  updateDateTime: string;
   updateStatus: string | number;
   userName: string;
 }

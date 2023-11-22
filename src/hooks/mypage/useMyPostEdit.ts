@@ -3,8 +3,8 @@ import { useCallback } from "react";
 import { QueryClient } from "react-query";
 import { useRecoilState } from "recoil";
 import { customAxios } from "../../lib/Axios/customAxios";
-import { usePatchMyPost } from "../../querys/List/list.query";
-import { ContentPrev } from "../../recoil/Detail/DetailAtom";
+import { usePatchMyPost } from "../../queries/Post/post.query";
+import { ContentPrev } from "../../stores/Detail/DetailAtom";
 import {
   MypageEditModal,
   MyPageModal,
@@ -13,7 +13,7 @@ import {
   MyPostImg,
   MyPostTag,
   TagPrev,
-} from "../../recoil/MyPage/mypageAtom";
+} from "../../stores/MyPage/mypageAtom";
 import { ListPatchItem } from "../../types/List/list.type";
 
 export function useMyPostEdit() {

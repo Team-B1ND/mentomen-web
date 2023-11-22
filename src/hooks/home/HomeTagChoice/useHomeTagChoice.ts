@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { Tag } from "../../../recoil/Home/HomeAtom";
+import { Tag } from "../../../stores/Home/HomeAtom";
 import { useCallback } from "react";
 
 export const useHomeTagChoice = () => {

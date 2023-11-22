@@ -2,8 +2,8 @@ import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useCallback } from "react";
 import { QueryClient } from "react-query";
 import { useRecoilState } from "recoil";
-import { useDelPost } from "../../../querys/MyPage/mypage.query";
-import { MyPageModal } from "../../../recoil/MyPage/mypageAtom";
+import { useDelPost } from "../../../queries/MyPage/mypage.query";
+import { MyPageModal } from "../../../stores/MyPage/mypageAtom";
 
 export const useDelMyPost = () => {
   const del = useDelPost();
