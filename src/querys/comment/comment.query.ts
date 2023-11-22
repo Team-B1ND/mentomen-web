@@ -5,7 +5,7 @@ import {
   useQuery,
   UseQueryOptions,
 } from "react-query";
-import CommentRepository from "../../repository/Comment/comment.repository";
+import CommentRepository from "../../repositories/Comment/comment.repository";
 import {
   getCommentResponse,
   patchCommentType,

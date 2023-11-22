@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import UserRepositroy from "../../repository/User/user.repository";
+import UserRepositroy from "../../repositories/User/user.repository";
 
 export const useGetMember = () =>
   useQuery(["member/useGetMember"], () => UserRepositroy.getUser(), {

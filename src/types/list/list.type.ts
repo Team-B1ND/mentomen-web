@@ -1,6 +1,6 @@
 import { Response } from "../Util/response.type";
 
-export interface ListItem {
+export interface ListItemType {
   author: number;
   content: string;
   createDateTime: string;
@@ -27,12 +27,12 @@ export interface ListPatchItem {
 
 //단일 게시글 불러오기
 export interface ListResponse extends Response {
-  data: ListItem;
+  data: ListItemType;
 }
 
 //전체 게시글 불러오기
 export interface ListItemResponse extends Response {
-  data: ListItem[];
+  data: ListItemType[];
 }
 
 export interface PostSubmitType {

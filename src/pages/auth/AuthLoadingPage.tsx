@@ -1,4 +1,4 @@
-import useLogin from "../../hooks/Auth/useLogin";
+import { useLogin } from "../../hooks/Auth/useLogin";
 
 function AuthLoadingPage() {
   useLogin();

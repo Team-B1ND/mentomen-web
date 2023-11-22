@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import useTokenCheck from "../../../hooks/Auth/useTokenCheck";
+import useTokenCheck from "../../../hooks/Auth/useTokenCheck";
 
 const AuthHoc = () => {
   const AuthCheck = (AuthComponent: ComponentType) => {

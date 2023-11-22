@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
-import UserRepository from "../../repository/User/user.repository";
+import UserRepository from "../../repositories/User/user.repository";
 import { ListItemResponse } from "../../types/List/list.type";
 
 export const useUserInfo = () =>

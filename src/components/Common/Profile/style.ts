@@ -1,71 +1,70 @@
 import styled from "styled-components";
 
-export const ProfileBarContainer = styled.div`
+export const Container = styled.div`
   width: 300px;
-  height: calc(100vh - 75px);
-  background-color: white;
-  position: fixed;
-  top: 75px;
-  left: 0;
+  height: 100vh;
+  padding-top: 75px;
+  background-color: #fff;
 
   display: flex;
   flex-direction: column;
+  row-gap: 4rem;
+
+  border-right: 1px solid #ddd;
 `;
 
-export const UserInfo = styled.div`
-  width: 100%;
-  min-height: 202px;
-
-  text-align: center;
+export const UserInfoContainer = styled.div`
+  height: auto;
+  padding-top: 20px;
   font-weight: 400;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
 `;
 
 export const UserProfile = styled.img`
-  width: 150px;
-  height: 150px;
-
-  margin-top: 38px;
-
+  width: 100px;
+  height: 100px;
   border-radius: 100px;
 `;
 
+export const UserInfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+`;
+
 export const UserName = styled.p`
-  margin-top: 10px;
-
   font-size: 18px;
-  line-height: 21px;
-
   color: #000000;
 `;
 
 export const UserGrade = styled.p`
   font-size: 16px;
-  line-height: 19px;
-
-  margin-top: 2px;
   color: #858585;
 `;
 
-export const FiledContainer = styled.div`
-  min-width: 92px;
-  min-height: 269px;
+export const FiledUl = styled.ul`
+  width: 100%;
+  height: auto;
 
   display: flex;
+  row-gap: 2rem;
   flex-direction: column;
-  gap: 40px;
-  margin-top: 21px;
-  font-style: normal;
+
+  padding-left: 30px;
   font-weight: 400;
   font-size: 18px;
-  line-height: 21px;
-
-  margin-left: 39px;
 `;
 
 export const FiledItemWrap = styled.div`
   width: 100%;
 
   display: flex;
+  align-items: center;
   column-gap: 20px;
 `;
 
@@ -77,17 +76,12 @@ export const FiledImg = styled.img`
 export const FiledName = styled.p``;
 
 export const MyInfoPathContainer = styled.div`
+  padding-left: 30px;
+
   display: flex;
-
-  justify-content: space-between;
-
-  max-width: 170px;
-  margin-top: 73px;
-
-  margin-left: 40px;
-
+  align-items: center;
+  column-gap: 10px;
   font-size: 18px;
-  line-height: 21px;
 `;
 
 export const MyInfoPathText = styled.p`
@@ -100,11 +94,8 @@ export const MyInfoPathImg = styled.img`
 `;
 
 export const LogoutText = styled.p`
-  margin-top: 305px;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 15px;
   text-align: center;
-  text-decoration-line: underline;
   color: #858585;
   cursor: pointer;
 `;

@@ -5,7 +5,9 @@ import { LoginParam } from "./auth.param";
 
 class AuthRepository {
   public async login({ code }: LoginParam): Promise<LoginResponse> {
-    const { data } = await axios.post(`${CONFIG.server}/auth/code`, { code });
+    const { data } = await axios.post(`${CONFIG.server}/auth/code`, {
+      code,
+    });
     return data;
   }
 }

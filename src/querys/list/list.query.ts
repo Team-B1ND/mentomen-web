@@ -4,7 +4,7 @@ import {
   UseQueryOptions,
   UseQueryResult,
 } from "react-query";
-import ListRepository from "../../repository/List/list.repository";
+import ListRepository from "../../repositories/List/list.repository";
 import { ParamType } from "../../types/Param/param.type";
 import {
   ListPatchItem,
