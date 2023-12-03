@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import flex from "../../../style/flex";
 import { getTagColor } from "../../../util/Tag/getTagColor";
 
 export const Container = styled.div`
@@ -7,10 +8,7 @@ export const Container = styled.div`
   padding-top: 75px;
   background-color: #fff;
 
-  display: flex;
-  flex-direction: column;
-  row-gap: 3.8rem;
-
+  ${flex({ flexDirection: "column", rowGap: "3.8rem" })}
   border-right: 1px solid #ddd;
 `;
 
@@ -19,10 +17,7 @@ export const UserInfoContainer = styled.div`
   padding-top: 20px;
   font-weight: 400;
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 20px;
+  ${flex({ alignItems: "center", flexDirection: "column", rowGap: "20px" })}
 `;
 
 export const UserProfile = styled.img`
@@ -32,10 +27,7 @@ export const UserProfile = styled.img`
 `;
 
 export const UserInfoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 10px;
+  ${flex({ alignItems: "center", flexDirection: "column", rowGap: "10px" })}
 `;
 
 export const UserName = styled.p`
@@ -52,9 +44,7 @@ export const FiledUl = styled.ul`
   width: 100%;
   height: auto;
 
-  display: flex;
-  row-gap: 2rem;
-  flex-direction: column;
+  ${flex({ rowGap: "2rem", flexDirection: "column" })}
 
   padding-left: 30px;
   font-weight: 400;
@@ -67,10 +57,7 @@ export const FiledUl = styled.ul`
 
 export const FiledItemWrap = styled.div`
   width: 100%;
-
-  display: flex;
-  align-items: center;
-  column-gap: 15px;
+  ${flex({ alignItems: "center", columnGap: "15px" })}
 `;
 
 export const FiledImg = styled.img`
@@ -87,9 +74,7 @@ export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
   width: auto;
   height: 30px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
   padding: 9px 7px 7px 7px;
 
   &:hover {
@@ -104,9 +89,7 @@ export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
 export const MyInfoPathContainer = styled.div`
   padding-left: 30px;
 
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
+  ${flex({ alignItems: "center", columnGap: "10px" })}
   font-size: 18px;
 `;
 

@@ -1,3 +1,4 @@
+import { GoPencil } from "react-icons/go";
 import * as S from "./style";
 import Logo from "../../../assets/logo/Logo.png";
 import Search from "../../../assets/images/Search.png";
@@ -42,19 +43,25 @@ function Header() {
         )}
 
         <S.HeaderAbleContainer>
-          {localStorage.getItem(ACCESS_KEY) && (
-            <S.HeaderNoticeImg
-              src={noticeChk === "EXIST" ? notice : Nonotice}
-              onClick={() => {
-                setNoticeChk("NONE");
-                setNoticeModal(true);
-              }}
-              alt=""
-            />
+          {localStorage.getItem(ACCESS_KEY) ? (
+            <>
+              <S.HeaderNoticeImg
+                src={noticeChk === "EXIST" ? notice : Nonotice}
+                onClick={() => {
+                  setNoticeChk("NONE");
+                  setNoticeModal(true);
+                }}
+                alt=""
+              />
+              <S.Write>
+                <p>글 작성하기</p>
+              </S.Write>
+            </>
+          ) : (
+            <S.Introduce onClick={() => navigate("/intro")}>
+              서비스 소개
+            </S.Introduce>
           )}
-          <S.HeaderIntro onClick={() => navigate("/intro")}>
-            서비스 소개
-          </S.HeaderIntro>
         </S.HeaderAbleContainer>
       </S.HeaderWrapper>
     </S.HeaderContainer>

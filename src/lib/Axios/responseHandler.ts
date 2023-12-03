@@ -35,7 +35,7 @@ export const responseHandler = async (error: AxiosError) => {
       } catch (e) {
         token.clearToken();
         window.alert("토큰이 만료되었습니다!");
-        window.location.href = "/";
+        window.location.href = "/start";
       }
     }
   }

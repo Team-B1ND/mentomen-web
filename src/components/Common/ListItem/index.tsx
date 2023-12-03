@@ -3,12 +3,13 @@ import * as S from "./style";
 import ListItemProfile from "./ListItemProfile";
 import ListItemImages from "./ListItemImages";
 import ListItemContent from "./ListItemContent";
+import React from "react";
 
 interface Props {
   data: ListItemType;
 }
 
-export default function ListItem({ data }: Props) {
+const ListItem = ({ data }: Props) => {
   return (
     <S.Container>
       <ListItemProfile
@@ -21,7 +22,10 @@ export default function ListItem({ data }: Props) {
       <ListItemContent
         updateDateTime={data.updateDateTime}
         content={data.content}
+        postId={data.postId}
       />
     </S.Container>
   );
-}
+};
+
+export default React.memo(ListItem);

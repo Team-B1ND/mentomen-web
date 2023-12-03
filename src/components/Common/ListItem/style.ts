@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
+import flex from "../../../style/flex";
 
 export const Container = styled.div`
   width: 500px;
@@ -17,17 +18,12 @@ export const Profile = styled.div`
   height: 60px;
   border-bottom: 1px solid #ddd;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  ${flex({ alignItems: "center", justifyContent: "space-between" })}
   padding: 0 12px 0 12px;
 `;
 
 export const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
+  ${flex({ alignItems: "center", columnGap: "10px" })}
 `;
 
 export const ProfileImg = styled.img`
@@ -41,9 +37,7 @@ export const ClassInfo = styled.div`
   font-family: "Pretendard-Bold" !important;
   font-weight: 700;
 
-  display: flex;
-  align-items: center;
-  column-gap: 3px;
+  ${flex({ alignItems: "center", columnGap: "3px" })}
   font-size: 15px;
 `;
 
@@ -67,9 +61,7 @@ export const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
   height: auto;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
 
   position: relative;
   text-align: center;
@@ -81,10 +73,7 @@ export const ImageContainer = styled.div<{ sizeOfImages: number }>`
 export const NoneImage = styled.div`
   width: 100%;
   height: 430px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 export const ItemImage = styled.img`
@@ -104,10 +93,7 @@ export const CommentAndDate = styled.div`
   width: 100%;
   height: 40px;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
+  ${flex({ alignItems: "center", justifyContent: "space-between" })}
   padding: 0 10px 0 10px;
 `;
 

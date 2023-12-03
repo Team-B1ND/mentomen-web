@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { HideHeaderAtom } from "../../../stores/Header/header.store";
 import { HideNavAtom } from "../../../stores/Nav/nav.store";
 import { NOTICE } from "../../../stores/Notice/noticeAtom";
+import flex from "../../../style/flex";
 import GlobalStyle from "../../../style/Global";
 import Notice from "../../Notice";
 import Header from "../Header";
@@ -34,13 +35,11 @@ function PageTemplate({ children }: Props) {
 }
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex({ flexDirection: "column" })}
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${flex({ alignItems: "center" })}
 `;
 
 export const Content = styled.div`

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import flex from "../../../../style/flex";
 
 export const ThirdSection = styled.div`
   display: flex;
@@ -8,17 +9,14 @@ export const ThirdSection = styled.div`
 `;
 
 export const ThirdSectionWrap = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex({ flexDirection: "column" })}
   margin-left: 200px;
 
   font-style: normal;
   font-size: 40px;
 `;
 
-export const ThirdSectionTextWrap = styled.div`
-  flex-direction: column;
-`;
+export const ThirdSectionTextWrap = styled.div``;
 
 export const ThirdSectionText = styled.p`
   font-style: normal;

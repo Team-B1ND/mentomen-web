@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
 
 export const HeaderContainer = styled.div`
@@ -9,8 +10,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 75px;
 
-  display: flex;
-  align-items: center;
+  ${flex({ alignItems: "center" })}
 
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgba(0, 0, 0, 0.175);
@@ -23,10 +23,7 @@ export const HeaderWrapper = styled.div`
   height: 100%;
 
   padding: 0 50px 0 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
 export const Logo = styled.img`
@@ -36,8 +33,7 @@ export const Logo = styled.img`
 `;
 
 export const HeaderSearchBox = styled.div`
-  display: flex;
-  align-items: center;
+  ${flex({ alignItems: "center" })}
   padding-left: 15px;
   width: 600px;
   height: 49px;
@@ -62,8 +58,14 @@ export const HeaderSearchInput = styled.input`
 `;
 
 export const HeaderAbleContainer = styled.div`
-  display: flex;
-  align-items: center;
+  ${flex({ alignItems: "center", columnGap: "5px" })}
+  color: ${palette.color};
+  font-weight: 600;
+`;
+
+export const Write = styled.div`
+  ${flex({ alignItems: "center", columnGap: "5px" })}
+  cursor: pointer;
 `;
 
 export const HeaderNoticeImg = styled.img`
@@ -72,10 +74,9 @@ export const HeaderNoticeImg = styled.img`
   cursor: pointer;
 `;
 
-export const HeaderIntro = styled.h1`
+export const Introduce = styled.h1`
   color: ${palette.color};
   font-weight: 600;
   font-size: 17px;
-  line-height: 40px;
   cursor: pointer;
 `;

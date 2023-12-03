@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
 
 export const StartContainer = styled.div`
@@ -7,8 +8,7 @@ export const StartContainer = styled.div`
 `;
 
 export const StartLeftWrap = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex({ flexDirection: "column" })}
   padding-left: 180px;
   padding-top: 150px;
 `;

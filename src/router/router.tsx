@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Detail from "../components/Detail";
 import AuthLoadingPage from "../pages/Auth/AuthLoadingPage";
 import HomePage from "../pages/HomePage";
 import IntroducePage from "../pages/IntroducePage";
@@ -18,7 +17,6 @@ function Router() {
         <Route path="/callback" element={<AuthLoadingPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/intro" element={<IntroducePage />} />
-        <Route path="/detail/:postId" element={<Detail />} />
         <Route path="/tag/:tag" element={<TagPage />} />
         <Route path="/search/:keyword" element={<SerachPage />} />
         <Route path="*" element={<NotFound />} />

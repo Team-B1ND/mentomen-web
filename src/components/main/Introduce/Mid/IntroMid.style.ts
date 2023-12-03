@@ -1,16 +1,14 @@
 import styled from "styled-components";
+import flex from "../../../../style/flex";
 
 export const SecondSection = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
+
 export const SecondSectionWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${flex({ flexDirection: "column", alignItems: "center" })}
 `;
 
 export const SecondSectionText = styled.span`
