@@ -1,4 +1,4 @@
-import { Response } from "../Util/response.type";
+import { ResponseType } from "../common/common.type";
 
 export interface ListItemType {
   author: number;
@@ -7,11 +7,7 @@ export interface ListItemType {
   imgUrls: string[];
   postId: number;
   profileUrl: string;
-  stdInfo: {
-    grade: number;
-    number: number;
-    room: number;
-  };
+  stdInfo: StdInfoType;
   tag: string;
   updateDateTime: string;
   updateStatus: string | number;
@@ -25,13 +21,19 @@ export interface ListPatchItem {
   tag: string;
 }
 
+export interface StdInfoType {
+  grade: number;
+  number: number;
+  room: number;
+}
+
 //단일 게시글 불러오기
-export interface ListResponse extends Response {
+export interface ListResponse extends ResponseType {
   data: ListItemType;
 }
 
 //전체 게시글 불러오기
-export interface ListItemResponse extends Response {
+export interface ListItemResponse extends ResponseType {
   data: ListItemType[];
 }
 
@@ -39,12 +41,4 @@ export interface PostSubmitType {
   content: string;
   imgUrls: string[];
   tag: string;
-}
-
-export interface TagType {
-  tag: string;
-}
-
-export interface KeyWordType {
-  keyword: string;
 }

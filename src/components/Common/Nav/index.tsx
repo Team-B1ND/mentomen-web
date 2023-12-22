@@ -1,18 +1,18 @@
 import { useEffect } from "react";
-import { useGetMember } from "../../../queries/Member/member.query";
 import * as S from "./style";
 import aprofile from "../../../assets/images/aprofile.png";
-import { FILEDITEM } from "../../../constants/Filed/filed";
+import { NAV_TAGS_ITEMS } from "../../../constants/Tags/tags.constant";
 import copy from "../../../assets/images/copy.svg";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useLogOut } from "../../../hooks/Logout/useLogOut";
+import { useLogout } from "../../../hooks/Auth/useLogout";
 import { useSetRecoilState } from "recoil";
-import { USERID, USERPROFILE } from "../../../stores/User/UserAtom";
+import { USERID, USERPROFILE } from "../../../stores/User/user.store";
+import { useGetMyInfo } from "../../../queries/User/user.query";
 
 const Nav = () => {
-  const { data } = useGetMember();
+  const { data } = useGetMyInfo();
   const navigate = useNavigate();
-  const { onLogOut } = useLogOut();
+  const { onLogout } = useLogout();
 
   const { pathname } = useLocation();
   const tagName = pathname.replace("/tag/", "");
@@ -43,15 +43,12 @@ const Nav = () => {
       </S.UserInfoContainer>
 
       <S.FiledUl>
-        {FILEDITEM.map((item) => (
-          <li
-            key={item.color}
-            onClick={() => navigate(`/tag/${item.title.toUpperCase()}`)}
-          >
+        {NAV_TAGS_ITEMS.map((item) => (
+          <li key={item.color} onClick={() => navigate(`/tag/${item.title}`)}>
             <S.FiledItemWrap>
               <S.FiledImg src={item.image} />
               <S.FiledName
-                isSelectTag={item.title.toUpperCase() === tagName}
+                isSelectTag={item.title === tagName}
                 selectTag={tagName}
               >
                 {item.title}
@@ -68,7 +65,7 @@ const Nav = () => {
         </S.MyInfoPathText>
       </S.MyInfoPathContainer>
 
-      <S.LogoutText onClick={onLogOut}>로그아웃</S.LogoutText>
+      <S.LogoutText onClick={onLogout}>로그아웃</S.LogoutText>
     </S.Container>
   );
 };

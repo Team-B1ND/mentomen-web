@@ -1,15 +1,13 @@
 import IntroTop from "../components/Main/Introduce/Top/IntroTop";
 import IntroBottom from "../components/Main/Introduce/Bottom/IntroBottom";
-import IntroMid from "../components/Main/Introduce/Mid/IntroMid";
-import useHideNav from "../hooks/Nav/useHideNav";
+import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 
 function IntroducePage() {
-  useHideNav();
+  useHideHeaderOrNav("Nav");
 
   return (
     <>
       <IntroTop />
-      <IntroMid />
       <IntroBottom />
     </>
   );

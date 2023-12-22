@@ -1,25 +1,27 @@
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
 import flex from "../../../style/flex";
 
 export const Container = styled.div`
-  width: 500px;
+  width: 550px;
   height: auto;
-
-  border: 1px solid #ddd;
-  border-radius: 5px;
 
   overflow: hidden;
   background-color: #fff;
 `;
 
-export const Profile = styled.div`
+export const Profile = styled.div<{ customStyle?: CSSObject }>`
   width: 100%;
   height: 60px;
-  border-bottom: 1px solid #ddd;
 
-  ${flex({ alignItems: "center", justifyContent: "space-between" })}
+  ${flex({
+    alignItems: "center",
+    justifyContent: "space-between",
+  })}
+
   padding: 0 12px 0 12px;
+
+  ${({ customStyle }) => customStyle}
 `;
 
 export const UserInfo = styled.div`
@@ -33,7 +35,7 @@ export const ProfileImg = styled.img`
   border: 1px solid #ddd;
 `;
 
-export const ClassInfo = styled.div`
+export const StudentInfoContainer = styled.div`
   font-family: "Pretendard-Bold" !important;
   font-weight: 700;
 
@@ -45,11 +47,11 @@ export const TagIcon = styled.img`
   width: 40px;
   height: 40px;
 
-  z-index: 3;
-
   position: absolute;
   top: 0;
   right: 0;
+
+  z-index: 2;
 `;
 
 export const DateTime = styled.p`
@@ -60,11 +62,14 @@ export const DateTime = styled.p`
 export const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
   height: auto;
+  border-radius: 5px;
+
+  border: 1px solid #ddd;
 
   ${flex({ alignItems: "center", justifyContent: "center" })}
 
   position: relative;
-  text-align: center;
+  overflow: hidden;
 
   background-color: ${({ sizeOfImages }) =>
     sizeOfImages && sizeOfImages > 0 ? "#000" : "#eee"};
@@ -79,14 +84,13 @@ export const NoneImage = styled.div`
 export const ItemImage = styled.img`
   width: 100%;
   height: 100%;
-
   object-fit: contain;
 `;
 
 export const Content = styled.div`
   width: 100%;
   height: 160px;
-  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 `;
 
 export const CommentAndDate = styled.div`
@@ -94,7 +98,7 @@ export const CommentAndDate = styled.div`
   height: 40px;
 
   ${flex({ alignItems: "center", justifyContent: "space-between" })}
-  padding: 0 10px 0 10px;
+  padding: 0 10px 0 5px;
 `;
 
 export const CommentIcon = styled(AiOutlineComment)`
@@ -117,7 +121,7 @@ export const Date = styled.p`
 export const ContentBox = styled.div`
   width: 100%;
   height: calc(100% - 40px);
-  padding: 15px 10px 10px 10px;
+  padding: 15px 10px 10px 5px;
 
   white-space: pre-wrap;
   line-height: 23px;

@@ -77,9 +77,11 @@ export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
   ${flex({ alignItems: "center", justifyContent: "center" })}
   padding: 9px 7px 7px 7px;
 
+  transform: scale(1);
   &:hover {
     background-color: #eee;
     border-radius: 5px;
+    transform: scale(0.96);
   }
   &:active {
     color: #eee;

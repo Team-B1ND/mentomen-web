@@ -1,11 +1,11 @@
-import { Response } from "../Util/response.type";
+import { ResponseType } from "../common/common.type";
 
 export interface postCommentType {
   content: string;
   postId: number;
 }
 
-export interface getCommentType extends Response {
+export interface getCommentType extends ResponseType {
   commentId: number;
   content: string;
   createDateTime: string;
@@ -21,7 +21,7 @@ export interface getCommentType extends Response {
   userName: string;
 }
 
-export interface getCommentResponse extends Response {
+export interface getCommentResponse extends ResponseType {
   data: getCommentType[];
 }
 

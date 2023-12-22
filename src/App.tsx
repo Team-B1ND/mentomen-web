@@ -1,5 +1,5 @@
 import PageTemplate from "./components/Common/PageTemplate";
-import Router from "./router/router";
+import Router from "./router";
 import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";

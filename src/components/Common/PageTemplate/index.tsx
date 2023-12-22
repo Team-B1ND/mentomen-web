@@ -1,12 +1,15 @@
+import { Portal } from "@stubee2/stubee2-rolling-ui";
 import { ReactNode } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { HideHeaderAtom } from "../../../stores/Header/header.store";
-import { HideNavAtom } from "../../../stores/Nav/nav.store";
-import { NOTICE } from "../../../stores/Notice/noticeAtom";
+import {
+  HideHeaderAtom,
+  HideNavAtom,
+} from "../../../stores/common/common.store";
+import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
 import flex from "../../../style/flex";
 import GlobalStyle from "../../../style/Global";
-import Notice from "../../Notice";
+import Detail from "../../Modal/Detail";
 import Header from "../Header";
 import Nav from "../Nav";
 
@@ -15,9 +18,10 @@ interface Props {
 }
 
 function PageTemplate({ children }: Props) {
-  const noticeModal = useRecoilValue(NOTICE);
   const hideHeader = useRecoilValue(HideHeaderAtom);
   const hideNav = useRecoilValue(HideNavAtom);
+  const [isActiveDetail, setIsActiveDetail] =
+    useRecoilState(IsActiveDetailAtom);
 
   return (
     <>
@@ -26,10 +30,15 @@ function PageTemplate({ children }: Props) {
         {!hideHeader && <Header />}
         <Wrapper>
           {!hideNav && <Nav />}
-          <Content>{children}</Content>
+          <Content hideHeader={hideHeader}>{children}</Content>
         </Wrapper>
       </Container>
-      {noticeModal && <Notice />}
+
+      {isActiveDetail && (
+        <Portal id="modal">
+          <Detail setIsActiveDetail={setIsActiveDetail} />
+        </Portal>
+      )}
     </>
   );
 }
@@ -42,11 +51,11 @@ const Wrapper = styled.div`
   ${flex({ alignItems: "center" })}
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ hideHeader: boolean }>`
   width: 100%;
   height: 100vh;
-  padding-top: 75px;
-  background-color: #f2f2f2;
+  padding-top: ${({ hideHeader }) => !hideHeader && "75px"};
+  background-color: #fff;
 `;
 
 export default PageTemplate;

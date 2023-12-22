@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
+import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
 import { useGetTag } from "../../queries/Post/post.query";
 import * as S from "../../style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -12,6 +13,7 @@ interface Props {
 
 const Tag = () => {
   const { tag } = useParams();
+  useTokenCheck();
   return (
     <S.ListContainer>
       <S.ListWrapper>
@@ -26,7 +28,7 @@ const Tag = () => {
 };
 
 const TagItem = ({ tag }: Props) => {
-  const { data: tagList } = useGetTag({ tag }, { suspense: true });
+  const { data: tagList } = useGetTag(tag.toUpperCase(), { suspense: true });
   return (
     <>
       {tagList?.data.length!! > 0 ? (

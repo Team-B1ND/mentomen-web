@@ -12,20 +12,11 @@ interface Props {
 const ListItem = ({ data }: Props) => {
   return (
     <S.Container>
-      <ListItemProfile
-        userName={data.userName}
-        stdInfo={data.stdInfo}
-        profileUrl={data.profileUrl}
-        author={data.author}
-      />
+      <ListItemProfile {...data} customStyle={{ paddingLeft: "3px" }} />
       <ListItemImages imgUrls={data.imgUrls} tag={data.tag} />
-      <ListItemContent
-        updateDateTime={data.updateDateTime}
-        content={data.content}
-        postId={data.postId}
-      />
+      <ListItemContent {...data} />
     </S.Container>
   );
 };
 
-export default React.memo(ListItem);
+export default ListItem;

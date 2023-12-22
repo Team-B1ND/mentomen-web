@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   ${flex({ alignItems: "center" })}
 
   background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+  border-bottom: 1px solid #ddd;
 
   white-space: nowrap;
 `;
@@ -63,7 +63,7 @@ export const HeaderAbleContainer = styled.div`
   font-weight: 600;
 `;
 
-export const Write = styled.div`
+export const RegistText = styled.p`
   ${flex({ alignItems: "center", columnGap: "5px" })}
   cursor: pointer;
 `;

@@ -1,43 +1,53 @@
+import { Portal } from "@stubee2/stubee2-rolling-ui";
+import { useState } from "react";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { useRecoilValue } from "recoil";
+import { CSSObject } from "styled-components";
 import profile from "../../../assets/images/aprofile.png";
-import { USERID } from "../../../stores/User/UserAtom";
+import { USERID } from "../../../stores/User/user.store";
+import { StdInfoType } from "../../../types/List/list.type";
+import SetUp from "../Button/SetUp";
+import { StudentInfo } from "../StudentInfo";
 import * as S from "./style";
 
 interface Props {
   profileUrl: string;
-  stdInfo: {
-    grade: number;
-    number: number;
-    room: number;
-  };
+  stdInfo: StdInfoType;
   userName: string;
   author: number;
+  postId: number;
+  customStyle?: CSSObject;
 }
 
-const ListItemProfile = ({ profileUrl, stdInfo, userName, author }: Props) => {
-  const { grade, room, number } = stdInfo;
+const ListItemProfile = ({ ...attr }: Props) => {
   const userId = useRecoilValue(USERID);
+  const [isActiveSetUp, setIsActiveSetUp] = useState(false);
 
   return (
-    <S.Profile>
-      <S.UserInfo>
-        <S.ProfileImg src={profileUrl || profile} alt="이미지 없음" />
+    <>
+      <S.Profile customStyle={attr.customStyle}>
+        <S.UserInfo>
+          <S.ProfileImg src={attr.profileUrl || profile} alt="이미지 없음" />
 
-        <S.ClassInfo>
-          <p>
-            {grade}
-            {room}
-            {number > 10 ? number : `0${number}`}
-          </p>
-          <p>{userName}</p>
-        </S.ClassInfo>
-      </S.UserInfo>
+          <StudentInfo stdInfo={attr.stdInfo} userName={attr.userName} />
+        </S.UserInfo>
 
-      {userId === author && (
-        <BiDotsHorizontalRounded size={30} cursor="pointer" color="#000" />
+        {userId === attr.author && (
+          <BiDotsHorizontalRounded
+            size={30}
+            cursor="pointer"
+            color="#000"
+            onClick={() => setIsActiveSetUp(true)}
+          />
+        )}
+      </S.Profile>
+
+      {isActiveSetUp && (
+        <Portal id="modal">
+          <SetUp postId={attr.postId} setIsActiveSetUp={setIsActiveSetUp} />
+        </Portal>
       )}
-    </S.Profile>
+    </>
   );
 };
 

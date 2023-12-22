@@ -1,15 +1,11 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import useHideHeaderOrNav from "../../../hooks/common/useHideHeaderOrNav";
 
-export default function NotFound(){
-    const navigate = useNavigate();
-
-    useEffect(()=>{
-        window.alert('알맞지 않는 페이지입니다!');
-        navigate('/');
-    },[navigate]);
-
-    return(
-        <></>
-    );
+export default function NotFound() {
+  useHideHeaderOrNav("Both");
+  return (
+    <div>
+      <p>404 NotFound</p>
+      <p>알맞지 않는 페이지입니다.</p>
+    </div>
+  );
 }

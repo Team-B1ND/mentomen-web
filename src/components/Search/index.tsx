@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
+import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
 import { useGetKeyWord } from "../../queries/Post/post.query";
 import * as S from "../../style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -12,6 +13,7 @@ interface Props {
 
 const Search = () => {
   const { keyword } = useParams();
+  useTokenCheck();
   return (
     <S.ListContainer>
       <S.ListWrapper>
@@ -26,7 +28,7 @@ const Search = () => {
 };
 
 const SearchItem = ({ keyword }: Props) => {
-  const { data: searchList } = useGetKeyWord({ keyword }, { suspense: true });
+  const { data: searchList } = useGetKeyWord(keyword, { suspense: true });
   return (
     <>
       {searchList?.data.length!! > 0 ? (

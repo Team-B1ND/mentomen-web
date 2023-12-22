@@ -1,11 +1,9 @@
 import { useLogin } from "../../hooks/Auth/useLogin";
-import useHideHeader from "../../hooks/Header/useHideHeader";
-import useHideNav from "../../hooks/Nav/useHideNav";
+import useHideHeaderOrNav from "../../hooks/common/useHideHeaderOrNav";
 
 function AuthLoadingPage() {
   useLogin();
-  useHideHeader();
-  useHideNav();
+  useHideHeaderOrNav("Both");
   return <div>로딩 중...</div>;
 }
 

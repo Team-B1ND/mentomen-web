@@ -11,7 +11,6 @@ import {
   patchCommentType,
   postCommentType,
 } from "../../types/Comment/comment.type";
-import { ParamType } from "../../types/Param/param.type";
 
 export const usePostComment = () => {
   const mutation = useMutation(
@@ -24,7 +23,7 @@ export const usePostComment = () => {
 };
 
 export const useGetComment = (
-  { postId }: ParamType,
+  postId: number,
   options?: UseQueryOptions<
     getCommentResponse,
     AxiosError,
@@ -34,7 +33,7 @@ export const useGetComment = (
 ): UseBaseQueryResult<getCommentResponse, AxiosError> =>
   useQuery(
     ["comment/read", postId],
-    () => CommentRepository.getComment({ postId }),
+    () => CommentRepository.getComment(postId),
     {
       ...options,
       enabled: !!postId,
@@ -51,8 +50,8 @@ export const usePatchComment = () => {
   return mutation;
 };
 export const useDeleteComment = () => {
-  const mutation = useMutation("comment/delete", ({ postId }: ParamType) =>
-    CommentRepository.deleteComment({ postId })
+  const mutation = useMutation("comment/delete", (postId: number) =>
+    CommentRepository.deleteComment(postId)
   );
   return mutation;
 };

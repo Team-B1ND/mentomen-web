@@ -1,6 +1,7 @@
 import { getDateText, stringEllipsis } from "@stubee2/stubee2-rolling-util";
-import { useState } from "react";
-import Detail from "../../Detail";
+import { useSetRecoilState } from "recoil";
+import { PostIdAtom } from "../../../stores/common/common.store";
+import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
 import * as S from "./style";
 
 interface Props {
@@ -10,20 +11,22 @@ interface Props {
 }
 
 const ListItemContent = ({ updateDateTime, content, postId }: Props) => {
-  const [isClickCommentIcon, setIsClickCommentIcon] = useState(false);
+  const setIsActiveDetail = useSetRecoilState(IsActiveDetailAtom);
+  const setPostId = useSetRecoilState(PostIdAtom);
+
   return (
-    <>
-      <S.Content>
-        <S.CommentAndDate>
-          <S.CommentIcon onClick={() => setIsClickCommentIcon(true)} />
-          <S.Date>{getDateText(new Date(updateDateTime))}</S.Date>
-        </S.CommentAndDate>
-        <S.ContentBox>{stringEllipsis(content, 100)}</S.ContentBox>
-      </S.Content>
-      {isClickCommentIcon && (
-        <Detail postId={postId} setIsClickCommentIcon={setIsClickCommentIcon} />
-      )}
-    </>
+    <S.Content>
+      <S.CommentAndDate>
+        <S.CommentIcon
+          onClick={() => {
+            setIsActiveDetail(true);
+            setPostId(postId);
+          }}
+        />
+        <S.Date>{getDateText(new Date(updateDateTime))}</S.Date>
+      </S.CommentAndDate>
+      <S.ContentBox>{stringEllipsis(content, 100)}</S.ContentBox>
+    </S.Content>
   );
 };
 

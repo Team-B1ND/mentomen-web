@@ -4,7 +4,6 @@ import {
   getCommentResponse,
   patchCommentType,
 } from "../../types/Comment/comment.type";
-import { ParamType } from "../../types/Param/param.type";
 
 class CommentRepository {
   public async postComment({
@@ -17,7 +16,7 @@ class CommentRepository {
     });
   }
 
-  public async getComment({ postId }: ParamType): Promise<getCommentResponse> {
+  public async getComment(postId: number): Promise<getCommentResponse> {
     const { data } = await customAxios.get(`/comment/read/${postId}`);
     return data;
   }
@@ -32,7 +31,7 @@ class CommentRepository {
     });
   }
 
-  public async deleteComment({ postId }: ParamType): Promise<void> {
+  public async deleteComment(postId: number): Promise<void> {
     await customAxios.delete(`/comment/delete/${postId}`);
   }
 }
