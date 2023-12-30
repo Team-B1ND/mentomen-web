@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
+import { palette } from "../../../style/palette";
 import { getTagColor } from "../../../util/Tag/getTagColor";
 
 export const Container = styled.div`
@@ -44,9 +45,9 @@ export const FiledUl = styled.ul`
   width: 100%;
   height: auto;
 
-  ${flex({ rowGap: "2rem", flexDirection: "column" })}
+  ${flex({ rowGap: "1.5rem", flexDirection: "column" })}
 
-  padding-left: 30px;
+  padding-left: 25px;
   font-weight: 400;
   font-size: 18px;
 
@@ -55,28 +56,8 @@ export const FiledUl = styled.ul`
   }
 `;
 
-export const FiledItemWrap = styled.div`
-  width: 100%;
-  ${flex({ alignItems: "center", columnGap: "15px" })}
-`;
-
-export const FiledImg = styled.img`
-  width: 16px;
-  height: 23px;
-`;
-
-export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
-  color: ${({ isSelectTag, selectTag }) =>
-    isSelectTag ? getTagColor(selectTag) : "#000"};
-  font-weight: 700;
+const HoverAnimation = css`
   transition: 0.2s all ease-in-out;
-
-  width: auto;
-  height: 30px;
-
-  ${flex({ alignItems: "center", justifyContent: "center" })}
-  padding: 9px 7px 7px 7px;
-
   transform: scale(1);
   &:hover {
     background-color: #eee;
@@ -88,11 +69,45 @@ export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
   }
 `;
 
-export const MyInfoPathContainer = styled.div`
-  padding-left: 30px;
+export const FiledItemWrap = styled.div`
+  ${flex({ alignItems: "center" })}
 
-  ${flex({ alignItems: "center", columnGap: "10px" })}
+  div {
+    width: auto;
+    padding: 3px 10px 3px 10px;
+    ${HoverAnimation}
+    ${flex({ alignItems: "center", columnGap: "15px" })}
+  }
+`;
+
+export const FiledImg = styled.img`
+  width: 16px;
+  height: 23px;
+`;
+
+export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
+  width: auto;
+  height: 30px;
+
+  color: ${({ isSelectTag, selectTag }) =>
+    isSelectTag && getTagColor(selectTag)};
+  font-weight: 700;
+
+  ${flex({ alignItems: "center", justifyContent: "center" })}
+`;
+
+export const MyInfoPathContainer = styled.div`
   font-size: 18px;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
+
+  div {
+    padding: 7px;
+    ${HoverAnimation}
+    ${flex({
+      alignItems: "center",
+      columnGap: "10px",
+    })}
+  }
 `;
 
 export const MyInfoPathText = styled.p`
@@ -109,4 +124,15 @@ export const LogoutText = styled.p`
   text-align: center;
   color: #858585;
   cursor: pointer;
+
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: ${palette.color};
+    font-family: "Pretendard-Bold" !important;
+    transform: scale(0.95);
+  }
+  &:active {
+  }
 `;

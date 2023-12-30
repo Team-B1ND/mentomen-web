@@ -46,23 +46,27 @@ const Nav = () => {
         {NAV_TAGS_ITEMS.map((item) => (
           <li key={item.color} onClick={() => navigate(`/tag/${item.title}`)}>
             <S.FiledItemWrap>
-              <S.FiledImg src={item.image} />
-              <S.FiledName
-                isSelectTag={item.title === tagName}
-                selectTag={tagName}
-              >
-                {item.title}
-              </S.FiledName>
+              <div>
+                <S.FiledImg src={item.image} />
+                <S.FiledName
+                  isSelectTag={item.title === tagName}
+                  selectTag={tagName}
+                >
+                  {item.title}
+                </S.FiledName>
+              </div>
             </S.FiledItemWrap>
           </li>
         ))}
       </S.FiledUl>
 
       <S.MyInfoPathContainer>
-        <S.MyInfoPathImg src={copy} />
-        <S.MyInfoPathText onClick={() => navigate("/mypage")}>
-          내가 쓴 멘토 요청글
-        </S.MyInfoPathText>
+        <div>
+          <S.MyInfoPathImg src={copy} />
+          <S.MyInfoPathText onClick={() => navigate("/mypage")}>
+            내가 쓴 멘토 요청글
+          </S.MyInfoPathText>
+        </div>
       </S.MyInfoPathContainer>
 
       <S.LogoutText onClick={onLogout}>로그아웃</S.LogoutText>

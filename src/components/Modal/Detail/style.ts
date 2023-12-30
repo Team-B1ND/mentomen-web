@@ -107,7 +107,7 @@ export const InputCommentForm = styled.form`
   width: 100%;
   height: 55px;
   border-top: 1px solid #ddd;
-  ${flex({ alignItems: "center" })}
+  ${flex({ alignItems: "center", columnGap: "5px" })}
 
   input {
     width: calc(100% - 55px);
@@ -121,9 +121,9 @@ export const InputCommentForm = styled.form`
   }
 
   button {
-    width: 55px;
-    height: 100%;
-    background-color: #fff;
+    padding: 10px;
+    margin-right: 3px;
+    background-color: transparent;
 
     outline: none;
     border: none;
@@ -131,6 +131,19 @@ export const InputCommentForm = styled.form`
 
     font-size: 15px;
     font-weight: bold;
+
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #ddd;
+      transform: scale(0.93);
+    }
+    &:active {
+      background-color: #eee;
+      color: #ddd;
+    }
   }
 `;
 
