@@ -12,19 +12,15 @@ const ListItemImages = ({ imgUrls, tag }: Props) => {
   return (
     <S.ImageContainer sizeOfImages={imgUrls?.length}>
       <S.TagIcon src={getTagIcon(tag)} alt="이미지 없음" />
-      {imgUrls?.length > 0 ? (
-        <Carousel
-          showStatus={false}
-          showThumbs={false}
-          showIndicators={imgUrls?.length > 1 && true}
-        >
-          {imgUrls.map((img, idx) => {
-            return <S.ItemImage key={idx} src={img} alt="이미지 없음" />;
-          })}
-        </Carousel>
-      ) : (
-        <S.NoneImage>이미지가 없습니다.</S.NoneImage>
-      )}
+      <Carousel
+        showStatus={false}
+        showThumbs={false}
+        showIndicators={imgUrls?.length > 1 && true}
+      >
+        {imgUrls.map((img, idx) => {
+          return <S.ItemImage key={idx} src={img} alt="이미지 없음" />;
+        })}
+      </Carousel>
     </S.ImageContainer>
   );
 };

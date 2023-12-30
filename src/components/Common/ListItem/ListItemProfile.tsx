@@ -28,13 +28,12 @@ const ListItemProfile = ({ ...attr }: Props) => {
       <S.Profile customStyle={attr.customStyle}>
         <S.UserInfo>
           <S.ProfileImg src={attr.profileUrl || profile} alt="이미지 없음" />
-
           <StudentInfo stdInfo={attr.stdInfo} userName={attr.userName} />
         </S.UserInfo>
 
         {userId === attr.author && (
           <BiDotsHorizontalRounded
-            size={30}
+            size={27}
             cursor="pointer"
             color="#000"
             onClick={() => setIsActiveSetUp(true)}
