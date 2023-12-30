@@ -32,12 +32,7 @@ const ListItemProfile = ({ ...attr }: Props) => {
         </S.UserInfo>
 
         {userId === attr.author && (
-          <BiDotsHorizontalRounded
-            size={27}
-            cursor="pointer"
-            color="#000"
-            onClick={() => setIsActiveSetUp(true)}
-          />
+          <S.DotsIcon onClick={() => setIsActiveSetUp(true)} />
         )}
       </S.Profile>
 

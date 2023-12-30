@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
 
@@ -32,13 +32,39 @@ export const Logo = styled.img`
   cursor: pointer;
 `;
 
-export const HeaderSearchBox = styled.div`
-  ${flex({ alignItems: "center" })}
-  padding-left: 15px;
+export const HeaderSearchForm = styled.form`
   width: 600px;
-  height: 49px;
+  height: 50px;
+
   border-radius: 10px;
+  padding-left: 15px;
   background-color: #f2f2f2;
+
+  ${flex({ alignItems: "center" })}
+`;
+
+const HoverAnimation = css`
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #ddd;
+    transform: scale(0.98);
+  }
+  &:active {
+    background-color: #eee;
+  }
+`;
+
+export const SearchButton = styled.button`
+  padding: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  ${HoverAnimation}
+  ${flex({ alignItems: "center" })};
 `;
 
 export const HeaderSearchImg = styled.img`
@@ -66,12 +92,16 @@ export const HeaderAbleContainer = styled.div`
 export const RegistText = styled.p`
   ${flex({ alignItems: "center", columnGap: "5px" })}
   cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  ${HoverAnimation}
 `;
 
 export const HeaderNoticeImg = styled.img`
   width: 35px;
   height: 35px;
   cursor: pointer;
+  ${HoverAnimation}
 `;
 
 export const Introduce = styled.h1`

@@ -1,6 +1,7 @@
 import styled, { css, CSSObject } from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
 import flex from "../../../style/flex";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
 
 export const Container = styled.div`
   width: 550px;
@@ -36,9 +37,29 @@ export const ProfileImg = styled.img`
 export const StudentInfoContainer = styled.div`
   font-family: "Pretendard-Bold" !important;
   font-weight: 700;
+  font-size: 15px;
 
   ${flex({ alignItems: "center", columnGap: "3px" })}
-  font-size: 15px;
+`;
+
+export const DotsIcon = styled(BiDotsHorizontalRounded)`
+  width: 30px;
+  height: 30px;
+
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
+
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #ddd;
+    transform: scale(0.93);
+  }
+  &:active {
+    background-color: #eee;
+  }
 `;
 
 export const TagIcon = styled.img<{ imgUrls?: string }>`

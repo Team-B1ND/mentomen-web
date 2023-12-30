@@ -17,7 +17,7 @@ function Header() {
   const navigate = useNavigate();
   const [isActiveNotice, setIsActiveNotice] = useState(false);
   const [isActivePostForm, setIsActivePostForm] = useState(false);
-  const { onKeyPress, onChange, search } = useKeyWordSearch();
+  const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
   const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
 
   const { data: noticeCheck } = useGetNoticeCheck();
@@ -29,16 +29,18 @@ function Header() {
           <S.Logo src={Logo} onClick={() => (window.location.href = "/")} />
 
           {localStorage.getItem(ACCESS_KEY) && (
-            <S.HeaderSearchBox>
-              <S.HeaderSearchImg src={Search} />
+            <S.HeaderSearchForm onSubmit={(e) => handleSearchSubmit(e)}>
+              <S.SearchButton type="submit">
+                <S.HeaderSearchImg src={Search} />
+              </S.SearchButton>
+
               <S.HeaderSearchInput
                 placeholder="키워드를 입력하세요"
                 type="text"
                 value={search}
-                onChange={onChange}
-                onKeyPress={onKeyPress}
+                onChange={handleSerachChange}
               />
-            </S.HeaderSearchBox>
+            </S.HeaderSearchForm>
           )}
 
           <S.HeaderAbleContainer>

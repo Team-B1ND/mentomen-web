@@ -1,6 +1,5 @@
 import { useEscCloseModal } from "@stubee2/stubee2-rolling-util";
 import { Dispatch, SetStateAction } from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import { usePost } from "../../../hooks/Post/usePost";
 import PostEditorFormContent from "./PostEditorFormContent";
 import PostEditorFormImage from "./PostEditorFormImage";
@@ -19,11 +18,7 @@ const PostEditorForm = ({ setIsActivePostForm }: Props) => {
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.Title>
           <p>글 등록하기</p>
-          <AiOutlineClose
-            onClick={() => setIsActivePostForm(false)}
-            cursor={"pointer"}
-            size={20}
-          />
+          <S.CloseIcon size={20} onClick={() => setIsActivePostForm(false)} />
         </S.Title>
 
         <S.Form

@@ -1,3 +1,4 @@
+import { AiOutlineClose } from "react-icons/ai";
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
@@ -38,6 +39,26 @@ export const Title = styled.div`
   p {
     font-size: 16px;
     font-family: "Pretendard-Bold" !important;
+  }
+`;
+
+export const CloseIcon = styled(AiOutlineClose)`
+  width: 26px;
+  height: 26px;
+  padding: 3px;
+  cursor: pointer;
+
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #ddd;
+    transform: scale(0.93);
+  }
+  &:active {
+    background-color: #eee;
+    color: #ddd;
   }
 `;
 

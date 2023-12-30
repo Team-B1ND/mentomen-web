@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css, CSSObject } from "styled-components";
 import flex from "./flex";
 
 export const ListContainer = styled.div`
