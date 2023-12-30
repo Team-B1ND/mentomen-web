@@ -41,10 +41,10 @@ export const Content = styled.div`
   border-left: 1px solid #ddd;
 `;
 
-export const Profile = styled.div`
+export const ProfileContainer = styled.div`
   width: 100%;
-  height: 70px;
-  border-bottom: 1px solid #ddd;
+  height: 60px;
+  padding: 0 7px 0px 12px;
 `;
 
 export const Comment = styled.div`
@@ -69,12 +69,19 @@ export const CommentBox = styled.ul`
   li {
     width: 100%;
     height: auto;
+    padding-right: 5px;
 
     ${flex({ alignItems: "center", columnGap: "10px" })}
   }
 `;
 
-export const CommentUserProfile = styled.div`
+export const UserProfileWrap = styled.div`
+  width: 135px;
+  height: 100%;
+  ${flex({ alignItems: "flex-start" })}
+`;
+
+export const UserProfile = styled.div`
   ${flex({ alignItems: "center", columnGap: "15px" })}
   white-space: nowrap;
 
@@ -89,7 +96,7 @@ export const CommentUserProfile = styled.div`
 `;
 
 export const UserComment = styled.div`
-  width: 100%;
+  width: calc(100% - 150px);
   height: auto;
 
   font-size: 14px;

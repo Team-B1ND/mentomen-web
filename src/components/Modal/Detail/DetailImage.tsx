@@ -11,7 +11,11 @@ const DetailImage = ({ imgUrls }: Props) => {
   return (
     <S.ImageContainer>
       {imgUrls !== null ? (
-        <Carousel showStatus={false} showThumbs={false}>
+        <Carousel
+          showStatus={false}
+          showThumbs={false}
+          showIndicators={imgUrls?.length > 1 && true}
+        >
           {imgUrls.map((img, idx) => {
             return <ItemImage key={idx} src={img} alt="이미지 없음" />;
           })}

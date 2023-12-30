@@ -13,7 +13,9 @@ const ListItem = ({ data }: Props) => {
   return (
     <S.Container>
       <ListItemProfile {...data} customStyle={{ paddingLeft: "3px" }} />
-      <ListItemImages imgUrls={data.imgUrls} tag={data.tag} />
+      {data.imgUrls?.length > 0 && (
+        <ListItemImages imgUrls={data.imgUrls} tag={data.tag} />
+      )}
       <ListItemContent {...data} />
     </S.Container>
   );

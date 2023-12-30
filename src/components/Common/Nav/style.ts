@@ -84,7 +84,7 @@ export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
     transform: scale(0.96);
   }
   &:active {
-    color: #eee;
+    color: #ddd;
   }
 `;
 

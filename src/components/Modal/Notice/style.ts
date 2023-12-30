@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const Container = styled.div`
   position: fixed;
@@ -33,12 +34,32 @@ export const NoticeText = styled.div`
   height: 40px;
   border-bottom: 1px solid #ddd;
 
-  padding: 0 18px 0 18px;
+  padding: 0 15px 0 18px;
   ${flex({ alignItems: "center", justifyContent: "space-between" })}
 
   p {
     font-size: 16px;
     font-family: "Pretendard-Bold" !important;
+  }
+`;
+
+export const CloseIcon = styled(AiOutlineClose)`
+  width: 23px;
+  height: 23px;
+  padding: 3px;
+  cursor: pointer;
+
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #ddd;
+    transform: scale(0.93);
+  }
+  &:active {
+    background-color: #eee;
+    color: #ddd;
   }
 `;
 

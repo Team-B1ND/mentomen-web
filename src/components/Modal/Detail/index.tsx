@@ -6,6 +6,7 @@ import ErrorBoundary from "../../Common/ErrorBoundary";
 import DetailContent from "./DetailContent";
 import { useRecoilValue } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";
+import DetailSkeleton from "../../Common/Skeleton/Detail";
 
 interface Props {
   setIsActiveDetail: Dispatch<SetStateAction<boolean>>;
@@ -18,7 +19,7 @@ const Detail = ({ setIsActiveDetail }: Props) => {
     <S.Container onClick={() => setIsActiveDetail(false)}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <ErrorBoundary fallback={<>Error :)</>}>
-          <Suspense fallback={<>로딩 중...</>}>
+          <Suspense fallback={<DetailSkeleton />}>
             <DetailItem postId={postId} />
           </Suspense>
         </ErrorBoundary>

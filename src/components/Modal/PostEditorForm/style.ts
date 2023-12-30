@@ -70,6 +70,10 @@ export const ImageWrapper = styled.div`
   }
 `;
 
+export const ImageUploadText = styled.p`
+  color: gray;
+`;
+
 export const UploadImgIcon = styled.img`
   width: 300px;
   height: 300px;

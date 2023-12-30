@@ -10,7 +10,7 @@ const PostEditorFormImage = ({ imgUrls }: Props) => {
   return (
     <S.Image sizeOfImgUrl={imgUrls.length}>
       <S.ImageWrapper>
-        {imgUrls?.length > 0 && (
+        {imgUrls?.length > 0 ? (
           <Carousel
             showStatus={false}
             showThumbs={false}
@@ -20,6 +20,8 @@ const PostEditorFormImage = ({ imgUrls }: Props) => {
               return <img key={idx} src={img} alt="이미지 없음" />;
             })}
           </Carousel>
+        ) : (
+          <S.ImageUploadText>이미지를 업로드 해주세요!</S.ImageUploadText>
         )}
       </S.ImageWrapper>
     </S.Image>

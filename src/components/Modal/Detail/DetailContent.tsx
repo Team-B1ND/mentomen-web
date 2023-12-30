@@ -1,39 +1,40 @@
 import { Suspense } from "react";
 import { useGetComment } from "../../../queries/Comment/comment.query";
-import { ListItemType, StdInfoType } from "../../../types/List/list.type";
+import { ListItemType } from "../../../types/List/list.type";
 import ErrorBoundary from "../../Common/ErrorBoundary";
 import ListItemProfile from "../../Common/ListItem/ListItemProfile";
 import profile from "../../../assets/images/aprofile.png";
 import * as S from "./style";
 import { StudentInfo } from "../../Common/StudentInfo";
 import { useComment } from "../../../hooks/Comment/useComment";
+import DetailComentSkeleton from "../../Common/Skeleton/Detail/DetailComent";
 
-interface DetailContentProps {
+interface Props {
   data: ListItemType;
 }
 
-interface CommentListProps {
-  postId: number;
-}
-
-const DetailContent = ({ data }: DetailContentProps) => {
+const DetailContent = ({ data }: Props) => {
   const { content, handleCommentChange, handleCommentSubmit } = useComment();
   return (
     <S.Content>
-      <ListItemProfile {...data} />
+      <S.ProfileContainer>
+        <ListItemProfile {...data} />
+      </S.ProfileContainer>
 
       <S.Comment>
         <S.CommentBox>
           <li>
-            <S.CommentUserProfile>
-              <img src={data.profileUrl || profile} alt="이미지 없음" />
-              <StudentInfo stdInfo={data.stdInfo} userName={data.userName} />
-            </S.CommentUserProfile>
+            <S.UserProfileWrap>
+              <S.UserProfile>
+                <img src={data.profileUrl || profile} alt="이미지 없음" />
+                <StudentInfo stdInfo={data.stdInfo} userName={data.userName} />
+              </S.UserProfile>
+            </S.UserProfileWrap>
             <S.UserComment>{data.content}</S.UserComment>
           </li>
 
           <ErrorBoundary fallback={<>Error:)</>}>
-            <Suspense fallback={<>로딩 중...</>}>
+            <Suspense fallback={<DetailComentSkeleton />}>
               <CommentList postId={data.postId} />
             </Suspense>
           </ErrorBoundary>
@@ -53,17 +54,19 @@ const DetailContent = ({ data }: DetailContentProps) => {
   );
 };
 
-const CommentList = ({ postId }: CommentListProps) => {
+const CommentList = ({ postId }: { postId: number }) => {
   const { data: comments } = useGetComment(postId, { suspense: true });
   return (
     <>
       {comments?.data.length!! > 0 &&
         comments?.data.map((item) => (
           <li key={item.commentId}>
-            <S.CommentUserProfile>
-              <img src={item.profileUrl || profile} alt="이미지 없음" />
-              <StudentInfo stdInfo={item.stdInfo} userName={item.userName} />
-            </S.CommentUserProfile>
+            <S.UserProfileWrap>
+              <S.UserProfile>
+                <img src={item.profileUrl || profile} alt="이미지 없음" />
+                <StudentInfo stdInfo={item.stdInfo} userName={item.userName} />
+              </S.UserProfile>
+            </S.UserProfileWrap>
             <S.UserComment>{item.content}</S.UserComment>
           </li>
         ))}

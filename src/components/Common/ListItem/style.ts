@@ -1,4 +1,4 @@
-import styled, { CSSObject } from "styled-components";
+import styled, { css, CSSObject } from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
 import flex from "../../../style/flex";
 
@@ -18,8 +18,6 @@ export const Profile = styled.div<{ customStyle?: CSSObject }>`
     alignItems: "center",
     justifyContent: "space-between",
   })}
-
-  padding: 0 12px 0 12px;
 
   ${({ customStyle }) => customStyle}
 `;
@@ -43,13 +41,20 @@ export const StudentInfoContainer = styled.div`
   font-size: 15px;
 `;
 
-export const TagIcon = styled.img`
-  width: 40px;
-  height: 40px;
-
-  position: absolute;
-  top: 0;
-  right: 0;
+export const TagIcon = styled.img<{ imgUrls?: string }>`
+  ${({ imgUrls }) =>
+    imgUrls !== null
+      ? css`
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: 0;
+          right: 0;
+        `
+      : css`
+          width: 25px;
+          height: 25px;
+        `}
 
   z-index: 2;
 `;
@@ -98,19 +103,32 @@ export const CommentAndDate = styled.div`
   height: 40px;
 
   ${flex({ alignItems: "center", justifyContent: "space-between" })}
-  padding: 0 10px 0 5px;
 `;
 
 export const CommentIcon = styled(AiOutlineComment)`
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   color: #000;
 
   cursor: pointer;
   transition: all 0.1s ease-out;
+  transform: scale(1);
+  padding: 3px;
+
+  &:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
+
   &:active {
+    background-color: #eee;
+    transform: scale(0.95);
     color: #737373;
   }
+`;
+
+export const DateAndTag = styled.div`
+  ${flex({ alignItems: "center", columnGap: "5px" })}
 `;
 
 export const Date = styled.p`
@@ -124,6 +142,6 @@ export const ContentBox = styled.div`
   padding: 15px 10px 10px 5px;
 
   white-space: pre-wrap;
-  line-height: 23px;
+  line-height: 21px;
   font-size: 16px;
 `;
