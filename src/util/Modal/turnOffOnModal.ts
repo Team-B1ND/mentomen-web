@@ -1,11 +1,15 @@
 import { Dispatch, SetStateAction } from "react";
 
-export const turnOnModal = (setState: Dispatch<SetStateAction<boolean>>) => {
-  setState(true);
-  document.body.style.overflow = "hidden";
-};
+export class TurnOnOffModal {
+  constructor(private setState: Dispatch<SetStateAction<boolean>>) {}
 
-export const turnOffModal = (setState: Dispatch<SetStateAction<boolean>>) => {
-  setState(false);
-  document.body.style.overflow = "unset";
-};
+  turnOnModal = () => {
+    this.setState(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  turnOffModal = () => {
+    this.setState(false);
+    document.body.style.overflow = "unset";
+  };
+}

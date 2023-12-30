@@ -10,14 +10,15 @@ import Notice from "../../Modal/Notice";
 import { useState } from "react";
 import { useGetNoticeCheck } from "../../../queries/Notice/notice.query";
 import { Portal } from "@stubee2/stubee2-rolling-ui";
-import { turnOnModal } from "../../../util/Modal/turnOffOnModal";
 import PostEditorForm from "../../Modal/PostEditorForm";
+import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
 
 function Header() {
   const navigate = useNavigate();
   const [isActiveNotice, setIsActiveNotice] = useState(false);
   const [isActivePostForm, setIsActivePostForm] = useState(false);
   const { onKeyPress, onChange, search } = useKeyWordSearch();
+  const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
 
   const { data: noticeCheck } = useGetNoticeCheck();
 
@@ -49,7 +50,7 @@ function Header() {
                       ? noticeIcon
                       : NoneNoticeIcon
                   }
-                  onClick={() => turnOnModal(setIsActiveNotice)}
+                  onClick={turnOnOffModal.turnOnModal}
                   alt="이미지 없음"
                 />
                 <S.RegistText onClick={() => setIsActivePostForm(true)}>

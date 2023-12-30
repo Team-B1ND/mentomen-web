@@ -1,10 +1,10 @@
-import { AiOutlineClose } from "react-icons/ai";
 import { useEscCloseModal } from "@stubee2/stubee2-rolling-util";
 import { Dispatch, SetStateAction, Suspense } from "react";
 import ErrorBoundary from "../../Common/ErrorBoundary";
 import * as S from "./style";
 import NoticeItem from "./NoticeItem";
-import { turnOffModal } from "../../../util/Modal/turnOffOnModal";
+import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
+import NoticeSkeleton from "../../Common/Skeleton/Notice";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;
@@ -12,21 +12,19 @@ interface Props {
 
 const Notice = ({ setIsActiveNotice }: Props) => {
   useEscCloseModal(setIsActiveNotice);
+  const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
+
   return (
     <S.Container onClick={() => setIsActiveNotice(false)}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.NoticeText>
           <p>알림</p>
-          <AiOutlineClose
-            onClick={() => turnOffModal(setIsActiveNotice)}
-            cursor={"pointer"}
-            size={17}
-          />
+          <S.CloseIcon onClick={turnOnOffModal.turnOffModal} />
         </S.NoticeText>
 
         <S.Content>
           <ErrorBoundary fallback={<>Error:)</>}>
-            <Suspense fallback={<>로딩 중...</>}>
+            <Suspense fallback={<NoticeSkeleton />}>
               <NoticeItem setIsActiveNotice={setIsActiveNotice} />
             </Suspense>
           </ErrorBoundary>
