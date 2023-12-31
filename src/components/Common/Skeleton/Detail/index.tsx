@@ -16,6 +16,7 @@ export default DetailSkeleton;
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 100%;
   ${flex({ alignItems: "center" })}
 `;

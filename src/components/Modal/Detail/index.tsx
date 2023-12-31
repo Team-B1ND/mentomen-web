@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, Suspense } from "react";
+import { Dispatch, SetStateAction, Suspense, useEffect, useState } from "react";
 import { useGetApost } from "../../../queries/Post/post.query";
 import * as S from "./style";
 import DetailImage from "./DetailImage";
@@ -14,13 +14,14 @@ interface Props {
 
 const Detail = ({ setIsActiveDetail }: Props) => {
   const postId = useRecoilValue(PostIdAtom);
+  const [imgUrls, setImgUrls] = useState<string[]>([]);
 
   return (
     <S.Container onClick={() => setIsActiveDetail(false)}>
-      <S.Wrapper onClick={(e) => e.stopPropagation()}>
+      <S.Wrapper imgUrls={imgUrls} onClick={(e) => e.stopPropagation()}>
         <ErrorBoundary fallback={<>Error :)</>}>
           <Suspense fallback={<DetailSkeleton />}>
-            <DetailItem postId={postId} />
+            <DetailItem postId={postId} setImgUrls={setImgUrls} />
           </Suspense>
         </ErrorBoundary>
       </S.Wrapper>
@@ -28,11 +29,23 @@ const Detail = ({ setIsActiveDetail }: Props) => {
   );
 };
 
-const DetailItem = ({ postId }: { postId: number }) => {
+const DetailItem = ({
+  postId,
+  setImgUrls,
+}: {
+  postId: number;
+  setImgUrls: Dispatch<SetStateAction<string[]>>;
+}) => {
   const { data: detailPost } = useGetApost(postId, { suspense: true });
+  const { imgUrls } = detailPost?.data!!;
+
+  useEffect(() => {
+    setImgUrls(imgUrls);
+  }, [imgUrls]);
+
   return (
     <>
-      <DetailImage imgUrls={detailPost?.data.imgUrls!!} />
+      {imgUrls !== null && <DetailImage imgUrls={imgUrls} />}
       <DetailContent data={detailPost?.data!!} />
     </>
   );

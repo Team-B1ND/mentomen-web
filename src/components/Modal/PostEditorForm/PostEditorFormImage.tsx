@@ -1,6 +1,7 @@
 import * as S from "./style";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { SlideWrapper, StyledSlider } from "../../../style/slide";
 
 interface Props {
   imgUrls: string[];
@@ -11,15 +12,13 @@ const PostEditorFormImage = ({ imgUrls }: Props) => {
     <S.Image sizeOfImgUrl={imgUrls.length}>
       <S.ImageWrapper>
         {imgUrls?.length > 0 ? (
-          <Carousel
-            showStatus={false}
-            showThumbs={false}
-            showIndicators={false}
-          >
-            {imgUrls.map((img, idx) => {
-              return <img key={idx} src={img} alt="이미지 없음" />;
-            })}
-          </Carousel>
+          <SlideWrapper>
+            <StyledSlider>
+              {imgUrls.map((item, idx) => (
+                <img key={idx} src={item} alt="이미지 없음" />
+              ))}
+            </StyledSlider>
+          </SlideWrapper>
         ) : (
           <S.ImageUploadText>이미지를 업로드 해주세요!</S.ImageUploadText>
         )}

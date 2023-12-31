@@ -16,8 +16,8 @@ export const Container = styled.div`
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
-export const Wrapper = styled.div`
-  width: 77%;
+export const Wrapper = styled.div<{ imgUrls: string[] }>`
+  width: ${({ imgUrls }) => (imgUrls !== null ? "77%" : "40%")};
   height: 93%;
   background-color: #fff;
 
@@ -35,8 +35,19 @@ export const ImageContainer = styled.div`
   background-color: #000;
 `;
 
-export const Content = styled.div`
-  width: 40%;
+export const ImageWrapper = styled.div`
+  width: 100%;
+  height: auto;
+`;
+
+export const NoneImage = styled.div`
+  width: 100%;
+  height: 430px;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
+`;
+
+export const Content = styled.div<{ imgUrls: string[] }>`
+  width: ${({ imgUrls }) => (imgUrls !== null ? "40%" : "100%")};
   height: 100%;
   border-left: 1px solid #ddd;
 `;
@@ -107,6 +118,7 @@ export const InputCommentForm = styled.form`
   width: 100%;
   height: 55px;
   border-top: 1px solid #ddd;
+
   ${flex({ alignItems: "center", columnGap: "5px" })}
 
   input {

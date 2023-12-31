@@ -83,12 +83,6 @@ export const ImageWrapper = styled.div`
   height: auto;
 
   ${flex({ alignItems: "center", justifyContent: "center" })}
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
 `;
 
 export const ImageUploadText = styled.p`
@@ -149,9 +143,13 @@ export const Submit = styled.div`
 const HoverAnimation = css`
   border-radius: 5px;
   padding: 7px;
-  transition: all 0.1s ease-in-out;
+
+  transition: all 0.15s ease-in-out;
+  transform: scale(1);
+
   &:hover {
     background-color: #eee;
+    transform: scale(0.96);
   }
   &:active {
     background-color: #ddd;
@@ -179,7 +177,6 @@ export const SubmitButton = styled.button`
 
   cursor: pointer;
   font-size: 15px;
-  color: ${palette.color};
 
   ${HoverAnimation}
 `;

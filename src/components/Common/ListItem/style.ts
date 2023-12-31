@@ -2,6 +2,7 @@ import styled, { css, CSSObject } from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
 import flex from "../../../style/flex";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
+import Slider from "react-slick";
 
 export const Container = styled.div`
   width: 550px;
@@ -88,6 +89,7 @@ export const DateTime = styled.p`
 export const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
   height: auto;
+
   border-radius: 5px;
 
   border: 1px solid #ddd;
@@ -99,18 +101,6 @@ export const ImageContainer = styled.div<{ sizeOfImages: number }>`
 
   background-color: ${({ sizeOfImages }) =>
     sizeOfImages && sizeOfImages > 0 ? "#000" : "#eee"};
-`;
-
-export const NoneImage = styled.div`
-  width: 100%;
-  height: 430px;
-  ${flex({ alignItems: "center", justifyContent: "center" })}
-`;
-
-export const ItemImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 `;
 
 export const Content = styled.div`
