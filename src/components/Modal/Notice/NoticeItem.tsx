@@ -5,6 +5,7 @@ import profile from "../../../assets/images/aprofile.png";
 import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
 import { useSetRecoilState } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";
+import { GetDateTime } from "../../../util/Date/getDateTime";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;
@@ -15,18 +16,19 @@ const NoticeItem = ({ setIsActiveNotice }: Props) => {
   const setIsActiveDetail = useSetRecoilState(IsActiveDetailAtom);
   const setPostId = useSetRecoilState(PostIdAtom);
 
-  const handleNoticeItemClick = (postId: number) => {
-    setIsActiveNotice(false);
-    setIsActiveDetail(true);
-    setPostId(postId);
-  };
-
   return (
     <>
       {noticeList?.data.length!! > 0 ? (
         <S.NoticeBox>
           {noticeList?.data.map((item, idx) => (
-            <li key={idx} onClick={() => handleNoticeItemClick(item.postId)}>
+            <li
+              key={idx}
+              onClick={() => {
+                setIsActiveNotice(false);
+                setIsActiveDetail(true);
+                setPostId(item.postId);
+              }}
+            >
               <S.UserInfo>
                 <S.NewIcon>{item.noticeStatus === "EXIST" && "·"}</S.NewIcon>
                 <img
@@ -35,7 +37,11 @@ const NoticeItem = ({ setIsActiveNotice }: Props) => {
                 />
                 <div>
                   <S.Name>{item.senderName}</S.Name>
-                  <S.NoticeDate>3일전</S.NoticeDate>
+                  <S.NoticeDate>
+                    {new GetDateTime(
+                      new Date(item.createDateTime)
+                    ).uploadPostTimeAgo()}
+                  </S.NoticeDate>
                 </div>
               </S.UserInfo>
 

@@ -12,7 +12,7 @@ export const Container = styled.div`
   background-color: #fff;
 `;
 
-export const Profile = styled.div<{ customStyle?: CSSObject }>`
+export const Profile = styled.div`
   width: 100%;
   height: 60px;
 
@@ -20,8 +20,6 @@ export const Profile = styled.div<{ customStyle?: CSSObject }>`
     alignItems: "center",
     justifyContent: "space-between",
   })}
-
-  ${({ customStyle }) => customStyle}
 `;
 
 export const UserInfo = styled.div`

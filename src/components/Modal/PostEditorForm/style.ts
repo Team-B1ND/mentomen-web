@@ -12,7 +12,7 @@ export const Container = styled.div`
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
 
-  z-index: 4;
+  z-index: 5;
 
   ${flex({ alignItems: "center", justifyContent: "center" })};
 `;

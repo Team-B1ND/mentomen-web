@@ -3,7 +3,6 @@ import * as S from "./style";
 import ListItemProfile from "./ListItemProfile";
 import ListItemImages from "./ListItemImages";
 import ListItemContent from "./ListItemContent";
-import React from "react";
 
 interface Props {
   data: ListItemType;
@@ -12,7 +11,7 @@ interface Props {
 const ListItem = ({ data }: Props) => {
   return (
     <S.Container>
-      <ListItemProfile {...data} customStyle={{ paddingLeft: "3px" }} />
+      <ListItemProfile {...data} />
       {data.imgUrls?.length > 0 && (
         <ListItemImages imgUrls={data.imgUrls} tag={data.tag} />
       )}

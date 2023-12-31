@@ -12,11 +12,16 @@ import { useGetNoticeCheck } from "../../../queries/Notice/notice.query";
 import { Portal } from "@stubee2/stubee2-rolling-ui";
 import PostEditorForm from "../../Modal/PostEditorForm";
 import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
+import { useRecoilState } from "recoil";
+import { ActiveEditPostFormAtom } from "../../../stores/Post/post.store";
 
 function Header() {
   const navigate = useNavigate();
   const [isActiveNotice, setIsActiveNotice] = useState(false);
   const [isActivePostForm, setIsActivePostForm] = useState(false);
+  const [isActiveEditForm, setIsActiveEditForm] = useRecoilState(
+    ActiveEditPostFormAtom
+  );
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
   const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
 
@@ -70,8 +75,13 @@ function Header() {
 
       <Portal id="modal">
         {isActiveNotice && <Notice setIsActiveNotice={setIsActiveNotice} />}
-        {isActivePostForm && (
-          <PostEditorForm setIsActivePostForm={setIsActivePostForm} />
+        {(isActivePostForm || isActiveEditForm) && (
+          <PostEditorForm
+            isActivePostForm={isActivePostForm} // 글 등록인지 수정인지 판단하기 위해 Props로 넘겨줌
+            setIsActivePostEditForm={
+              isActivePostForm ? setIsActivePostForm : setIsActiveEditForm
+            }
+          />
         )}
       </Portal>
     </>

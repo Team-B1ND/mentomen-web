@@ -7,6 +7,7 @@ import {
   HideNavAtom,
 } from "../../../stores/common/common.store";
 import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
+import { ActiveEditPostFormAtom } from "../../../stores/Post/post.store";
 import flex from "../../../style/flex";
 import GlobalStyle from "../../../style/Global";
 import Detail from "../../Modal/Detail";
@@ -20,6 +21,7 @@ interface Props {
 function PageTemplate({ children }: Props) {
   const hideHeader = useRecoilValue(HideHeaderAtom);
   const hideNav = useRecoilValue(HideNavAtom);
+  const isActiveEditPostForm = useRecoilValue(ActiveEditPostFormAtom);
   const [isActiveDetail, setIsActiveDetail] =
     useRecoilState(IsActiveDetailAtom);
 

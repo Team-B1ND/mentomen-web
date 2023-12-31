@@ -91,7 +91,7 @@ export const useGetKeyWord = (
     }
   );
 
-export const usePatchMyPost = () => {
+export const usePatchMyPostMutation = () => {
   const mutation = useMutation((data: ListPatchItem) =>
     ListRepository.patchMyPost(data)
   );

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import flex from "../../../style/flex";
 import { AiOutlineClose } from "react-icons/ai";
 

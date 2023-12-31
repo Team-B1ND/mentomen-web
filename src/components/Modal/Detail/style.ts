@@ -137,6 +137,8 @@ export const InputCommentForm = styled.form`
     margin-right: 3px;
     background-color: transparent;
 
+    ${flex({ alignItems: "center" })}
+
     outline: none;
     border: none;
     cursor: pointer;

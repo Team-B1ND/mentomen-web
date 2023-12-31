@@ -1,3 +1,4 @@
+import { FaRegPaperPlane } from "react-icons/fa";
 import { Suspense } from "react";
 import { useGetComment } from "../../../queries/Comment/comment.query";
 import { ListItemType } from "../../../types/List/list.type";
@@ -8,6 +9,7 @@ import * as S from "./style";
 import { StudentInfo } from "../../Common/StudentInfo";
 import { useComment } from "../../../hooks/Comment/useComment";
 import DetailComentSkeleton from "../../Common/Skeleton/Detail/DetailComent";
+import { palette } from "../../../style/palette";
 
 interface Props {
   data: ListItemType;
@@ -48,7 +50,9 @@ const DetailContent = ({ data }: Props) => {
           placeholder="댓글달기..."
           onChange={handleCommentChange}
         />
-        <button type="submit">작성</button>
+        <button type="submit">
+          <FaRegPaperPlane size={20} color={palette.color} />
+        </button>
       </S.InputCommentForm>
     </S.Content>
   );
