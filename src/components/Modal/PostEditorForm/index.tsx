@@ -17,7 +17,7 @@ const PostEditorForm = ({ setIsActivePostForm }: Props) => {
     <S.Container onClick={() => setIsActivePostForm(false)}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.Title>
-          <p>글 등록하기</p>
+          <p>글 작성하기</p>
           <S.CloseIcon size={20} onClick={() => setIsActivePostForm(false)} />
         </S.Title>
 

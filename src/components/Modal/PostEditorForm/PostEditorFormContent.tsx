@@ -58,7 +58,7 @@ const PostEditorFormContent = ({ ...hooks }: Props) => {
           <FiUpload size={20} />
           <p>이미지 업로드하기</p>
         </S.Upload>
-        <S.SubmitButton type="submit">등록하기</S.SubmitButton>
+        <S.SubmitButton type="submit">작성하기</S.SubmitButton>
       </S.Submit>
     </S.Content>
   );

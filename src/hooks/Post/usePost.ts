@@ -84,11 +84,11 @@ export const usePost = () => {
         onSuccess: () => {
           queryClient.invalidateQueries("list/useGetList");
           queryClient.invalidateQueries("user/post");
-          B1ndToast.showSuccess("게시글을 등록하였습니다.");
+          B1ndToast.showSuccess("게시글을 작성하였습니다.");
           setIsActivePostForm(false);
         },
         onError: () => {
-          B1ndToast.showError("게시글을 등록하지 못했습니다.");
+          B1ndToast.showError("게시글을 작성하지 못했습니다.");
         },
       }
     );

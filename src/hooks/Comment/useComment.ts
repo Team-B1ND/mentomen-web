@@ -30,7 +30,7 @@ export const useComment = () => {
           setContent("");
         },
         onError: (e) => {
-          B1ndToast.showError("댓글을 등록하지 못했습니다!");
+          B1ndToast.showError("댓글을 작성하지 못했습니다!");
         },
       }
     );

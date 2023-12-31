@@ -28,7 +28,7 @@ const MyPageItem = () => {
       {myPost?.data.length!! > 0 ? (
         myPost?.data.map((item) => <ListItem key={item.postId} data={item} />)
       ) : (
-        <p>내가 등록한 게시글이 없습니다.</p>
+        <p>내가 작성한 게시글이 없습니다.</p>
       )}
     </>
   );

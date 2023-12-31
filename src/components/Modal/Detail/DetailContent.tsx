@@ -16,7 +16,7 @@ interface Props {
 const DetailContent = ({ data }: Props) => {
   const { content, handleCommentChange, handleCommentSubmit } = useComment();
   return (
-    <S.Content>
+    <S.Content imgUrls={data.imgUrls}>
       <S.ProfileContainer>
         <ListItemProfile {...data} />
       </S.ProfileContainer>
@@ -48,7 +48,7 @@ const DetailContent = ({ data }: Props) => {
           placeholder="댓글달기..."
           onChange={handleCommentChange}
         />
-        <button type="submit">등록</button>
+        <button type="submit">작성</button>
       </S.InputCommentForm>
     </S.Content>
   );
