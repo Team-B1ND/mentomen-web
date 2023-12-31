@@ -24,23 +24,23 @@ function Header() {
 
   return (
     <>
-      <S.HeaderContainer>
-        <S.HeaderWrapper>
+      <S.Container>
+        <S.Wrapper>
           <S.Logo src={Logo} onClick={() => (window.location.href = "/")} />
 
           {localStorage.getItem(ACCESS_KEY) && (
-            <S.HeaderSearchForm onSubmit={(e) => handleSearchSubmit(e)}>
+            <S.SearchForm onSubmit={(e) => handleSearchSubmit(e)}>
               <S.SearchButton type="submit">
-                <S.HeaderSearchImg src={Search} />
+                <S.SearchIcon src={Search} />
               </S.SearchButton>
 
-              <S.HeaderSearchInput
+              <S.SearchInput
                 placeholder="키워드를 입력하세요"
                 type="text"
                 value={search}
                 onChange={handleSerachChange}
               />
-            </S.HeaderSearchForm>
+            </S.SearchForm>
           )}
 
           <S.HeaderAbleContainer>
@@ -55,9 +55,9 @@ function Header() {
                   onClick={turnOnOffModal.turnOnModal}
                   alt="이미지 없음"
                 />
-                <S.RegistText onClick={() => setIsActivePostForm(true)}>
-                  글 등록하기
-                </S.RegistText>
+                <S.WrtieText onClick={() => setIsActivePostForm(true)}>
+                  글 작성하기
+                </S.WrtieText>
               </>
             ) : (
               <S.Introduce onClick={() => navigate("/intro")}>
@@ -65,8 +65,8 @@ function Header() {
               </S.Introduce>
             )}
           </S.HeaderAbleContainer>
-        </S.HeaderWrapper>
-      </S.HeaderContainer>
+        </S.Wrapper>
+      </S.Container>
 
       <Portal id="modal">
         {isActiveNotice && <Notice setIsActiveNotice={setIsActiveNotice} />}

@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
 
-export const HeaderContainer = styled.div`
+export const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@ export const HeaderContainer = styled.div`
   white-space: nowrap;
 `;
 
-export const HeaderWrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
@@ -30,9 +30,14 @@ export const Logo = styled.img`
   width: 125px;
   height: 40px;
   cursor: pointer;
+
+  transition: all 0.05s ease-in-out;
+  &:active {
+    opacity: 0.5;
+  }
 `;
 
-export const HeaderSearchForm = styled.form`
+export const SearchForm = styled.form`
   width: 600px;
   height: 50px;
 
@@ -49,11 +54,11 @@ const HoverAnimation = css`
   border-radius: 5px;
 
   &:hover {
-    background-color: #ddd;
-    transform: scale(0.98);
+    background-color: #eee;
+    transform: scale(0.93);
   }
   &:active {
-    background-color: #eee;
+    background-color: #ddd;
   }
 `;
 
@@ -67,12 +72,12 @@ export const SearchButton = styled.button`
   ${flex({ alignItems: "center" })};
 `;
 
-export const HeaderSearchImg = styled.img`
+export const SearchIcon = styled.img`
   width: 19px;
   height: 19px;
 `;
 
-export const HeaderSearchInput = styled.input`
+export const SearchInput = styled.input`
   width: 100%;
   height: 100%;
 
@@ -85,15 +90,15 @@ export const HeaderSearchInput = styled.input`
 
 export const HeaderAbleContainer = styled.div`
   ${flex({ alignItems: "center", columnGap: "5px" })}
-  color: ${palette.color};
   font-weight: 600;
 `;
 
-export const RegistText = styled.p`
+export const WrtieText = styled.p`
   ${flex({ alignItems: "center", columnGap: "5px" })}
   cursor: pointer;
   border-radius: 5px;
-  padding: 5px;
+  padding: 7px;
+  font-size: 17px;
   ${HoverAnimation}
 `;
 

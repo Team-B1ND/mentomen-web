@@ -59,9 +59,10 @@ export const FiledUl = styled.ul`
 const HoverAnimation = css`
   transition: 0.2s all ease-in-out;
   transform: scale(1);
+  border-radius: 5px;
+
   &:hover {
     background-color: #eee;
-    border-radius: 5px;
     transform: scale(0.96);
   }
   &:active {
