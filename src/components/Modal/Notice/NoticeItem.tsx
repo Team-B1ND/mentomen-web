@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { useGetNoticeList } from "../../../queries/Notice/notice.query";
 import * as S from "./style";
-import profile from "../../../assets/images/aprofile.png";
+import profile from "../../../assets/icons/user/aprofile.png";
 import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
 import { useSetRecoilState } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";

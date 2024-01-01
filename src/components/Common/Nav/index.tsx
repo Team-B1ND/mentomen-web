@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import * as S from "./style";
-import aprofile from "../../../assets/images/aprofile.png";
+import aprofile from "../../../assets/icons/user/aprofile.png";
 import { NAV_TAGS_ITEMS } from "../../../constants/Tags/tags.constant";
-import copy from "../../../assets/images/copy.svg";
+import copy from "../../../assets/icons/post/copy.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLogout } from "../../../hooks/Auth/useLogout";
 import { useSetRecoilState } from "recoil";
-import { USERID, USERPROFILE } from "../../../stores/User/user.store";
+import { UserIdAtom, UserProfileAtom } from "../../../stores/User/user.store";
 import { useGetMyInfo } from "../../../queries/User/user.query";
 
 const Nav = () => {
@@ -17,8 +17,8 @@ const Nav = () => {
   const { pathname } = useLocation();
   const tagName = pathname.replace("/tag/", "");
 
-  const setUserId = useSetRecoilState(USERID); //댓글 수정에 필요한 아이디가져오기
-  const setUserProfile = useSetRecoilState(USERPROFILE); // 게시글 수정에 필요한 프로필 정보가져오기
+  const setUserId = useSetRecoilState(UserIdAtom); //댓글 수정에 필요한 아이디가져오기
+  const setUserProfile = useSetRecoilState(UserProfileAtom); // 게시글 수정에 필요한 프로필 정보가져오기
 
   useEffect(() => {
     setUserId(data?.data.userId!!);

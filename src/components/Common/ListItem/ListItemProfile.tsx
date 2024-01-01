@@ -1,16 +1,16 @@
 import { Portal } from "@stubee2/stubee2-rolling-ui";
 import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import profile from "../../../assets/images/aprofile.png";
+import profile from "../../../assets/icons/user/aprofile.png";
 import { EditPostDataAtom } from "../../../stores/Post/post.store";
-import { USERID } from "../../../stores/User/user.store";
+import { UserIdAtom } from "../../../stores/User/user.store";
 import { ListItemType } from "../../../types/List/list.type";
 import SetUp from "../Button/SetUp";
 import { StudentInfo } from "../StudentInfo";
 import * as S from "./style";
 
 const ListItemProfile = ({ ...attr }: ListItemType) => {
-  const userId = useRecoilValue(USERID);
+  const userId = useRecoilValue(UserIdAtom);
   const [isActiveSetUp, setIsActiveSetUp] = useState(false);
   const setEditPostData = useSetRecoilState(EditPostDataAtom);
 

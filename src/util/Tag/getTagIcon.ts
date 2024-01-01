@@ -1,8 +1,8 @@
-import android from "../../assets/logo/android.svg";
-import design from "../../assets/logo/design.svg";
-import ios from "../../assets/logo/ios.svg";
-import server from "../../assets/logo/server.svg";
-import web from "../../assets/logo/web.svg";
+import android from "../../assets/icons/develop/android.svg";
+import design from "../../assets/icons/develop/design.svg";
+import ios from "../../assets/icons/develop/ios.svg";
+import server from "../../assets/icons/develop/server.svg";
+import web from "../../assets/icons/develop/web.svg";
 
 export const getTagIcon = (tagName: string) => {
   switch (tagName) {

@@ -1,20 +1,20 @@
-import Android from "../../assets/logo/android.svg";
-import Web from "../../assets/logo/web.svg";
-import Server from "../../assets/logo/server.svg";
-import Design from "../../assets/logo/design.svg";
-import iOS from "../../assets/logo/ios.svg";
+import Android from "../../assets/icons/develop/android.svg";
+import Web from "../../assets/icons/develop/web.svg";
+import Server from "../../assets/icons/develop/server.svg";
+import Design from "../../assets/icons/develop/design.svg";
+import iOS from "../../assets/icons/develop/ios.svg";
 
-import fillAndroid from "../../assets/tags/Fill/android.svg";
-import fillDesign from "../../assets/tags/Fill/design.svg";
-import filliOS from "../../assets/tags/Fill/ios.svg";
-import fillServer from "../../assets/tags/Fill/server.svg";
-import fillWeb from "../../assets/tags/Fill/web.svg";
+import fillAndroid from "../../assets/icons/tags/Fill/android.svg";
+import fillDesign from "../../assets/icons/tags/Fill/design.svg";
+import filliOS from "../../assets/icons/tags/Fill/ios.svg";
+import fillServer from "../../assets/icons/tags/Fill/server.svg";
+import fillWeb from "../../assets/icons/tags/Fill/web.svg";
 
-import unFillAndroid from "../../assets/tags/UnFill/android.svg";
-import unFillDesign from "../../assets/tags/UnFill/design.svg";
-import unFilliOS from "../../assets/tags/UnFill/ios.svg";
-import unFillServer from "../../assets/tags/UnFill/server.svg";
-import unFillWeb from "../../assets/tags/UnFill/web.svg";
+import unFillAndroid from "../../assets/icons/tags/UnFill/android.svg";
+import unFillDesign from "../../assets/icons/tags/UnFill/design.svg";
+import unFilliOS from "../../assets/icons/tags/UnFill/ios.svg";
+import unFillServer from "../../assets/icons/tags/UnFill/server.svg";
+import unFillWeb from "../../assets/icons/tags/UnFill/web.svg";
 
 export const NAV_TAGS_ITEMS = [
   {

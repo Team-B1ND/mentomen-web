@@ -1,4 +1,4 @@
-import IOStest from "../../../assets/logo/IOStest.png";
+import IOStest from "../../../assets/images/IOStest.png";
 import useHideHeaderOrNav from "../../../hooks/common/useHideHeaderOrNav";
 import StartButton from "../../Common/Button/StartButton";
 import * as S from "./style";

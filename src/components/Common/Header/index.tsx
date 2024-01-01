@@ -1,8 +1,8 @@
 import * as S from "./style";
-import Logo from "../../../assets/logo/Logo.png";
+import menTomen from "../../../assets/icons/logo/menTomen.png";
 import Search from "../../../assets/images/Search.png";
-import NoneNoticeIcon from "../../../assets/images/notice.png";
-import noticeIcon from "../../../assets/images/noticeImg.png";
+import notExistNotice from "../../../assets/icons/notice/notExistNotice.png";
+import existNotice from "../../../assets/icons/notice/existNotice.png";
 import { useNavigate } from "react-router-dom";
 import { useKeyWordSearch } from "../../../hooks/Search/useKeyWordSearch";
 import { ACCESS_KEY } from "../../../constants/Auth/auth.constant";
@@ -31,7 +31,7 @@ function Header() {
     <>
       <S.Container>
         <S.Wrapper>
-          <S.Logo src={Logo} onClick={() => (window.location.href = "/")} />
+          <S.Logo src={menTomen} onClick={() => (window.location.href = "/")} />
 
           {localStorage.getItem(ACCESS_KEY) && (
             <S.SearchForm onSubmit={(e) => handleSearchSubmit(e)}>
@@ -54,8 +54,8 @@ function Header() {
                 <S.HeaderNoticeImg
                   src={
                     noticeCheck?.data.noticeStatus === "EXIST"
-                      ? noticeIcon
-                      : NoneNoticeIcon
+                      ? existNotice
+                      : notExistNotice
                   }
                   onClick={turnOnOffModal.turnOnModal}
                   alt="이미지 없음"
