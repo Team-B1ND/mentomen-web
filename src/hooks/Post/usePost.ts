@@ -18,7 +18,7 @@ export const usePost = (
     : "글 수정을 취소하시겠습니까?";
   const selectFileImage = useRef<HTMLInputElement>(null);
   const [imgUrl, setImgUrl] = useState<string[]>(
-    isActivePostForm ? [] : editPostData?.imgUrls || []
+    isActivePostForm ? [] : editPostData?.imgUrls ?? []
   );
   const [postData, setPostData] = useState<PostSubmitType>(
     isActivePostForm
@@ -29,7 +29,7 @@ export const usePost = (
         }
       : {
           content: editPostData?.content!!,
-          imgUrls: editPostData?.imgUrls || [],
+          imgUrls: editPostData?.imgUrls ?? [],
           tag: editPostData?.tag!!,
         }
   );
@@ -127,7 +127,7 @@ export const usePost = (
       if (
         JSON.stringify({
           content,
-          imgUrls: imgUrls || [],
+          imgUrls: imgUrls ?? [],
           tag,
         }) === JSON.stringify(postData)
       ) {
