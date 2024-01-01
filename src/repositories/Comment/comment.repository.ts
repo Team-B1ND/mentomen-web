@@ -31,8 +31,8 @@ class CommentRepository {
     });
   }
 
-  public async deleteComment(postId: number): Promise<void> {
-    await customAxios.delete(`/comment/delete/${postId}`);
+  public async deleteComment(commentId: number): Promise<void> {
+    await customAxios.delete(`/comment/delete/${commentId}`);
   }
 }
 

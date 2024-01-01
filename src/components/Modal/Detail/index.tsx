@@ -3,10 +3,11 @@ import { useGetApost } from "../../../queries/Post/post.query";
 import * as S from "./style";
 import DetailImage from "./DetailImage";
 import ErrorBoundary from "../../Common/ErrorBoundary";
-import DetailContent from "./DetailContent";
-import { useRecoilValue } from "recoil";
+import DetailComent from "./DetailComent";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";
 import DetailSkeleton from "../../Common/Skeleton/Detail";
+import { IsEditCommentAtom } from "../../../stores/Comment/comment.store";
 
 interface Props {
   setIsActiveDetail: Dispatch<SetStateAction<boolean>>;
@@ -15,9 +16,29 @@ interface Props {
 const Detail = ({ setIsActiveDetail }: Props) => {
   const postId = useRecoilValue(PostIdAtom);
   const [imgUrls, setImgUrls] = useState<string[]>([]);
+  const [isEditComment, setIsEditComment] = useRecoilState(IsEditCommentAtom);
+
+  const handleCloseDetail = (
+    e: React.MouseEvent<HTMLDivElement | SVGElement>
+  ) => {
+    e.stopPropagation();
+    if (isEditComment.isEdit === true) {
+      const answer = window.confirm(
+        "작성하신 댓글은 저장되지 않습니다. 댓글 작성을 취소하시겠습니까?"
+      );
+
+      if (answer) {
+        setIsActiveDetail(false);
+        setIsEditComment((prev) => ({ ...prev, isEdit: false, commentId: -1 }));
+      }
+    } else {
+      setIsActiveDetail(false);
+    }
+  };
 
   return (
-    <S.Container onClick={() => setIsActiveDetail(false)}>
+    <S.Container onClick={handleCloseDetail}>
+      <S.CloseIcon size={27} onClick={handleCloseDetail} />
       <S.Wrapper imgUrls={imgUrls} onClick={(e) => e.stopPropagation()}>
         <ErrorBoundary fallback={<>Error :)</>}>
           <Suspense fallback={<DetailSkeleton />}>
@@ -46,7 +67,7 @@ const DetailItem = ({
   return (
     <>
       {imgUrls !== null && <DetailImage imgUrls={imgUrls} />}
-      <DetailContent data={detailPost?.data!!} />
+      <DetailComent data={detailPost?.data!!} />
     </>
   );
 };

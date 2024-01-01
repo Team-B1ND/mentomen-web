@@ -127,7 +127,7 @@ export const usePost = (
       if (
         JSON.stringify({
           content,
-          imgUrls: imgUrls,
+          imgUrls: imgUrls || [],
           tag,
         }) === JSON.stringify(postData)
       ) {
