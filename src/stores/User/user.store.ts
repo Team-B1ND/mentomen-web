@@ -1,11 +1,11 @@
 import { atom } from "recoil";
 
-export const USERID = atom<number>({
-    key: "USERID",
-    default: 0,
+export const UserIdAtom = atom<number>({
+  key: "userIdAtom",
+  default: 0,
 });
 
-export const USERPROFILE = atom<string>({
-    key: "USERPROFILE",
-    default: "",
+export const UserProfileAtom = atom<string>({
+  key: "userProfileAtom",
+  default: "",
 });
