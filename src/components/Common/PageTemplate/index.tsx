@@ -7,10 +7,14 @@ import {
   HideNavAtom,
 } from "../../../stores/common/common.store";
 import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
-import { ActiveEditPostFormAtom } from "../../../stores/Post/post.store";
+import {
+  ActiveEditPostFormAtom,
+  ActivePostFormAtom,
+} from "../../../stores/Post/post.store";
 import flex from "../../../style/flex";
 import GlobalStyle from "../../../style/Global";
 import Detail from "../../Modal/Detail";
+import PostEditorForm from "../../Modal/PostEditorForm";
 import Header from "../Header";
 import Nav from "../Nav";
 
@@ -21,9 +25,14 @@ interface Props {
 function PageTemplate({ children }: Props) {
   const hideHeader = useRecoilValue(HideHeaderAtom);
   const hideNav = useRecoilValue(HideNavAtom);
-  const isActiveEditPostForm = useRecoilValue(ActiveEditPostFormAtom);
   const [isActiveDetail, setIsActiveDetail] =
     useRecoilState(IsActiveDetailAtom);
+
+  const [isActivePostForm, setIsActivePostForm] =
+    useRecoilState(ActivePostFormAtom);
+  const [isActiveEditForm, setIsActiveEditForm] = useRecoilState(
+    ActiveEditPostFormAtom
+  );
 
   return (
     <>
@@ -36,11 +45,17 @@ function PageTemplate({ children }: Props) {
         </Wrapper>
       </Container>
 
-      {isActiveDetail && (
-        <Portal id="modal">
-          <Detail setIsActiveDetail={setIsActiveDetail} />
-        </Portal>
-      )}
+      <Portal id="modal">
+        {isActiveDetail && <Detail setIsActiveDetail={setIsActiveDetail} />}
+        {(isActivePostForm || isActiveEditForm) && (
+          <PostEditorForm
+            isActivePostForm={isActivePostForm} // 글 등록인지 수정인지 판단하기 위해 Props로 넘겨줌
+            setIsActivePostEditForm={
+              isActivePostForm ? setIsActivePostForm : setIsActiveEditForm
+            }
+          />
+        )}
+      </Portal>
     </>
   );
 }
