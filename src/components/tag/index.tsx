@@ -7,13 +7,13 @@ import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 
-interface Props {
-  tag: string;
-}
-
 const Tag = () => {
   const { tag } = useParams();
   useTokenCheck();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [tag]);
 
   return (
     <S.ListContainer>
@@ -28,7 +28,7 @@ const Tag = () => {
   );
 };
 
-const TagItem = ({ tag }: Props) => {
+const TagItem = ({ tag }: { tag: string }) => {
   const { data: tagList } = useGetTag(tag.toUpperCase(), { suspense: true });
   return (
     <>
