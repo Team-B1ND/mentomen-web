@@ -14,6 +14,7 @@ interface Props {
 const Tag = () => {
   const { tag } = useParams();
   useTokenCheck();
+
   return (
     <S.ListContainer>
       <S.ListWrapper>

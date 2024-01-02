@@ -1,4 +1,4 @@
-import IOStest from "../../../../assets/images/IOStest.png";
+import iPhone from "../../../../assets/images/iPhone.png";
 import StartButton from "../../../Common/Button/StartButton";
 import * as S from "./style";
 
@@ -16,7 +16,7 @@ function IntroBottom() {
         <StartButton />
       </S.ThirdSectionWrap>
 
-      <S.ThirdSectionImg src={IOStest} />
+      <S.ThirdSectionImg src={iPhone} />
     </S.ThirdSection>
   );
 }

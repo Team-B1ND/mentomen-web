@@ -6,14 +6,14 @@ import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 
-const MyPage = () => {
+const MyPost = () => {
   useTokenCheck();
   return (
     <S.ListContainer>
       <S.ListWrapper>
         <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
           <Suspense fallback={<ListItemSkeleton />}>
-            <MyPageItem />
+            <MyPostItem />
           </Suspense>
         </ErrorBoundary>
       </S.ListWrapper>
@@ -21,7 +21,7 @@ const MyPage = () => {
   );
 };
 
-const MyPageItem = () => {
+const MyPostItem = () => {
   const { data: myPost } = useGetMyPost({ suspense: true });
   return (
     <>
@@ -34,4 +34,4 @@ const MyPageItem = () => {
   );
 };
 
-export default MyPage;
+export default MyPost;

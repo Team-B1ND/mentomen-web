@@ -14,6 +14,7 @@ interface Props {
 const Search = () => {
   const { keyword } = useParams();
   useTokenCheck();
+
   return (
     <S.ListContainer>
       <S.ListWrapper>

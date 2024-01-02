@@ -3,9 +3,8 @@ import menTomen from "../../../assets/icons/logo/menTomen.png";
 import Search from "../../../assets/images/Search.png";
 import notExistNotice from "../../../assets/icons/notice/notExistNotice.png";
 import existNotice from "../../../assets/icons/notice/existNotice.png";
-import { useNavigate } from "react-router-dom";
 import { useKeyWordSearch } from "../../../hooks/Search/useKeyWordSearch";
-import { ACCESS_KEY } from "../../../constants/Auth/auth.constant";
+import { ACCESS_KEY, DAUTH_URL } from "../../../constants/Auth/auth.constant";
 import Notice from "../../Modal/Notice";
 import { useState } from "react";
 import { useGetNoticeCheck } from "../../../queries/Notice/notice.query";
@@ -15,10 +14,9 @@ import { useSetRecoilState } from "recoil";
 import { ActivePostFormAtom } from "../../../stores/Post/post.store";
 
 function Header() {
-  const navigate = useNavigate();
   const [isActiveNotice, setIsActiveNotice] = useState(false);
   const setIsActivePostForm = useSetRecoilState(ActivePostFormAtom);
-  
+
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
   const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
 
@@ -62,9 +60,11 @@ function Header() {
                 </S.WrtieText>
               </>
             ) : (
-              <S.Introduce onClick={() => navigate("/intro")}>
-                서비스 소개
-              </S.Introduce>
+              <S.StartMenToMen
+                onClick={() => (window.location.href = DAUTH_URL)}
+              >
+                멘투멘 시작하기
+              </S.StartMenToMen>
             )}
           </S.HeaderAbleContainer>
         </S.Wrapper>

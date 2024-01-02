@@ -1,27 +1,30 @@
-import IOStest from "../../../assets/images/IOStest.png";
+import iPhone from "../../../assets/images/iPhone.png";
 import useHideHeaderOrNav from "../../../hooks/common/useHideHeaderOrNav";
 import StartButton from "../../Common/Button/StartButton";
+
 import * as S from "./style";
 
 function Start() {
   useHideHeaderOrNav("Nav");
   return (
-    <S.StartContainer>
-      <S.StartLeftWrap>
-        <S.StartTextWrap>
-          <S.StartText>멘토 멘티 찾기 서비스</S.StartText>
-          <S.StartText>멘투멘을 만나보세요</S.StartText>
-        </S.StartTextWrap>
+    <S.Container>
+      <S.Wrapper>
+        <S.Introduce>
+          <S.TextWrap>
+            <S.Text>멘토 멘티 찾기 서비스</S.Text>
+            <S.Text>멘투멘을 만나보세요!</S.Text>
+          </S.TextWrap>
 
-        <S.StartMidText>
-          멘투멘은 멘토와 멘티를 서로 이어주는 서비스입니다.
-        </S.StartMidText>
+          <S.MidText>
+            멘투멘은 멘토와 멘티를 서로 이어주는 서비스입니다.
+          </S.MidText>
 
-        <StartButton />
-      </S.StartLeftWrap>
+          <StartButton />
+        </S.Introduce>
 
-      <S.StartImg src={IOStest} />
-    </S.StartContainer>
+        <S.iPhoneImage src={iPhone} />
+      </S.Wrapper>
+    </S.Container>
   );
 }
 export default Start;

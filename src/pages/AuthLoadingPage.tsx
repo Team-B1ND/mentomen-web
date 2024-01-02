@@ -1,5 +1,5 @@
-import { useLogin } from "../../hooks/Auth/useLogin";
-import useHideHeaderOrNav from "../../hooks/common/useHideHeaderOrNav";
+import { useLogin } from "../hooks/Auth/useLogin";
+import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 
 function AuthLoadingPage() {
   useLogin();

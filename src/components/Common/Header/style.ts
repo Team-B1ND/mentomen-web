@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
-import { palette } from "../../../style/palette";
 
 export const Container = styled.div`
   position: fixed;
@@ -16,6 +15,7 @@ export const Container = styled.div`
   border-bottom: 1px solid #ddd;
 
   white-space: nowrap;
+  z-index: 2;
 `;
 
 export const Wrapper = styled.div`
@@ -54,11 +54,11 @@ const HoverAnimation = css`
   border-radius: 5px;
 
   &:hover {
-    background-color: #eee;
+    background-color: #ddd;
     transform: scale(0.93);
   }
   &:active {
-    background-color: #ddd;
+    background-color: #eee;
   }
 `;
 
@@ -67,6 +67,7 @@ export const SearchButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+  background-color: transparent;
 
   ${HoverAnimation}
   ${flex({ alignItems: "center" })};
@@ -109,9 +110,21 @@ export const HeaderNoticeImg = styled.img`
   ${HoverAnimation}
 `;
 
-export const Introduce = styled.h1`
-  color: ${palette.color};
+export const StartMenToMen = styled.h1`
   font-weight: 600;
   font-size: 17px;
   cursor: pointer;
+
+  padding: 5px;
+
+  transform: scale(1);
+  transition: all 0.14s ease-in-out;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #eee;
+  }
+  &:active {
+    background-color: #ddd;
+  }
 `;
