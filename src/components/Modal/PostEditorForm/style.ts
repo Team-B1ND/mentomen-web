@@ -1,7 +1,6 @@
 import { AiOutlineClose } from "react-icons/ai";
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
-import { palette } from "../../../style/palette";
 
 export const Container = styled.div`
   width: 100%;
