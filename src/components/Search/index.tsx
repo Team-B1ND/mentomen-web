@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
+import useAutoTopScroll from "../../hooks/common/useAutoTopScroll";
 import { useGetKeyWord } from "../../queries/Post/post.query";
 import * as S from "../../style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -13,7 +14,9 @@ interface Props {
 
 const Search = () => {
   const { keyword } = useParams();
+
   useTokenCheck();
+  useAutoTopScroll(keyword);
 
   return (
     <S.ListContainer>

@@ -65,7 +65,9 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  ${flex({ alignItems: "center" })}
+  width: 100%;
+  height: calc(100% - 75px);
+  ${flex({ alignItems: "center" })};
 `;
 
 export const Content = styled.div<{ hideHeader: boolean }>`

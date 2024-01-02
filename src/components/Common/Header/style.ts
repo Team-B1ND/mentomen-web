@@ -15,7 +15,7 @@ export const Container = styled.div`
   border-bottom: 1px solid #ddd;
 
   white-space: nowrap;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const Wrapper = styled.div`

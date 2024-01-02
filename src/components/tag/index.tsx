@@ -1,6 +1,7 @@
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
+import useAutoTopScroll from "../../hooks/common/useAutoTopScroll";
 import { useGetTag } from "../../queries/Post/post.query";
 import * as S from "../../style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -9,11 +10,9 @@ import ListItemSkeleton from "../Common/Skeleton/ListItem";
 
 const Tag = () => {
   const { tag } = useParams();
-  useTokenCheck();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [tag]);
+  useTokenCheck();
+  useAutoTopScroll(tag);
 
   return (
     <S.ListContainer>

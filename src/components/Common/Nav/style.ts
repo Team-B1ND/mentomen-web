@@ -4,13 +4,19 @@ import { palette } from "../../../style/palette";
 import { getTagColor } from "../../../util/Tag/getTagColor";
 
 export const Container = styled.div`
-  width: 300px;
+  width: 266px;
   height: 100vh;
   padding-top: 75px;
-  background-color: #fff;
 
-  ${flex({ flexDirection: "column", rowGap: "3.8rem" })}
+  background-color: #fff;
   border-right: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 2;
+
+  ${flex({ flexDirection: "column", rowGap: "3.8rem" })};
 `;
 
 export const UserInfoContainer = styled.div`

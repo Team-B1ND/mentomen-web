@@ -4,7 +4,6 @@ import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 
 function IntroducePage() {
   useHideHeaderOrNav("Nav");
-
   return (
     <>
       <IntroTop />
