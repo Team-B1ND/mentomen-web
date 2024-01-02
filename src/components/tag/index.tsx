@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
 import { useGetTag } from "../../queries/Post/post.query";

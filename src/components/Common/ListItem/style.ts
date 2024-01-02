@@ -1,8 +1,7 @@
-import styled, { css, CSSObject } from "styled-components";
+import styled, { css } from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
 import flex from "../../../style/flex";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import Slider from "react-slick";
 
 export const Container = styled.div`
   width: 550px;
