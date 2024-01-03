@@ -3,7 +3,6 @@ import { useSetRecoilState } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";
 import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
 import { GetDateTime } from "../../../util/Date/getDateTime";
-import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
 import { getTagIcon } from "../../../util/Tag/getTagIcon";
 import * as S from "./style";
 
@@ -25,14 +24,13 @@ const ListItemContent = ({
   const setIsActiveDetail = useSetRecoilState(IsActiveDetailAtom);
   const setPostId = useSetRecoilState(PostIdAtom);
   const getDateTime = new GetDateTime(new Date(updateDateTime));
-  const turnOnActiveModal = new TurnOnOffModal(setIsActiveDetail);
 
   return (
     <S.Content>
       <S.CommentAndDate>
         <S.CommentIcon
           onClick={() => {
-            turnOnActiveModal.turnOnModal();
+            setIsActiveDetail(true);
             setPostId(postId);
           }}
         />

@@ -1,6 +1,7 @@
 import { useEscCloseModal } from "@stubee2/stubee2-rolling-util";
 import { Dispatch, SetStateAction } from "react";
 import { useRecoilValue } from "recoil";
+import useLockScroll from "../../../hooks/common/useLockScroll";
 import { usePost } from "../../../hooks/Post/usePost";
 import { EditPostDataAtom } from "../../../stores/Post/post.store";
 import PostEditorFormContent from "./PostEditorFormContent";
@@ -20,6 +21,7 @@ const PostEditorForm = ({
   const { ...hooks } = usePost(isActivePostForm, editPostData!!);
 
   useEscCloseModal(setIsActivePostEditForm, hooks.cancelWritingPost);
+  useLockScroll();
 
   return (
     <S.Container

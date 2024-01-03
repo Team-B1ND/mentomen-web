@@ -8,7 +8,6 @@ import {
   usePatchMyPostMutation,
 } from "../../queries/Post/post.query";
 import { ListItemType, PostSubmitType } from "../../types/List/list.type";
-import { TurnOnOffModal } from "../../util/Modal/turnOffOnModal";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 
 export const usePost = (
@@ -49,10 +48,9 @@ export const usePost = (
     setIsActivePostEditForm: Dispatch<SetStateAction<boolean>>
   ) => {
     const answer = window.confirm(cancelWritingPost);
-    const turnOffPostEditModal = new TurnOnOffModal(setIsActivePostEditForm);
 
     if (answer) {
-      turnOffPostEditModal.turnOffModal();
+      setIsActivePostEditForm(false);
     }
   };
 

@@ -9,7 +9,6 @@ import Notice from "../../Modal/Notice";
 import { useState } from "react";
 import { useGetNoticeCheck } from "../../../queries/Notice/notice.query";
 import { Portal } from "@stubee2/stubee2-rolling-ui";
-import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
 import { useRecoilState } from "recoil";
 import { ActivePostFormAtom } from "../../../stores/Post/post.store";
 
@@ -19,9 +18,6 @@ function Header() {
     useRecoilState(ActivePostFormAtom);
 
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
-  const turnOnNoticeModal = new TurnOnOffModal(setIsActiveNotice);
-  const turnOnPostFormModal = new TurnOnOffModal(setIsActivePostForm);
-
   const { data: noticeCheck } = useGetNoticeCheck();
 
   return (
@@ -55,12 +51,12 @@ function Header() {
                       ? existNotice
                       : notExistNotice
                   }
-                  onClick={turnOnNoticeModal.turnOnModal}
+                  onClick={() => setIsActiveNotice(true)}
                   alt="이미지 없음"
                 />
                 <S.WrtieText
                   isActivePostForm={isActivePostForm}
-                  onClick={turnOnPostFormModal.turnOnModal}
+                  onClick={() => setIsActivePostForm(true)}
                 >
                   글 작성하기
                 </S.WrtieText>

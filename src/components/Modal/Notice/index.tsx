@@ -3,8 +3,8 @@ import { Dispatch, SetStateAction, Suspense } from "react";
 import ErrorBoundary from "../../Common/ErrorBoundary";
 import * as S from "./style";
 import NoticeItem from "./NoticeItem";
-import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
 import NoticeSkeleton from "../../Common/Skeleton/Notice";
+import useLockScroll from "../../../hooks/common/useLockScroll";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;
@@ -12,14 +12,15 @@ interface Props {
 
 const Notice = ({ setIsActiveNotice }: Props) => {
   useEscCloseModal(setIsActiveNotice);
-  const turnOffNoticeModal = new TurnOnOffModal(setIsActiveNotice);
+
+  useLockScroll();
 
   return (
-    <S.Container onClick={turnOffNoticeModal.turnOffModal}>
+    <S.Container onClick={() => setIsActiveNotice(false)}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.NoticeText>
           <p>알림</p>
-          <S.CloseIcon onClick={turnOffNoticeModal.turnOffModal} />
+          <S.CloseIcon onClick={() => setIsActiveNotice(false)} />
         </S.NoticeText>
 
         <S.Content>

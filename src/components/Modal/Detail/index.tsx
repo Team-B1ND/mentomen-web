@@ -8,7 +8,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";
 import DetailSkeleton from "../../Common/Skeleton/Detail";
 import { IsEditCommentAtom } from "../../../stores/Comment/comment.store";
-import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
+import useLockScroll from "../../../hooks/common/useLockScroll";
 
 interface Props {
   setIsActiveDetail: Dispatch<SetStateAction<boolean>>;
@@ -18,7 +18,8 @@ const Detail = ({ setIsActiveDetail }: Props) => {
   const postId = useRecoilValue(PostIdAtom);
   const [imgUrls, setImgUrls] = useState<string[]>([]);
   const [isEditComment, setIsEditComment] = useRecoilState(IsEditCommentAtom);
-  const turnOffDetailModal = new TurnOnOffModal(setIsActiveDetail);
+
+  useLockScroll();
 
   const handleCloseDetail = (
     e: React.MouseEvent<HTMLDivElement | SVGElement>
@@ -30,11 +31,11 @@ const Detail = ({ setIsActiveDetail }: Props) => {
       );
 
       if (answer) {
-        turnOffDetailModal.turnOffModal();
+        setIsActiveDetail(false);
         setIsEditComment((prev) => ({ ...prev, isEdit: false, commentId: -1 }));
       }
     } else {
-      turnOffDetailModal.turnOffModal();
+      setIsActiveDetail(false);
     }
   };
 
