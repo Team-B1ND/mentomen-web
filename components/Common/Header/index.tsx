@@ -49,7 +49,7 @@ function Header() {
             {token.getCookie(ACCESS_KEY) ? (
               <>
                 <S.NoticeIcon
-                  isActiveNotice={isActiveNotice}
+                  isactivenotice={isActiveNotice.toString()}
                   src={
                     noticeCheck?.data.noticeStatus === "EXIST"
                       ? existNotice

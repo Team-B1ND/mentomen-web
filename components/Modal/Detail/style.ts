@@ -38,8 +38,8 @@ export const CloseIcon = styled(AiOutlineClose)`
   }
 `;
 
-export const Wrapper = styled.div<{ imgUrls: string[] }>`
-  width: ${({ imgUrls }) => (imgUrls !== null ? "77%" : "40%")};
+export const Wrapper = styled.div<{ imgurls: string[] }>`
+  width: ${({ imgurls }) => (imgurls !== null ? "77%" : "40%")};
   height: 93%;
   background-color: #fff;
 

@@ -42,7 +42,7 @@ export const StudentInfoContainer = styled.div`
 `;
 
 export const DotsIcon = styled(BiDotsHorizontalRounded)<{
-  isActiveSetUp: boolean;
+  isactivesetup: string;
 }>`
   width: 30px;
   height: 30px;
@@ -54,7 +54,8 @@ export const DotsIcon = styled(BiDotsHorizontalRounded)<{
   transform: scale(1);
   transition: all 0.2s ease-in-out;
 
-  background-color: ${({ isActiveSetUp }) => isActiveSetUp && "#ddd"};
+  background-color: ${({ isactivesetup }) =>
+    isactivesetup === "true" && "#ddd"};
 
   &:hover {
     background-color: #ddd;

@@ -18,7 +18,7 @@ interface Props {
 const DetailComent = ({ data }: Props) => {
   const { content, handleCommentChange, handleCommentSubmit } = useComment();
   return (
-    <S.Content imgUrls={data.imgUrls}>
+    <S.Content imgurls={data.imgUrls}>
       <S.ProfileContainer>
         <ListItemProfile {...data} />
       </S.ProfileContainer>

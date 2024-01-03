@@ -42,7 +42,7 @@ const Detail = ({ setIsActiveDetail }: Props) => {
   return (
     <S.Container onClick={handleCloseDetail}>
       <S.CloseIcon size={27} onClick={handleCloseDetail} />
-      <S.Wrapper imgUrls={imgUrls} onClick={(e) => e.stopPropagation()}>
+      <S.Wrapper imgurls={imgUrls} onClick={(e) => e.stopPropagation()}>
         <ErrorBoundary fallback={<>Error :)</>}>
           <Suspense fallback={<DetailSkeleton />}>
             <DetailItem postId={postId} setImgUrls={setImgUrls} />

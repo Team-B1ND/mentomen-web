@@ -2,8 +2,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import flex from "../../../../style/flex";
 
-export const Content = styled.div<{ imgUrls: string[] }>`
-  width: ${({ imgUrls }) => (imgUrls !== null ? "40%" : "100%")};
+export const Content = styled.div<{ imgurls: string[] }>`
+  width: ${({ imgurls }) => (imgurls !== null ? "40%" : "100%")};
   height: 100%;
   border-left: 1px solid #ddd;
 `;

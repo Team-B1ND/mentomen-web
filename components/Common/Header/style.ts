@@ -105,11 +105,12 @@ export const WrtieText = styled.p<{ isActivePostForm: boolean }>`
   ${HoverAnimation};
 `;
 
-export const NoticeIcon = styled(Image)<{ isActiveNotice: boolean }>`
+export const NoticeIcon = styled(Image)<{ isactivenotice: string }>`
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color: ${({ isActiveNotice }) => isActiveNotice && "#ddd"};
+  background-color: ${({ isactivenotice }) =>
+    isactivenotice === "true" && "#ddd"};
   ${HoverAnimation}
 `;
 

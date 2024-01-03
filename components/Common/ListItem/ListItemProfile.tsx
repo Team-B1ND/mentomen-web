@@ -30,7 +30,7 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
 
         {userId === attr.author && (
           <S.DotsIcon
-            isActiveSetUp={isActiveSetUp}
+            isactivesetup={isActiveSetUp.toString()}
             onClick={() => {
               setIsActiveSetUp(true);
               setEditPostData(attr);
