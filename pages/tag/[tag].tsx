@@ -10,9 +10,10 @@ const TagPage = () => {
 TagPage.getInitialProps = async (ctx: NextPageContext) => {
   const queryClient = new QueryClient();
 
-  if (ctx.pathname) {
-    await queryClient.prefetchQuery(["post/GetTagQuery", ctx.pathname], () =>
-      PostRepository.getPostByKeyWord(ctx.pathname)
+  if (ctx.query.tag) {
+    await queryClient.prefetchQuery(
+      ["post/GetTagQuery", ctx.query.tag as string],
+      () => PostRepository.getPostByKeyWord(ctx.query.tag as string)
     );
   }
   return {
