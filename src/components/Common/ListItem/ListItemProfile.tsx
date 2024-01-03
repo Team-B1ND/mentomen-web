@@ -26,6 +26,7 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
 
         {userId === attr.author && (
           <S.DotsIcon
+            isActiveSetUp={isActiveSetUp}
             onClick={() => {
               turnOnSetUpModal.turnOnModal();
               setEditPostData(attr);

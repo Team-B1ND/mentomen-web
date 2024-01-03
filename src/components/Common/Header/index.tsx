@@ -10,12 +10,13 @@ import { useState } from "react";
 import { useGetNoticeCheck } from "../../../queries/Notice/notice.query";
 import { Portal } from "@stubee2/stubee2-rolling-ui";
 import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { ActivePostFormAtom } from "../../../stores/Post/post.store";
 
 function Header() {
   const [isActiveNotice, setIsActiveNotice] = useState(false);
-  const setIsActivePostForm = useSetRecoilState(ActivePostFormAtom);
+  const [isActivePostForm, setIsActivePostForm] =
+    useRecoilState(ActivePostFormAtom);
 
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
   const turnOnNoticeModal = new TurnOnOffModal(setIsActiveNotice);
@@ -47,7 +48,8 @@ function Header() {
           <S.HeaderAbleContainer>
             {localStorage.getItem(ACCESS_KEY) ? (
               <>
-                <S.HeaderNoticeImg
+                <S.NoticeIcon
+                  isActiveNotice={isActiveNotice}
                   src={
                     noticeCheck?.data.noticeStatus === "EXIST"
                       ? existNotice
@@ -56,7 +58,10 @@ function Header() {
                   onClick={turnOnNoticeModal.turnOnModal}
                   alt="이미지 없음"
                 />
-                <S.WrtieText onClick={turnOnPostFormModal.turnOnModal}>
+                <S.WrtieText
+                  isActivePostForm={isActivePostForm}
+                  onClick={turnOnPostFormModal.turnOnModal}
+                >
                   글 작성하기
                 </S.WrtieText>
               </>

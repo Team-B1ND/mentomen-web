@@ -94,19 +94,21 @@ export const HeaderAbleContainer = styled.div`
   font-weight: 600;
 `;
 
-export const WrtieText = styled.p`
+export const WrtieText = styled.p<{ isActivePostForm: boolean }>`
   ${flex({ alignItems: "center", columnGap: "5px" })}
   cursor: pointer;
   border-radius: 5px;
   padding: 7px;
   font-size: 17px;
-  ${HoverAnimation}
+  background-color: ${({ isActivePostForm }) => isActivePostForm && "#ddd"};
+  ${HoverAnimation};
 `;
 
-export const HeaderNoticeImg = styled.img`
+export const NoticeIcon = styled.img<{ isActiveNotice: boolean }>`
   width: 35px;
   height: 35px;
   cursor: pointer;
+  background-color: ${({ isActiveNotice }) => isActiveNotice && "#ddd"};
   ${HoverAnimation}
 `;
 

@@ -40,7 +40,9 @@ export const StudentInfoContainer = styled.div`
   ${flex({ alignItems: "center", columnGap: "3px" })}
 `;
 
-export const DotsIcon = styled(BiDotsHorizontalRounded)`
+export const DotsIcon = styled(BiDotsHorizontalRounded)<{
+  isActiveSetUp: boolean;
+}>`
   width: 30px;
   height: 30px;
 
@@ -50,6 +52,8 @@ export const DotsIcon = styled(BiDotsHorizontalRounded)`
 
   transform: scale(1);
   transition: all 0.2s ease-in-out;
+
+  background-color: ${({ isActiveSetUp }) => isActiveSetUp && "#ddd"};
 
   &:hover {
     background-color: #ddd;
