@@ -1,15 +1,15 @@
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useQueryClient } from "react-query";
 import {
   usePostCommentMutation,
   useDeleteCommentMutation,
   usePatchCommentMutation,
 } from "../../queries/Comment/comment.query";
+import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 
 export const useComment = () => {
   const [content, setContent] = useState("");
-  const queryClient = useQueryClient();
+  const { queryInvalidates } = useQueryInvalidates();
 
   const postComment = usePostCommentMutation();
   const deleteComment = useDeleteCommentMutation();
@@ -35,7 +35,7 @@ export const useComment = () => {
       { content, postId },
       {
         onSuccess: () => {
-          queryClient.invalidateQueries(["comment/read", postId]);
+          queryInvalidates([["comment/read", postId]]);
           B1ndToast.showSuccess("댓글을 작성하였습니다!");
           setContent("");
         },
@@ -48,6 +48,7 @@ export const useComment = () => {
 
   const handleEditComment = (
     commentId: number,
+    postId: number,
     prevContent: string,
     setIsEditComment: Dispatch<
       SetStateAction<{ isEdit: boolean; commentId: number }>
@@ -69,7 +70,7 @@ export const useComment = () => {
         { content, commentId },
         {
           onSuccess: () => {
-            queryClient.invalidateQueries(["comment/read", commentId]);
+            queryInvalidates([["comment/read", postId]]);
             B1ndToast.showSuccess("댓글을 수정하였습니다!");
             setIsEditComment((prev) => ({
               ...prev,
@@ -85,13 +86,13 @@ export const useComment = () => {
     }
   };
 
-  const handleDeleteComment = (commentId: number) => {
+  const handleDeleteComment = (commentId: number, postId: number) => {
     const answer = window.confirm("해당 댓글을 삭제하시겠습니까?");
 
     if (answer) {
       deleteComment.mutate(commentId, {
         onSuccess: () => {
-          queryClient.invalidateQueries(["comment/read", commentId]);
+          queryInvalidates([["comment/read", postId]]);
           B1ndToast.showSuccess("댓글을 삭제하였습니다!");
         },
         onError: (e) => {

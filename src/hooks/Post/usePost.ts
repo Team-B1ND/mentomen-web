@@ -1,6 +1,6 @@
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
-import { useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { useFileUploadMutation } from "../../queries/File/file.query";
 import {
   useDeletePostMutation,
@@ -8,6 +8,8 @@ import {
   usePatchMyPostMutation,
 } from "../../queries/Post/post.query";
 import { ListItemType, PostSubmitType } from "../../types/List/list.type";
+import { TurnOnOffModal } from "../../util/Modal/turnOffOnModal";
+import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 
 export const usePost = (
   isActivePostForm?: boolean,
@@ -35,20 +37,22 @@ export const usePost = (
   );
 
   const formData = new FormData();
+  const navigate = useNavigate();
 
   const deletePost = useDeletePostMutation();
   const fileUpload = useFileUploadMutation();
   const postSubmit = usePostMySubmitMutation();
   const editSubmit = usePatchMyPostMutation();
-  const queryClient = useQueryClient();
+  const { queryInvalidates } = useQueryInvalidates();
 
   const handlePostEditorCancel = (
     setIsActivePostEditForm: Dispatch<SetStateAction<boolean>>
   ) => {
     const answer = window.confirm(cancelWritingPost);
+    const turnOffPostEditModal = new TurnOnOffModal(setIsActivePostEditForm);
 
     if (answer) {
-      setIsActivePostEditForm(false);
+      turnOffPostEditModal.turnOffModal();
     }
   };
 
@@ -76,9 +80,11 @@ export const usePost = (
     if (answer) {
       deletePost.mutate(postId, {
         onSuccess: () => {
-          queryClient.invalidateQueries("list/useGetList");
-          queryClient.invalidateQueries(["post/read-one", postId]);
-          queryClient.invalidateQueries("user/post");
+          queryInvalidates([
+            "list/useGetList",
+            ["post/read-one", postId],
+            "user/post",
+          ]);
           B1ndToast.showSuccess("게시글을 삭제하였습니다.");
         },
         onError: () => {
@@ -111,10 +117,11 @@ export const usePost = (
         { content, tag, imgUrls: imgUrl },
         {
           onSuccess: () => {
-            queryClient.invalidateQueries("list/useGetList");
-            queryClient.invalidateQueries("user/post");
+            queryInvalidates(["list/useGetList", "user/post"]);
             B1ndToast.showSuccess("게시글을 작성하였습니다.");
             setIsActivePostForm(false);
+            navigate("/");
+            window.scrollTo(0, 0);
           },
           onError: (e) => {
             B1ndToast.showError("게시글을 작성하지 못했습니다.");
@@ -122,12 +129,12 @@ export const usePost = (
         }
       );
     } else {
-      const { content, tag, imgUrls } = editPostData!!;
+      const { content, tag } = editPostData!!;
 
       if (
         JSON.stringify({
           content,
-          imgUrls: imgUrls ?? [],
+          imgUrls: imgUrl ?? [],
           tag,
         }) === JSON.stringify(postData)
       ) {
@@ -144,11 +151,12 @@ export const usePost = (
         },
         {
           onSuccess: () => {
-            queryClient.invalidateQueries("list/useGetList");
-            queryClient.invalidateQueries([
-              "post/read-one",
-              editPostData?.postId!!,
+            queryInvalidates([
+              "list/useGetList",
+              ["post/read-one", editPostData?.postId!!],
+              ["post/GetTagQuery"],
             ]);
+
             B1ndToast.showSuccess("게시글을 수정하였습니다.");
             setIsActivePostForm(false);
           },

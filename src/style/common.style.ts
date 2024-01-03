@@ -13,11 +13,6 @@ export const ListContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Test = styled.div`
-  ${flex({ justifyContent: "center" })}
-  flex-wrap: wrap;
-`;
-
 export const ListWrapper = styled.div`
   ${flex({ alignItems: "center", flexDirection: "column", rowGap: "10px" })}
 `;
