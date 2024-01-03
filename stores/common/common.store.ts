@@ -1,16 +1,16 @@
 import { atom } from "recoil";
 
 export const HideHeaderAtom = atom<boolean>({
-  key: "hideHeaderAtom",
+  key: "hideHeaderKey",
   default: false,
 });
 
 export const HideNavAtom = atom<boolean>({
-  key: "hideNavAtom",
+  key: "hideNavKey",
   default: false,
 });
 
 export const PostIdAtom = atom<number>({
-  key: "postIdAtom",
+  key: "postIdKey",
   default: 0,
 });

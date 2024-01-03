@@ -2,16 +2,16 @@ import { atom } from "recoil";
 import { ListItemType } from "../../types/List/list.type";
 
 export const ActivePostFormAtom = atom<boolean>({
-  key: "activePostFormAtom",
+  key: "activePostFormKey",
   default: false,
 });
 
 export const ActiveEditPostFormAtom = atom<boolean>({
-  key: "activeEditPostAtom",
+  key: "activeEditPostKey",
   default: false,
 });
 
 export const EditPostDataAtom = atom<ListItemType | null>({
-  key: "editPostDataAtom",
+  key: "editPostDataKey",
   default: null,
 });
