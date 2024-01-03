@@ -1,4 +1,4 @@
-import { Response } from "../Util/response.type";
+import { ResponseType } from "../common/common.type";
 
 export interface NoticeCheckType {
   noticeStatus: string;
@@ -13,10 +13,10 @@ export interface NoticeListType {
   senderProfileImage: string;
 }
 
-export interface NoticeCheckResponse extends Response {
+export interface NoticeCheckResponse extends ResponseType {
   data: NoticeCheckType;
 }
 
-export interface NoticeListResponse extends Response {
+export interface NoticeListResponse extends ResponseType {
   data: NoticeListType[];
 }

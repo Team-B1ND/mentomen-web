@@ -1,10 +1,8 @@
 import axios from "axios";
-import {
-  ACCESS_KEY,
-  REFRESH_KEY,
-  REQUEST_KEY,
-} from "../../constants/Auth/auth.constant";
+import { ACCESS_KEY, REQUEST_KEY } from "../../constants/Auth/auth.constant";
 import CONFIG from "../../config/config.json";
+import { requestHandler } from "./requestHandler";
+import { responseHandler } from "./responseHandler";
 
 export const customAxios = axios.create({
   baseURL: `${CONFIG.server}`,
@@ -13,34 +11,5 @@ export const customAxios = axios.create({
   },
 });
 
-const errorInterceptor = async (config: {
-  config: any;
-  response: { status: any };
-}) => {
-  const refresh_token = localStorage.getItem(REFRESH_KEY);
-  const { status } = config.response;
-
-  if (status === 401) {
-    const originalRequest = config.config;
-    try {
-      const { data } = await axios.get(`${CONFIG.server}/auth/refreshToken`, {
-        headers: {
-          [REQUEST_KEY]: `Bearer ${refresh_token}`,
-        },
-      });
-      localStorage.setItem(ACCESS_KEY, data.data.accessToken);
-
-      customAxios.defaults.headers[
-        REQUEST_KEY
-      ] = `Bearer ${data.data.accessToken}`;
-
-      originalRequest.headers[REQUEST_KEY] = `Bearer ${data.data.accessToken}`;
-      return axios(originalRequest);
-    } catch (error) {
-      localStorage.removeItem(ACCESS_KEY);
-      localStorage.removeItem(REFRESH_KEY);
-    }
-  }
-};
-
-customAxios.interceptors.response.use((response) => response, errorInterceptor);
+customAxios.interceptors.request.use(requestHandler, (response) => response);
+customAxios.interceptors.response.use((response) => response, responseHandler);

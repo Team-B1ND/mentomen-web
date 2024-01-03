@@ -1,4 +1,4 @@
-import { Response } from "../Util/response.type";
+import { ResponseType } from "../common/common.type";
 
 export interface UserInfo {
   email: string;
@@ -13,7 +13,7 @@ export interface UserInfo {
   userId: number;
 }
 
-export interface UserResponse extends Response {
+export interface UserResponse extends ResponseType {
   data: UserInfo;
 }
 

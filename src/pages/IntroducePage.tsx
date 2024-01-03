@@ -1,13 +1,12 @@
-import React from "react";
 import IntroTop from "../components/Main/Introduce/Top/IntroTop";
 import IntroBottom from "../components/Main/Introduce/Bottom/IntroBottom";
-import IntroMid from "../components/Main/Introduce/Mid/IntroMid";
+import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 
 function IntroducePage() {
+  useHideHeaderOrNav("Nav");
   return (
     <>
       <IntroTop />
-      <IntroMid />
       <IntroBottom />
     </>
   );
