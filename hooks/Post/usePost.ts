@@ -82,6 +82,7 @@ export const usePost = (
             "list/useGetList",
             ["post/read-one", postId],
             "user/post",
+            ["post/GetTagQuery"],
           ]);
           MenToMenToast.showSuccess("게시글을 삭제하였습니다.");
         },

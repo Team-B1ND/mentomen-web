@@ -49,7 +49,7 @@ export const useGetApost = (
   );
 
 export const usePostMySubmitMutation = () => {
-  const mutation = useMutation("post/submit", (data: PostSubmitType) =>
+  const mutation = useMutation((data: PostSubmitType) =>
     PostRepository.postMySubmit(data)
   );
   return mutation;
