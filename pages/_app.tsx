@@ -1,4 +1,5 @@
 import PageTemplate from "@/components/Common/PageTemplate";
+import { MenToMenToastContainer } from "@/util/Toast/menToMenToastContainer";
 import { NextComponentType } from "next";
 import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
@@ -22,6 +23,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <RecoilRoot>
+              <MenToMenToastContainer />
               <PageTemplate>
                 <Component {...pageProps} />
               </PageTemplate>

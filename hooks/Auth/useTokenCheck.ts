@@ -1,3 +1,4 @@
+import { MenToMenToast } from "@/util/Toast/MenToMenToast";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { ACCESS_KEY, REFRESH_KEY } from "../../constants/Auth/auth.constant";
@@ -12,7 +13,7 @@ export const useTokenCheck = () => {
       const refreshToken = token.getCookie(REFRESH_KEY);
 
       if (!accessToken || !refreshToken) {
-        window.alert("로그인이 필요한 서비스입니다.");
+        MenToMenToast.showInfo("로그인이 필요한 서비스입니다.");
         router.push("/start");
       }
     };

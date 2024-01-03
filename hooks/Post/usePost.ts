@@ -1,3 +1,4 @@
+import { MenToMenToast } from "@/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { useFileUploadMutation } from "../../queries/File/file.query";
@@ -82,10 +83,10 @@ export const usePost = (
             ["post/read-one", postId],
             "user/post",
           ]);
-          window.alert("게시글을 삭제하였습니다.");
+          MenToMenToast.showSuccess("게시글을 삭제하였습니다.");
         },
         onError: () => {
-          window.alert("게시글을 삭제하지 못했습니다.");
+          MenToMenToast.showError("게시글을 삭제하지 못했습니다.");
         },
         onSettled: () => {
           setIsActiveSetUp(false);
@@ -102,11 +103,13 @@ export const usePost = (
     const { content, tag } = postData;
 
     if (tag === "") {
-      return window.alert("태그를 지정해주세요.");
+      MenToMenToast.showInfo("태그를 지정해주세요.");
+      return;
     }
 
     if (content.trim() === "") {
-      return window.alert("글을 작성해주세요.");
+      MenToMenToast.showInfo("글을 작성해주세요.");
+      return;
     }
 
     if (isActivePostForm) {
@@ -115,13 +118,13 @@ export const usePost = (
         {
           onSuccess: () => {
             queryInvalidates(["list/useGetList", "user/post"]);
-            window.alert("게시글을 작성하였습니다.");
+            MenToMenToast.showSuccess("게시글을 작성하였습니다.");
             setIsActivePostForm(false);
             router.push("/");
-            // window.scrollTo(0, 0);
+            window.scrollTo(0, 0);
           },
           onError: (e) => {
-            window.alert("게시글을 작성하지 못했습니다.");
+            MenToMenToast.showError("게시글을 작성하지 못했습니다.");
           },
         }
       );
@@ -135,7 +138,7 @@ export const usePost = (
           tag,
         }) === JSON.stringify(postData)
       ) {
-        window.alert("글을 수정해주세요!");
+        MenToMenToast.showInfo("글을 수정해주세요!");
         return;
       }
 
@@ -154,11 +157,11 @@ export const usePost = (
               ["post/GetTagQuery"],
             ]);
 
-            window.alert("게시글을 수정하였습니다.");
+            MenToMenToast.showSuccess("게시글을 수정하였습니다.");
             setIsActivePostForm(false);
           },
           onError: (e) => {
-            window.alert("게시글을 수정하지 못했습니다.");
+            MenToMenToast.showError("게시글을 수정하지 못했습니다.");
           },
         }
       );

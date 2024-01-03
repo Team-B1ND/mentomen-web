@@ -1,3 +1,4 @@
+import { MenToMenToast } from "@/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ export const useKeyWordSearch = () => {
     e.preventDefault();
 
     if (search.trim() === "") {
-      window.alert("키워드를 입력해주세요!");
+      MenToMenToast.showInfo("키워드를 입력해주세요!");
       return;
     }
 

@@ -1,3 +1,4 @@
+import { MenToMenToast } from "@/util/Toast/menToMenToast";
 import { Dispatch, SetStateAction, useState } from "react";
 import {
   usePostCommentMutation,
@@ -27,7 +28,7 @@ export const useComment = () => {
     e.preventDefault();
 
     if (content.trim() === "") {
-      return window.alert("댓글을 입력해주세요!");
+      return MenToMenToast.showInfo("댓글을 입력해주세요!");
     }
 
     postComment.mutate(
@@ -35,11 +36,11 @@ export const useComment = () => {
       {
         onSuccess: () => {
           queryInvalidates([["comment/read", postId]]);
-          window.alert("댓글을 작성하였습니다!");
+          MenToMenToast.showSuccess("댓글을 작성하였습니다!");
           setContent("");
         },
         onError: (e) => {
-          window.alert("댓글을 작성하지 못했습니다!");
+          MenToMenToast.showError("댓글을 작성하지 못했습니다!");
         },
       }
     );
@@ -54,11 +55,11 @@ export const useComment = () => {
     >
   ) => {
     if (content.trim() === "") {
-      window.alert("댓글이 공백입니다!");
+      MenToMenToast.showInfo("댓글이 공백입니다!");
       return;
     }
     if (content === prevContent) {
-      window.alert("댓글을 수정해주세요!");
+      MenToMenToast.showInfo("댓글을 수정해주세요!");
       return;
     }
 
@@ -70,7 +71,7 @@ export const useComment = () => {
         {
           onSuccess: () => {
             queryInvalidates([["comment/read", postId]]);
-            window.alert("댓글을 수정하였습니다!");
+            MenToMenToast.showSuccess("댓글을 수정하였습니다!");
             setIsEditComment((prev) => ({
               ...prev,
               isEdit: false,
@@ -78,7 +79,7 @@ export const useComment = () => {
             }));
           },
           onError: (e) => {
-            window.alert("댓글을 수정하지 못했습니다!");
+            MenToMenToast.showError("댓글을 수정하지 못했습니다!");
           },
         }
       );
@@ -92,10 +93,10 @@ export const useComment = () => {
       deleteComment.mutate(commentId, {
         onSuccess: () => {
           queryInvalidates([["comment/read", postId]]);
-          window.alert("댓글을 삭제하였습니다!");
+          MenToMenToast.showSuccess("댓글을 삭제하였습니다!");
         },
         onError: (e) => {
-          window.alert("댓글을 삭제하지 못했습니다!");
+          MenToMenToast.showError("댓글을 삭제하지 못했습니다!");
         },
       });
     }

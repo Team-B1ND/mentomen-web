@@ -1,5 +1,6 @@
 import { ACCESS_KEY, REFRESH_KEY } from "@/constants/Auth/auth.constant";
 import token from "@/lib/token/token";
+import { MenToMenToast } from "@/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
 
@@ -12,7 +13,7 @@ export function useLogout() {
       token.removeCookie(ACCESS_KEY);
       token.removeCookie(REFRESH_KEY);
 
-      window.alert("로그아웃 되었습니다!");
+      MenToMenToast.showSuccess("로그아웃 되었습니다!");
       router.push("/start");
     }
   }, [router]);
