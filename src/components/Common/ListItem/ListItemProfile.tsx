@@ -5,6 +5,7 @@ import profile from "../../../assets/icons/user/aprofile.png";
 import { EditPostDataAtom } from "../../../stores/Post/post.store";
 import { UserIdAtom } from "../../../stores/User/user.store";
 import { ListItemType } from "../../../types/List/list.type";
+import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
 import SetUp from "../Button/SetUp";
 import { StudentInfo } from "../StudentInfo";
 import * as S from "./style";
@@ -13,6 +14,7 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
   const userId = useRecoilValue(UserIdAtom);
   const [isActiveSetUp, setIsActiveSetUp] = useState(false);
   const setEditPostData = useSetRecoilState(EditPostDataAtom);
+  const turnOnSetUpModal = new TurnOnOffModal(setIsActiveSetUp);
 
   return (
     <>
@@ -25,7 +27,7 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
         {userId === attr.author && (
           <S.DotsIcon
             onClick={() => {
-              setIsActiveSetUp(true);
+              turnOnSetUpModal.turnOnModal();
               setEditPostData(attr);
             }}
           />

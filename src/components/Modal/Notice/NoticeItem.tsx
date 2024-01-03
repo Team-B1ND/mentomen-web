@@ -6,6 +6,7 @@ import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
 import { useSetRecoilState } from "recoil";
 import { PostIdAtom } from "../../../stores/common/common.store";
 import { GetDateTime } from "../../../util/Date/getDateTime";
+import { TurnOnOffModal } from "../../../util/Modal/turnOffOnModal";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;
@@ -15,6 +16,8 @@ const NoticeItem = ({ setIsActiveNotice }: Props) => {
   const { data: noticeList } = useGetNoticeList({ suspense: true });
   const setIsActiveDetail = useSetRecoilState(IsActiveDetailAtom);
   const setPostId = useSetRecoilState(PostIdAtom);
+  const turnOnDetailModal = new TurnOnOffModal(setIsActiveDetail);
+  const turnOffNoticeModal = new TurnOnOffModal(setIsActiveNotice);
 
   return (
     <>
@@ -24,8 +27,8 @@ const NoticeItem = ({ setIsActiveNotice }: Props) => {
             <li
               key={idx}
               onClick={() => {
-                setIsActiveNotice(false);
-                setIsActiveDetail(true);
+                turnOffNoticeModal.turnOffModal();
+                turnOnDetailModal.turnOnModal();
                 setPostId(item.postId);
               }}
             >

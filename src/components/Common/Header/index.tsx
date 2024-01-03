@@ -18,7 +18,8 @@ function Header() {
   const setIsActivePostForm = useSetRecoilState(ActivePostFormAtom);
 
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
-  const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
+  const turnOnNoticeModal = new TurnOnOffModal(setIsActiveNotice);
+  const turnOnPostFormModal = new TurnOnOffModal(setIsActivePostForm);
 
   const { data: noticeCheck } = useGetNoticeCheck();
 
@@ -52,10 +53,10 @@ function Header() {
                       ? existNotice
                       : notExistNotice
                   }
-                  onClick={turnOnOffModal.turnOnModal}
+                  onClick={turnOnNoticeModal.turnOnModal}
                   alt="이미지 없음"
                 />
-                <S.WrtieText onClick={() => setIsActivePostForm(true)}>
+                <S.WrtieText onClick={turnOnPostFormModal.turnOnModal}>
                   글 작성하기
                 </S.WrtieText>
               </>

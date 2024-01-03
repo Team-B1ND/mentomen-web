@@ -51,7 +51,11 @@ const DetailCommentList = ({ postId }: { postId: number }) => {
                         수정
                       </p>
                       /
-                      <p onClick={() => handleDeleteComment(item.commentId)}>
+                      <p
+                        onClick={() =>
+                          handleDeleteComment(item.commentId, item.postId)
+                        }
+                      >
                         삭제
                       </p>
                     </S.CommentEditAndDel>
@@ -77,6 +81,7 @@ const DetailCommentList = ({ postId }: { postId: number }) => {
                     onClick={() =>
                       handleEditComment(
                         item.commentId,
+                        item.postId,
                         item.content,
                         setIsEditComment
                       )

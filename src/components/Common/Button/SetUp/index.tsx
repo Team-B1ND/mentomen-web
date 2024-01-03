@@ -4,7 +4,7 @@ import * as S from "./style";
 import { usePost } from "../../../../hooks/Post/usePost";
 import { useSetRecoilState } from "recoil";
 import { ActiveEditPostFormAtom } from "../../../../stores/Post/post.store";
-import { IsActiveDetailAtom } from "../../../../stores/Detail/detail.store";
+import { TurnOnOffModal } from "../../../../util/Modal/turnOffOnModal";
 
 interface Props {
   postId: number;
@@ -13,18 +13,19 @@ interface Props {
 
 const SetUp = ({ postId, setIsActiveSetUp }: Props) => {
   const { handleDeletePostClick } = usePost();
-  const setIsActiveDetail = useSetRecoilState(IsActiveDetailAtom);
   const setActiveEditPost = useSetRecoilState(ActiveEditPostFormAtom);
   useEscCloseModal(setIsActiveSetUp);
 
+  const turnOffSetUpModal = new TurnOnOffModal(setIsActiveSetUp);
+  const turnOnEditPostModal = new TurnOnOffModal(setActiveEditPost);
+
   return (
-    <S.Container onClick={() => setIsActiveSetUp(false)}>
+    <S.Container onClick={turnOffSetUpModal.turnOffModal}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.TextBox
           onClick={() => {
-            setActiveEditPost(true);
-            setIsActiveSetUp(false);
-            setIsActiveDetail((prev) => prev !== true && false);
+            turnOffSetUpModal.turnOffModal();
+            turnOnEditPostModal.turnOnModal();
           }}
         >
           수정하기

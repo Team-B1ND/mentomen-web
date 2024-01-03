@@ -12,14 +12,14 @@ interface Props {
 
 const Notice = ({ setIsActiveNotice }: Props) => {
   useEscCloseModal(setIsActiveNotice);
-  const turnOnOffModal = new TurnOnOffModal(setIsActiveNotice);
+  const turnOffNoticeModal = new TurnOnOffModal(setIsActiveNotice);
 
   return (
-    <S.Container onClick={() => setIsActiveNotice(false)}>
+    <S.Container onClick={turnOffNoticeModal.turnOffModal}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.NoticeText>
           <p>알림</p>
-          <S.CloseIcon onClick={turnOnOffModal.turnOffModal} />
+          <S.CloseIcon onClick={turnOffNoticeModal.turnOffModal} />
         </S.NoticeText>
 
         <S.Content>
