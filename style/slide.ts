@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import styled from "styled-components";
+import flex from "./flex";
 import { palette } from "./palette";
 
 export const SlideWrapper = styled.div<{ imageHeight?: number }>`
@@ -15,8 +16,7 @@ export const StyledSlider = styled(Slider)<{
     width: 100%;
     height: 100%;
 
-    display: flex;
-    align-items: center;
+    ${flex({ alignItems: "center" })};
     cursor: ${({ cursor }) => cursor};
   }
 
