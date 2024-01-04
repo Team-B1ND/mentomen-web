@@ -4,11 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { SlideWrapper, StyledSlider } from "@/style/slide";
 import Image from "next/image";
 
-interface Props {
-  imgUrls: string[];
-}
-
-const PostEditorFormImage = ({ imgUrls }: Props) => {
+const PostEditorFormImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
     <S.ImageContainer sizeOfImgUrl={imgUrls.length}>
       <S.ImageWrapper>

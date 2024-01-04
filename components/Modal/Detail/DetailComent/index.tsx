@@ -12,11 +12,7 @@ import { palette } from "@/style/palette";
 import DetailCommentList from "./DetailComentList";
 import Image from "next/image";
 
-interface Props {
-  data: ListItemType;
-}
-
-const DetailComent = ({ data }: Props) => {
+const DetailComent = ({ data }: { data: ListItemType }) => {
   const { content, handleCommentChange, handleCommentSubmit } = useComment();
   return (
     <S.Content imgurls={data.imgUrls}>

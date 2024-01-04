@@ -15,11 +15,7 @@ import Header from "../Header";
 import Nav from "../Nav";
 import Portal from "@/components/Modal/Portal";
 
-interface Props {
-  children: ReactNode;
-}
-
-function PageTemplate({ children }: Props) {
+function PageTemplate({ children }: { children: ReactNode }) {
   const hideHeader = useRecoilValue(HideHeaderAtom);
   const hideNav = useRecoilValue(HideNavAtom);
   const [isActiveDetail, setIsActiveDetail] =

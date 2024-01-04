@@ -5,11 +5,7 @@ import { slideOptions } from "@/constants/Slide/slide.constant";
 import { ItemImage, SlideWrapper, StyledSlider } from "@/style/slide";
 import Image from "next/image";
 
-interface Props {
-  imgUrls: string[];
-}
-
-const DetailImage = ({ imgUrls }: Props) => {
+const DetailImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
     <S.ImageContainer>
       <S.ImageWrapper>

@@ -4,11 +4,7 @@ import ListItemProfile from "./ListItemProfile";
 import ListItemImages from "./ListItemImages";
 import ListItemContent from "./ListItemContent";
 
-interface Props {
-  data: ListItemType;
-}
-
-const ListItem = ({ data }: Props) => {
+const ListItem = ({ data }: { data: ListItemType }) => {
   return (
     <S.Container>
       <ListItemProfile {...data} />
