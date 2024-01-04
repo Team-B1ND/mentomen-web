@@ -3,7 +3,7 @@ import * as S from "./style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { slideOptions } from "@/constants/Slide/slide.constant";
-import { ItemImage, StyledSlider } from "@/style/slide";
+import { ItemImage, SlideWrapper, StyledSlider } from "@/style/slide";
 import { useRef } from "react";
 
 const DetailImage = ({ imgUrls }: { imgUrls: string[] }) => {
@@ -13,9 +13,7 @@ const DetailImage = ({ imgUrls }: { imgUrls: string[] }) => {
     <S.ImageContainer>
       <S.ImageWrapper>
         {imgUrls !== null ? (
-          <S.DetailSlideWrapper
-            imageHeight={imageHeightRef.current?.offsetHeight}
-          >
+          <SlideWrapper imageHeight={imageHeightRef.current?.offsetHeight}>
             <StyledSlider cursorSize="28px" cursor="pointer" {...slideOptions}>
               {imgUrls.map((item, idx) => (
                 <ItemImage
@@ -28,7 +26,7 @@ const DetailImage = ({ imgUrls }: { imgUrls: string[] }) => {
                 />
               ))}
             </StyledSlider>
-          </S.DetailSlideWrapper>
+          </SlideWrapper>
         ) : (
           <S.NoneImage>이미지가 없습니다.</S.NoneImage>
         )}

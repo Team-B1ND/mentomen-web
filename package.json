@@ -61,5 +61,6 @@
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",
     "eslint-config-next": "14.0.3"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

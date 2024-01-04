@@ -85,11 +85,6 @@ export const ImageWrapper = styled.div`
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
-export const SlideImage = {
-  width: "100%",
-  height: "100%",
-};
-
 export const ImageUploadText = styled.p`
   color: gray;
 `;

@@ -1,9 +1,9 @@
 import Slider from "react-slick";
-import styled, { CSSProperties } from "styled-components";
+import styled from "styled-components";
 import { palette } from "./palette";
 
 export const SlideWrapper = styled.div<{ imageHeight?: number }>`
-  width: ${({ imageHeight }) => (imageHeight! > 650 ? "60%" : "100%")};
+  width: ${({ imageHeight }) => (imageHeight! > 699 ? "60%" : "100%")};
   height: 100%;
 `;
 

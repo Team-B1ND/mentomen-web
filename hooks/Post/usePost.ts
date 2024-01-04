@@ -76,6 +76,7 @@ export const usePost = (
   ) => {
     const answer = window.confirm("해당 게시글을 삭제하시겠습니까?");
     if (answer) {
+      console.log("sdf");
       deletePost.mutate(postId, {
         onSuccess: () => {
           queryInvalidates([
