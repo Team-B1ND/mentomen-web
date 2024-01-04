@@ -8,11 +8,12 @@ import {
   ActivePostFormAtom,
 } from "@/stores/Post/post.store";
 import flex from "@/style/flex";
-import GlobalStyle from "@/style/Global";
+import GlobalStyle from "@/style/globalStyle";
 import Detail from "../../Modal/Detail";
 import PostEditorForm from "../../Modal/PostEditorForm";
 import Header from "../Header";
 import Nav from "../Nav";
+import Portal from "@/components/Modal/Portal";
 
 interface Props {
   children: ReactNode;
@@ -41,15 +42,17 @@ function PageTemplate({ children }: Props) {
         </Wrapper>
       </Container>
 
-      {isActiveDetail && <Detail setIsActiveDetail={setIsActiveDetail} />}
-      {(isActivePostForm || isActiveEditForm) && (
-        <PostEditorForm
-          isActivePostForm={isActivePostForm} // 글 등록인지 수정인지 판단하기 위해 Props로 넘겨줌
-          setIsActivePostEditForm={
-            isActivePostForm ? setIsActivePostForm : setIsActiveEditForm
-          }
-        />
-      )}
+      <Portal>
+        {isActiveDetail && <Detail setIsActiveDetail={setIsActiveDetail} />}
+        {(isActivePostForm || isActiveEditForm) && (
+          <PostEditorForm
+            isActivePostForm={isActivePostForm} // 글 등록인지 수정인지 판단하기 위해 Props로 넘겨줌
+            setIsActivePostEditForm={
+              isActivePostForm ? setIsActivePostForm : setIsActiveEditForm
+            }
+          />
+        )}
+      </Portal>
     </>
   );
 }

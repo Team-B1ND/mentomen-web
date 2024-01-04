@@ -1,8 +1,8 @@
 import * as S from "./style";
-import menTomen from "@/assets/icons/logo/menTomen.png";
-import Search from "@/assets/images/Search.png";
-import notExistNotice from "@/assets/icons/notice/notExistNotice.png";
-import existNotice from "@/assets/icons/notice/existNotice.png";
+import menTomen from "@/public/icons/logo/menTomen.png";
+import Search from "@/public/images/Search.png";
+import notExistNotice from "@/public/icons/notice/notExistNotice.png";
+import existNotice from "@/public/icons/notice/existNotice.png";
 import { useKeyWordSearch } from "@/hooks/Search/useKeyWordSearch";
 import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
 import Notice from "../../Modal/Notice";
@@ -11,6 +11,7 @@ import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
 import { useRecoilState } from "recoil";
 import { ActivePostFormAtom } from "@/stores/Post/post.store";
 import token from "@/lib/token/token";
+import Portal from "@/components/Modal/Portal";
 
 function Header() {
   const [isActiveNotice, setIsActiveNotice] = useState(false);
@@ -76,7 +77,9 @@ function Header() {
         </S.Wrapper>
       </S.Container>
 
-      {isActiveNotice && <Notice setIsActiveNotice={setIsActiveNotice} />}
+      <Portal>
+        {isActiveNotice && <Notice setIsActiveNotice={setIsActiveNotice} />}
+      </Portal>
     </>
   );
 }

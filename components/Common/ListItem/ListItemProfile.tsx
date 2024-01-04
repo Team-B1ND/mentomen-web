@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import profile from "@/assets/icons/user/aprofile.png";
+import profile from "@/public/icons/user/aprofile.png";
 import { EditPostDataAtom } from "@/stores/Post/post.store";
 import { UserIdAtom } from "@/stores/User/user.store";
 import { ListItemType } from "@/types/List/list.type";
 import SetUp from "../Button/SetUp";
 import { StudentInfo } from "../StudentInfo";
 import * as S from "./style";
+import Portal from "@/components/Modal/Portal";
 
 const ListItemProfile = ({ ...attr }: ListItemType) => {
   const userId = useRecoilValue(UserIdAtom);
@@ -39,9 +40,11 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
         )}
       </S.Profile>
 
-      {isActiveSetUp && (
-        <SetUp postId={attr.postId} setIsActiveSetUp={setIsActiveSetUp} />
-      )}
+      <Portal>
+        {isActiveSetUp && (
+          <SetUp postId={attr.postId} setIsActiveSetUp={setIsActiveSetUp} />
+        )}
+      </Portal>
     </>
   );
 };
