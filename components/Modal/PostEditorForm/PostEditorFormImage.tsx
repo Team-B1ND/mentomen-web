@@ -15,8 +15,9 @@ const PostEditorFormImage = ({ imgUrls }: { imgUrls: string[] }) => {
                 <Image
                   key={idx}
                   src={item}
-                  width={10}
-                  height={10}
+                  width={1000}
+                  height={1000}
+                  layout="responsive"
                   style={S.SlideImage}
                   alt="이미지 없음"
                 />
