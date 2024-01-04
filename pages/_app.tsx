@@ -11,7 +11,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
   pageProps,
 }: AppProps) => {
-  const [queryClient] = React.useState(new QueryClient());
+  const [queryClient] = React.useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

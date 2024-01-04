@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { slideOptions } from "@/constants/Slide/slide.constant";
 import { ItemImage, SlideWrapper, StyledSlider } from "@/style/slide";
-import Image from "next/image";
 import getTag from "@/util/Tag/getTag";
 
 interface Props {
@@ -18,15 +17,7 @@ const ListItemImages = ({ imgUrls, tag }: Props) => {
       <SlideWrapper>
         <StyledSlider {...slideOptions}>
           {imgUrls.map((item, idx) => (
-            <Image
-              key={idx}
-              src={item}
-              style={ItemImage}
-              width={1000}
-              height={1000}
-              layout="responsive"
-              alt=""
-            />
+            <ItemImage key={idx} src={item} alt="" />
           ))}
         </StyledSlider>
       </SlideWrapper>

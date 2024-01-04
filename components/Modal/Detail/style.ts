@@ -60,6 +60,12 @@ export const ImageContainer = styled.div`
 export const ImageWrapper = styled.div`
   width: 100%;
   height: auto;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
+`;
+
+export const DetailSlideWrapper = styled.div<{ imageHeight?: number }>`
+  width: ${({ imageHeight }) => (imageHeight! > 699 ? "60%" : "100%")};
+  height: 100%;
 `;
 
 export const NoneImage = styled.div`

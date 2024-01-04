@@ -66,9 +66,11 @@ export const DotsIcon = styled(BiDotsHorizontalRounded)<{
   }
 `;
 
-export const TagIcon = styled(Image)<{ imgUrls?: string }>`
-  ${({ imgUrls }) =>
-    imgUrls !== null
+export const TagIcon = styled(Image)<{ imgurls?: string }>`
+  z-index: 2;
+
+  ${({ imgurls }) =>
+    imgurls !== null
       ? css`
           width: 40px;
           height: 40px;
@@ -80,8 +82,6 @@ export const TagIcon = styled(Image)<{ imgUrls?: string }>`
           width: 25px;
           height: 25px;
         `}
-
-  z-index: 2;
 `;
 
 export const DateTime = styled.p`
@@ -94,7 +94,6 @@ export const ImageContainer = styled.div<{ sizeOfImages: number }>`
   height: auto;
 
   border-radius: 5px;
-
   border: 1px solid #ddd;
 
   ${flex({ alignItems: "center", justifyContent: "center" })}

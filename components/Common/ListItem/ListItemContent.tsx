@@ -39,7 +39,7 @@ const ListItemContent = ({
           <S.Date>{getDateTime.uploadPostTimeAgo()}</S.Date>
           {imgUrls === null && (
             <S.TagIcon
-              imgUrls={imgUrls}
+              imgurls={imgUrls}
               src={getTag.getTagIcon(tag)}
               alt="이미지 없음"
             />
