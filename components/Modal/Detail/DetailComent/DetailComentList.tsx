@@ -8,6 +8,7 @@ import profile from "@/assets/icons/user/aprofile.png";
 import closeComment from "@/assets/icons/comment/closeComment.svg";
 import editComment from "@/assets/icons/comment/editComment.svg";
 import { IsEditCommentAtom } from "@/stores/Comment/comment.store";
+import Image from "next/image";
 
 const DetailCommentList = ({ postId }: { postId: number }) => {
   const { data: comments } = useGetCommentQuery(postId, { suspense: true });
@@ -30,8 +31,11 @@ const DetailCommentList = ({ postId }: { postId: number }) => {
           <li key={item.commentId}>
             <S.UserProfileWrap>
               <S.UserProfile>
-                <S.ProfileImage
+                <Image
+                  width={35}
+                  height={35}
                   src={item.profileUrl || profile}
+                  style={S.ProfileImage}
                   alt="이미지 없음"
                 />
                 <S.ProfileWrap>

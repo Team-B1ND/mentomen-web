@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styled from "styled-components";
-import flex from "../../../../style/flex";
+import styled, { CSSProperties } from "styled-components";
+import flex from "@/style/flex";
 
 export const Content = styled.div<{ imgurls: string[] }>`
   width: ${({ imgurls }) => (imgurls !== null ? "40%" : "100%")};
@@ -53,14 +53,13 @@ export const UserProfile = styled.div`
   white-space: nowrap;
 `;
 
-export const ProfileImage = styled(Image)`
-  width: 35px;
-  height: 35px;
-
-  border-radius: 4rem;
-  object-fit: cover;
-  border: 1px solid #ddd;
-`;
+export const ProfileImage: CSSProperties = {
+  width: "35px",
+  height: "35px",
+  borderRadius: "4rem",
+  objectFit: "cover",
+  border: "1px solid #ddd",
+};
 
 export const ProfileWrap = styled.div`
   ${flex({ flexDirection: "column", rowGap: "5px" })}

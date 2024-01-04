@@ -15,7 +15,7 @@ const DetailImage = ({ imgUrls }: Props) => {
       <S.ImageWrapper>
         {imgUrls !== null ? (
           <SlideWrapper>
-            <StyledSlider cursorSize="28px" {...slideOptions}>
+            <StyledSlider cursorSize="28px" cursor="pointer" {...slideOptions}>
               {imgUrls.map((item, idx) => (
                 <Image
                   key={idx}

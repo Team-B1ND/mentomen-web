@@ -7,13 +7,17 @@ export const SlideWrapper = styled.div`
   height: 100%;
 `;
 
-export const StyledSlider = styled(Slider)<{ cursorSize?: string }>`
+export const StyledSlider = styled(Slider)<{
+  cursorSize?: string;
+  cursor?: string;
+}>`
   .slick-track {
     width: 100%;
     height: 100%;
 
     display: flex;
     align-items: center;
+    cursor: ${({ cursor }) => cursor};
   }
 
   .slick-prev {
@@ -57,5 +61,4 @@ export const StyledSlider = styled(Slider)<{ cursorSize?: string }>`
 export const ItemImage = {
   width: "100%",
   height: "100%",
-  cursor: "pointer",
 };

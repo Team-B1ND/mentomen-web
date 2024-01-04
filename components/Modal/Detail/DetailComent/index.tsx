@@ -10,6 +10,7 @@ import { useComment } from "@/hooks/Comment/useComment";
 import DetailComentSkeleton from "../../../Common/Skeleton/Detail/DetailComent";
 import { palette } from "@/style/palette";
 import DetailCommentList from "./DetailComentList";
+import Image from "next/image";
 
 interface Props {
   data: ListItemType;
@@ -28,7 +29,13 @@ const DetailComent = ({ data }: Props) => {
           <li>
             <S.UserProfileWrap>
               <S.UserProfile>
-                <S.ProfileImage src={data.profileUrl || profile} alt="" />
+                <Image
+                  src={data.profileUrl || profile}
+                  style={S.ProfileImage}
+                  width={35}
+                  height={35}
+                  alt=""
+                />
                 <StudentInfo stdInfo={data.stdInfo} userName={data.userName} />
               </S.UserProfile>
             </S.UserProfileWrap>
