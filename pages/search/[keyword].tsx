@@ -22,10 +22,12 @@ SerachPage.getInitialProps = async (ctx: NextPageContext) => {
   const queryClient = new QueryClient();
 
   if (ctx.query.keyword) {
-    await queryClient.prefetchQuery(
-      ["search/keyword", ctx.query.keyword as string],
-      () => postRepository.getPostByKeyWord(ctx.query.keyword as string)
-    );
+    await Promise.all([
+      queryClient.prefetchQuery(
+        ["search/keyword", ctx.query.keyword as string],
+        () => postRepository.getPostByKeyWord(ctx.query.keyword as string)
+      ),
+    ]);
   }
 
   return {

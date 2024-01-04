@@ -22,10 +22,12 @@ TagPage.getInitialProps = async (ctx: NextPageContext) => {
   const queryClient = new QueryClient();
 
   if (ctx.query.tag) {
-    await queryClient.prefetchQuery(
-      ["post/GetTagQuery", ctx.query.tag as string],
-      () => PostRepository.getPostByKeyWord(ctx.query.tag as string)
-    );
+    await Promise.all([
+      queryClient.prefetchQuery(
+        ["post/GetTagQuery", ctx.query.tag as string],
+        () => PostRepository.getPostByKeyWord(ctx.query.tag as string)
+      ),
+    ]);
   }
   return {
     tag: ctx.query.tag as string,

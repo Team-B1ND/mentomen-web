@@ -19,7 +19,10 @@ const Index = () => {
 
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery("list/useGetList", postRepository.getPost);
+
+  await Promise.all([
+    queryClient.prefetchQuery("list/useGetList", postRepository.getPost),
+  ]);
 
   return {
     props: {

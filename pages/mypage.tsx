@@ -20,7 +20,9 @@ const MyPostPage = () => {
 export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery("list/useGetList", userRepository.getMyPost);
+  await Promise.all([
+    queryClient.prefetchQuery("list/useGetList", userRepository.getMyPost),
+  ]);
 
   return {
     props: {
