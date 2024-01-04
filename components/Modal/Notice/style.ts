@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import flex from "../../../style/flex";
+import flex from "@/style/flex";
 import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
 

@@ -1,4 +1,3 @@
-import { ACCESS_KEY } from "../../constants/Auth/auth.constant";
 import cookie from "js-cookie";
 
 class Token {

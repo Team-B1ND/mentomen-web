@@ -1,4 +1,4 @@
-import { ListItemType } from "../../../types/List/list.type";
+import { ListItemType } from "@/types/List/list.type";
 import * as S from "./style";
 import ListItemProfile from "./ListItemProfile";
 import ListItemImages from "./ListItemImages";

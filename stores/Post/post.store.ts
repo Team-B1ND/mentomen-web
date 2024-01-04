@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { ListItemType } from "../../types/List/list.type";
+import { ListItemType } from "@/types/List/list.type";
 
 export const ActivePostFormAtom = atom<boolean>({
   key: "activePostFormKey",

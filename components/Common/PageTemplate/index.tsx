@@ -1,17 +1,14 @@
 import { ReactNode } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import {
-  HideHeaderAtom,
-  HideNavAtom,
-} from "../../../stores/common/common.store";
-import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
+import { HideHeaderAtom, HideNavAtom } from "@/stores/common/common.store";
+import { IsActiveDetailAtom } from "@/stores/Detail/detail.store";
 import {
   ActiveEditPostFormAtom,
   ActivePostFormAtom,
-} from "../../../stores/Post/post.store";
-import flex from "../../../style/flex";
-import GlobalStyle from "../../../style/Global";
+} from "@/stores/Post/post.store";
+import flex from "@/style/flex";
+import GlobalStyle from "@/style/Global";
 import Detail from "../../Modal/Detail";
 import PostEditorForm from "../../Modal/PostEditorForm";
 import Header from "../Header";

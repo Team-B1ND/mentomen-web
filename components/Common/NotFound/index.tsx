@@ -1,4 +1,4 @@
-import useHideHeaderOrNav from "../../../hooks/common/useHideHeaderOrNav";
+import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
 
 export default function NotFound() {
   useHideHeaderOrNav("Both");

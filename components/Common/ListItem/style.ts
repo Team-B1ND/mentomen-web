@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
-import flex from "../../../style/flex";
+import flex from "@/style/flex";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Image from "next/image";
 

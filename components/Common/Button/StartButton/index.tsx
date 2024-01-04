@@ -1,4 +1,4 @@
-import { DAUTH_URL } from "../../../../constants/Auth/auth.constant";
+import { DAUTH_URL } from "@/constants/Auth/auth.constant";
 import { StartBtn } from "./style";
 
 function StartButton() {

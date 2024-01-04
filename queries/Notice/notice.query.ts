@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
-import NoticeRepository from "../../repositories/Notice/notice.repository";
-import { NoticeListResponse } from "../../types/Notice/notice.type";
+import NoticeRepository from "@/repositories/Notice/notice.repository";
+import { NoticeListResponse } from "@/types/Notice/notice.type";
 
 export const useGetNoticeCheck = () =>
   useQuery("notice/check", () => NoticeRepository.getNoticeCheck());

@@ -1,7 +1,7 @@
 import * as S from "./style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SlideWrapper, StyledSlider } from "../../../style/slide";
+import { SlideWrapper, StyledSlider } from "@/style/slide";
 import Image from "next/image";
 
 interface Props {

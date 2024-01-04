@@ -1,10 +1,10 @@
 import { stringEllipsis } from "@/util/Text/stringEllipsis";
 import { useSetRecoilState } from "recoil";
-import { PostIdAtom } from "../../../stores/common/common.store";
-import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
-import { GetDateTime } from "../../../util/Date/getDateTime";
-import { getTagIcon } from "../../../util/Tag/getTagIcon";
+import { PostIdAtom } from "@/stores/common/common.store";
+import { IsActiveDetailAtom } from "@/stores/Detail/detail.store";
+import { GetDateTime } from "@/util/Date/getDateTime";
 import * as S from "./style";
+import getTag from "@/util/Tag/getTag";
 
 interface Props {
   updateDateTime: string;
@@ -40,7 +40,7 @@ const ListItemContent = ({
           {imgUrls === null && (
             <S.TagIcon
               imgUrls={imgUrls}
-              src={getTagIcon(tag)}
+              src={getTag.getTagIcon(tag)}
               alt="이미지 없음"
             />
           )}

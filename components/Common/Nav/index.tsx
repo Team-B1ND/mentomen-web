@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import * as S from "./style";
-import aprofile from "../../../assets/icons/user/aprofile.png";
-import { NAV_TAGS_ITEMS } from "../../../constants/Tags/tags.constant";
-import copy from "../../../assets/icons/post/copy.svg";
-import { useLogout } from "../../../hooks/Auth/useLogout";
+import aprofile from "@/assets/icons/user/aprofile.png";
+import { NAV_TAGS_ITEMS } from "@/constants/Tags/tags.constant";
+import copy from "@/assets/icons/post/copy.svg";
+import { useLogout } from "@/hooks/Auth/useLogout";
 import { useSetRecoilState } from "recoil";
-import { UserIdAtom, UserProfileAtom } from "../../../stores/User/user.store";
-import { useGetMyInfo } from "../../../queries/User/user.query";
+import { UserIdAtom, UserProfileAtom } from "@/stores/User/user.store";
+import { useGetMyInfo } from "@/queries/User/user.query";
 import { useRouter } from "next/router";
 import Image from "next/image";
 

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
-import { useGetMyPost } from "../../queries/User/user.query";
-import * as S from "../../style/common.style";
+import { useTokenCheck } from "@/hooks/Auth/useTokenCheck";
+import { useGetMyPost } from "@/queries/User/user.query";
+import * as S from "@/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";

@@ -5,12 +5,12 @@ import {
   useQuery,
   UseQueryOptions,
 } from "react-query";
-import CommentRepository from "../../repositories/Comment/comment.repository";
+import CommentRepository from "@/repositories/Comment/comment.repository";
 import {
   getCommentResponse,
   patchCommentType,
   postCommentType,
-} from "../../types/Comment/comment.type";
+} from "@/types/Comment/comment.type";
 
 export const usePostCommentMutation = () => {
   const mutation = useMutation(({ content, postId }: postCommentType) =>

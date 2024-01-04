@@ -1,14 +1,14 @@
 import { FaRegPaperPlane } from "react-icons/fa";
 import { Suspense } from "react";
-import { ListItemType } from "../../../../types/List/list.type";
+import { ListItemType } from "@/types/List/list.type";
 import ErrorBoundary from "../../../Common/ErrorBoundary";
 import ListItemProfile from "../../../Common/ListItem/ListItemProfile";
-import profile from "../../../../assets/icons/user/aprofile.png";
+import profile from "@/assets/icons/user/aprofile.png";
 import * as S from "./style";
 import { StudentInfo } from "../../../Common/StudentInfo";
-import { useComment } from "../../../../hooks/Comment/useComment";
+import { useComment } from "@/hooks/Comment/useComment";
 import DetailComentSkeleton from "../../../Common/Skeleton/Detail/DetailComent";
-import { palette } from "../../../../style/palette";
+import { palette } from "@/style/palette";
 import DetailCommentList from "./DetailComentList";
 
 interface Props {

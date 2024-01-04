@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
-import { usePost } from "../../../../hooks/Post/usePost";
+import { usePost } from "@/hooks/Post/usePost";
 import { useSetRecoilState } from "recoil";
-import { ActiveEditPostFormAtom } from "../../../../stores/Post/post.store";
+import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
 import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
 
 interface Props {

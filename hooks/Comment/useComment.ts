@@ -4,7 +4,7 @@ import {
   usePostCommentMutation,
   useDeleteCommentMutation,
   usePatchCommentMutation,
-} from "../../queries/Comment/comment.query";
+} from "@/queries/Comment/comment.query";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 
 export const useComment = () => {

@@ -1,6 +1,6 @@
-import { customAxios } from "../../lib/Axios/customAxios";
-import { ListPatchItem, PostSubmitType } from "../../types/List/list.type";
-import { ListResponse, ListItemResponse } from "../../types/List/list.type";
+import { customAxios } from "@/lib/Axios/customAxios";
+import { ListPatchItem, PostSubmitType } from "@/types/List/list.type";
+import { ListResponse, ListItemResponse } from "@/types/List/list.type";
 
 class ListRepository {
   public async getPost(): Promise<ListItemResponse> {

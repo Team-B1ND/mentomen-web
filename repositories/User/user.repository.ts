@@ -1,6 +1,6 @@
-import { customAxios } from "../../lib/Axios/customAxios";
-import { ListItemResponse } from "../../types/List/list.type";
-import { UserResponse } from "../../types/User/user.type";
+import { customAxios } from "@/lib/Axios/customAxios";
+import { ListItemResponse } from "@/types/List/list.type";
+import { UserResponse } from "@/types/User/user.type";
 
 class UserRepository {
   public async getMyInfo(): Promise<UserResponse> {

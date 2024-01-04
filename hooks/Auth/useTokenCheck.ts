@@ -1,16 +1,19 @@
-import { MenToMenToast } from "@/util/Toast/MenToMenToast";
+import { MenToMenToast } from "@/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { ACCESS_KEY, REFRESH_KEY } from "../../constants/Auth/auth.constant";
-import token from "../../lib/token/token";
+import {
+  ACCESS_TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
+} from "@/constants/Auth/auth.constant";
+import token from "@/lib/token/token";
 
 export const useTokenCheck = () => {
   const router = useRouter();
 
   useEffect(() => {
     const checkToken = () => {
-      const accessToken = token.getCookie(ACCESS_KEY);
-      const refreshToken = token.getCookie(REFRESH_KEY);
+      const accessToken = token.getCookie(ACCESS_TOKEN_KEY);
+      const refreshToken = token.getCookie(REFRESH_TOKEN_KEY);
 
       if (!accessToken || !refreshToken) {
         MenToMenToast.showInfo("로그인이 필요한 서비스입니다.");

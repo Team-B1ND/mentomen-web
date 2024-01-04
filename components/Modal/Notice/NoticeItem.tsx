@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
-import { useGetNoticeList } from "../../../queries/Notice/notice.query";
+import { useGetNoticeList } from "@/queries/Notice/notice.query";
 import * as S from "./style";
-import profile from "../../../assets/icons/user/aprofile.png";
-import { IsActiveDetailAtom } from "../../../stores/Detail/detail.store";
+import profile from "@/assets/icons/user/aprofile.png";
+import { IsActiveDetailAtom } from "@/stores/Detail/detail.store";
 import { useSetRecoilState } from "recoil";
-import { PostIdAtom } from "../../../stores/common/common.store";
-import { GetDateTime } from "../../../util/Date/getDateTime";
+import { PostIdAtom } from "@/stores/common/common.store";
+import { GetDateTime } from "@/util/Date/getDateTime";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;

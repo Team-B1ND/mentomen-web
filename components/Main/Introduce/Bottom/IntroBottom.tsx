@@ -1,4 +1,4 @@
-import iPhone from "../../../../assets/images/iPhone.png";
+import iPhone from "@/assets/images/iPhone.png";
 import StartButton from "../../../Common/Button/StartButton";
 import * as S from "./style";
 

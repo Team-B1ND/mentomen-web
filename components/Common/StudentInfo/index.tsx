@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import flex from "../../../style/flex";
-import { StdInfoType } from "../../../types/List/list.type";
+import flex from "@/style/flex";
+import { StdInfoType } from "@/types/List/list.type";
 
 interface Props {
   stdInfo: StdInfoType;

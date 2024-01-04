@@ -1,8 +1,8 @@
-import { customAxios } from "../../lib/Axios/customAxios";
+import { customAxios } from "@/lib/Axios/customAxios";
 import {
   NoticeCheckResponse,
   NoticeListResponse,
-} from "../../types/Notice/notice.type";
+} from "@/types/Notice/notice.type";
 
 class NoticeRepository {
   public async getNoticeCheck(): Promise<NoticeCheckResponse> {

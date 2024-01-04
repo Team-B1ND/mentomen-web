@@ -1,9 +1,9 @@
 import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
 import { useRecoilValue } from "recoil";
-import useLockScroll from "../../../hooks/common/useLockScroll";
-import { usePost } from "../../../hooks/Post/usePost";
-import { EditPostDataAtom } from "../../../stores/Post/post.store";
+import useLockScroll from "@/hooks/common/useLockScroll";
+import { usePost } from "@/hooks/Post/usePost";
+import { EditPostDataAtom } from "@/stores/Post/post.store";
 import PostEditorFormContent from "./PostEditorFormContent";
 import PostEditorFormImage from "./PostEditorFormImage";
 import * as S from "./style";

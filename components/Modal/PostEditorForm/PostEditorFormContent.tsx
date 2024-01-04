@@ -1,6 +1,6 @@
 import { Dispatch, RefObject, SetStateAction, useState } from "react";
-import { POSTEDITOR_TAGS_ITEMS } from "../../../constants/Tags/tags.constant";
-import { PostSubmitType } from "../../../types/List/list.type";
+import { POSTEDITOR_TAGS_ITEMS } from "@/constants/Tags/tags.constant";
+import { PostSubmitType } from "@/types/List/list.type";
 import * as S from "./style";
 import { FiUpload } from "react-icons/fi";
 

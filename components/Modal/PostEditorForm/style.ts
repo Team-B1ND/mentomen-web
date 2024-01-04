@@ -1,6 +1,6 @@
 import { AiOutlineClose } from "react-icons/ai";
 import styled, { css } from "styled-components";
-import flex from "../../../style/flex";
+import flex from "@/style/flex";
 import Image from "next/image";
 
 export const Container = styled.div`

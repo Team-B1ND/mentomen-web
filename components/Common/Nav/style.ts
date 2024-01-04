@@ -1,8 +1,8 @@
+import getTag from "@/util/Tag/getTag";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
-import { getTagColor } from "../../../util/Tag/getTagColor";
 
 export const Container = styled.div`
   width: 266px;
@@ -98,7 +98,7 @@ export const FiledName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
   height: 30px;
 
   color: ${({ isSelectTag, selectTag }) =>
-    isSelectTag && getTagColor(selectTag)};
+    isSelectTag && getTag.getTagColor(selectTag)};
   font-weight: 700;
 
   ${flex({ alignItems: "center", justifyContent: "center" })}

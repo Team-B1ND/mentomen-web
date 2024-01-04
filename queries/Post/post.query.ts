@@ -4,13 +4,13 @@ import {
   UseQueryOptions,
   UseQueryResult,
 } from "react-query";
-import PostRepository from "../../repositories/Post/post.repository";
+import PostRepository from "@/repositories/Post/post.repository";
 import {
   ListPatchItem,
   ListResponse,
   PostSubmitType,
-} from "../../types/List/list.type";
-import { ListItemResponse } from "../../types/List/list.type";
+} from "@/types/List/list.type";
+import { ListItemResponse } from "@/types/List/list.type";
 import { AxiosError } from "axios";
 
 export const useGetList = (

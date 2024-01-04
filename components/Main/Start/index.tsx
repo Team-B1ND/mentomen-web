@@ -1,5 +1,5 @@
-import iPhone from "../../../assets/images/iPhone.png";
-import useHideHeaderOrNav from "../../../hooks/common/useHideHeaderOrNav";
+import iPhone from "@/assets/images/iPhone.png";
+import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
 import StartButton from "../../Common/Button/StartButton";
 
 import * as S from "./style";

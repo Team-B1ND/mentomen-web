@@ -1,15 +1,15 @@
 import * as S from "./style";
-import menTomen from "../../../assets/icons/logo/menTomen.png";
-import Search from "../../../assets/images/Search.png";
-import notExistNotice from "../../../assets/icons/notice/notExistNotice.png";
-import existNotice from "../../../assets/icons/notice/existNotice.png";
-import { useKeyWordSearch } from "../../../hooks/Search/useKeyWordSearch";
-import { ACCESS_KEY, DAUTH_URL } from "../../../constants/Auth/auth.constant";
+import menTomen from "@/assets/icons/logo/menTomen.png";
+import Search from "@/assets/images/Search.png";
+import notExistNotice from "@/assets/icons/notice/notExistNotice.png";
+import existNotice from "@/assets/icons/notice/existNotice.png";
+import { useKeyWordSearch } from "@/hooks/Search/useKeyWordSearch";
+import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
 import Notice from "../../Modal/Notice";
 import { useState } from "react";
-import { useGetNoticeCheck } from "../../../queries/Notice/notice.query";
+import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
 import { useRecoilState } from "recoil";
-import { ActivePostFormAtom } from "../../../stores/Post/post.store";
+import { ActivePostFormAtom } from "@/stores/Post/post.store";
 import token from "@/lib/token/token";
 
 function Header() {
@@ -30,7 +30,7 @@ function Header() {
             alt="이미지 없음"
           />
 
-          {token.getCookie(ACCESS_KEY) && (
+          {token.getCookie(ACCESS_TOKEN_KEY) && (
             <S.SearchForm onSubmit={(e) => handleSearchSubmit(e)}>
               <S.SearchButton type="submit">
                 <S.SearchIcon src={Search} alt="이미지 없음" />
@@ -46,7 +46,7 @@ function Header() {
           )}
 
           <S.HeaderAbleContainer>
-            {token.getCookie(ACCESS_KEY) ? (
+            {token.getCookie(ACCESS_TOKEN_KEY) ? (
               <>
                 <S.NoticeIcon
                   isactivenotice={isActiveNotice.toString()}

@@ -3,7 +3,7 @@ import ErrorBoundary from "../../Common/ErrorBoundary";
 import * as S from "./style";
 import NoticeItem from "./NoticeItem";
 import NoticeSkeleton from "../../Common/Skeleton/Notice";
-import useLockScroll from "../../../hooks/common/useLockScroll";
+import useLockScroll from "@/hooks/common/useLockScroll";
 import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
 
 interface Props {

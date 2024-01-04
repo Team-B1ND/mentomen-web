@@ -1,13 +1,13 @@
 import { MenToMenToast } from "@/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
-import { useFileUploadMutation } from "../../queries/File/file.query";
+import { useFileUploadMutation } from "@/queries/File/file.query";
 import {
   useDeletePostMutation,
   usePostMySubmitMutation,
   usePatchMyPostMutation,
-} from "../../queries/Post/post.query";
-import { ListItemType, PostSubmitType } from "../../types/List/list.type";
+} from "@/queries/Post/post.query";
+import { ListItemType, PostSubmitType } from "@/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 
 export const usePost = (

@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction, Suspense, useEffect, useState } from "react";
-import { useGetApost } from "../../../queries/Post/post.query";
+import { useGetApost } from "@/queries/Post/post.query";
 import * as S from "./style";
 import DetailImage from "./DetailImage";
 import ErrorBoundary from "../../Common/ErrorBoundary";
 import DetailComent from "./DetailComent";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { PostIdAtom } from "../../../stores/common/common.store";
+import { PostIdAtom } from "@/stores/common/common.store";
 import DetailSkeleton from "../../Common/Skeleton/Detail";
-import { IsEditCommentAtom } from "../../../stores/Comment/comment.store";
-import useLockScroll from "../../../hooks/common/useLockScroll";
+import { IsEditCommentAtom } from "@/stores/Comment/comment.store";
+import useLockScroll from "@/hooks/common/useLockScroll";
 
 interface Props {
   setIsActiveDetail: Dispatch<SetStateAction<boolean>>;

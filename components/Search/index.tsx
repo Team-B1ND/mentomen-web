@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { useTokenCheck } from "../../hooks/Auth/useTokenCheck";
-import useAutoTopScroll from "../../hooks/common/useAutoTopScroll";
-import { useGetKeyWord } from "../../queries/Post/post.query";
-import * as S from "../../style/common.style";
+import { useTokenCheck } from "@/hooks/Auth/useTokenCheck";
+import { useGetKeyWord } from "@/queries/Post/post.query";
+import * as S from "@/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
@@ -13,7 +12,6 @@ const Search = () => {
   const { keyword } = router.query;
 
   useTokenCheck();
-  // useAutoTopScroll(keyword as string);
 
   return (
     <S.ListContainer>
