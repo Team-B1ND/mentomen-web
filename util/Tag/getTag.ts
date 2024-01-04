@@ -1,8 +1,8 @@
-import android from "@/assets/icons/develop/android.svg";
-import design from "@/assets/icons/develop/design.svg";
-import ios from "@/assets/icons/develop/ios.svg";
-import server from "@/assets/icons/develop/server.svg";
-import web from "@/assets/icons/develop/web.svg";
+import android from "@/public/icons/develop/android.svg";
+import design from "@/public/icons/develop/design.svg";
+import ios from "@/public/icons/develop/ios.svg";
+import server from "@/public/icons/develop/server.svg";
+import web from "@/public/icons/develop/web.svg";
 
 class GetTag {
   public getTagColor = (tagName: string) => {

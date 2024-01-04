@@ -1,4 +1,4 @@
-import iPhone from "@/assets/images/iPhone.png";
+import iPhone from "@/public/images/iPhone.png";
 import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
 import StartButton from "../../Common/Button/StartButton";
 

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import * as S from "./style";
-import aprofile from "@/assets/icons/user/aprofile.png";
+import aprofile from "@/public/icons/user/aprofile.png";
 import { NAV_TAGS_ITEMS } from "@/constants/Tags/tags.constant";
-import copy from "@/assets/icons/post/copy.svg";
+import copy from "@/public/icons/post/copy.svg";
 import { useLogout } from "@/hooks/Auth/useLogout";
 import { useSetRecoilState } from "recoil";
 import { UserIdAtom, UserProfileAtom } from "@/stores/User/user.store";

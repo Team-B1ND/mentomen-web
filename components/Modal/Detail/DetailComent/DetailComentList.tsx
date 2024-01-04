@@ -4,9 +4,9 @@ import { useGetCommentQuery } from "@/queries/Comment/comment.query";
 import { UserIdAtom } from "@/stores/User/user.store";
 import { StudentInfo } from "../../../Common/StudentInfo";
 import * as S from "./style";
-import profile from "@/assets/icons/user/aprofile.png";
-import closeComment from "@/assets/icons/comment/closeComment.svg";
-import editComment from "@/assets/icons/comment/editComment.svg";
+import profile from "@/public/icons/user/aprofile.png";
+import closeComment from "@/public/icons/comment/closeComment.svg";
+import editComment from "@/public/icons/comment/editComment.svg";
 import { IsEditCommentAtom } from "@/stores/Comment/comment.store";
 import Image from "next/image";
 
