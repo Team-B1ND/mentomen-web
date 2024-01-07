@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import flex from "./flex";
 
-export const ListContainer = styled.div`
+export const ListContainer = styled.main`
   width: 100%;
   height: 100%;
 

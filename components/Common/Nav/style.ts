@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
 import { palette } from "../../../style/palette";
 
-export const Container = styled.div`
+export const AsideContainer = styled.aside`
   width: 266px;
   height: 100vh;
   padding-top: 75px;
@@ -48,7 +48,7 @@ export const UserGrade = styled.p`
   color: #858585;
 `;
 
-export const FiledUl = styled.ul`
+export const FiledNav = styled.nav`
   width: 100%;
   height: auto;
 
@@ -57,6 +57,7 @@ export const FiledUl = styled.ul`
   padding-left: 25px;
   font-weight: 400;
   font-size: 18px;
+  list-style: none;
 
   li {
     cursor: pointer;

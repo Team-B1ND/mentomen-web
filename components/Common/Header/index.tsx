@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <>
-      <S.Container>
+      <S.HeaderContainer>
         <S.Wrapper>
           <S.Logo
             src={menTomen}
@@ -75,7 +75,7 @@ function Header() {
             )}
           </S.HeaderAbleContainer>
         </S.Wrapper>
-      </S.Container>
+      </S.HeaderContainer>
 
       <Portal>
         {isActiveNotice && <Notice setIsActiveNotice={setIsActiveNotice} />}

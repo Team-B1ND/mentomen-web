@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
 
-export const Container = styled.div`
+export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   left: 0;

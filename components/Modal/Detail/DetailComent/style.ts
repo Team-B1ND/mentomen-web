@@ -14,7 +14,7 @@ export const ProfileContainer = styled.div`
   padding: 0 7px 0px 12px;
 `;
 
-export const Comment = styled.div`
+export const Comment = styled.article`
   width: 100%;
   height: calc(100% - 115px);
   border-top: 1px solid #ddd;

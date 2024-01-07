@@ -66,7 +66,7 @@ export const CloseIcon = styled(AiOutlineClose)`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.main`
   width: 100%;
   height: calc(100% - 40px);
 `;

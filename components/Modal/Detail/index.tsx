@@ -21,9 +21,7 @@ const Detail = ({ setIsActiveDetail }: Props) => {
 
   useLockScroll();
 
-  const handleCloseDetail = (
-    e: React.MouseEvent<HTMLDivElement | SVGElement>
-  ) => {
+  const handleCloseDetail = (e: React.MouseEvent<HTMLElement | SVGElement>) => {
     e.stopPropagation();
     if (isEditComment.isEdit === true) {
       const answer = window.confirm(
@@ -40,7 +38,7 @@ const Detail = ({ setIsActiveDetail }: Props) => {
   };
 
   return (
-    <S.Container onClick={handleCloseDetail}>
+    <S.ArticleContainer onClick={handleCloseDetail}>
       <S.CloseIcon size={27} onClick={handleCloseDetail} />
       <S.Wrapper imgurls={imgUrls} onClick={(e) => e.stopPropagation()}>
         <ErrorBoundary fallback={<>Error :)</>}>
@@ -49,7 +47,7 @@ const Detail = ({ setIsActiveDetail }: Props) => {
           </Suspense>
         </ErrorBoundary>
       </S.Wrapper>
-    </S.Container>
+    </S.ArticleContainer>
   );
 };
 

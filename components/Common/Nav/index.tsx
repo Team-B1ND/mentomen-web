@@ -28,7 +28,7 @@ const Nav = () => {
   }, [setUserProfile, data?.data.profileImage]);
 
   return (
-    <S.Container>
+    <S.AsideContainer>
       <S.UserInfoContainer>
         <S.UserProfile src={data?.data.profileImage || aprofile} alt="" />
         {data?.data ? (
@@ -41,7 +41,7 @@ const Nav = () => {
         )}
       </S.UserInfoContainer>
 
-      <S.FiledUl>
+      <S.FiledNav>
         {NAV_TAGS_ITEMS.map((item) => (
           <li
             key={item.color}
@@ -66,7 +66,7 @@ const Nav = () => {
             </S.FiledItemWrap>
           </li>
         ))}
-      </S.FiledUl>
+      </S.FiledNav>
 
       <S.MyInfoPathContainer>
         <div>
@@ -78,7 +78,7 @@ const Nav = () => {
       </S.MyInfoPathContainer>
 
       <S.LogoutText onClick={onLogout}>로그아웃</S.LogoutText>
-    </S.Container>
+    </S.AsideContainer>
   );
 };
 

@@ -4,7 +4,7 @@ import flex from "@/style/flex";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Image from "next/image";
 
-export const Container = styled.div`
+export const ArticleContainer = styled.article`
   width: 550px;
   height: auto;
 

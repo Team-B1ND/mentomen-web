@@ -6,13 +6,13 @@ import ListItemContent from "./ListItemContent";
 
 const ListItem = ({ data }: { data: ListItemType }) => {
   return (
-    <S.Container>
+    <S.ArticleContainer>
       <ListItemProfile {...data} />
       {data.imgUrls?.length > 0 && (
         <ListItemImages imgUrls={data.imgUrls} tag={data.tag} />
       )}
       <ListItemContent {...data} />
-    </S.Container>
+    </S.ArticleContainer>
   );
 };
 

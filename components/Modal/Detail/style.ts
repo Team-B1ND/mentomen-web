@@ -2,7 +2,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
 import flex from "@/style/flex";
 
-export const Container = styled.div`
+export const ArticleContainer = styled.article`
   width: 100%;
   height: 100%;
   z-index: 3;
