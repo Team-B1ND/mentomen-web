@@ -6,7 +6,7 @@ import existNotice from "@/public/icons/notice/existNotice.png";
 import { useKeyWordSearch } from "@/hooks/Search/useKeyWordSearch";
 import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
 import Notice from "../../Modal/Notice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
 import { useRecoilState } from "recoil";
 import { ActivePostFormAtom } from "@/stores/Post/post.store";
@@ -20,6 +20,16 @@ function Header() {
 
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
   const { data: noticeCheck } = useGetNoticeCheck();
+
+  const [isHaveNotice, setIsHaveNotice] = useState(false);
+
+  useEffect(() => {
+    if (noticeCheck?.data.noticeStatus === "EXIST") {
+      setIsHaveNotice(true);
+    } else {
+      setIsHaveNotice(false);
+    }
+  }, [noticeCheck?.data.noticeStatus]);
 
   return (
     <>
@@ -51,12 +61,11 @@ function Header() {
               <>
                 <S.NoticeIcon
                   isactivenotice={isActiveNotice.toString()}
-                  src={
-                    noticeCheck?.data.noticeStatus === "EXIST"
-                      ? existNotice
-                      : notExistNotice
-                  }
-                  onClick={() => setIsActiveNotice(true)}
+                  src={isHaveNotice ? existNotice : notExistNotice}
+                  onClick={() => {
+                    setIsActiveNotice(true);
+                    setIsHaveNotice(false);
+                  }}
                   alt="이미지 없음"
                 />
                 <S.WrtieText
