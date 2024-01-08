@@ -4,6 +4,7 @@ import { usePost } from "@/hooks/Post/usePost";
 import { useSetRecoilState } from "recoil";
 import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
 import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
+import useLockScroll from "@/hooks/common/useLockScroll";
 
 interface Props {
   postId: number;
@@ -15,6 +16,7 @@ const SetUp = ({ postId, setIsActiveSetUp }: Props) => {
   const setActiveEditPost = useSetRecoilState(ActiveEditPostFormAtom);
 
   useEscCloseModal(setIsActiveSetUp);
+  useLockScroll();
 
   return (
     <S.Container onClick={() => setIsActiveSetUp(false)}>
