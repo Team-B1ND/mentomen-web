@@ -72,7 +72,7 @@ export const usePost = (
 
   const handleDeletePostClick = (
     postId: number,
-    setIsActiveSetUp: Dispatch<SetStateAction<boolean>>
+    setIsActivePostSetting: Dispatch<SetStateAction<boolean>>
   ) => {
     const answer = window.confirm("해당 게시글을 삭제하시겠습니까?");
     if (answer) {
@@ -90,7 +90,7 @@ export const usePost = (
           MenToMenToast.showError("게시글을 삭제하지 못했습니다.");
         },
         onSettled: () => {
-          setIsActiveSetUp(false);
+          setIsActivePostSetting(false);
         },
       });
     }

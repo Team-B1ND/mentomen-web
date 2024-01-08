@@ -8,22 +8,22 @@ import useLockScroll from "@/hooks/common/useLockScroll";
 
 interface Props {
   postId: number;
-  setIsActiveSetUp: Dispatch<SetStateAction<boolean>>;
+  setIsActivePostSetting: Dispatch<SetStateAction<boolean>>;
 }
 
-const SetUp = ({ postId, setIsActiveSetUp }: Props) => {
+const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
   const { handleDeletePostClick } = usePost();
   const setActiveEditPost = useSetRecoilState(ActiveEditPostFormAtom);
 
-  useEscCloseModal(setIsActiveSetUp);
+  useEscCloseModal(setIsActivePostSetting);
   useLockScroll();
 
   return (
-    <S.Container onClick={() => setIsActiveSetUp(false)}>
+    <S.Container onClick={() => setIsActivePostSetting(false)}>
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.TextBox
           onClick={() => {
-            setIsActiveSetUp(false);
+            setIsActivePostSetting(false);
             setActiveEditPost(true);
           }}
         >
@@ -31,7 +31,7 @@ const SetUp = ({ postId, setIsActiveSetUp }: Props) => {
         </S.TextBox>
         <S.TextBox
           isDelete={true}
-          onClick={() => handleDeletePostClick(postId, setIsActiveSetUp)}
+          onClick={() => handleDeletePostClick(postId, setIsActivePostSetting)}
         >
           삭제하기
         </S.TextBox>
@@ -40,4 +40,4 @@ const SetUp = ({ postId, setIsActiveSetUp }: Props) => {
   );
 };
 
-export default SetUp;
+export default PostSetting;

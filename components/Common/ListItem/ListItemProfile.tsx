@@ -5,14 +5,14 @@ import profile from "@/public/icons/user/aprofile.png";
 import { EditPostDataAtom } from "@/stores/Post/post.store";
 import { UserIdAtom } from "@/stores/User/user.store";
 import { ListItemType } from "@/types/List/list.type";
-import SetUp from "../Button/SetUp";
+import PostSetting from "../Button/PostSetting";
 import { StudentInfo } from "../StudentInfo";
 import * as S from "./style";
 import Portal from "@/components/Modal/Portal";
 
 const ListItemProfile = ({ ...attr }: ListItemType) => {
   const userId = useRecoilValue(UserIdAtom);
-  const [isActiveSetUp, setIsActiveSetUp] = useState(false);
+  const [isActivePostSetting, setIsActivePostSetting] = useState(false);
   const setEditPostData = useSetRecoilState(EditPostDataAtom);
 
   return (
@@ -31,9 +31,9 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
 
         {userId === attr.author && (
           <S.DotsIcon
-            isactivesetup={isActiveSetUp.toString()}
+            postsetting={isActivePostSetting.toString()}
             onClick={() => {
-              setIsActiveSetUp(true);
+              setIsActivePostSetting(true);
               setEditPostData(attr);
             }}
           />
@@ -41,8 +41,11 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
       </S.Profile>
 
       <Portal>
-        {isActiveSetUp && (
-          <SetUp postId={attr.postId} setIsActiveSetUp={setIsActiveSetUp} />
+        {isActivePostSetting && (
+          <PostSetting
+            postId={attr.postId}
+            setIsActivePostSetting={setIsActivePostSetting}
+          />
         )}
       </Portal>
     </>
