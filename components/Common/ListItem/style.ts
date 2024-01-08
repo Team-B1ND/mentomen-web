@@ -92,6 +92,7 @@ export const DateTime = styled.p`
 export const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
   height: auto;
+  min-height: 300px;
 
   border-radius: 5px;
   border: 1px solid #ddd;
