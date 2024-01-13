@@ -5,7 +5,7 @@ import * as S from "./style";
 import { FiUpload } from "react-icons/fi";
 
 interface Props {
-  isActivePostForm: boolean;
+  isActivePostForm?: boolean;
   postData: PostSubmitType;
   setPostData: Dispatch<SetStateAction<PostSubmitType>>;
   handleFileUploadChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -60,7 +60,7 @@ const PostEditorFormContent = ({ isActivePostForm, ...hooks }: Props) => {
           <p>이미지 업로드하기</p>
         </S.Upload>
         <S.SubmitButton type="submit">
-          {isActivePostForm ? "작성하기" : "수정하기"}
+          {isActivePostForm ? "멘토 요청하기" : "요청 수정하기"}
         </S.SubmitButton>
       </S.Submit>
     </S.Content>

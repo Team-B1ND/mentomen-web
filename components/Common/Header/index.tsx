@@ -72,7 +72,7 @@ function Header() {
                   isActivePostForm={isActivePostForm}
                   onClick={() => setIsActivePostForm(true)}
                 >
-                  글 작성하기
+                  멘토 요청하기
                 </S.WrtieText>
               </>
             ) : (

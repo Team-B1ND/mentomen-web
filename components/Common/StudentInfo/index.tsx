@@ -11,21 +11,23 @@ export const StudentInfo = ({ stdInfo, userName }: Props) => {
   const { grade, number, room } = stdInfo;
   return (
     <Contaienr>
-      <p>
-        {grade}
-        {room}
-        {number > 10 ? number : `0${number}`}
-      </p>
-      <p>{userName}</p>
+      <StudentName>{userName}</StudentName>
+      <GradeClassNumber>
+        {grade}학년 {room}반 {number}번
+      </GradeClassNumber>
     </Contaienr>
   );
 };
 
 const Contaienr = styled.div`
-  ${flex({ alignItems: "center", columnGap: "3px" })}
-  font-size: 15px;
+  ${flex({ flexDirection: "column", rowGap: "4px" })}
+`;
 
-  P {
-    font-family: "Pretendard-Bold" !important;
-  }
+const StudentName = styled.p`
+  font-size: 16px;
+`;
+
+const GradeClassNumber = styled.p`
+  color: #858585;
+  font-size: 13px;
 `;

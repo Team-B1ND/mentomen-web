@@ -1,11 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useGetNoticeList } from "@/queries/Notice/notice.query";
 import * as S from "./style";
 import profile from "@/public/icons/user/aprofile.png";
-import { IsActiveDetailAtom } from "@/stores/Detail/detail.store";
-import { useSetRecoilState } from "recoil";
-import { PostIdAtom } from "@/stores/common/common.store";
 import { GetDateTime } from "@/util/Date/getDateTime";
+import { useRouter } from "next/router";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;
@@ -13,8 +11,7 @@ interface Props {
 
 const NoticeItem = ({ setIsActiveNotice }: Props) => {
   const { data: noticeList } = useGetNoticeList({ suspense: true });
-  const setIsActiveDetail = useSetRecoilState(IsActiveDetailAtom);
-  const setPostId = useSetRecoilState(PostIdAtom);
+  const router = useRouter();
 
   return (
     <>
@@ -25,8 +22,7 @@ const NoticeItem = ({ setIsActiveNotice }: Props) => {
               key={idx}
               onClick={() => {
                 setIsActiveNotice(false);
-                setIsActiveDetail(true);
-                setPostId(item.postId);
+                router.push(`/detail/${item.postId}`);
               }}
             >
               <S.UserInfo>

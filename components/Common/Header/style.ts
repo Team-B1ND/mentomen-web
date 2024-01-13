@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   height: 100%;
 
   padding: 0 50px 0 20px;
-  ${flex({ alignItems: "center", justifyContent: "space-between" })}
+  ${flex({ alignItems: "center", justifyContent: "space-around" })}
 `;
 
 export const Logo = styled(Image)`

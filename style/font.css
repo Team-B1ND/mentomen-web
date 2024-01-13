@@ -4,6 +4,11 @@
 }
 
 @font-face {
-  src: url("../public/fonts//Pretendard-Bold.woff2");
+  src: url("../public/fonts/Pretendard-Bold.woff2");
   font-family: "Pretendard-Bold";
+}
+
+@font-face {
+  src: url("../public/fonts/Pretendard-ExtraBold.woff2");
+  font-family: "Pretendard-ExtraBold";
 }

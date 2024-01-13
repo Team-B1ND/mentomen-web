@@ -131,6 +131,8 @@ export const ContentTextArea = styled.textarea`
   resize: none;
   border: none;
   outline: none;
+
+  font-size: 15px;
 `;
 
 export const Submit = styled.div`

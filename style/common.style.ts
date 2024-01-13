@@ -6,13 +6,12 @@ export const ListContainer = styled.main`
   height: 100%;
 
   padding-top: 1rem;
-  padding-left: 6rem;
-  padding-bottom: 3rem;
+  /* padding-left: 6rem; */
 
   ${flex({ justifyContent: "center" })}
   flex-wrap: wrap;
 `;
 
 export const ListWrapper = styled.div`
-  ${flex({ alignItems: "center", flexDirection: "column", rowGap: "10px" })}
+  ${flex({ alignItems: "center", flexDirection: "column", rowGap: "25px" })}
 `;

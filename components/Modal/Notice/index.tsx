@@ -4,7 +4,7 @@ import * as S from "./style";
 import NoticeItem from "./NoticeItem";
 import NoticeSkeleton from "../../Common/Skeleton/Notice";
 import useLockScroll from "@/hooks/common/useLockScroll";
-import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
+import useEscCloseModal from "@/hooks/common/useEscCloseModal";
 
 interface Props {
   setIsActiveNotice: Dispatch<SetStateAction<boolean>>;

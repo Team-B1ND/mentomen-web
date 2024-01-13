@@ -80,12 +80,12 @@ export const NoticeBox = styled.ul`
     display: none;
   }
 
-  ${flex({ flexDirection: "column", rowGap: "10px" })}
+  ${flex({ flexDirection: "column", rowGap: "5px" })}
 
   li {
     width: 100%;
     height: auto;
-    padding: 10px 0 10px 5px;
+    padding: 10px 6px;
 
     transition: all 0.2s ease-in-out;
     ${flex({ alignItems: "center", columnGap: "10px" })}
@@ -102,9 +102,8 @@ export const NoticeBox = styled.ul`
 
 export const UserInfo = styled.div`
   white-space: nowrap;
-  width: 96px;
-  ${flex({ alignItems: "center", columnGap: "7px" })}
-
+  width: auto;
+  ${flex({ alignItems: "center", columnGap: "6px" })};
   div {
     ${flex({ flexDirection: "column", rowGap: "5px" })}
   }

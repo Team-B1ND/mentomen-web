@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, KeyboardEvent } from "react";
 
-export const useEscCloseModal = (
+const useEscCloseModal = (
   setState: Dispatch<SetStateAction<boolean>>,
   question?: string
 ) => {
@@ -27,3 +27,5 @@ export const useEscCloseModal = (
     };
   }, []);
 };
+
+export default useEscCloseModal;

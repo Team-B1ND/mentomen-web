@@ -8,6 +8,7 @@ export const Container = styled.div`
   height: calc(100vh - 75px);
   color: ${palette.color};
   ${flex({ alignItems: "center", justifyContent: "center" })}
+  background-color:#fff;
 
   @keyframes fadeIn {
     0% {

@@ -80,7 +80,7 @@ export const usePost = (
         onSuccess: () => {
           queryInvalidates([
             "list/useGetList",
-            ["post/read-one", postId],
+            ["post/read-one", postId.toString()],
             "user/post",
             ["post/GetTagQuery"],
           ]);
@@ -115,7 +115,7 @@ export const usePost = (
 
     if (isActivePostForm) {
       postSubmit.mutate(
-        { content, tag, imgUrls: imgUrl },
+        { content: content.trimEnd(), tag, imgUrls: imgUrl },
         {
           onSuccess: () => {
             queryInvalidates(["list/useGetList", "user/post"]);
@@ -160,6 +160,7 @@ export const usePost = (
 
             MenToMenToast.showSuccess("게시글을 수정하였습니다.");
             setIsActivePostForm(false);
+            console.log(editPostData?.postId!!);
           },
           onError: (e) => {
             MenToMenToast.showError("게시글을 수정하지 못했습니다.");

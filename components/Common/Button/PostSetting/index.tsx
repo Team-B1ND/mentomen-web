@@ -3,7 +3,7 @@ import * as S from "./style";
 import { usePost } from "@/hooks/Post/usePost";
 import { useSetRecoilState } from "recoil";
 import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
-import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
+import useEscCloseModal from "@/hooks/common/useEscCloseModal";
 import useLockScroll from "@/hooks/common/useLockScroll";
 
 interface Props {

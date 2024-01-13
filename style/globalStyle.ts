@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
       box-sizing: border-box;
       font-family: 'Pretendard-Regular' !important;
      }
+     body {
+      background-color:#f2f2f2;
+     }
     ${reset}
 `;
 

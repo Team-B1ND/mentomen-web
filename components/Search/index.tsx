@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { useTokenCheck } from "@/hooks/Auth/useTokenCheck";
+import useTokenCheck from "@/hooks/Auth/useTokenCheck";
 import { useGetKeyWord } from "@/queries/Post/post.query";
 import * as S from "@/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";

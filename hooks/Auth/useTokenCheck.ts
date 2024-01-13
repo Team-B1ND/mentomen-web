@@ -7,7 +7,7 @@ import {
 } from "@/constants/Auth/auth.constant";
 import token from "@/lib/token/token";
 
-export const useTokenCheck = () => {
+const useTokenCheck = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -21,5 +21,7 @@ export const useTokenCheck = () => {
       }
     };
     checkToken();
-  }, []);
+  }, [router]);
 };
+
+export default useTokenCheck;

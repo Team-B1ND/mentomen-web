@@ -14,7 +14,7 @@ export class GetDateTime {
 
   public uploadPostTimeAgo = () => {
     if (typeof this.date === "undefined") {
-      return "0초 전";
+      return "방금 전";
     }
 
     const currentDate = new Date(new Date().getTime() - 9 * 60 * 60 * 1000);
@@ -26,7 +26,9 @@ export class GetDateTime {
     const days = Math.floor(hours / 24);
     const months = Math.floor(days / 30);
 
-    if (seconds < 60) {
+    if (seconds < 10) {
+      return "방금 전";
+    } else if (seconds < 60) {
       return `${seconds}초 전`;
     } else if (minutes < 60) {
       return `${minutes}분 전`;

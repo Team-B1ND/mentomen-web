@@ -3,9 +3,9 @@ import styled from "styled-components";
 import flex from "./flex";
 import { palette } from "./palette";
 
-export const SlideWrapper = styled.div<{ imageHeight?: number }>`
-  width: ${({ imageHeight }) => (imageHeight! > 699 ? "60%" : "100%")};
-  height: 100%;
+export const SlideWrapper = styled.div`
+  width: 100%;
+  height: auto;
 `;
 
 export const StyledSlider = styled(Slider)<{
@@ -13,9 +13,6 @@ export const StyledSlider = styled(Slider)<{
   cursor?: string;
 }>`
   .slick-track {
-    width: 100%;
-    height: 100%;
-
     ${flex({ alignItems: "center" })};
     cursor: ${({ cursor }) => cursor};
   }

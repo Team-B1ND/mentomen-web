@@ -1,4 +1,4 @@
-import { useEscCloseModal } from "@/hooks/common/useEscCloseModal";
+import useEscCloseModal from "@/hooks/common/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
 import { useRecoilValue } from "recoil";
 import useLockScroll from "@/hooks/common/useLockScroll";
@@ -29,7 +29,7 @@ const PostEditorForm = ({
     >
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
         <S.Title>
-          <p>{isActivePostForm ? "글 작성하기" : "글 수정하기"}</p>
+          <p>{isActivePostForm ? "멘토 요청하기" : "멘토 요청 수정하기"}</p>
           <S.CloseIcon
             size={20}
             onClick={() =>

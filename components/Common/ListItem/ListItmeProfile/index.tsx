@@ -1,43 +1,42 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import profile from "@/public/icons/user/aprofile.png";
 import { EditPostDataAtom } from "@/stores/Post/post.store";
 import { UserIdAtom } from "@/stores/User/user.store";
 import { ListItemType } from "@/types/List/list.type";
-import PostSetting from "../Button/PostSetting";
-import { StudentInfo } from "../StudentInfo";
+import PostSetting from "../../Button/PostSetting";
+import { StudentInfo } from "../../StudentInfo";
 import * as S from "./style";
 import Portal from "@/components/Modal/Portal";
+import getTag from "@/util/Tag/getTag";
+import { useRouter } from "next/router";
 
 const ListItemProfile = ({ ...attr }: ListItemType) => {
   const userId = useRecoilValue(UserIdAtom);
   const [isActivePostSetting, setIsActivePostSetting] = useState(false);
   const setEditPostData = useSetRecoilState(EditPostDataAtom);
+  const router = useRouter();
+  const { asPath } = router;
 
   return (
     <>
       <S.Profile>
+        <S.TagIcon src={getTag.getTagIcon(attr.tag)} alt="" />
         <S.UserInfo>
-          <Image
-            src={attr.profileUrl || profile}
-            width={1000}
-            height={1000}
-            style={S.ProfileImage}
-            alt="이미지 없음"
-          />
-          <StudentInfo stdInfo={attr.stdInfo} userName={attr.userName} />
-        </S.UserInfo>
+          <div>
+            <StudentInfo stdInfo={attr.stdInfo} userName={attr.userName} />
+          </div>
 
-        {userId === attr.author && (
-          <S.DotsIcon
-            postsetting={isActivePostSetting.toString()}
-            onClick={() => {
-              setIsActivePostSetting(true);
-              setEditPostData(attr);
-            }}
-          />
-        )}
+          {asPath === "/mypage" && (
+            <S.DotsIcon
+              postsetting={isActivePostSetting.toString()}
+              onClick={() => {
+                setIsActivePostSetting(true);
+                setEditPostData(attr);
+              }}
+            />
+          )}
+        </S.UserInfo>
       </S.Profile>
 
       <Portal>

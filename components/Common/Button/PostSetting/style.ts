@@ -4,7 +4,7 @@ import flex from "@/style/flex";
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
 
   position: fixed;
   top: 0;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 300px;
+  width: 400px;
   height: 100px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -36,6 +36,7 @@ export const TextBox = styled.div<{ isDelete?: boolean }>`
 
   cursor: pointer;
   border-top: ${({ isDelete }) => isDelete && "1px solid #ddd"};
+  color: ${({ isDelete }) => (isDelete ? "#ff3b30" : "#000")}; // #007aff
 
   transition: all 0.2s ease-in-out;
   &:hover {
