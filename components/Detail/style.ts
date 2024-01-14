@@ -4,12 +4,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   heigth: 100%;
+
   padding-top: 3rem;
-  padding-left: calc(266px + 6rem);
+
+  ${flex({
+    justifyContent: "center",
+  })}
 `;
 
 export const Wrapper = styled.div`
-  width: 75%;
+  width: 90%;
   height: auto;
 
   ${flex({
@@ -21,7 +25,6 @@ export const Wrapper = styled.div`
 export const PostBox = styled.div`
   width: 100%;
   min-width: 800px;
-
   height: auto;
   min-height: 200px;
 

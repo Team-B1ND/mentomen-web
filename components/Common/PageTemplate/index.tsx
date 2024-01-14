@@ -1,17 +1,17 @@
 import { ReactNode } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import styled from "styled-components";
 import { HideHeaderAtom, HideNavAtom } from "@/stores/common/common.store";
 import {
   ActiveEditPostFormAtom,
   ActivePostFormAtom,
 } from "@/stores/Post/post.store";
-import flex from "@/style/flex";
 import GlobalStyle from "@/style/globalStyle";
 import PostEditorForm from "../../Modal/PostEditorForm";
 import Header from "../Header";
 import Nav from "../Nav";
 import Portal from "@/components/Modal/Portal";
+import ScrollTopButton from "../Button/ScrollTop";
+import * as S from "./style";
 
 function PageTemplate({ children }: { children: ReactNode }) {
   const hideHeader = useRecoilValue(HideHeaderAtom);
@@ -26,13 +26,14 @@ function PageTemplate({ children }: { children: ReactNode }) {
   return (
     <>
       <GlobalStyle />
-      <Container>
+      <ScrollTopButton />
+      <S.Container>
         {!hideHeader && <Header />}
-        <Wrapper>
+        <S.Wrapper hideHeader={hideHeader}>
+          <>{children}</>
           {!hideNav && <Nav />}
-          <Content hideHeader={hideHeader}>{children}</Content>
-        </Wrapper>
-      </Container>
+        </S.Wrapper>
+      </S.Container>
 
       <Portal>
         {(isActivePostForm || isActiveEditForm) && (
@@ -47,22 +48,5 @@ function PageTemplate({ children }: { children: ReactNode }) {
     </>
   );
 }
-
-const Container = styled.div`
-  ${flex({ flexDirection: "column" })}
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: calc(100% - 75px);
-  ${flex({ alignItems: "center" })};
-`;
-
-export const Content = styled.div<{ hideHeader: boolean }>`
-  width: 100%;
-  height: 100vh;
-  padding-top: ${({ hideHeader }) => !hideHeader && "75px"};
-  background-color: #f2f2f2;
-`;
 
 export default PageTemplate;

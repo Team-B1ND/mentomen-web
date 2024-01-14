@@ -1,11 +1,7 @@
+import { UserInfo } from "@/types/User/user.type";
 import { atom } from "recoil";
 
-export const UserIdAtom = atom<number>({
-  key: "userIdKey",
-  default: 0,
-});
-
-export const UserProfileAtom = atom<string>({
-  key: "userProfileKey",
-  default: "",
+export const UserDataAtom = atom<UserInfo | null>({
+  key: "userDataKey",
+  default: null,
 });

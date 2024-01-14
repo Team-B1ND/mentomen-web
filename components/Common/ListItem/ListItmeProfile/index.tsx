@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { EditPostDataAtom } from "@/stores/Post/post.store";
-import { UserIdAtom } from "@/stores/User/user.store";
 import { ListItemType } from "@/types/List/list.type";
 import PostSetting from "../../Button/PostSetting";
 import { StudentInfo } from "../../StudentInfo";
@@ -12,7 +11,6 @@ import getTag from "@/util/Tag/getTag";
 import { useRouter } from "next/router";
 
 const ListItemProfile = ({ ...attr }: ListItemType) => {
-  const userId = useRecoilValue(UserIdAtom);
   const [isActivePostSetting, setIsActivePostSetting] = useState(false);
   const setEditPostData = useSetRecoilState(EditPostDataAtom);
   const router = useRouter();

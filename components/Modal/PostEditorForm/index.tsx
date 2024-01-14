@@ -2,7 +2,7 @@ import useEscCloseModal from "@/hooks/common/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
 import { useRecoilValue } from "recoil";
 import useLockScroll from "@/hooks/common/useLockScroll";
-import { usePost } from "@/hooks/Post/usePost";
+import { useRegistPost } from "@/hooks/Post/useRegistPost";
 import { EditPostDataAtom } from "@/stores/Post/post.store";
 import PostEditorFormContent from "./PostEditorFormContent";
 import PostEditorFormImage from "./PostEditorFormImage";
@@ -18,7 +18,7 @@ const PostEditorForm = ({
   setIsActivePostEditForm,
 }: Props) => {
   const editPostData = useRecoilValue(EditPostDataAtom);
-  const { ...hooks } = usePost(isActivePostForm, editPostData!!);
+  const { ...hooks } = useRegistPost(isActivePostForm, editPostData!!);
 
   useEscCloseModal(setIsActivePostEditForm, hooks.cancelWritingPost);
   useLockScroll();

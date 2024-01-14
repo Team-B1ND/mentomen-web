@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import styled from "styled-components";
 import flex from "./flex";
-import { palette } from "./palette";
 
 export const SlideWrapper = styled.div`
   width: 100%;
@@ -30,13 +29,6 @@ export const StyledSlider = styled(Slider)<{
     font-size: ${({ cursorSize }) => cursorSize || "25px"};
     color: #ddd;
     transition: all 0.3s ease-in-out;
-  }
-
-  .slick-prev:active,
-  .slick-next:active {
-    &:before {
-      color: ${palette.color};
-    }
   }
 
   .slick-dots {

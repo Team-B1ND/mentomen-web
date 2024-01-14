@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
-import { usePost } from "@/hooks/Post/usePost";
+import { useRegistPost } from "@/hooks/Post/useRegistPost";
 import { useSetRecoilState } from "recoil";
 import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
 import useEscCloseModal from "@/hooks/common/useEscCloseModal";
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
-  const { handleDeletePostClick } = usePost();
+  const { handleDeletePostClick } = useRegistPost();
   const setActiveEditPost = useSetRecoilState(ActiveEditPostFormAtom);
 
   useEscCloseModal(setIsActivePostSetting);

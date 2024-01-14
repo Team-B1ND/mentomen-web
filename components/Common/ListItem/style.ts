@@ -2,12 +2,15 @@ import styled from "styled-components";
 import flex from "@/style/flex";
 
 export const ArticleContainer = styled.article`
-  width: 580px;
+  width: 100%;
   height: auto;
 
   overflow: hidden;
   background-color: #fff;
+  position: relative;
+
   border-radius: 7px;
+  border: 1px solid #ddd;
   padding: 0 13px 10px;
 
   ${flex({
@@ -22,7 +25,7 @@ export const DateTime = styled.p`
 
 export const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
-  height: 450px;
+  height: 420px;
 
   border-radius: 5px;
   border: 1px solid #ddd;

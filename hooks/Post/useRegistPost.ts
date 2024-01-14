@@ -10,7 +10,7 @@ import {
 import { ListItemType, PostSubmitType } from "@/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 
-export const usePost = (
+export const useRegistPost = (
   isActivePostForm?: boolean,
   editPostData?: ListItemType
 ) => {
@@ -160,7 +160,6 @@ export const usePost = (
 
             MenToMenToast.showSuccess("게시글을 수정하였습니다.");
             setIsActivePostForm(false);
-            console.log(editPostData?.postId!!);
           },
           onError: (e) => {
             MenToMenToast.showError("게시글을 수정하지 못했습니다.");

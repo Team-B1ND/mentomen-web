@@ -1,6 +1,7 @@
+import { AiOutlineShareAlt } from "react-icons/ai";
 import flex from "@/style/flex";
-import { AiOutlineComment } from "react-icons/ai";
-import styled from "styled-components";
+import { AiFillHeart, AiOutlineComment, AiOutlineHeart } from "react-icons/ai";
+import styled, { css } from "styled-components";
 
 export const Content = styled.div`
   width: 100%;
@@ -28,14 +29,14 @@ export const EtcContainer = styled.div`
   ${flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
-export const CommentIcon = styled(AiOutlineComment)`
-  width: 30px;
-  height: 30px;
+export const IconContainer = styled.div`
+  ${flex({ alignItems: "center", columnGap: "8px" })}
+`;
 
+const HoverAnimation = css`
   cursor: pointer;
   transition: all 0.13s ease-out;
   transform: scale(1);
-  border-radius: 5px;
 
   &:hover {
     opacity: 0.7;
@@ -43,8 +44,32 @@ export const CommentIcon = styled(AiOutlineComment)`
 
   &:active {
     transform: scale(0.95);
-    color: #737373;
   }
+`;
+
+export const CommentIcon = styled(AiOutlineComment)`
+  width: 30px;
+  height: 30px;
+  ${HoverAnimation}
+`;
+
+export const UnFillHeartIcon = styled(AiOutlineHeart)`
+  width: 30px;
+  height: 30px;
+  ${HoverAnimation}
+`;
+
+export const FillHeartIcon = styled(AiFillHeart)`
+  width: 30px;
+  height: 30px;
+  color: #ff3742;
+  ${HoverAnimation}
+`;
+
+export const ShareIcon = styled(AiOutlineShareAlt)`
+  width: 30px;
+  height: 30px;
+  ${HoverAnimation}
 `;
 
 export const UploadDateTime = styled.p`

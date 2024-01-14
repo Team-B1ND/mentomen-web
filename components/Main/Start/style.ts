@@ -5,10 +5,9 @@ import { palette } from "../../../style/palette";
 
 export const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 75px);
+  height: calc(100% - 65px);
   color: ${palette.color};
   ${flex({ alignItems: "center", justifyContent: "center" })}
-  background-color:#fff;
 
   @keyframes fadeIn {
     0% {
@@ -42,7 +41,7 @@ export const Text = styled.p`
 
 export const MidText = styled.p`
   font-weight: 700;
-  font-size: 30px;
+  font-size: 28px;
 `;
 
 export const iPhoneImage = styled(Image)`

@@ -6,6 +6,8 @@ import * as S from "@/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
+import Title from "../Common/Title";
+import post from "@/public/icons/title/post.png";
 
 const Search = () => {
   const router = useRouter();
@@ -15,6 +17,14 @@ const Search = () => {
 
   return (
     <S.ListContainer>
+      <S.TitleContainer>
+        <Title
+          titleIcon={post}
+          titleText={`${keyword}에 관한 멘토 요청 글`}
+          subTitleText={`검색한 ${keyword}에 관한 멘토 요청 글을 조회할 수 있어요!`}
+        />
+      </S.TitleContainer>
+
       <S.ListWrapper>
         <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
           <Suspense fallback={<ListItemSkeleton />}>
@@ -35,7 +45,7 @@ const SearchItem = ({ keyword }: { keyword: string }) => {
           <ListItem key={item.postId} data={item} />
         ))
       ) : (
-        <p>검색한 게시글이 없습니다.</p>
+        <S.NonePostText>검색한 멘토 요청 글이 없습니다.</S.NonePostText>
       )}
     </>
   );

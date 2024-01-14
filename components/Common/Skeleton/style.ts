@@ -21,7 +21,7 @@ export const SkeletonBox = styled.div<{
   customStyle?: CSSObject;
 }>`
   width: ${({ width }) => width || "550px"};
-  height: ${({ height }) => height || "650px"};
+  height: ${({ height }) => height || "550px"};
   border-radius: 5px;
   border: 1px solid #ddd;
 

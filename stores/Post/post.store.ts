@@ -15,3 +15,8 @@ export const EditPostDataAtom = atom<ListItemType | null>({
   key: "editPostDataKey",
   default: null,
 });
+
+export const CountOfPostAtom = atom<number>({
+  key: "countOfPostKey",
+  default: 0,
+});

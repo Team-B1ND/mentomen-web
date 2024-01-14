@@ -1,27 +1,32 @@
 import * as S from "./style";
 import menTomen from "@/public/icons/logo/menTomen.png";
-import Search from "@/public/images/Search.png";
+import searchIcon from "@/public/images/Search.png";
 import notExistNotice from "@/public/icons/notice/notExistNotice.png";
 import existNotice from "@/public/icons/notice/existNotice.png";
-import { useKeyWordSearch } from "@/hooks/Search/useKeyWordSearch";
 import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
-import Notice from "../../Modal/Notice";
 import { useEffect, useState } from "react";
 import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { ActivePostFormAtom } from "@/stores/Post/post.store";
 import token from "@/lib/token/token";
+import profile from "@/public/icons/user/aprofile.png";
+import { useGetMyInfo } from "@/queries/User/user.query";
 import Portal from "@/components/Modal/Portal";
+import Search from "@/components/Modal/Search";
+import { useRouter } from "next/router";
+import { UserDataAtom } from "@/stores/User/user.store";
 
 function Header() {
-  const [isActiveNotice, setIsActiveNotice] = useState(false);
+  const [isActiveSearch, setIsActiveSearch] = useState(false);
+  const [isHaveNotice, setIsHaveNotice] = useState(false);
+
   const [isActivePostForm, setIsActivePostForm] =
     useRecoilState(ActivePostFormAtom);
+  const setUserData = useSetRecoilState(UserDataAtom);
 
-  const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
   const { data: noticeCheck } = useGetNoticeCheck();
-
-  const [isHaveNotice, setIsHaveNotice] = useState(false);
+  const { data: myInfo } = useGetMyInfo();
+  const router = useRouter();
 
   useEffect(() => {
     if (noticeCheck?.data.noticeStatus === "EXIST") {
@@ -30,6 +35,10 @@ function Header() {
       setIsHaveNotice(false);
     }
   }, [noticeCheck?.data.noticeStatus]);
+
+  useEffect(() => {
+    setUserData(myInfo?.data!);
+  }, [myInfo?.data]);
 
   return (
     <>
@@ -41,39 +50,50 @@ function Header() {
             alt="이미지 없음"
           />
 
-          {token.getCookie(ACCESS_TOKEN_KEY) && (
-            <S.SearchForm onSubmit={(e) => handleSearchSubmit(e)}>
-              <S.SearchButton type="submit">
-                <S.SearchIcon src={Search} alt="이미지 없음" />
-              </S.SearchButton>
-
-              <S.SearchInput
-                placeholder="키워드를 입력하세요"
-                type="text"
-                value={search}
-                onChange={handleSerachChange}
-              />
-            </S.SearchForm>
-          )}
-
           <S.HeaderAbleContainer>
             {token.getCookie(ACCESS_TOKEN_KEY) ? (
               <>
+                <S.SearchIcon
+                  isactivesearch={isActiveSearch.toString()}
+                  src={searchIcon}
+                  onClick={() => {
+                    isActiveSearch
+                      ? setIsActiveSearch(false)
+                      : setIsActiveSearch(true);
+                  }}
+                  alt="검색"
+                />
+
                 <S.NoticeIcon
-                  isactivenotice={isActiveNotice.toString()}
+                  isactivenotice={router.pathname}
                   src={isHaveNotice ? existNotice : notExistNotice}
                   onClick={() => {
-                    setIsActiveNotice(true);
+                    isActiveSearch && setIsActiveSearch(false);
                     setIsHaveNotice(false);
+                    router.push("/notification");
                   }}
-                  alt="이미지 없음"
+                  alt="알림"
                 />
-                <S.WrtieText
+
+                <S.ProfileIcon
+                  src={myInfo?.data.profileImage || profile}
+                  isactivemypage={router.pathname}
+                  onClick={() => {
+                    isActiveSearch && setIsActiveSearch(false);
+                    router.push("/mypage");
+                  }}
+                  alt="프로필"
+                />
+
+                <S.MenToRequestText
                   isActivePostForm={isActivePostForm}
-                  onClick={() => setIsActivePostForm(true)}
+                  onClick={() => {
+                    isActiveSearch && setIsActiveSearch(false);
+                    setIsActivePostForm(true);
+                  }}
                 >
                   멘토 요청하기
-                </S.WrtieText>
+                </S.MenToRequestText>
               </>
             ) : (
               <S.StartMenToMen
@@ -87,7 +107,7 @@ function Header() {
       </S.HeaderContainer>
 
       <Portal>
-        {isActiveNotice && <Notice setIsActiveNotice={setIsActiveNotice} />}
+        {isActiveSearch && <Search setIsActiveSearch={setIsActiveSearch} />}
       </Portal>
     </>
   );

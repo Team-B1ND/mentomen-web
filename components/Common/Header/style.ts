@@ -1,3 +1,4 @@
+import { palette } from "@/style/palette";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
@@ -8,28 +9,28 @@ export const HeaderContainer = styled.header`
   left: 0;
 
   width: 100%;
-  height: 75px;
+  height: 65px;
 
   ${flex({ alignItems: "center" })}
 
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid #ddd;
+  padding: 0 10px;
 
   white-space: nowrap;
-  z-index: 3;
+  z-index: 4;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 950px;
   height: 100%;
-
-  padding: 0 50px 0 20px;
-  ${flex({ alignItems: "center", justifyContent: "space-around" })}
+  ${flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
 export const Logo = styled(Image)`
-  width: 125px;
-  height: 40px;
+  width: 100px;
+  height: 32px;
   cursor: pointer;
 
   transition: all 0.05s ease-in-out;
@@ -38,21 +39,16 @@ export const Logo = styled(Image)`
   }
 `;
 
-export const SearchForm = styled.form`
-  width: 600px;
-  height: 50px;
-
-  border-radius: 10px;
-  padding-left: 15px;
-  background-color: #f2f2f2;
-
-  ${flex({ alignItems: "center" })}
+export const HeaderAbleContainer = styled.div`
+  ${flex({ alignItems: "center", columnGap: "3px" })}
+  font-weight: 600;
 `;
 
 const HoverAnimation = css`
   transform: scale(1);
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
+  cursor: pointer;
 
   &:hover {
     background-color: #ddd;
@@ -63,55 +59,50 @@ const HoverAnimation = css`
   }
 `;
 
-export const SearchButton = styled.button`
-  padding: 5px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-
+export const SearchIcon = styled(Image)<{ isactivesearch: string }>`
+  width: 34px;
+  height: 35px;
+  padding: 8px;
+  background-color: ${({ isactivesearch }) =>
+    isactivesearch === "true" && "#ddd"};
   ${HoverAnimation}
-  ${flex({ alignItems: "center" })};
 `;
 
-export const SearchIcon = styled(Image)`
-  width: 19px;
-  height: 19px;
+export const NoticeIcon = styled(Image)<{ isactivenotice: string }>`
+  width: 34px;
+  height: 35px;
+  background-color: ${({ isactivenotice }) =>
+    isactivenotice === "/notification" && "#ddd"};
+  ${HoverAnimation}
 `;
 
-export const SearchInput = styled.input`
-  width: 100%;
-  height: 100%;
+export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
+  width: 35px;
+  height: 35px;
 
-  padding-left: 10px;
-  background: none;
-  border: none;
-  outline: none;
-  font-size: 15px;
-`;
+  border-radius: 4rem;
+  border: ${({ isactivemypage }) =>
+    isactivemypage === "/mypage"
+      ? `2px solid ${palette.color}`
+      : "1px solid #ddd"};
+  margin: 0 2px 0 5px;
 
-export const HeaderAbleContainer = styled.div`
-  ${flex({ alignItems: "center", columnGap: "5px" })}
-  font-weight: 600;
-`;
-
-export const WrtieText = styled.p<{ isActivePostForm: boolean }>`
-  ${flex({ alignItems: "center", columnGap: "5px" })}
   cursor: pointer;
+  overflow: hidden;
+
+  transition: all 0.15s ease-in-out;
+  &:active {
+    border: 2px solid ${palette.color};
+  }
+`;
+
+export const MenToRequestText = styled.p<{ isActivePostForm: boolean }>`
+  ${flex({ alignItems: "center", columnGap: "5px" })}
   border-radius: 5px;
   padding: 7px;
   font-size: 17px;
   background-color: ${({ isActivePostForm }) => isActivePostForm && "#ddd"};
   ${HoverAnimation};
-`;
-
-export const NoticeIcon = styled(Image)<{ isactivenotice: string }>`
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  background-color: ${({ isactivenotice }) =>
-    isactivenotice === "true" && "#ddd"};
-  ${HoverAnimation}
 `;
 
 export const StartMenToMen = styled.h1`

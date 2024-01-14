@@ -1,4 +1,5 @@
 import useTokenCheck from "@/hooks/Auth/useTokenCheck";
+import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
 import { useGetApost } from "@/queries/Post/post.query";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
@@ -11,13 +12,16 @@ const Detail = () => {
   const router = useRouter();
   const { id } = router.query;
   useTokenCheck();
+  useHideHeaderOrNav("Nav");
   return (
     <S.Container>
-      <ErrorBoundary fallback={<>Error</>}>
-        <Suspense fallback={<>로딩중...</>}>
-          <DetailItem postId={Number(id)} />
-        </Suspense>
-      </ErrorBoundary>
+      <S.Wrapper>
+        <ErrorBoundary fallback={<>Error</>}>
+          <Suspense fallback={<>로딩중...</>}>
+            <DetailItem postId={Number(id)} />
+          </Suspense>
+        </ErrorBoundary>
+      </S.Wrapper>
     </S.Container>
   );
 };
@@ -25,7 +29,7 @@ const Detail = () => {
 const DetailItem = ({ postId }: { postId: number }) => {
   const { data: detailPost } = useGetApost(postId, { suspense: true });
   return (
-    <S.Wrapper>
+    <>
       <S.PostBox>
         <S.PostWrap>
           <S.Content>{detailPost?.data.content}</S.Content>
@@ -43,7 +47,7 @@ const DetailItem = ({ postId }: { postId: number }) => {
           />
         </Suspense>
       </ErrorBoundary>
-    </S.Wrapper>
+    </>
   );
 };
 
