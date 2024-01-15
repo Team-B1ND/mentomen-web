@@ -9,7 +9,7 @@ const QRcode = () => {
       <Title
         titleIcon={phone}
         titleText="모바일로 편리하게 사용하기"
-        subTitleText="모바일로 다운로드 받아 사용해 보세요!"
+        subTitleText="모바일로 멘투멘을 다운로드 받아 사용해 보세요!"
       />
       <S.QRCodeBox>
         {QRCODE_ITEMS.map((item) => (

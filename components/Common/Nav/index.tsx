@@ -1,8 +1,11 @@
+import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
+import token from "@/lib/token/token";
 import { useRouter } from "next/router";
 import Profile from "./Profile";
 import QRcode from "./QRcode";
 import RequestMento from "./RequestMento";
 import * as S from "./style";
+import SuggestSignIn from "./SuggestSignIn";
 import Tag from "./Tag";
 
 const Nav = () => {
@@ -10,7 +13,7 @@ const Nav = () => {
   return (
     <S.AsideContainer>
       {router.pathname === "/mypage" ? <Profile /> : <Tag />}
-      <RequestMento />
+      {token.getCookie(ACCESS_TOKEN_KEY) ? <RequestMento /> : <SuggestSignIn />}
       <QRcode />
     </S.AsideContainer>
   );

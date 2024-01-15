@@ -15,7 +15,7 @@ export const UserBox = styled.div`
   border-radius: 7px;
   background-color: #fff;
 
-  padding: 15px 12px;
+  padding: 14px 12px;
   ${flex({ flexDirection: "column", rowGap: "7px" })}
 `;
 
@@ -38,11 +38,10 @@ export const ProfileImage = styled(Image)`
 export const ProfileContent = styled.div`
   width: calc(100% - 50px);
   height: 100%;
-  padding-top: 1px;
   ${flex({ flexDirection: "column", rowGap: "13px" })}
 
   div {
-    ${flex({ flexDirection: "column", rowGap: "5px" })}
+    ${flex({ flexDirection: "column", rowGap: "7px" })}
   }
 `;
 

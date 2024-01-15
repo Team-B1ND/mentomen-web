@@ -31,7 +31,7 @@ export const RequestButton = styled.div`
   width: calc(100% - 40px);
   height: 50px;
 
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: #f8fbfc;
   border: 1px solid #e2e8f0;
 
@@ -39,6 +39,5 @@ export const RequestButton = styled.div`
   font-size: 13px;
   cursor: pointer;
 
-  padding-left: 10px;
-  ${flex({ alignItems: "center" })}
+  ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
