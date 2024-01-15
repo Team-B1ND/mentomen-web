@@ -12,16 +12,17 @@ import {
 } from "@/types/List/list.type";
 import { ListItemResponse } from "@/types/List/list.type";
 import { AxiosError } from "axios";
+import { QUERY_KEYS } from "../queryKey";
 
 export const useGetList = (
   options?: UseQueryOptions<
     ListItemResponse,
     AxiosError,
     ListItemResponse,
-    "list/useGetList"
+    string
   >
 ): UseQueryResult<ListItemResponse, AxiosError> => {
-  return useQuery("list/useGetList", () => PostRepository.getPost(), {
+  return useQuery(QUERY_KEYS.Post.getList, () => PostRepository.getPost(), {
     ...options,
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,
@@ -34,11 +35,11 @@ export const useGetApost = (
     ListResponse,
     AxiosError,
     ListResponse,
-    ["post/read-one", number]
+    (string | number)[]
   >
 ): UseQueryResult<ListResponse, AxiosError> =>
   useQuery(
-    ["post/read-one", postId],
+    QUERY_KEYS.Post.getApost(postId),
     () => PostRepository.getPostById(postId),
     {
       ...options,
@@ -61,15 +62,19 @@ export const useGetTag = (
     ListItemResponse,
     AxiosError,
     ListItemResponse,
-    ["post/GetTagQuery", string]
+    string[]
   >
 ): UseQueryResult<ListItemResponse, AxiosError> =>
-  useQuery(["post/GetTagQuery", tag], () => PostRepository.getPostByTag(tag), {
-    ...options,
-    enabled: !!tag,
-    staleTime: 1000 * 60 * 60,
-    cacheTime: 1000 * 60 * 60,
-  });
+  useQuery(
+    QUERY_KEYS.Post.getTag(tag),
+    () => PostRepository.getPostByTag(tag),
+    {
+      ...options,
+      enabled: !!tag,
+      staleTime: 1000 * 60 * 60,
+      cacheTime: 1000 * 60 * 60,
+    }
+  );
 
 export const useGetKeyWord = (
   keyword: string,
@@ -77,11 +82,11 @@ export const useGetKeyWord = (
     ListItemResponse,
     AxiosError,
     ListItemResponse,
-    ["search/keyword", string]
+    string[]
   >
 ): UseQueryResult<ListItemResponse, AxiosError> =>
   useQuery(
-    ["search/keyword", keyword],
+    QUERY_KEYS.Post.getKeyWord(keyword),
     () => PostRepository.getPostByKeyWord(keyword),
     {
       ...options,

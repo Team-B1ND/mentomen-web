@@ -11,6 +11,7 @@ import {
   patchCommentType,
   postCommentType,
 } from "@/types/Comment/comment.type";
+import { QUERY_KEYS } from "../queryKey";
 
 export const usePostCommentMutation = () => {
   const mutation = useMutation(({ content, postId }: postCommentType) =>
@@ -26,11 +27,11 @@ export const useGetCommentQuery = (
     getCommentResponse,
     AxiosError,
     getCommentResponse,
-    ["comment/read", number]
+    (string | number)[]
   >
 ): UseBaseQueryResult<getCommentResponse, AxiosError> =>
   useQuery(
-    ["comment/read", postId],
+    QUERY_KEYS.Comment.getComment(postId),
     () => CommentRepository.getComment(postId),
     {
       ...options,

@@ -9,14 +9,17 @@ import {
 } from "@/queries/Post/post.query";
 import { ListItemType, PostSubmitType } from "@/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
+import { QUERY_KEYS } from "@/queries/queryKey";
+import { useQueryClient } from "react-query";
 
 export const useRegistPost = (
   isActivePostForm?: boolean,
   editPostData?: ListItemType
 ) => {
+  const queryClient = useQueryClient();
   const cancelWritingPost = isActivePostForm
-    ? "글 작성을 취소하시겠습니까?"
-    : "글 수정을 취소하시겠습니까?";
+    ? "멘토 요청 작성을 취소하시겠습니까?"
+    : "멘토 요청 수정을 취소하시겠습니까?";
   const selectFileImage = useRef<HTMLInputElement>(null);
   const [imgUrl, setImgUrl] = useState<string[]>(
     isActivePostForm ? [] : editPostData?.imgUrls ?? []
@@ -79,9 +82,9 @@ export const useRegistPost = (
       deletePost.mutate(postId, {
         onSuccess: () => {
           queryInvalidates([
-            "list/useGetList",
-            ["post/read-one", postId.toString()],
-            "user/post",
+            QUERY_KEYS.Post.getList,
+            QUERY_KEYS.Post.getApost(postId),
+            QUERY_KEYS.User.getMyPost,
             ["post/GetTagQuery"],
           ]);
           MenToMenToast.showSuccess("게시글을 삭제하였습니다.");
@@ -118,11 +121,14 @@ export const useRegistPost = (
         { content: content.trimEnd(), tag, imgUrls: imgUrl },
         {
           onSuccess: () => {
-            queryInvalidates(["list/useGetList", "user/post"]);
+            queryInvalidates([
+              QUERY_KEYS.Post.getList,
+              QUERY_KEYS.User.getMyPost,
+            ]);
+
             MenToMenToast.showSuccess("게시글을 작성하였습니다.");
             setIsActivePostForm(false);
             router.push("/");
-            window.scrollTo(0, 0);
           },
           onError: (e) => {
             MenToMenToast.showError("게시글을 작성하지 못했습니다.");
@@ -153,8 +159,9 @@ export const useRegistPost = (
         {
           onSuccess: () => {
             queryInvalidates([
-              "list/useGetList",
-              ["post/read-one", editPostData?.postId!!],
+              QUERY_KEYS.Post.getList,
+              QUERY_KEYS.Post.getApost(editPostData?.postId!!),
+              QUERY_KEYS.User.getMyPost,
               ["post/GetTagQuery"],
             ]);
 

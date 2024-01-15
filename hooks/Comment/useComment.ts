@@ -6,6 +6,7 @@ import {
   usePatchCommentMutation,
 } from "@/queries/Comment/comment.query";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
+import { QUERY_KEYS } from "@/queries/queryKey";
 
 export const useComment = () => {
   const [content, setContent] = useState("");
@@ -35,7 +36,7 @@ export const useComment = () => {
       { content, postId },
       {
         onSuccess: () => {
-          queryInvalidates([["comment/read", postId]]);
+          queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
           MenToMenToast.showSuccess("댓글을 작성하였습니다!");
           setContent("");
         },
@@ -70,7 +71,7 @@ export const useComment = () => {
         { content, commentId },
         {
           onSuccess: () => {
-            queryInvalidates([["comment/read", postId]]);
+            queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
             MenToMenToast.showSuccess("댓글을 수정하였습니다!");
             setIsEditComment((prev) => ({
               ...prev,
@@ -92,7 +93,7 @@ export const useComment = () => {
     if (answer) {
       deleteComment.mutate(commentId, {
         onSuccess: () => {
-          queryInvalidates([["comment/read", postId]]);
+          queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
           MenToMenToast.showSuccess("댓글을 삭제하였습니다!");
         },
         onError: (e) => {
