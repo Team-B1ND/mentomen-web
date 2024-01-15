@@ -2,9 +2,10 @@ import { GetDateTime } from "@/util/Date/getDateTime";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import ListItemImages from "./ListItemImages";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSharePost } from "@/hooks/Post/useSharePost";
-import { GetText } from "@/util/Text/getText";
+import token from "@/lib/token/token";
+import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
 
 interface Props {
   updateDateTime: string;
@@ -16,15 +17,33 @@ interface Props {
 
 const ListItemContent = ({ ...attr }: Props) => {
   const getDateTime = new GetDateTime(new Date(attr.updateDateTime));
+
   const router = useRouter();
   const { handleSharePostClick } = useSharePost();
-  const [test, setTest] = useState(false);
 
-  const getText = new GetText(attr.content);
+  const [isLike, setIsLike] = useState(false);
+  const [isShowMoreContent, setIsShowMoreContent] = useState(false);
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    setContentHeight(contentRef.current?.offsetHeight!);
+  }, []);
 
   return (
-    <S.Content>
-      <S.ContentBox>{getText.stringEllipsis(100)}</S.ContentBox>
+    <S.ContentContainer>
+      <S.ContentBox>
+        <S.ContentText ref={contentRef} isShowMoreContent={isShowMoreContent}>
+          {attr.content}
+        </S.ContentText>
+
+        {contentHeight === 66 && (
+          <S.ShowMoreText onClick={() => setIsShowMoreContent((prev) => !prev)}>
+            {isShowMoreContent ? "... 간략히 보기" : "... 더 보기"}
+          </S.ShowMoreText>
+        )}
+      </S.ContentBox>
 
       {attr.imgUrls?.length > 0 && (
         <ListItemImages imgUrls={attr.imgUrls} tag={attr.tag} />
@@ -32,11 +51,12 @@ const ListItemContent = ({ ...attr }: Props) => {
 
       <S.EtcContainer>
         <S.IconContainer>
-          {test ? (
-            <S.FillHeartIcon onClick={() => setTest(false)} />
-          ) : (
-            <S.UnFillHeartIcon onClick={() => setTest(true)} />
-          )}
+          {token.getCookie(ACCESS_TOKEN_KEY) &&
+            (isLike ? (
+              <S.FillHeartIcon onClick={() => setIsLike(false)} />
+            ) : (
+              <S.UnFillHeartIcon onClick={() => setIsLike(true)} />
+            ))}
 
           <S.CommentIcon
             onClick={() => router.push(`/detail/${attr.postId}`)}
@@ -46,7 +66,7 @@ const ListItemContent = ({ ...attr }: Props) => {
         </S.IconContainer>
         <S.UploadDateTime>{getDateTime.uploadPostTimeAgo()}</S.UploadDateTime>
       </S.EtcContainer>
-    </S.Content>
+    </S.ContentContainer>
   );
 };
 

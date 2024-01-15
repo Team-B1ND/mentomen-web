@@ -3,7 +3,7 @@ import flex from "@/style/flex";
 import { AiFillHeart, AiOutlineComment, AiOutlineHeart } from "react-icons/ai";
 import styled, { css } from "styled-components";
 
-export const Content = styled.div`
+export const ContentContainer = styled.div`
   width: 100%;
   height: auto;
   margin-top: 6px;
@@ -13,12 +13,24 @@ export const ContentBox = styled.div`
   width: 100%;
   height: auto;
   padding: 10px 1px;
+  ${flex({ flexDirection: "column", rowGap: "6px" })}
+`;
+
+export const ContentText = styled.p<{ isShowMoreContent: boolean }>`
+  max-height: ${({ isShowMoreContent }) =>
+    isShowMoreContent ? "auto" : "66px"};
+  overflow: hidden;
 
   white-space: pre-wrap;
-  line-height: 21px;
-  font-size: 15px;
+  word-break: break-all;
+  line-height: 22px;
+  font-size: 14.5px;
+`;
 
-  color: #858585;
+export const ShowMoreText = styled.p`
+  font-size: 14px;
+  cursor: pointer;
+  color: #64748b;
 `;
 
 export const EtcContainer = styled.div`
@@ -34,6 +46,9 @@ export const IconContainer = styled.div`
 `;
 
 const HoverAnimation = css`
+  width: 27px;
+  height: 27px;
+
   cursor: pointer;
   transition: all 0.13s ease-out;
   transform: scale(1);
@@ -48,27 +63,19 @@ const HoverAnimation = css`
 `;
 
 export const CommentIcon = styled(AiOutlineComment)`
-  width: 30px;
-  height: 30px;
   ${HoverAnimation}
 `;
 
 export const UnFillHeartIcon = styled(AiOutlineHeart)`
-  width: 30px;
-  height: 30px;
   ${HoverAnimation}
 `;
 
 export const FillHeartIcon = styled(AiFillHeart)`
-  width: 30px;
-  height: 30px;
   color: #ff3742;
   ${HoverAnimation}
 `;
 
 export const ShareIcon = styled(AiOutlineShareAlt)`
-  width: 30px;
-  height: 30px;
   ${HoverAnimation}
 `;
 
