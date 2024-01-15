@@ -16,7 +16,7 @@ export function useLogout() {
       token.removeCookie(REFRESH_TOKEN_KEY);
 
       MenToMenToast.showSuccess("로그아웃 되었습니다!");
-      router.push("/start");
+      router.push("/");
     }
   };
 

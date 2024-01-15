@@ -51,19 +51,18 @@ function Header() {
           />
 
           <S.HeaderAbleContainer>
+            <S.SearchIcon
+              isactivesearch={isActiveSearch.toString()}
+              src={searchIcon}
+              onClick={() => {
+                isActiveSearch
+                  ? setIsActiveSearch(false)
+                  : setIsActiveSearch(true);
+              }}
+              alt="검색"
+            />
             {token.getCookie(ACCESS_TOKEN_KEY) ? (
               <>
-                <S.SearchIcon
-                  isactivesearch={isActiveSearch.toString()}
-                  src={searchIcon}
-                  onClick={() => {
-                    isActiveSearch
-                      ? setIsActiveSearch(false)
-                      : setIsActiveSearch(true);
-                  }}
-                  alt="검색"
-                />
-
                 <S.NoticeIcon
                   isactivenotice={router.pathname}
                   src={isHaveNotice ? existNotice : notExistNotice}

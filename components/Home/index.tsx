@@ -1,15 +1,13 @@
 import { Suspense } from "react";
-import useTokenCheck from "@/hooks/Auth/useTokenCheck";
 import { useGetList } from "@/queries/Post/post.query";
 import * as S from "@/style/common.style";
-import ErrorBoundary from "../../Common/ErrorBoundary";
-import ListItem from "../../Common/ListItem";
-import ListItemSkeleton from "../../Common/Skeleton/ListItem";
+import ErrorBoundary from "../Common/ErrorBoundary";
+import ListItem from "../Common/ListItem";
+import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "@/components/Common/Title";
 import post from "@/public/icons/title/post.png";
 
 const Home = () => {
-  useTokenCheck();
   return (
     <S.ListContainer>
       <S.TitleContainer>
@@ -21,7 +19,11 @@ const Home = () => {
       </S.TitleContainer>
 
       <S.ListWrapper>
-        <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
+        <ErrorBoundary
+          fallback={
+            <S.NonePostText>리스트를 불러오지 못했습니다.</S.NonePostText>
+          }
+        >
           <Suspense fallback={<ListItemSkeleton />}>
             <HomeItem />
           </Suspense>

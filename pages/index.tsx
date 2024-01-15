@@ -1,4 +1,4 @@
-import Home from "@/components/Main/Home";
+import Home from "@/components/Home";
 import postRepository from "@/repositories/Post/post.repository";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";

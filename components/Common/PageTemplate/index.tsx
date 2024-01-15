@@ -12,10 +12,12 @@ import Nav from "../Nav";
 import Portal from "@/components/Modal/Portal";
 import ScrollTopButton from "../Button/ScrollTop";
 import * as S from "./style";
+import { useRouter } from "next/router";
 
 function PageTemplate({ children }: { children: ReactNode }) {
   const hideHeader = useRecoilValue(HideHeaderAtom);
   const hideNav = useRecoilValue(HideNavAtom);
+  const router = useRouter();
 
   const [isActivePostForm, setIsActivePostForm] =
     useRecoilState(ActivePostFormAtom);
@@ -26,7 +28,7 @@ function PageTemplate({ children }: { children: ReactNode }) {
   return (
     <>
       <GlobalStyle />
-      <ScrollTopButton />
+      {router.pathname !== "/callback" && <ScrollTopButton />}
       <S.Container>
         {!hideHeader && <Header />}
         <S.Wrapper hideHeader={hideHeader}>

@@ -17,7 +17,7 @@ const useTokenCheck = () => {
 
       if (!accessToken || !refreshToken) {
         MenToMenToast.showInfo("로그인이 필요한 서비스입니다.");
-        router.push("/start");
+        router.push("/");
       }
     };
     checkToken();

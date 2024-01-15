@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import useTokenCheck from "@/hooks/Auth/useTokenCheck";
 import { useGetTag } from "@/queries/Post/post.query";
 import * as S from "@/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -10,7 +9,6 @@ import Title from "../Common/Title";
 import post from "@/public/icons/title/post.png";
 
 const Tag = () => {
-  useTokenCheck();
   const router = useRouter();
   const { tag } = router.query;
 

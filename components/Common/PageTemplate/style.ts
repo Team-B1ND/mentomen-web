@@ -10,5 +10,5 @@ export const Wrapper = styled.div<{ hideHeader: boolean }>`
   height: 100%;
   padding-top: ${({ hideHeader }) => !hideHeader && "100px"};
   padding-bottom: 2rem;
-  ${flex({ justifyContent: "center", columnGap: "3rem" })}
+  ${flex({ justifyContent: "center", columnGap: "3.6rem" })}
 `;

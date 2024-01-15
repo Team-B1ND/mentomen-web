@@ -1,4 +1,3 @@
-import useTokenCheck from "@/hooks/Auth/useTokenCheck";
 import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
 import { useGetApost } from "@/queries/Post/post.query";
 import { useRouter } from "next/router";
@@ -11,7 +10,6 @@ import * as S from "./style";
 const Detail = () => {
   const router = useRouter();
   const { id } = router.query;
-  useTokenCheck();
   useHideHeaderOrNav("Nav");
   return (
     <S.Container>

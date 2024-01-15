@@ -47,6 +47,7 @@ export const Content = styled.div`
   height: auto;
 
   white-space: pre-wrap;
+  word-break: break-all;
   line-height: 23px;
   font-size: 18px;
 `;

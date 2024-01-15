@@ -6,7 +6,7 @@ import { GetDateTime } from "@/util/Date/getDateTime";
 import { NonePostText } from "@/style/common.style";
 
 const NotificationItem = () => {
-  const { data: noticeList } = useGetNoticeList();
+  const { data: noticeList } = useGetNoticeList({ suspense: true });
   const router = useRouter();
 
   return (

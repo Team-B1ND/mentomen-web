@@ -4,6 +4,7 @@ import { UserDataAtom } from "@/stores/User/user.store";
 import { Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import ErrorBoundary from "../Common/ErrorBoundary";
+import NotiicationSkeleton from "../Common/Skeleton/Notiication";
 import Title from "../Common/Title";
 import NotificationItem from "./NotificationItem";
 import * as S from "./style";
@@ -20,7 +21,7 @@ const Notification = () => {
         style={S.TitleStyle}
       />
       <ErrorBoundary fallback={<>Error:)</>}>
-        <Suspense fallback={<>로딩중...</>}>
+        <Suspense fallback={<NotiicationSkeleton />}>
           <NotificationItem />
         </Suspense>
       </ErrorBoundary>
