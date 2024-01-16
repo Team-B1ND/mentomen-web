@@ -1,4 +1,5 @@
 import Detail from "@/components/Detail";
+import { QUERY_KEYS } from "@/queries/queryKey";
 import postRepository from "@/repositories/Post/post.repository";
 import { NextPageContext } from "next";
 import Head from "next/head";
@@ -24,8 +25,9 @@ DetailPage.getInitialProps = async (ctx: NextPageContext) => {
 
   if (ctx.query.id) {
     await Promise.all([
-      queryClient.prefetchQuery(["post/read-one", Number(ctx.query.id)], () =>
-        postRepository.getPostById(Number(ctx.query.id))
+      queryClient.prefetchQuery(
+        QUERY_KEYS.Post.getApost(Number(ctx.query.id)),
+        () => postRepository.getPostById(Number(ctx.query.id))
       ),
     ]);
   }

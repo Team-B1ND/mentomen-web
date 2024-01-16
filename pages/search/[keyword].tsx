@@ -1,4 +1,5 @@
 import Search from "@/components/Search";
+import { QUERY_KEYS } from "@/queries/queryKey";
 import postRepository from "@/repositories/Post/post.repository";
 import { NextPageContext } from "next";
 import Head from "next/head";
@@ -24,7 +25,7 @@ SerachPage.getInitialProps = async (ctx: NextPageContext) => {
   if (ctx.query.keyword) {
     await Promise.all([
       queryClient.prefetchQuery(
-        ["search/keyword", ctx.query.keyword as string],
+        QUERY_KEYS.Post.getKeyWord(ctx.query.keyword as string),
         () => postRepository.getPostByKeyWord(ctx.query.keyword as string)
       ),
     ]);

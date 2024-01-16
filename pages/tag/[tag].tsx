@@ -1,4 +1,5 @@
 import Tag from "@/components/Tag";
+import { QUERY_KEYS } from "@/queries/queryKey";
 import PostRepository from "@/repositories/Post/post.repository";
 import { NextPageContext } from "next";
 import Head from "next/head";
@@ -24,8 +25,8 @@ TagPage.getInitialProps = async (ctx: NextPageContext) => {
   if (ctx.query.tag) {
     await Promise.all([
       queryClient.prefetchQuery(
-        ["post/GetTagQuery", ctx.query.tag as string],
-        () => PostRepository.getPostByKeyWord(ctx.query.tag as string)
+        QUERY_KEYS.Post.getTag(ctx.query.tag as string),
+        () => PostRepository.getPostByTag(ctx.query.tag as string)
       ),
     ]);
   }

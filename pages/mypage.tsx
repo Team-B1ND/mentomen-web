@@ -1,3 +1,4 @@
+import { QUERY_KEYS } from "@/queries/queryKey";
 import userRepository from "@/repositories/User/user.repository";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
@@ -21,7 +22,10 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await Promise.all([
-    queryClient.prefetchQuery("list/useGetList", userRepository.getMyPost),
+    queryClient.prefetchQuery(
+      QUERY_KEYS.User.getMyPost,
+      userRepository.getMyPost
+    ),
   ]);
 
   return {

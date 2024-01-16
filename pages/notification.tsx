@@ -1,4 +1,5 @@
 import Notification from "@/components/Notification";
+import { QUERY_KEYS } from "@/queries/queryKey";
 import noticeRepository from "@/repositories/Notice/notice.repository";
 import Head from "next/head";
 import React from "react";
@@ -22,7 +23,10 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await Promise.all([
-    queryClient.prefetchQuery("notice/listt", noticeRepository.getNoticeList),
+    queryClient.prefetchQuery(
+      QUERY_KEYS.Notice.getNoticeList,
+      noticeRepository.getNoticeList
+    ),
   ]);
 
   return {
