@@ -10,7 +10,7 @@ import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
 import { CountOfPostAtom } from "@/stores/Post/post.store";
 
-const MyPost = () => {
+const MyPage = () => {
   useTokenCheck();
   return (
     <S.ListContainer>
@@ -25,7 +25,7 @@ const MyPost = () => {
       <S.ListWrapper>
         <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
           <Suspense fallback={<ListItemSkeleton />}>
-            <MyPostItem />
+            <MyPageItem />
           </Suspense>
         </ErrorBoundary>
       </S.ListWrapper>
@@ -33,7 +33,7 @@ const MyPost = () => {
   );
 };
 
-const MyPostItem = () => {
+const MyPageItem = () => {
   const { data: myPost } = useGetMyPost({ suspense: true });
   const setCountOfPost = useSetRecoilState(CountOfPostAtom);
 
@@ -54,4 +54,4 @@ const MyPostItem = () => {
   );
 };
 
-export default MyPost;
+export default MyPage;

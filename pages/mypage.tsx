@@ -2,9 +2,9 @@ import { QUERY_KEYS } from "@/queries/queryKey";
 import userRepository from "@/repositories/User/user.repository";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
-import MyPost from "../components/MyPost";
+import MyPage from "../components/MyPage";
 
-const MyPostPage = () => {
+const MyPagePage = () => {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ const MyPostPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MyPost />
+      <MyPage />
     </>
   );
 };
@@ -35,4 +35,4 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default MyPostPage;
+export default MyPagePage;

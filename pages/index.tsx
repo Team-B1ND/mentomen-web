@@ -4,7 +4,7 @@ import postRepository from "@/repositories/Post/post.repository";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
 
-const Index = () => {
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -35,4 +35,4 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default Index;
+export default HomePage;
