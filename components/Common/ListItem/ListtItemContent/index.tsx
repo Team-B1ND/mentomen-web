@@ -2,10 +2,11 @@ import { GetDateTime } from "@/util/Date/getDateTime";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import ListItemImages from "./ListItemImages";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useSharePost } from "@/hooks/Post/useSharePost";
 import token from "@/lib/token/token";
 import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
+import ShowMoreContent from "../../ShowMoreContent";
 
 interface Props {
   updateDateTime: string;
@@ -20,31 +21,11 @@ const ListItemContent = ({ ...attr }: Props) => {
 
   const router = useRouter();
   const { handleSharePostClick } = useSharePost();
-
   const [isLike, setIsLike] = useState(false);
-  const [isShowMoreContent, setIsShowMoreContent] = useState(false);
-
-  const contentRef = useRef<HTMLDivElement | null>(null);
-  const [contentHeight, setContentHeight] = useState(0);
-
-  useEffect(() => {
-    setContentHeight(contentRef.current?.offsetHeight!);
-  }, []);
 
   return (
     <S.ContentContainer>
-      <S.ContentBox>
-        <S.ContentText ref={contentRef} isShowMoreContent={isShowMoreContent}>
-          {attr.content}
-        </S.ContentText>
-
-        {contentHeight === 66 && (
-          <S.ShowMoreText onClick={() => setIsShowMoreContent((prev) => !prev)}>
-            {isShowMoreContent ? "... 간략히 보기" : "... 더 보기"}
-          </S.ShowMoreText>
-        )}
-      </S.ContentBox>
-
+      <ShowMoreContent content={attr.content} maxHeight={66} />
       {attr.imgUrls?.length > 0 && (
         <ListItemImages imgUrls={attr.imgUrls} tag={attr.tag} />
       )}
