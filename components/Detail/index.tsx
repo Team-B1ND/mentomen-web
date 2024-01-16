@@ -3,8 +3,12 @@ import { useGetApost } from "@/queries/Post/post.query";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
 import ErrorBoundary from "../Common/ErrorBoundary";
+import ShowMoreContent from "../Common/ShowMoreContent";
+import Title from "../Common/Title";
 import DetailComments from "./DetailComments";
 import DetailImages from "./DetailImages";
+import DetailProfile from "./DetailProfile";
+import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
 
 const Detail = () => {
@@ -14,6 +18,12 @@ const Detail = () => {
   return (
     <S.Container>
       <S.Wrapper>
+        <Title
+          titleIcon={hello}
+          titleText="멘토 요청 글 상세보기"
+          subTitleText="멘티가 올린 글을 자세하게 살펴보고 댓글을 달아 해결해 주세요!"
+          customStyle={{ fontSize: "18px" }}
+        />
         <ErrorBoundary fallback={<>Error</>}>
           <Suspense fallback={<>로딩중...</>}>
             <DetailItem postId={Number(id)} />
@@ -27,25 +37,29 @@ const Detail = () => {
 const DetailItem = ({ postId }: { postId: number }) => {
   const { data: detailPost } = useGetApost(postId, { suspense: true });
   return (
-    <>
-      <S.PostBox>
+    <S.DetailItemContainer>
+      <S.PostBox sizeOfImage={detailPost?.data.imgUrls!}>
         <S.PostWrap>
-          <S.Content>{detailPost?.data.content}</S.Content>
-          {detailPost?.data.imgUrls !== null && (
-            <DetailImages imgUrls={detailPost?.data.imgUrls!} />
-          )}
+          <DetailProfile {...detailPost?.data!} />
+          <S.PostContent>
+            <ShowMoreContent
+              content={detailPost?.data.content!}
+              customStyle={{ fontSize: "16px", lineHeight: "21px" }}
+              maxHeight={66}
+            />
+            {detailPost?.data.imgUrls !== null && (
+              <DetailImages imgUrls={detailPost?.data.imgUrls!} />
+            )}
+          </S.PostContent>
         </S.PostWrap>
       </S.PostBox>
 
       <ErrorBoundary fallback={<>Error)</>}>
         <Suspense fallback={<>로딩 중...</>}>
-          <DetailComments
-            postId={postId}
-            profileUrl={detailPost?.data.profileUrl!}
-          />
+          <DetailComments postId={postId} />
         </Suspense>
       </ErrorBoundary>
-    </>
+    </S.DetailItemContainer>
   );
 };
 

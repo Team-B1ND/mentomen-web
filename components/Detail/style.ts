@@ -5,41 +5,50 @@ export const Container = styled.div`
   width: 100%;
   heigth: 100%;
 
-  padding-top: 3rem;
-
   ${flex({
     justifyContent: "center",
   })}
 `;
 
 export const Wrapper = styled.div`
-  width: 90%;
+  width: 95%;
   height: auto;
-
-  ${flex({
-    flexDirection: "column",
-    alignItems: "center",
-  })}
 `;
 
-export const PostBox = styled.div`
+export const DetailItemContainer = styled.div`
   width: 100%;
-  min-width: 800px;
   height: auto;
-  min-height: 200px;
+  padding-bottom: 30px;
+  ${flex({ flexDirection: "column", alignItems: "center" })}
+`;
+
+export const PostBox = styled.div<{ sizeOfImage: string[] }>`
+  width: 100%;
+  height: auto;
+
+  min-height: 150px;
 
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 10px 25px 30px 15px;
-  background-color: #fff;
+
+  padding: 16px;
+  padding-bottom: ${({ sizeOfImage }) => sizeOfImage !== null && "25px"};
+  background-color: #f9f9f9;
 `;
 
 export const PostWrap = styled.div`
   width: 100%;
   height: auto;
-  padding-left: 45px;
 
-  ${flex({ flexDirection: "column", rowGap: "10px" })}
+  ${flex({ flexDirection: "column", rowGap: "2px" })}
+`;
+
+export const PostContent = styled.div`
+  width: 100%;
+  height: auto;
+  padding-left: 58px;
+  padding-right: 23px;
+  ${flex({ flexDirection: "column" })}
 `;
 
 export const Content = styled.div`
@@ -49,5 +58,5 @@ export const Content = styled.div`
   white-space: pre-wrap;
   word-break: break-all;
   line-height: 23px;
-  font-size: 18px;
+  font-size: 17px;
 `;

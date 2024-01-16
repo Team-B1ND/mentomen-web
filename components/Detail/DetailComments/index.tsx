@@ -1,21 +1,31 @@
 import { useGetCommentQuery } from "@/queries/Comment/comment.query";
-import profile from "@/public/icons/user/aprofile.png";
-import * as S from "./style";
+import DetailCommentsInput from "./DetailCommentsInput";
+import DetailCommentsList from "./DetailCommentsList";
+import styled from "styled-components";
+import flex from "@/style/flex";
 
-interface Props {
-  postId: number;
-  profileUrl: string;
-}
-
-const DetailComments = ({ postId, profileUrl }: Props) => {
+const DetailComments = ({ postId }: { postId: number }) => {
   const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });
   return (
-    <S.Container>
-      <S.NumberOfComments>
-        댓글 {commentsData?.data.length}개
-      </S.NumberOfComments>
-    </S.Container>
+    <Container>
+      <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
+      <DetailCommentsInput postId={postId} />
+      <DetailCommentsList commentsData={commentsData?.data!} />
+    </Container>
   );
 };
 
 export default DetailComments;
+
+const Container = styled.div`
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  ${flex({ flexDirection: "column", rowGap: "25px" })}
+`;
+
+const CommentCount = styled.p`
+  font-size: 22px;
+  font-family: "Pretendard-Bold" !important;
+  font-weight: 400;
+`;

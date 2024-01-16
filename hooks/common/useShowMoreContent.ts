@@ -7,11 +7,12 @@ const useShowMoreContent = (content: string) => {
 
   useEffect(() => {
     setContentHeight(contentRef.current?.offsetHeight!);
-  }, [content, contentRef.current?.offsetHeight!]);
+  }, [content]);
 
   return {
     contentRef,
     contentHeight,
+    setContentHeight,
     isShowMoreContent,
     setIsShowMoreContent,
   };

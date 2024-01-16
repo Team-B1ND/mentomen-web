@@ -7,15 +7,15 @@ interface Props {
   titleText: string;
   titleIcon?: string | StaticImageData;
   subTitleText?: string;
-  style?: CSSObject;
+  customstyle?: CSSObject;
 }
 
-const Title = ({ titleText, titleIcon, subTitleText, style }: Props) => {
+const Title = ({ titleText, titleIcon, subTitleText, customstyle }: Props) => {
   return (
     <TitleContainer>
       <MainTitle>
         {titleIcon && <Icon src={titleIcon} alt="아이콘" />}
-        <p style={style}>{titleText}</p>
+        <p style={customstyle}>{titleText}</p>
       </MainTitle>
       <SubTitle>{subTitleText}</SubTitle>
     </TitleContainer>
@@ -39,7 +39,7 @@ const MainTitle = styled.div`
 `;
 
 const Icon = styled(Image)`
-  width: 23px;
+  width: 25px;
   height: 25px;
 `;
 

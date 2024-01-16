@@ -17,7 +17,6 @@ export const usePostCommentMutation = () => {
   const mutation = useMutation(({ content, postId }: postCommentType) =>
     CommentRepository.postComment({ content, postId })
   );
-
   return mutation;
 };
 

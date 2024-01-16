@@ -41,7 +41,6 @@ export const Logo = styled(Image)`
 
 export const HeaderAbleContainer = styled.div`
   ${flex({ alignItems: "center", columnGap: "3px" })}
-  font-weight: 600;
 `;
 
 const HoverAnimation = css`
@@ -97,16 +96,17 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
 `;
 
 export const MenToRequestText = styled.p<{ isActivePostForm: boolean }>`
-  ${flex({ alignItems: "center", columnGap: "5px" })}
   border-radius: 5px;
   padding: 7px;
   font-size: 17px;
+  font-family: "Pretendard-Medium" !important;
   background-color: ${({ isActivePostForm }) => isActivePostForm && "#ddd"};
+  ${flex({ alignItems: "center", columnGap: "5px" })};
   ${HoverAnimation};
 `;
 
 export const StartMenToMen = styled.h1`
-  font-weight: 600;
+  font-family: "Pretendard-Medium" !important;
   font-size: 17px;
   cursor: pointer;
 

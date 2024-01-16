@@ -10,7 +10,7 @@ export interface ListItemType {
   stdInfo: StdInfoType;
   tag: string;
   updateDateTime: string;
-  updateStatus: string | number;
+  updateStatus: "UPDATE" | "NOT_UPDATE";
   userName: string;
 }
 

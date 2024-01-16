@@ -17,6 +17,7 @@ export const ImageContainer = styled.div`
 export const ImageWrapper = styled.div`
   width: 100%;
   height: auto;
+
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 

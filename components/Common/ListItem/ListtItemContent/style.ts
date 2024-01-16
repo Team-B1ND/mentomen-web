@@ -32,7 +32,6 @@ const HoverAnimation = css`
   &:hover {
     opacity: 0.7;
   }
-
   &:active {
     transform: scale(0.95);
   }

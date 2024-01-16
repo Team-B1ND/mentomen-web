@@ -7,7 +7,6 @@ export const ArticleContainer = styled.article`
 
   overflow: hidden;
   background-color: #fff;
-  position: relative;
 
   border-radius: 7px;
   border: 1px solid #ddd;

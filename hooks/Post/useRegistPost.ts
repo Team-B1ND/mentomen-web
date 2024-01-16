@@ -85,6 +85,11 @@ export const useRegistPost = (
             QUERY_KEYS.User.getMyPost,
             ["post/GetTagQuery"],
           ]);
+
+          if (router.pathname === "/detail/[id]") {
+            router.push("/");
+          }
+
           MenToMenToast.showSuccess("게시글을 삭제하였습니다.");
         },
         onError: () => {

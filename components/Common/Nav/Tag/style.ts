@@ -1,7 +1,6 @@
 import flex from "@/style/flex";
 import getTag from "@/util/Tag/getTag";
 import styled from "styled-components";
-import css from "styled-jsx/css";
 import Image from "next/image";
 
 export const TagContainer = styled.div`
@@ -18,12 +17,7 @@ export const TagContainer = styled.div`
     padding: 10px 6px 10px;
     font-weight: 400;
     font-size: 17px;
-    list-style: none;
     ${flex({ rowGap: "10px", flexDirection: "column" })};
-
-    li {
-      cursor: pointer;
-    }
   }
 `;
 
