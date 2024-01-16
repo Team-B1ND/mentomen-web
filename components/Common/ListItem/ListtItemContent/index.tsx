@@ -1,12 +1,12 @@
 import { GetDateTime } from "@/util/Date/getDateTime";
 import * as S from "./style";
-import { useRouter } from "next/router";
 import ListItemImages from "./ListItemImages";
 import { useState } from "react";
 import { useSharePost } from "@/hooks/Post/useSharePost";
 import token from "@/lib/token/token";
 import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
 import ShowMoreContent from "../../ShowMoreContent";
+import { CustomLink } from "@/style/common.style";
 
 interface Props {
   updateDateTime: string;
@@ -18,14 +18,13 @@ interface Props {
 
 const ListItemContent = ({ ...attr }: Props) => {
   const getDateTime = new GetDateTime(new Date(attr.updateDateTime));
-
-  const router = useRouter();
   const { handleSharePostClick } = useSharePost();
   const [isLike, setIsLike] = useState(false);
 
   return (
     <S.ContentContainer>
       <ShowMoreContent content={attr.content} maxHeight={66} />
+
       {attr.imgUrls?.length > 0 && (
         <ListItemImages imgUrls={attr.imgUrls} tag={attr.tag} />
       )}
@@ -39,9 +38,9 @@ const ListItemContent = ({ ...attr }: Props) => {
               <S.UnFillHeartIcon onClick={() => setIsLike(true)} />
             ))}
 
-          <S.CommentIcon
-            onClick={() => router.push(`/detail/${attr.postId}`)}
-          />
+          <CustomLink href={`/detail/${attr.postId}`}>
+            <S.CommentIcon />
+          </CustomLink>
 
           <S.ShareIcon onClick={() => handleSharePostClick(attr.postId)} />
         </S.IconContainer>

@@ -15,6 +15,7 @@ import Portal from "@/components/Modal/Portal";
 import Search from "@/components/Modal/Search";
 import { useRouter } from "next/router";
 import { UserDataAtom } from "@/stores/User/user.store";
+import { CustomLink } from "@/style/common.style";
 
 function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
@@ -63,26 +64,26 @@ function Header() {
             />
             {token.getCookie(ACCESS_TOKEN_KEY) ? (
               <>
-                <S.NoticeIcon
-                  isactivenotice={router.pathname}
-                  src={isHaveNotice ? existNotice : notExistNotice}
-                  onClick={() => {
-                    isActiveSearch && setIsActiveSearch(false);
-                    setIsHaveNotice(false);
-                    router.push("/notification");
-                  }}
-                  alt="알림"
-                />
+                <CustomLink href={"/notification"}>
+                  <S.NoticeIcon
+                    isactivenotice={router.pathname}
+                    src={isHaveNotice ? existNotice : notExistNotice}
+                    onClick={() => {
+                      isActiveSearch && setIsActiveSearch(false);
+                      setIsHaveNotice(false);
+                    }}
+                    alt="알림"
+                  />
+                </CustomLink>
 
-                <S.ProfileIcon
-                  src={myInfo?.data.profileImage || profile}
-                  isactivemypage={router.pathname}
-                  onClick={() => {
-                    isActiveSearch && setIsActiveSearch(false);
-                    router.push("/mypage");
-                  }}
-                  alt="프로필"
-                />
+                <CustomLink href={"/mypage"}>
+                  <S.ProfileIcon
+                    src={myInfo?.data.profileImage || profile}
+                    isactivemypage={router.pathname}
+                    onClick={() => isActiveSearch && setIsActiveSearch(false)}
+                    alt="프로필"
+                  />
+                </CustomLink>
 
                 <S.MenToRequestText
                   isActivePostForm={isActivePostForm}

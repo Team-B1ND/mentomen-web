@@ -4,6 +4,7 @@ import macbook from "@/public/icons/title/macbook.png";
 import { useRouter } from "next/router";
 import * as S from "./style";
 import Title from "../../Title";
+import { CustomLink } from "@/style/common.style";
 
 const Tag = () => {
   const router = useRouter();
@@ -19,9 +20,10 @@ const Tag = () => {
 
       <nav>
         {NAV_TAGS_ITEMS.map((item) => (
-          <li
+          <CustomLink
+            href={`/tag/${item.title}`}
             key={item.color}
-            onClick={() => router.push(`/tag/${item.title}`)}
+            customstyle={{ justifyContent: "left" }}
           >
             <S.TagItemWrap>
               <div>
@@ -40,7 +42,7 @@ const Tag = () => {
                 </S.TagName>
               </div>
             </S.TagItemWrap>
-          </li>
+          </CustomLink>
         ))}
       </nav>
     </S.TagContainer>
