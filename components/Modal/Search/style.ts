@@ -42,8 +42,8 @@ export const Form = styled.form`
   button {
     outline: none;
     border: none;
-
     background-color: transparent;
+    ${flex({ alignItems: "center", justifyContent: "center" })}
   }
 
   input {

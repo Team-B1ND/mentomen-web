@@ -3,12 +3,12 @@ import { ListPatchItem, PostSubmitType } from "@/types/List/list.type";
 import { ListResponse, ListItemResponse } from "@/types/List/list.type";
 
 class ListRepository {
-  public async getPost(): Promise<ListItemResponse> {
+  public async getAllPost(): Promise<ListItemResponse> {
     const { data } = await customAxios.get("/post/read-all");
     return data;
   }
 
-  public async postMySubmit(data: PostSubmitType): Promise<void> {
+  public async postSubmit(data: PostSubmitType): Promise<void> {
     await customAxios.post("/post/submit", data);
   }
 
@@ -27,7 +27,7 @@ class ListRepository {
     return data;
   }
 
-  public async patchMyPost(data: ListPatchItem): Promise<void> {
+  public async patchPost(data: ListPatchItem): Promise<void> {
     await customAxios.patch("post/update", data);
   }
 

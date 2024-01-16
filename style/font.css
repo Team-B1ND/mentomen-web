@@ -12,3 +12,18 @@
   src: url("../public/fonts/Pretendard-ExtraBold.woff2");
   font-family: "Pretendard-ExtraBold";
 }
+
+@font-face {
+  src: url("../public/fonts/Pretendard-SemiBold.woff2");
+  font-family: "Pretendard-SemiBold";
+}
+
+@font-face {
+  src: url("../public/fonts/Pretendard-Medium.woff2");
+  font-family: "Pretendard-Medium";
+}
+
+@font-face {
+  src: url("../public/fonts/Pretendard-Black.woff2");
+  font-family: "Pretendard-Black";
+}

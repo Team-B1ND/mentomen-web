@@ -10,19 +10,17 @@ import {
 import { ListItemType, PostSubmitType } from "@/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 import { QUERY_KEYS } from "@/queries/queryKey";
-import { useQueryClient } from "react-query";
 
 export const useRegistPost = (
   isActivePostForm?: boolean,
-  editPostData?: ListItemType
+  exisitingPostData?: ListItemType
 ) => {
-  const queryClient = useQueryClient();
   const cancelWritingPost = isActivePostForm
     ? "멘토 요청 작성을 취소하시겠습니까?"
     : "멘토 요청 수정을 취소하시겠습니까?";
   const selectFileImage = useRef<HTMLInputElement>(null);
   const [imgUrl, setImgUrl] = useState<string[]>(
-    isActivePostForm ? [] : editPostData?.imgUrls ?? []
+    isActivePostForm ? [] : exisitingPostData?.imgUrls ?? []
   );
   const [postData, setPostData] = useState<PostSubmitType>(
     isActivePostForm
@@ -32,9 +30,9 @@ export const useRegistPost = (
           tag: "",
         }
       : {
-          content: editPostData?.content!!,
-          imgUrls: editPostData?.imgUrls ?? [],
-          tag: editPostData?.tag!!,
+          content: exisitingPostData?.content!!,
+          imgUrls: exisitingPostData?.imgUrls ?? [],
+          tag: exisitingPostData?.tag!!,
         }
   );
 
@@ -136,14 +134,15 @@ export const useRegistPost = (
         }
       );
     } else {
-      const { content, tag } = editPostData!!;
+      const { content, tag } = exisitingPostData!!;
 
       if (
         JSON.stringify({
-          content,
+          content: content.trimEnd(),
           imgUrls: imgUrl,
           tag,
-        }) === JSON.stringify(postData)
+        }) ===
+        JSON.stringify({ ...postData, content: postData.content.trimEnd() })
       ) {
         MenToMenToast.showInfo("글을 수정해주세요!");
         return;
@@ -151,16 +150,16 @@ export const useRegistPost = (
 
       editSubmit.mutate(
         {
-          content: postData.content,
+          content: postData.content.trimEnd(),
           tag: postData.tag,
           imgUrls: imgUrl,
-          postId: editPostData?.postId!!,
+          postId: exisitingPostData?.postId!!,
         },
         {
           onSuccess: () => {
             queryInvalidates([
               QUERY_KEYS.Post.getList,
-              QUERY_KEYS.Post.getApost(editPostData?.postId!!),
+              QUERY_KEYS.Post.getApost(exisitingPostData?.postId!!),
               QUERY_KEYS.User.getMyPost,
               ["post/GetTagQuery"],
             ]);

@@ -9,30 +9,6 @@ export const ContentContainer = styled.div`
   margin-top: 6px;
 `;
 
-export const ContentBox = styled.div`
-  width: 100%;
-  height: auto;
-  padding: 10px 1px;
-  ${flex({ flexDirection: "column", rowGap: "6px" })}
-`;
-
-export const ContentText = styled.p<{ isShowMoreContent: boolean }>`
-  max-height: ${({ isShowMoreContent }) =>
-    isShowMoreContent ? "auto" : "66px"};
-  overflow: hidden;
-
-  white-space: pre-wrap;
-  word-break: break-all;
-  line-height: 22px;
-  font-size: 14.5px;
-`;
-
-export const ShowMoreText = styled.p`
-  font-size: 14px;
-  cursor: pointer;
-  color: #64748b;
-`;
-
 export const EtcContainer = styled.div`
   width: 100%;
   height: auto;

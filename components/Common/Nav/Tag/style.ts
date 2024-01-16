@@ -65,7 +65,7 @@ export const TagName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
 
   color: ${({ isSelectTag, selectTag }) =>
     isSelectTag && getTag.getTagColor(selectTag)};
-  font-weight: 700;
+  font-family: "Pretendard-Medium" !important;
 
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;

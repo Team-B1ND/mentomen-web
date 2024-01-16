@@ -22,7 +22,7 @@ export const useGetList = (
     string
   >
 ): UseQueryResult<ListItemResponse, AxiosError> => {
-  return useQuery(QUERY_KEYS.Post.getList, () => PostRepository.getPost(), {
+  return useQuery(QUERY_KEYS.Post.getList, () => PostRepository.getAllPost(), {
     ...options,
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,
@@ -51,7 +51,7 @@ export const useGetApost = (
 
 export const usePostMySubmitMutation = () => {
   const mutation = useMutation((data: PostSubmitType) =>
-    PostRepository.postMySubmit(data)
+    PostRepository.postSubmit(data)
   );
   return mutation;
 };
@@ -98,7 +98,7 @@ export const useGetKeyWord = (
 
 export const usePatchMyPostMutation = () => {
   const mutation = useMutation((data: ListPatchItem) =>
-    PostRepository.patchMyPost(data)
+    PostRepository.patchPost(data)
   );
   return mutation;
 };

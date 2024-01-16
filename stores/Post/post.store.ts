@@ -11,8 +11,8 @@ export const ActiveEditPostFormAtom = atom<boolean>({
   default: false,
 });
 
-export const EditPostDataAtom = atom<ListItemType | null>({
-  key: "editPostDataKey",
+export const ExistingPostDataAtom = atom<ListItemType | null>({
+  key: "existingPostDataKey",
   default: null,
 });
 
