@@ -22,7 +22,7 @@ const Detail = () => {
           titleIcon={hello}
           titleText="멘토 요청 글 상세보기"
           subTitleText="멘티가 올린 글을 자세하게 살펴보고 댓글을 달아 해결해 주세요!"
-          customStyle={{ fontSize: "18px" }}
+          customstyle={{ fontSize: "18px" }}
         />
         <ErrorBoundary fallback={<>Error</>}>
           <Suspense fallback={<>로딩중...</>}>
