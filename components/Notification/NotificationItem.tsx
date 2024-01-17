@@ -33,7 +33,7 @@ const NotificationItem = () => {
               <S.CommentUpdateDate>
                 {new GetDateTime(
                   new Date(item.createDateTime)
-                ).uploadPostTimeAgo()}
+                ).uploadTimeAgo()}
               </S.CommentUpdateDate>
             </S.NoticeContent>
           </S.NoticeItemBox>

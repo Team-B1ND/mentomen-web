@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
       font-family: 'Pretendard-Regular' !important;
      }
      body {
-      background-color:#f2f2f2;
+      background-color: #f4f4f4;
      }
     ${reset}
 `;

@@ -44,7 +44,7 @@ const ListItemContent = ({ ...attr }: Props) => {
 
           <S.ShareIcon onClick={() => handleSharePostClick(attr.postId)} />
         </S.IconContainer>
-        <S.UploadDateTime>{getDateTime.uploadPostTimeAgo()}</S.UploadDateTime>
+        <S.UploadDateTime>{getDateTime.uploadTimeAgo()}</S.UploadDateTime>
       </S.EtcContainer>
     </S.ContentContainer>
   );

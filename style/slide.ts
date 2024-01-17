@@ -12,7 +12,7 @@ export const StyledSlider = styled(Slider)<{
   cursor?: string;
 }>`
   .slick-track {
-    ${flex({ alignItems: "center" })};
+    ${flex({ alignItems: "center", justifyContent: "center" })};
     cursor: ${({ cursor }) => cursor};
   }
 

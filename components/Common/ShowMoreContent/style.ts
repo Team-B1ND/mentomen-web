@@ -19,7 +19,7 @@ export const ContentText = styled.div<{
   font-size: 14.5px;
 
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
   line-height: 22px;
 
   p {

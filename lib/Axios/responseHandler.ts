@@ -36,7 +36,7 @@ export const responseHandler = async (error: AxiosError) => {
         token.removeCookie(ACCESS_TOKEN_KEY);
         token.removeCookie(REFRESH_TOKEN_KEY);
         window.alert("토큰이 만료되었습니다!");
-        window.location.href = "/start";
+        window.location.href = "/";
       }
     }
   }

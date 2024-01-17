@@ -3,7 +3,7 @@ import * as S from "./style";
 import { useRegistPost } from "@/hooks/Post/useRegistPost";
 import { useSetRecoilState } from "recoil";
 import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
-import useEscCloseModal from "@/hooks/common/useEscCloseModal";
+import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
 import useLockScroll from "@/hooks/common/useLockScroll";
 
 interface Props {
@@ -15,7 +15,7 @@ const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
   const { handleDeletePostClick } = useRegistPost();
   const setActiveEditPost = useSetRecoilState(ActiveEditPostFormAtom);
 
-  useEscCloseModal(setIsActivePostSetting);
+  useEscCloseModal(() => setIsActivePostSetting(false));
   useLockScroll();
 
   return (

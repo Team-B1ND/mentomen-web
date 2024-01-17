@@ -16,12 +16,12 @@ export const MyProfileImage = styled(Image)`
   border: 1px solid #ddd;
 `;
 
-export const CommentInputForm = styled.form`
-  width: calc(100% - 40px);
+export const CommentInputForm = styled.div`
+  width: 100%;
   height: auto;
 `;
 
-export const CommentTextBox = styled.div<{
+export const CommentTextInput = styled.div<{
   placeholder: string;
 }>`
   width: 100%;
@@ -29,15 +29,16 @@ export const CommentTextBox = styled.div<{
 
   outline: none;
   border: none;
-
-  padding-top: 1px;
-  padding-bottom: 8px;
+  padding: 0 3px 8px;
 
   font-size: 15px;
   background-color: transparent;
-  border-bottom: 1px solid #d9d9d9;
 
+  white-space: pre-wrap;
+  word-break: break-word;
   transition: all 0.2s ease-in-out;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   &:focus {
     border-bottom: 2px solid ${palette.color};
   }
@@ -50,7 +51,7 @@ export const CommentTextBox = styled.div<{
         content: attr(placeholder);
         color: gray;
       }
-    `}
+    `};
 `;
 
 export const CommentSubmitContainer = styled.div`
@@ -66,6 +67,7 @@ export const CommentSubmitContainer = styled.div`
     outline: none;
     border: none;
     font-size: 15px;
+    cursor: pointer;
 
     border-radius: 18px;
     transition: all 0.2s ease-in-out;
@@ -75,18 +77,16 @@ export const CommentSubmitContainer = styled.div`
 
 export const CancelButton = styled.button`
   background-color: transparent;
-  cursor: pointer;
   &:hover {
     background-color: #ddd;
   }
 `;
 
-export const RegistButton = styled.button<{ sizeOfComment: number }>`
+export const RegistButton = styled.button<{ lengthOfComment: number }>`
   background-color: #0000000d;
   color: gray;
-
-  ${({ sizeOfComment }) =>
-    sizeOfComment > 0 &&
+  ${({ lengthOfComment }) =>
+    lengthOfComment > 0 &&
     css`
       cursor: pointer;
       color: #f0f0f0;

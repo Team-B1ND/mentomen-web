@@ -22,10 +22,9 @@ export const DetailItemContainer = styled.div`
   ${flex({ flexDirection: "column", alignItems: "center" })}
 `;
 
-export const PostBox = styled.div<{ sizeOfImage: string[] }>`
+export const PostArticle = styled.article<{ sizeOfImage: string[] }>`
   width: 100%;
   height: auto;
-
   min-height: 150px;
 
   border: 1px solid #ddd;
@@ -33,13 +32,12 @@ export const PostBox = styled.div<{ sizeOfImage: string[] }>`
 
   padding: 16px;
   padding-bottom: ${({ sizeOfImage }) => sizeOfImage !== null && "25px"};
-  background-color: #f9f9f9;
+  background-color: #fff;
 `;
 
 export const PostWrap = styled.div`
   width: 100%;
   height: auto;
-
   ${flex({ flexDirection: "column", rowGap: "2px" })}
 `;
 
@@ -56,7 +54,7 @@ export const Content = styled.div`
   height: auto;
 
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
   line-height: 23px;
   font-size: 17px;
 `;

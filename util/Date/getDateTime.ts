@@ -12,7 +12,7 @@ export class GetDateTime {
     return dateFormat;
   };
 
-  public uploadPostTimeAgo = () => {
+  public uploadTimeAgo = () => {
     if (typeof this.date === "undefined") {
       return "방금 전";
     }

@@ -1,4 +1,4 @@
-import useEscCloseModal from "@/hooks/common/useEscCloseModal";
+import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
 import useLockScroll from "@/hooks/common/useLockScroll";
 import { useKeyWordSearch } from "@/hooks/Search/useKeyWordSearch";
 import { Dispatch, SetStateAction } from "react";
@@ -12,7 +12,7 @@ interface Props {
 const Search = ({ setIsActiveSearch }: Props) => {
   const { handleSerachChange, handleSearchSubmit, search } = useKeyWordSearch();
 
-  useEscCloseModal(setIsActiveSearch);
+  useEscCloseModal(() => setIsActiveSearch(false));
   useLockScroll();
 
   return (

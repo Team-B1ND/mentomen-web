@@ -32,6 +32,5 @@ export const ImageContainer = styled.div<{ sizeOfImages: number }>`
 
   background-color: ${({ sizeOfImages }) =>
     sizeOfImages && sizeOfImages > 0 ? "#000" : "#eee"};
-
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;

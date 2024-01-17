@@ -16,7 +16,7 @@ export interface getCommentType extends ResponseType {
     number: number;
     room: number;
   };
-  updateDateTime?: string | number;
+  updateDateTime?: string;
   userId: number;
   userName: string;
 }

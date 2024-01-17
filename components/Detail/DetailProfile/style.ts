@@ -20,10 +20,10 @@ export const ProfileImage = styled(Image)`
 `;
 
 export const PosterInfo = styled.div`
-  ${flex({ flexDirection: "column", rowGap: "4px" })}
+  ${flex({ flexDirection: "column", rowGap: "5px" })}
   div {
     font-size: 15px;
-    ${flex({ alignItems: "center", columnGap: "6px" })}
+    ${flex({ alignItems: "flex-end", columnGap: "6px" })}
   }
 `;
 
@@ -32,7 +32,7 @@ export const PosterName = styled.p`
 `;
 
 export const UploadPostTime = styled.p`
-  font-size: 13px;
+  font-size: 12px;
   color: #0f0f0f;
 `;
 

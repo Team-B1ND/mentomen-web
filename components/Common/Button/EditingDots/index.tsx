@@ -44,7 +44,7 @@ const DotsIcon = styled(RxDotsVertical)<{
   width: 23px;
   height: 23px;
 
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 3px;
   cursor: pointer;
 
@@ -53,12 +53,9 @@ const DotsIcon = styled(RxDotsVertical)<{
 
   background-color: ${({ postsetting }) => postsetting === "true" && "#ddd"};
 
-  &:hover {
+  &:active {
     background-color: #ddd;
     transform: scale(0.93);
-  }
-  &:active {
-    background-color: #eee;
   }
 
   ${({ customstyle }) => customstyle}

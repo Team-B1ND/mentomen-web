@@ -1,8 +1,8 @@
 import * as S from "./style";
 import menTomen from "@/public/icons/logo/menTomen.png";
 import searchIcon from "@/public/images/Search.png";
-import notExistNotice from "@/public/icons/notice/notExistNotice.png";
-import existNotice from "@/public/icons/notice/existNotice.png";
+import notExistNotice from "@/public/icons/notice/notExistNotice.svg";
+import existNotice from "@/public/icons/notice/existNotice.svg";
 import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
 import { useGetNoticeCheck } from "@/queries/Notice/notice.query";

@@ -1,5 +1,5 @@
 import useLockScroll from "@/hooks/common/useLockScroll";
-import useEscCloseModal from "@/hooks/common/useEscCloseModal";
+import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
 
@@ -10,7 +10,7 @@ const DetailImageModal = ({
   imgUrl: string;
   setIsActiveDetailImage: Dispatch<SetStateAction<boolean>>;
 }) => {
-  useEscCloseModal(setIsActiveDetailImage);
+  useEscCloseModal(() => setIsActiveDetailImage(false));
   useLockScroll();
 
   return (

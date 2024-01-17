@@ -28,7 +28,7 @@ const DetailProfile = ({ ...attr }: ListItemType) => {
           <div>
             <S.PosterName>{attr.userName}</S.PosterName>
             <S.UploadPostTime>
-              {getDate.uploadPostTimeAgo()}
+              {getDate.uploadTimeAgo()}
               {updatePostStatus === "UPDATE" && "(수정됨)"}
             </S.UploadPostTime>
           </div>

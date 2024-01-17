@@ -38,21 +38,21 @@ const DetailItem = ({ postId }: { postId: number }) => {
   const { data: detailPost } = useGetApost(postId, { suspense: true });
   return (
     <S.DetailItemContainer>
-      <S.PostBox sizeOfImage={detailPost?.data.imgUrls!}>
+      <S.PostArticle sizeOfImage={detailPost?.data.imgUrls!}>
         <S.PostWrap>
           <DetailProfile {...detailPost?.data!} />
           <S.PostContent>
             <ShowMoreContent
               content={detailPost?.data.content!}
-              customStyle={{ fontSize: "16px", lineHeight: "21px" }}
-              maxHeight={66}
+              customStyle={{ fontSize: "15px", lineHeight: "21px" }}
+              maxHeight={84}
             />
             {detailPost?.data.imgUrls !== null && (
               <DetailImages imgUrls={detailPost?.data.imgUrls!} />
             )}
           </S.PostContent>
         </S.PostWrap>
-      </S.PostBox>
+      </S.PostArticle>
 
       <ErrorBoundary fallback={<>Error)</>}>
         <Suspense fallback={<>로딩 중...</>}>

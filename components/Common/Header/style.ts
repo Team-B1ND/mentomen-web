@@ -46,7 +46,7 @@ export const HeaderAbleContainer = styled.div`
 const HoverAnimation = css`
   transform: scale(1);
   transition: all 0.2s ease-in-out;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 
   &:hover {
@@ -70,6 +70,7 @@ export const SearchIcon = styled(Image)<{ isactivesearch: string }>`
 export const NoticeIcon = styled(Image)<{ isactivenotice: string }>`
   width: 34px;
   height: 35px;
+  padding: 5px;
   background-color: ${({ isactivenotice }) =>
     isactivenotice === "/notification" && "#ddd"};
   ${HoverAnimation}

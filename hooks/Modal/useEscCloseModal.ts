@@ -1,26 +1,30 @@
-import { Dispatch, SetStateAction, useEffect, KeyboardEvent } from "react";
+import { useEffect, KeyboardEvent } from "react";
 
 const useEscCloseModal = (
-  setState: Dispatch<SetStateAction<boolean>>,
+  callback: (e?: KeyboardEvent<Element>) => void,
   question?: string
 ) => {
   const handleKeyDown = (e: KeyboardEvent<Element>) => {
+    e.stopPropagation();
     if (e.key === "Escape") {
       if (question) {
         const answer = window.confirm(question);
         if (answer) {
-          setState(false);
+          callback();
         }
       } else {
-        setState(false);
+        callback();
       }
     }
   };
 
   useEffect(() => {
-    const eventListener: EventListener = (e: Event) =>
+    const eventListener: EventListener = (e: Event) => {
       handleKeyDown(e as unknown as KeyboardEvent<Element>);
+    };
+
     window.addEventListener("keydown", eventListener);
+
     return () => {
       document.body.style.overflow = "unset";
       window.removeEventListener("keydown", eventListener);

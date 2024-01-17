@@ -1,5 +1,4 @@
 import useShowMoreContent from "@/hooks/common/useShowMoreContent";
-import { useEffect, useRef } from "react";
 import { CSSObject } from "styled-components";
 import * as S from "./style";
 
