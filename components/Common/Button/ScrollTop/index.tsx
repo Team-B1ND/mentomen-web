@@ -1,4 +1,4 @@
-import { BiUpArrowAlt } from "react-icons/bi";
+import { BsArrowUpShort } from "react-icons/bs";
 import flex from "@/style/flex";
 import React from "react";
 import styled from "styled-components";
@@ -10,7 +10,7 @@ const ScrollTopButton = () => {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       title="맨 위로 이동"
     >
-      <BiUpArrowAlt size={30} color={"#fff"} />
+      <BsArrowUpShort size={34} color={"#fff"} />
     </Container>
   );
 };
@@ -18,19 +18,27 @@ const ScrollTopButton = () => {
 export default ScrollTopButton;
 
 const Container = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
 
   border-radius: 4rem;
   z-index: 3;
 
   background-color: ${palette.color};
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 6px 16px 6px rgba(16, 19, 23, 0.22);
   cursor: pointer;
 
   position: fixed;
   right: 150px;
   bottom: 40px;
 
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  p {
+    font-size: 12px;
+    color: #fff;
+  }
+
+  ${flex({
+    justifyContent: "center",
+    alignItems: "center",
+  })}
 `;

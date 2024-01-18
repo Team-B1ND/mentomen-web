@@ -9,7 +9,7 @@ import { responseHandler } from "./responseHandler";
 import token from "../token/token";
 
 export const customAxios = axios.create({
-  baseURL: `${CONFIG.server}`,
+  baseURL: `${CONFIG.SERVER}`,
   headers: {
     [REQUEST_TOKEN_KEY]: `Bearer ${token.getCookie(ACCESS_TOKEN_KEY)}`,
   },

@@ -19,7 +19,7 @@ export const responseHandler = async (error: AxiosError) => {
 
     if (access_token && refresh_token && status === 401) {
       try {
-        const { data } = await axios.get(`${CONFIG.server}/auth/refreshToken`, {
+        const { data } = await axios.get(`${CONFIG.SERVER}/auth/refreshToken`, {
           headers: {
             [REQUEST_TOKEN_KEY]: `Bearer ${refresh_token}`,
           },

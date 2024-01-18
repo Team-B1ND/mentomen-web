@@ -1,6 +1,6 @@
 import { useGetNoticeList } from "@/queries/Notice/notice.query";
 import profile from "@/public/icons/user/aprofile.png";
-import * as S from "./style";
+import * as S from "../style";
 import { useRouter } from "next/router";
 import { GetDateTime } from "@/util/Date/getDateTime";
 import { NonePostText } from "@/style/common.style";
@@ -25,15 +25,17 @@ const NotificationItem = () => {
             />
 
             <S.NoticeContent>
-              <S.SenderText>
-                <span>{item.senderName}</span> 님이 회원님의 게시글에 댓글을
-                남겼습니다.
-              </S.SenderText>
+              <S.SenderWrap>
+                <S.SenderMessage>
+                  <span>{item.senderName}</span> 님이 회원님의 게시글에 댓글을
+                  남겼습니다.
+                </S.SenderMessage>
+              </S.SenderWrap>
+
               <S.SenderComment>{item.commentContent}</S.SenderComment>
+
               <S.CommentUpdateDate>
-                {new GetDateTime(
-                  new Date(item.createDateTime)
-                ).uploadTimeAgo()}
+                {new GetDateTime().uploadTimeAgo(new Date(item.createDateTime))}
               </S.CommentUpdateDate>
             </S.NoticeContent>
           </S.NoticeItemBox>

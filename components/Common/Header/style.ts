@@ -91,36 +91,36 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
   overflow: hidden;
 
   transition: all 0.15s ease-in-out;
-  &:active {
+  &:active,
+  :hover {
     border: 2px solid ${palette.color};
   }
 `;
 
-export const MenToRequestText = styled.p<{ isActivePostForm: boolean }>`
-  border-radius: 5px;
-  padding: 7px;
-  font-size: 17px;
+export const MenToRequest = styled.div`
+  width: 105px;
+  height: 40px;
+  border-radius: 50px;
+  padding: 8px 10px;
+
+  color: #f2f2f2;
+  margin-left: 5px;
+  font-size: 14px;
+  cursor: pointer;
+
   font-family: "Pretendard-Medium" !important;
-  background-color: ${({ isActivePostForm }) => isActivePostForm && "#ddd"};
-  ${flex({ alignItems: "center", columnGap: "5px" })};
-  ${HoverAnimation};
+  background-color: #2749dc;
+
+  ${flex({ alignItems: "center", justifyContent: "center" })};
+  transition: all 0.1s ease-in-out;
+  &:active {
+    opacity: 0.8;
+  }
 `;
 
 export const StartMenToMen = styled.h1`
   font-family: "Pretendard-Medium" !important;
   font-size: 17px;
-  cursor: pointer;
-
-  padding: 5px;
-
-  transform: scale(1);
-  transition: all 0.14s ease-in-out;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: #eee;
-  }
-  &:active {
-    background-color: #ddd;
-  }
+  padding: 8px;
+  ${HoverAnimation}
 `;

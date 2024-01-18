@@ -39,6 +39,7 @@ const RAW_RUNTIME_STATE =
           ["@types/styled-components", "npm:5.1.34"],\
           ["axios", "npm:0.27.2"],\
           ["babel-plugin-styled-components", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:2.1.4"],\
+          ["dayjs", "npm:1.11.10"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:14.0.3"],\
           ["js-cookie", "npm:3.0.5"],\
@@ -8127,6 +8128,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["dayjs", [\
+      ["npm:1.11.10", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/dayjs-npm-1.11.10-2b4382efc1-10c0.zip/node_modules/dayjs/",\
+        "packageDependencies": [\
+          ["dayjs", "npm:1.11.10"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["debug", [\
       ["npm:2.6.9", {\
         "packageLocation": "../../../../../.yarn/berry/cache/debug-npm-2.6.9-7d4cb597dc-10c0.zip/node_modules/debug/",\
@@ -12903,6 +12913,7 @@ const RAW_RUNTIME_STATE =
           ["@types/styled-components", "npm:5.1.34"],\
           ["axios", "npm:0.27.2"],\
           ["babel-plugin-styled-components", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:2.1.4"],\
+          ["dayjs", "npm:1.11.10"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:14.0.3"],\
           ["js-cookie", "npm:3.0.5"],\

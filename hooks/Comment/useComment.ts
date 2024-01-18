@@ -54,7 +54,7 @@ export const useComment = (exisitComment?: string) => {
     e.preventDefault();
     // exisitComment가 있으면 댓글 수정
     if (exisitComment) {
-      if (exisitComment === comment) {
+      if (exisitComment === comment.trim()) {
         return MenToMenToast.showInfo("댓글을 수정해주세요!");
       }
 

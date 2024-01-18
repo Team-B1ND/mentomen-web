@@ -29,6 +29,19 @@ export const UserInfo = styled.div`
   })};
 `;
 
+export const StudentInfoWrap = styled.div`
+  ${flex({ flexDirection: "column", rowGap: "4px" })}
+`;
+
+export const StudentName = styled.p`
+  font-size: 16px;
+`;
+
+export const GradeClassNumber = styled.p`
+  color: #858585;
+  font-size: 13px;
+`;
+
 export const ProfileImage = {
   width: "35px",
   height: "35px",

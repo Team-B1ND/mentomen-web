@@ -36,7 +36,7 @@ export const TagItemWrap = styled.div`
 
     transition: 0.2s all ease-in-out;
     transform: scale(1);
-    border-radius: 5px;
+    border-radius: 7px;
 
     &:hover {
       background-color: #eee;

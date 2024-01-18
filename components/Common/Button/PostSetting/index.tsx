@@ -27,13 +27,15 @@ const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
             setActiveEditPost(true);
           }}
         >
-          수정하기
+          <S.EditIcon />
+          <p>수정</p>
         </S.TextBox>
         <S.TextBox
           isDelete={true}
           onClick={() => handleDeletePostClick(postId, setIsActivePostSetting)}
         >
-          삭제하기
+          <S.DeleteIcon />
+          <p>삭제</p>
         </S.TextBox>
       </S.Wrapper>
     </S.Container>

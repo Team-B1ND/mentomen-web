@@ -34,4 +34,5 @@ export const ShowMoreText = styled.p`
   font-size: 14px;
   cursor: pointer;
   color: #64748b;
+  font-family: "Pretendard-Medium" !important;
 `;

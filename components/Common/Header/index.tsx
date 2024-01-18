@@ -21,13 +21,12 @@ function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
   const [isHaveNotice, setIsHaveNotice] = useState(false);
 
-  const [isActivePostForm, setIsActivePostForm] =
-    useRecoilState(ActivePostFormAtom);
+  const setIsActivePostForm = useSetRecoilState(ActivePostFormAtom);
   const setUserData = useSetRecoilState(UserDataAtom);
+  const router = useRouter();
 
   const { data: noticeCheck } = useGetNoticeCheck();
   const { data: myInfo } = useGetMyInfo();
-  const router = useRouter();
 
   useEffect(() => {
     if (noticeCheck?.data.noticeStatus === "EXIST") {
@@ -48,7 +47,7 @@ function Header() {
           <S.Logo
             src={menTomen}
             onClick={() => (window.location.href = "/")}
-            alt="이미지 없음"
+            alt="멘투멘 로고"
           />
 
           <S.HeaderAbleContainer>
@@ -85,15 +84,14 @@ function Header() {
                   />
                 </CustomLink>
 
-                <S.MenToRequestText
-                  isActivePostForm={isActivePostForm}
+                <S.MenToRequest
                   onClick={() => {
                     isActiveSearch && setIsActiveSearch(false);
                     setIsActivePostForm(true);
                   }}
                 >
                   멘토 요청하기
-                </S.MenToRequestText>
+                </S.MenToRequest>
               </>
             ) : (
               <S.StartMenToMen

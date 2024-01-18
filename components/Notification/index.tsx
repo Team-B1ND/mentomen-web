@@ -20,7 +20,7 @@ const Notification = () => {
         titleIcon={bell}
         titleText="알림 확인하기"
         subTitleText={`${userData?.name} 님에게 온 멘토 요청 글 알림을 확인해 보세요!`}
-        customstyle={S.TitleStyle}
+        customstyle={{ fontSize: "18px" }}
       />
       <ErrorBoundary fallback={<>Error:)</>}>
         <Suspense fallback={<NotiicationSkeleton />}>

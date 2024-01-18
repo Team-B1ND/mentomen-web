@@ -1,4 +1,4 @@
-import PageTemplate from "@/components/Common/PageTemplate";
+import Provider from "@/components/Common/Provider";
 import { MenToMenToastContainer } from "@/util/Toast/menToMenToastContainer";
 import { NextComponentType } from "next";
 import type { AppContext, AppInitialProps, AppProps } from "next/app";
@@ -25,9 +25,9 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
           <Hydrate state={pageProps.dehydratedState}>
             <RecoilRoot>
               <MenToMenToastContainer />
-              <PageTemplate>
+              <Provider>
                 <Component {...pageProps} />
-              </PageTemplate>
+              </Provider>
             </RecoilRoot>
           </Hydrate>
         </QueryClientProvider>

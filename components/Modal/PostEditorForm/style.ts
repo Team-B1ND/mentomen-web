@@ -143,7 +143,7 @@ export const Submit = styled.div`
 `;
 
 const HoverAnimation = css`
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 7px;
 
   transition: all 0.15s ease-in-out;

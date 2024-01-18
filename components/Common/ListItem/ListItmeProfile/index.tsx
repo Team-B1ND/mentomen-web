@@ -1,7 +1,6 @@
 import { useSetRecoilState } from "recoil";
 import { ExistingPostDataAtom } from "@/stores/Post/post.store";
 import { ListItemType } from "@/types/List/list.type";
-import { StudentInfo } from "../../StudentInfo";
 import * as S from "./style";
 import getTag from "@/util/Tag/getTag";
 import { useRouter } from "next/router";
@@ -11,14 +10,19 @@ const ListItemProfile = ({ ...attr }: ListItemType) => {
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
   const router = useRouter();
   const { asPath } = router;
+  const { grade, room, number } = attr.stdInfo;
 
   return (
     <S.Profile>
-      <S.TagIcon src={getTag.getTagIcon(attr.tag)} alt="" />
+      <S.TagIcon src={getTag.getTagIcon(attr.tag)} alt="태그" />
+
       <S.UserInfo>
-        <div>
-          <StudentInfo stdInfo={attr.stdInfo} userName={attr.userName} />
-        </div>
+        <S.StudentInfoWrap>
+          <S.StudentName>{attr.userName}</S.StudentName>
+          <S.GradeClassNumber>
+            {grade}학년 {room}반 {number}번
+          </S.GradeClassNumber>
+        </S.StudentInfoWrap>
 
         {asPath === "/mypage" && (
           <EditingDots
