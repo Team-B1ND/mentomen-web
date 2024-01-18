@@ -1,25 +1,25 @@
-export class GetDateTime {
-  constructor(private date: Date) {}
+import dayjs from "dayjs";
 
-  public uploadPostDateTime = () => {
+export class GetDateTime {
+  public uploadPostDateTime = (date: Date) => {
     const dateFormat =
-      this.date.getFullYear() +
+      date.getFullYear() +
       "년 " +
-      (this.date.getMonth() + 1) +
+      (date.getMonth() + 1) +
       "월 " +
-      this.date.getDate() +
+      date.getDate() +
       "일";
     return dateFormat;
   };
 
-  public uploadTimeAgo = () => {
-    if (typeof this.date === "undefined") {
+  public uploadTimeAgo = (date: Date) => {
+    if (typeof date === "undefined") {
       return "방금 전";
     }
 
     const currentDate = new Date(new Date().getTime() - 9 * 60 * 60 * 1000);
 
-    const timeDifference = currentDate.getTime() - this.date.getTime();
+    const timeDifference = currentDate.getTime() - date.getTime();
     const seconds = Math.floor(timeDifference / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
@@ -38,6 +38,12 @@ export class GetDateTime {
       return `${days}일 전`;
     } else {
       return `${months}달 전`;
+    }
+  };
+
+  public compareDate = (createDate: Date, updateDate: Date) => {
+    if (dayjs(updateDate).isAfter(createDate)) {
+      return " (수정됨)";
     }
   };
 }

@@ -17,7 +17,7 @@ interface Props {
 }
 
 const ListItemContent = ({ ...attr }: Props) => {
-  const getDateTime = new GetDateTime(new Date(attr.updateDateTime));
+  const getDateTime = new GetDateTime();
   const { handleSharePostClick } = useSharePost();
   const [isLike, setIsLike] = useState(false);
 
@@ -44,7 +44,9 @@ const ListItemContent = ({ ...attr }: Props) => {
 
           <S.ShareIcon onClick={() => handleSharePostClick(attr.postId)} />
         </S.IconContainer>
-        <S.UploadDateTime>{getDateTime.uploadTimeAgo()}</S.UploadDateTime>
+        <S.UploadDateTime>
+          {getDateTime.uploadTimeAgo(new Date(attr.updateDateTime))}
+        </S.UploadDateTime>
       </S.EtcContainer>
     </S.ContentContainer>
   );

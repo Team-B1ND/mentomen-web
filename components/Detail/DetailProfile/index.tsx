@@ -11,7 +11,7 @@ const DetailProfile = ({ ...attr }: ListItemType) => {
   const { grade, room, number } = attr.stdInfo;
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
   const userData = useRecoilValue(UserDataAtom);
-  const getDate = new GetDateTime(new Date(attr.updateDateTime));
+  const getDate = new GetDateTime();
   const updatePostStatus = attr.updateStatus;
 
   return (
@@ -28,8 +28,8 @@ const DetailProfile = ({ ...attr }: ListItemType) => {
           <div>
             <S.PosterName>{attr.userName}</S.PosterName>
             <S.UploadPostTime>
-              {getDate.uploadTimeAgo()}
-              {updatePostStatus === "UPDATE" && "(수정됨)"}
+              {getDate.uploadTimeAgo(new Date(attr.updateDateTime))}
+              {updatePostStatus === "UPDATE" && " (수정됨)"}
             </S.UploadPostTime>
           </div>
           <S.ClassInfo>

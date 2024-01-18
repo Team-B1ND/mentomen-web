@@ -22,14 +22,13 @@ const DetailCommentsList = ({ commentsData }: Props) => {
 
   const { modalEl } = useOutSideClickCloseModal(() => setCommentId(0));
   const { handleDeleteComment } = useComment();
+  const dateTime = new GetDateTime();
+  const reverseCommentData = commentsData.slice(0).reverse();
 
   return (
     <S.Container>
-      {commentsData?.map((item) => {
+      {reverseCommentData.map((item) => {
         const { grade, room, number } = item.stdInfo;
-        const commentUpdateTime = new GetDateTime(
-          new Date(item.updateDateTime!)
-        );
         return (
           <S.CommentsList key={item.commentId}>
             <S.ProfileImage
@@ -55,26 +54,29 @@ const DetailCommentsList = ({ commentsData }: Props) => {
                         item.userName
                       }`}
                     </S.CommenterNameAndClass>
-
                     <S.CommentUpadateTimeText>
-                      {commentUpdateTime.uploadTimeAgo()}
+                      {dateTime.uploadTimeAgo(new Date(item.updateDateTime!))}
+                      {dateTime.compareDate(
+                        new Date(item.createDateTime),
+                        new Date(item.updateDateTime!)
+                      )}
                     </S.CommentUpadateTimeText>
                   </S.CommenterInfo>
-
                   <S.CommentText>{item.content}</S.CommentText>
                 </S.CommenterInfoWrap>
 
                 {userData?.userId === item.userId && (
                   <S.DotsIconContainer>
                     {commentId === item.commentId ? (
-                      <DetailSetting
-                        ref={modalEl}
-                        setCommentId={setCommentId}
-                        setIsEditComment={setIsEditComment}
-                        handleDeleteComment={() =>
-                          handleDeleteComment(item.commentId, item.postId)
-                        }
-                      />
+                      <S.DetailIconWrap ref={modalEl}>
+                        <DetailSetting
+                          setCommentId={setCommentId}
+                          setIsEditComment={setIsEditComment}
+                          handleDeleteComment={() =>
+                            handleDeleteComment(item.commentId, item.postId)
+                          }
+                        />
+                      </S.DetailIconWrap>
                     ) : (
                       <S.DotsIcon
                         onClick={() => {
