@@ -7,7 +7,7 @@ export const Container = styled.ul`
   width: 100%;
   height: auto;
   min-height: 300px;
-  padding-top: 10px;
+  padding-top: 25px;
   ${flex({ flexDirection: "column", rowGap: "30px" })}
 `;
 
@@ -37,18 +37,18 @@ export const CommenterInfoWrap = styled.div`
 `;
 
 export const CommenterInfo = styled.div`
-  ${flex({ alignItems: "flex-end", columnGap: "5px" })}
+  padding-top: 1px;
+  ${flex({ rowGap: "5px", flexDirection: "column" })}
 `;
 
 export const CommenterNameAndClass = styled.p`
   font-size: 14px;
-  font-family: "Pretendard-Bold" !important;
+  font-family: "Pretendard-Medium" !important;
 `;
 
 export const CommentUpadateTimeText = styled.p`
   font-size: 12px;
   color: #606060;
-  font-family: "Pretendard-Medium" !important;
 `;
 
 export const CommentText = styled.p`
@@ -66,6 +66,25 @@ export const DotsIconContainer = styled.div`
     rowGap: "5px",
     alignItems: "end",
   })}
+`;
+
+export const DetailIconWrap = styled.div`
+  width: 118px;
+  height: 85px;
+
+  font-size: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  font-size: 15px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  ${flex({ flexDirection: "column", justifyContent: "center" })}
 `;
 
 export const DotsIcon = styled(RxDotsVertical)<{

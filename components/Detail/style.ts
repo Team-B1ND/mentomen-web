@@ -46,7 +46,7 @@ export const PostContent = styled.div`
   height: auto;
   padding-left: 58px;
   padding-right: 23px;
-  ${flex({ flexDirection: "column" })}
+  ${flex({ flexDirection: "column", rowGap: "6px" })}
 `;
 
 export const Content = styled.div`

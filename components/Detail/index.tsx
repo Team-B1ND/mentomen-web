@@ -10,6 +10,8 @@ import DetailImages from "./DetailImages";
 import DetailProfile from "./DetailProfile";
 import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
+import DetailSkeleton from "../Common/Skeleton/Detail";
+import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 
 const Detail = () => {
   const router = useRouter();
@@ -25,7 +27,7 @@ const Detail = () => {
           customstyle={{ fontSize: "18px" }}
         />
         <ErrorBoundary fallback={<>Error</>}>
-          <Suspense fallback={<>로딩중...</>}>
+          <Suspense fallback={<DetailSkeleton />}>
             <DetailItem postId={Number(id)} />
           </Suspense>
         </ErrorBoundary>
@@ -55,7 +57,7 @@ const DetailItem = ({ postId }: { postId: number }) => {
       </S.PostArticle>
 
       <ErrorBoundary fallback={<>Error)</>}>
-        <Suspense fallback={<>로딩 중...</>}>
+        <Suspense fallback={<DetailCommentSkeleton />}>
           <DetailComments postId={postId} />
         </Suspense>
       </ErrorBoundary>

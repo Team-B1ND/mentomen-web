@@ -16,8 +16,7 @@ interface Props {
 
 const DetailCommentsInput = ({ ...attr }: Props) => {
   const userData = useRecoilValue(UserDataAtom);
-  const { isSubmitComment, ...hooks } = useComment(attr.exisitComment!);
-
+  const { ...hooks } = useComment(attr.exisitComment!);
   const [isActiveCommentInput, setIsActiveCommentInput] = useState(false);
   const accessToken = token.getCookie(ACCESS_TOKEN_KEY);
 
@@ -38,7 +37,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
         />
       )}
       <S.CommentInputForm>
-        {!isSubmitComment && (
+        {!hooks.isSubmitComment && (
           <>
             <S.CommentTextInput
               placeholder={
@@ -73,6 +72,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                   취소
                 </S.CancelButton>
                 <S.RegistButton
+                  isSameComment={attr.exisitComment === hooks.comment}
                   onClick={(e) => {
                     hooks.handleCommentSubmit(
                       e,
@@ -85,7 +85,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                   }}
                   lengthOfComment={hooks.comment.trim().length}
                 >
-                  등록
+                  {attr.commentId ? "수정" : "등록"}
                 </S.RegistButton>
               </S.CommentSubmitContainer>
             )}

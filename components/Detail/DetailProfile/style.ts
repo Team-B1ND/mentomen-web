@@ -33,7 +33,7 @@ export const PosterName = styled.p`
 
 export const UploadPostTime = styled.p`
   font-size: 12px;
-  color: #0f0f0f;
+  color: #606060;
 `;
 
 export const ClassInfo = styled.p`

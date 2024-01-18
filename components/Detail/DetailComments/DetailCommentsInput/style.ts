@@ -32,6 +32,7 @@ export const CommentTextInput = styled.div<{
   padding: 0 3px 8px;
 
   font-size: 15px;
+  line-height: 21px;
   background-color: transparent;
 
   white-space: pre-wrap;
@@ -82,14 +83,18 @@ export const CancelButton = styled.button`
   }
 `;
 
-export const RegistButton = styled.button<{ lengthOfComment: number }>`
+export const RegistButton = styled.button<{
+  lengthOfComment: number;
+  isSameComment?: boolean;
+}>`
   background-color: #0000000d;
   color: gray;
-  ${({ lengthOfComment }) =>
+  ${({ lengthOfComment, isSameComment }) =>
     lengthOfComment > 0 &&
+    !isSameComment &&
     css`
       cursor: pointer;
       color: #f0f0f0;
-      background-color: ${palette.color};
+      background-color: #2749dc;
     `}
 `;

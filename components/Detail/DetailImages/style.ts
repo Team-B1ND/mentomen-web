@@ -48,10 +48,6 @@ export const CloseIcon = styled(AiOutlineClose)`
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 
-  &:hover {
-    background-color: #eee;
-    color: gray;
-  }
   &:active {
     background-color: #ddd;
     transform: scale(0.93);

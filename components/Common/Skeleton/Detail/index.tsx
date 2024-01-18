@@ -1,22 +1,14 @@
-import styled from "styled-components";
-import flex from "@/style/flex";
-import DetailImageSkeleton from "./DetailImage";
-import DetailContentSkeleton from "./DetailContent";
+import { DetailItemContainer } from "@/components/Detail/style";
+import { SkeletonBox } from "../style";
+import DetailCommentSkeleton from "./DetailComment";
 
 const DetailSkeleton = () => {
   return (
-    <Container>
-      <DetailImageSkeleton />
-      <DetailContentSkeleton />
-    </Container>
+    <DetailItemContainer>
+      <SkeletonBox width="100%" height="250px" />
+      <DetailCommentSkeleton />
+    </DetailItemContainer>
   );
 };
 
 export default DetailSkeleton;
-
-const Container = styled.div`
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  ${flex({ alignItems: "center" })}
-`;

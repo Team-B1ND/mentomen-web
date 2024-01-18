@@ -7,23 +7,20 @@ import flex from "@/style/flex";
 const DetailComments = ({ postId }: { postId: number }) => {
   const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });
   return (
-    <Container sizeOfCommentsData={commentsData?.data.length!}>
+    <Container>
       <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
       <DetailCommentsInput postId={postId} />
-      <DetailCommentsList commentsData={commentsData?.data.reverse()!} />
+      <DetailCommentsList commentsData={commentsData?.data!} />
     </Container>
   );
 };
 
 export default DetailComments;
 
-const Container = styled.div<{ sizeOfCommentsData: number }>`
+const Container = styled.div`
   width: 100%;
   height: auto;
   padding: 25px 16px 36px 16px;
-
-  border-bottom: ${({ sizeOfCommentsData }) =>
-    sizeOfCommentsData && "1px solid #ddd"};
   ${flex({ flexDirection: "column", rowGap: "23px" })}
 `;
 
