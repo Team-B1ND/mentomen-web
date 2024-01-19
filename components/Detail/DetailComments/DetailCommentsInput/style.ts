@@ -94,7 +94,7 @@ export const RegistButton = styled.button<{
     !isSameComment &&
     css`
       cursor: pointer;
-      color: #f0f0f0;
+      color: #f2f2f2;
       background-color: #2749dc;
     `}
 `;
