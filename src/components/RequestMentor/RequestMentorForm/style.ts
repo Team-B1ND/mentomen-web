@@ -136,6 +136,8 @@ export const CancelPreviewImage = styled.div`
   right: 0;
 
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+
   transition: 0.2s ease-in-out;
   &:hover {
     background-color: rgba(255, 55, 66, 0.89);
@@ -154,4 +156,11 @@ export const PreviewImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.07);
+  }
 `;

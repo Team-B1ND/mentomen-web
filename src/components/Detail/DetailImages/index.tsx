@@ -1,8 +1,8 @@
+import ViewImage from "@/components/Modal/ViewImage";
 import { slideOptions } from "@/constants/Slide/slide.constant";
 import { ItemImage, SlideWrapper, StyledSlider } from "@/style/slide";
 import React, { useState } from "react";
 import Portal from "../../Modal/Portal";
-import DetailImageModal from "./DetailImageModal";
 import * as S from "./style";
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
@@ -34,7 +34,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 
       {isActiveDetailImage && (
         <Portal>
-          <DetailImageModal
+          <ViewImage
             imgUrl={imgUrl}
             setIsActiveDetailImage={setIsActiveDetailImage}
           />
