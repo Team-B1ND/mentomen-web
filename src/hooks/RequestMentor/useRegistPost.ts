@@ -30,6 +30,16 @@ export const useRegistPost = () => {
   const editSubmit = usePatchMyPostMutation();
   const { queryInvalidates } = useQueryInvalidates();
 
+  const handlePageOutEvent = () => {
+    if (content.trim() !== "" || postData.tag !== "" || imgUrl.length !== 0) {
+      const answer = window.confirm(
+        "작성하신 글을 저장되지 않습니다! 나가시겠습니까?"
+      );
+      if (!answer) return;
+    }
+    router.back();
+  };
+
   const handleFileUpload = (selectedFiles: FileList) => {
     const filesArray = Array.from(selectedFiles) as File[];
 
@@ -139,6 +149,8 @@ export const useRegistPost = () => {
     selectFileImage,
     handleFileUploadClick,
     handleFileUploadDrop,
+
+    handlePageOutEvent,
 
     handleRequestMentorInputChange,
     handleDeletePostClick,

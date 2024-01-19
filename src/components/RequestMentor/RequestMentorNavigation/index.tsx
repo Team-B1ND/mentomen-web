@@ -1,21 +1,24 @@
 import leftArrow from "@/public/icons/RequestMentor/leftArrow.svg";
 import flex from "@/style/flex";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
 
 interface Props {
-  handlePostSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   content: string;
+  handlePageOutEvent: () => void;
+  handlePostSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const RequestMentorNavigation = ({ content }: Props) => {
-  const router = useRouter();
+const RequestMentorNavigation = ({
+  content,
+  handlePageOutEvent,
+  handlePostSubmit,
+}: Props) => {
   return (
     <NavigationBox lengthOfContent={content.length}>
       <PrevArrowIcon
         src={leftArrow}
-        onClick={router.back}
+        onClick={handlePageOutEvent}
         alt="이전 페이지로 이동"
       />
       <button>멘토 요청하기</button>

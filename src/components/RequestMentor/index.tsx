@@ -14,10 +14,7 @@ const RequestMentor = () => {
 
   return (
     <S.Container>
-      <RequestMentorNavigation
-        content={hooks.content}
-        handlePostSubmit={hooks.handlePostSubmit}
-      />
+      <RequestMentorNavigation {...hooks} />
       <S.Content>
         <Title
           titleIcon={request}
