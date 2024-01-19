@@ -39,7 +39,7 @@ const MyPageItem = () => {
 
   useEffect(() => {
     setCountOfPost(myPost?.data.length!);
-  }, [myPost]);
+  }, [myPost, setCountOfPost]);
 
   return (
     <>

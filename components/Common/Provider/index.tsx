@@ -13,6 +13,7 @@ import Portal from "@/components/Modal/Portal";
 import ScrollTopButton from "../Button/ScrollTop";
 import * as S from "./style";
 import { useRouter } from "next/router";
+import ProgressBar from "../ProgressBar";
 
 const Proivder = ({ children }: { children: ReactNode }) => {
   const hideHeader = useRecoilValue(HideHeaderAtom);
@@ -30,13 +31,13 @@ const Proivder = ({ children }: { children: ReactNode }) => {
       <GlobalStyle />
       {router.pathname !== "/callback" && <ScrollTopButton />}
       <S.Container>
+        <ProgressBar />
         {!hideHeader && <Header />}
         <S.Wrapper hideHeader={hideHeader}>
           <>{children}</>
           {!hideNav && <Nav />}
         </S.Wrapper>
       </S.Container>
-
       <Portal>
         {(isActivePostForm || isActiveEditForm) && (
           <PostEditorForm

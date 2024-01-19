@@ -16,10 +16,6 @@ export const Button = styled.button`
   border: none;
   background-color: transparent;
 
-  p {
-    font-family: "Pretendard-Medium" !important;
-  }
-
   transition: all 0.2s ease-in-out;
   &:hover {
     background-color: #eee;

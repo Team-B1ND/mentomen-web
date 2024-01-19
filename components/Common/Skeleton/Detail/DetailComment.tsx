@@ -45,7 +45,7 @@ const Container = styled.div`
 const CommentBox = styled.div`
   width: 100%;
   height: auto;
-  padding-top: 25px;
+  padding-top: 10px;
   ${flex({ flexDirection: "column", rowGap: "20px" })}
 `;
 

@@ -6,7 +6,7 @@ import existNotice from "@/public/icons/notice/existNotice.svg";
 import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
 import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { ActivePostFormAtom } from "@/stores/Post/post.store";
 import token from "@/lib/token/token";
 import profile from "@/public/icons/user/aprofile.png";
@@ -44,11 +44,9 @@ function Header() {
     <>
       <S.HeaderContainer>
         <S.Wrapper>
-          <S.Logo
-            src={menTomen}
-            onClick={() => (window.location.href = "/")}
-            alt="멘투멘 로고"
-          />
+          <CustomLink href={"/"}>
+            <S.Logo src={menTomen} alt="멘투멘 로고" />
+          </CustomLink>
 
           <S.HeaderAbleContainer>
             <S.SearchIcon

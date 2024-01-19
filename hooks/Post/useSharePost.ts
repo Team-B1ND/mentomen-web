@@ -1,5 +1,4 @@
 import { MenToMenToast } from "@/util/Toast/menToMenToast";
-import CONFIG from "@/config/config.json";
 
 export const useSharePost = () => {
   const handleSharePostClick = async (postId: number) => {

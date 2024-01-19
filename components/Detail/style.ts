@@ -22,7 +22,7 @@ export const DetailItemContainer = styled.div`
   ${flex({ flexDirection: "column", alignItems: "center" })}
 `;
 
-export const PostArticle = styled.article<{ sizeOfImage: string[] }>`
+export const PostArticle = styled.article`
   width: 100%;
   height: auto;
   min-height: 150px;
@@ -31,7 +31,6 @@ export const PostArticle = styled.article<{ sizeOfImage: string[] }>`
   border-radius: 10px;
 
   padding: 16px;
-  padding-bottom: ${({ sizeOfImage }) => sizeOfImage !== null && "25px"};
   background-color: #fff;
 `;
 
@@ -46,15 +45,15 @@ export const PostContent = styled.div`
   height: auto;
   padding-left: 58px;
   padding-right: 23px;
-  ${flex({ flexDirection: "column", rowGap: "6px" })}
+  ${flex({ flexDirection: "column", rowGap: "4px" })}
 `;
 
-export const Content = styled.div`
-  width: 100%;
-  height: auto;
-
-  white-space: pre-wrap;
-  word-break: break-word;
-  line-height: 23px;
-  font-size: 17px;
+export const IconContainer = styled.div`
+  padding-top: 5px;
+  ${flex({ alignItems: "center", columnGap: "5px" })}
 `;
+
+export const InteractionStyle = {
+  width: "25px",
+  height: "25px",
+};

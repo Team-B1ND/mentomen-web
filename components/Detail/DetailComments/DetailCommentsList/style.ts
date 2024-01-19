@@ -7,7 +7,7 @@ export const Container = styled.ul`
   width: 100%;
   height: auto;
   min-height: 300px;
-  padding-top: 25px;
+  padding-top: 10px;
   ${flex({ flexDirection: "column", rowGap: "30px" })}
 `;
 

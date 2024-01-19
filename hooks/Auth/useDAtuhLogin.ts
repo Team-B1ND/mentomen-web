@@ -28,5 +28,5 @@ export const useDAtuhLogin = () => {
       };
       request();
     }
-  }, []);
+  }, [code, router]);
 };

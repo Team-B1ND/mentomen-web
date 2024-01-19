@@ -1,15 +1,10 @@
-import * as S from "../style";
+import * as S from "../../style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { slideOptions } from "@/constants/Slide/slide.constant";
 import { ItemImage, SlideWrapper, StyledSlider } from "@/style/slide";
 
-interface Props {
-  imgUrls: string[];
-  tag: string;
-}
-
-const ListItemImages = ({ imgUrls, tag }: Props) => {
+const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
     <S.ImageContainer sizeOfImages={imgUrls?.length}>
       <SlideWrapper>
@@ -23,4 +18,4 @@ const ListItemImages = ({ imgUrls, tag }: Props) => {
   );
 };
 
-export default ListItemImages;
+export default ListItemContentImage;
