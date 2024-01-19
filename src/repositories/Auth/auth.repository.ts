@@ -1,12 +1,14 @@
 import axios from "axios";
-import CONFIG from "@/config/config.json";
 import { LoginResponse } from "@/types/Login/login.type";
 
 class AuthRepository {
   public async login({ code }: { code: string }): Promise<LoginResponse> {
-    const { data } = await axios.post(`${CONFIG.SERVER}/auth/code`, {
-      code,
-    });
+    const { data } = await axios.post(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/code`,
+      {
+        code,
+      }
+    );
     return data;
   }
 }

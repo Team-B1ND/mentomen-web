@@ -3,13 +3,12 @@ import {
   ACCESS_TOKEN_KEY,
   REQUEST_TOKEN_KEY,
 } from "@/constants/Auth/auth.constant";
-import CONFIG from "@/config/config.json";
 import { requestHandler } from "./requestHandler";
 import { responseHandler } from "./responseHandler";
 import token from "../token/token";
 
 export const customAxios = axios.create({
-  baseURL: `${CONFIG.SERVER}`,
+  baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
   headers: {
     [REQUEST_TOKEN_KEY]: `Bearer ${token.getCookie(ACCESS_TOKEN_KEY)}`,
   },

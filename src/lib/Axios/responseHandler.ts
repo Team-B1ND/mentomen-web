@@ -1,5 +1,4 @@
 import axios, { AxiosError } from "axios";
-import CONFIG from "@/config/config.json";
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
@@ -19,11 +18,14 @@ export const responseHandler = async (error: AxiosError) => {
 
     if (access_token && refresh_token && status === 401) {
       try {
-        const { data } = await axios.get(`${CONFIG.SERVER}/auth/refreshToken`, {
-          headers: {
-            [REQUEST_TOKEN_KEY]: `Bearer ${refresh_token}`,
-          },
-        });
+        const { data } = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/refreshToken`,
+          {
+            headers: {
+              [REQUEST_TOKEN_KEY]: `Bearer ${refresh_token}`,
+            },
+          }
+        );
 
         token.setCookie(ACCESS_TOKEN_KEY, data.data.accessToken);
 
