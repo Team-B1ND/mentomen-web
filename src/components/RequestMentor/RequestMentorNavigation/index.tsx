@@ -15,7 +15,7 @@ const RequestMentorNavigation = ({
   handlePostSubmit,
 }: Props) => {
   return (
-    <NavigationBox lengthOfContent={content.length}>
+    <NavigationBox lengthOfContent={content.trim().length}>
       <PrevArrowIcon
         src={leftArrow}
         onClick={handlePageOutEvent}
