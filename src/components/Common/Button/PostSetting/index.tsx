@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
-import { useRegistPost } from "@/hooks/Post/useRegistPost";
+import { useRegistPost } from "@/hooks/RequestMentor/useRegistPost";
 import { useSetRecoilState } from "recoil";
 import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
 import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";

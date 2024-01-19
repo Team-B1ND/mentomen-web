@@ -2,7 +2,7 @@ import { customAxios } from "@/lib/Axios/customAxios";
 import { ListPatchItem, PostSubmitType } from "@/types/List/list.type";
 import { ListResponse, ListItemResponse } from "@/types/List/list.type";
 
-class ListRepository {
+class PostRepository {
   public async getAllPost(): Promise<ListItemResponse> {
     const { data } = await customAxios.get("/post/read-all");
     return data;
@@ -36,4 +36,4 @@ class ListRepository {
   }
 }
 
-export default new ListRepository();
+export default new PostRepository();

@@ -61,6 +61,7 @@ const RAW_RUNTIME_STATE =
           ["react-slick", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:0.29.0"],\
           ["react-toastify", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:9.1.3"],\
           ["recoil", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:0.7.7"],\
+          ["recoil-persist", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:5.1.0"],\
           ["slick-carousel", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:1.8.1"],\
           ["styled-components", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:5.3.11"],\
           ["styled-reset", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:4.5.2"],\
@@ -14143,6 +14144,7 @@ const RAW_RUNTIME_STATE =
           ["react-slick", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:0.29.0"],\
           ["react-toastify", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:9.1.3"],\
           ["recoil", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:0.7.7"],\
+          ["recoil-persist", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:5.1.0"],\
           ["slick-carousel", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:1.8.1"],\
           ["styled-components", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:5.3.11"],\
           ["styled-reset", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:4.5.2"],\
@@ -17594,6 +17596,28 @@ const RAW_RUNTIME_STATE =
           "react-dom",\
           "react-native",\
           "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["recoil-persist", [\
+      ["npm:5.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/recoil-persist-npm-5.1.0-6c9c3d1452-10c0.zip/node_modules/recoil-persist/",\
+        "packageDependencies": [\
+          ["recoil-persist", "npm:5.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:5.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/recoil-persist-virtual-e52eca20ff/6/.yarn/berry/cache/recoil-persist-npm-5.1.0-6c9c3d1452-10c0.zip/node_modules/recoil-persist/",\
+        "packageDependencies": [\
+          ["recoil-persist", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:5.1.0"],\
+          ["@types/recoil", null],\
+          ["recoil", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:0.7.7"]\
+        ],\
+        "packagePeers": [\
+          "@types/recoil",\
+          "recoil"\
         ],\
         "linkType": "HARD"\
       }]\

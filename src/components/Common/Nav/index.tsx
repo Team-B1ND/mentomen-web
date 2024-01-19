@@ -3,7 +3,7 @@ import token from "@/lib/token/token";
 import { useRouter } from "next/router";
 import Profile from "./Profile";
 import QRcode from "./QRcode";
-import RequestMento from "./RequestMento";
+import RequestMento from "./RequestMentor";
 import * as S from "./style";
 import SuggestSignIn from "./SuggestSignIn";
 import Tag from "./Tag";

@@ -7,7 +7,6 @@ import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
 import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
 import { useSetRecoilState } from "recoil";
-import { ActivePostFormAtom } from "@/stores/Post/post.store";
 import token from "@/lib/token/token";
 import profile from "@/public/icons/user/aprofile.png";
 import { useGetMyInfo } from "@/queries/User/user.query";
@@ -21,7 +20,6 @@ function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
   const [isHaveNotice, setIsHaveNotice] = useState(false);
 
-  const setIsActivePostForm = useSetRecoilState(ActivePostFormAtom);
   const setUserData = useSetRecoilState(UserDataAtom);
   const router = useRouter();
 
@@ -82,14 +80,16 @@ function Header() {
                   />
                 </CustomLink>
 
-                <S.MenToRequest
-                  onClick={() => {
-                    isActiveSearch && setIsActiveSearch(false);
-                    setIsActivePostForm(true);
-                  }}
-                >
-                  멘토 요청하기
-                </S.MenToRequest>
+                <CustomLink href={"/request-mentor"}>
+                  <S.MenToRequest
+                    onClick={() => {
+                      isActiveSearch && setIsActiveSearch(false);
+                      // setIsActivePostForm(true);
+                    }}
+                  >
+                    멘토 요청하기
+                  </S.MenToRequest>
+                </CustomLink>
               </>
             ) : (
               <S.StartMenToMen
