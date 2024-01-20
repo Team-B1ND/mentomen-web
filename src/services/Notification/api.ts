@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
-import { customAxios } from "@/src/libs/Axios/customAxios";
+import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import token from "@/src/libs/token/token";
 import {
   NoticeCheckResponse,
@@ -9,14 +9,14 @@ import {
 class NotificationApi {
   public async getNoticeCheckApi(): Promise<NoticeCheckResponse | void> {
     if (token.getCookie(ACCESS_TOKEN_KEY) !== undefined) {
-      const { data } = await customAxios.get("/notice/check");
+      const { data } = await MenToMenAxios.get("/notice/check");
       return data;
     }
     return;
   }
 
   public async getNoticeListApi(): Promise<NoticeListResponse> {
-    const { data } = await customAxios.get("/notice/list");
+    const { data } = await MenToMenAxios.get("/notice/list");
     return data;
   }
 }

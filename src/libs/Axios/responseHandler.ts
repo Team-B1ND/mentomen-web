@@ -5,7 +5,7 @@ import {
   REQUEST_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
 import token from "../token/token";
-import { customAxios } from "./customAxios";
+import { MenToMenAxios } from "./MenToMenAxios";
 
 export const responseHandler = async (error: AxiosError) => {
   const access_token = token.getCookie(ACCESS_TOKEN_KEY);
@@ -29,11 +29,11 @@ export const responseHandler = async (error: AxiosError) => {
 
         token.setCookie(ACCESS_TOKEN_KEY, data.data.accessToken);
 
-        customAxios.defaults.headers.common[
+        MenToMenAxios.defaults.headers.common[
           REQUEST_TOKEN_KEY
         ] = `Bearer ${data.data.accessToken}`;
 
-        return customAxios(originalRequest);
+        return MenToMenAxios(originalRequest);
       } catch (e) {
         token.removeCookie(ACCESS_TOKEN_KEY);
         token.removeCookie(REFRESH_TOKEN_KEY);

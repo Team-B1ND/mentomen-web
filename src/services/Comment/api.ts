@@ -1,4 +1,4 @@
-import { customAxios } from "@/src/libs/Axios/customAxios";
+import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import {
   postCommentType,
   getCommentResponse,
@@ -10,14 +10,14 @@ class CommentApi {
     content,
     postId,
   }: postCommentType): Promise<void> {
-    await customAxios.post("/comment/submit", {
+    await MenToMenAxios.post("/comment/submit", {
       content,
       postId,
     });
   }
 
   public async getCommentApi(postId: number): Promise<getCommentResponse> {
-    const { data } = await customAxios.get(`/comment/read/${postId}`);
+    const { data } = await MenToMenAxios.get(`/comment/read/${postId}`);
     return data;
   }
 
@@ -25,14 +25,14 @@ class CommentApi {
     commentId,
     content,
   }: patchCommentType): Promise<void> {
-    await customAxios.patch(`/comment/update`, {
+    await MenToMenAxios.patch(`/comment/update`, {
       commentId,
       content,
     });
   }
 
   public async deleteCommentApi(commentId: number): Promise<void> {
-    await customAxios.delete(`/comment/delete/${commentId}`);
+    await MenToMenAxios.delete(`/comment/delete/${commentId}`);
   }
 }
 
