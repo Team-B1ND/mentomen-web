@@ -1,16 +1,16 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
-import UserRepository from "@/src/repositories/User/user.repository";
 import { ListItemResponse } from "@/src/types/List/list.type";
-import { QUERY_KEYS } from "../queryKey";
+import UserApi from "./api";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 
-export const useGetMyInfo = () =>
-  useQuery(QUERY_KEYS.User.getMyInfo, () => UserRepository.getMyInfo(), {
+export const useGetMyInfoQuery = () =>
+  useQuery(QUERY_KEYS.User.getMyInfo, () => UserApi.getMyInfoApi(), {
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,
   });
 
-export const useGetMyPost = (
+export const useGetMyPostQuery = (
   options?: UseQueryOptions<
     ListItemResponse,
     AxiosError,
@@ -18,7 +18,7 @@ export const useGetMyPost = (
     string
   >
 ): UseQueryResult<ListItemResponse, AxiosError> =>
-  useQuery(QUERY_KEYS.User.getMyPost, () => UserRepository.getMyPost(), {
+  useQuery(QUERY_KEYS.User.getMyPost, () => UserApi.getMyPostApi(), {
     ...options,
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,

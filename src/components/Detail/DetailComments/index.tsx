@@ -1,8 +1,8 @@
-import { useGetCommentQuery } from "@/src/queries/Comment/comment.query";
 import DetailCommentsInput from "./DetailCommentsInput";
 import DetailCommentsList from "./DetailCommentsList";
 import styled from "styled-components";
 import flex from "@/src/style/flex";
+import { useGetCommentQuery } from "@/src/services/Comment/queries";
 
 const DetailComments = ({ postId }: { postId: number }) => {
   const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });

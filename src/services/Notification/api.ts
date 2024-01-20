@@ -6,8 +6,8 @@ import {
   NoticeListResponse,
 } from "@/src/types/Notice/notice.type";
 
-class NoticeRepository {
-  public async getNoticeCheck(): Promise<NoticeCheckResponse | void> {
+class NotificationApi {
+  public async getNoticeCheckApi(): Promise<NoticeCheckResponse | void> {
     if (token.getCookie(ACCESS_TOKEN_KEY) !== undefined) {
       const { data } = await customAxios.get("/notice/check");
       return data;
@@ -15,10 +15,10 @@ class NoticeRepository {
     return;
   }
 
-  public async getNoticeList(): Promise<NoticeListResponse> {
+  public async getNoticeListApi(): Promise<NoticeListResponse> {
     const { data } = await customAxios.get("/notice/list");
     return data;
   }
 }
 
-export default new NoticeRepository();
+export default new NotificationApi();

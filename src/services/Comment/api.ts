@@ -5,8 +5,8 @@ import {
   patchCommentType,
 } from "@/src/types/Comment/comment.type";
 
-class CommentRepository {
-  public async postComment({
+class CommentApi {
+  public async postCommentApi({
     content,
     postId,
   }: postCommentType): Promise<void> {
@@ -16,12 +16,12 @@ class CommentRepository {
     });
   }
 
-  public async getComment(postId: number): Promise<getCommentResponse> {
+  public async getCommentApi(postId: number): Promise<getCommentResponse> {
     const { data } = await customAxios.get(`/comment/read/${postId}`);
     return data;
   }
 
-  public async patchComment({
+  public async patchCommentApi({
     commentId,
     content,
   }: patchCommentType): Promise<void> {
@@ -31,9 +31,9 @@ class CommentRepository {
     });
   }
 
-  public async deleteComment(commentId: number): Promise<void> {
+  public async deleteCommentApi(commentId: number): Promise<void> {
     await customAxios.delete(`/comment/delete/${commentId}`);
   }
 }
 
-export default new CommentRepository();
+export default new CommentApi();

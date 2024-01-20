@@ -1,12 +1,12 @@
-import { useGetNoticeList } from "@/src/queries/Notice/notice.query";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "../style";
 import { useRouter } from "next/router";
 import { GetDateTime } from "@/src/util/Date/getDateTime";
 import { NonePostText } from "@/src/style/common.style";
+import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
 
 const NotificationItem = () => {
-  const { data: noticeList } = useGetNoticeList({ suspense: true });
+  const { data: noticeList } = useGetNoticeListQuery({ suspense: true });
   const router = useRouter();
 
   return (

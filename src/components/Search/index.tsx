@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { useGetKeyWord } from "@/src/queries/Post/post.query";
 import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
@@ -8,6 +7,7 @@ import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
 import { GetText } from "@/src/util/Text/getText";
+import { useGetPostByKeyWordQuery } from "@/src/services/Post/queries";
 
 const Search = () => {
   const router = useRouter();
@@ -39,7 +39,10 @@ const Search = () => {
 };
 
 const SearchItem = ({ keyword }: { keyword: string }) => {
-  const { data: searchList } = useGetKeyWord(keyword, { suspense: true });
+  const { data: searchList } = useGetPostByKeyWordQuery(keyword, {
+    suspense: true,
+  });
+
   return (
     <>
       {searchList?.data.length!! > 0 ? (

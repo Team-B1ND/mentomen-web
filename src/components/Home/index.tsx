@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import { useGetList } from "@/src/queries/Post/post.query";
 import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "@/src/components/Common/Title";
 import post from "@/public/icons/title/post.png";
+import { useGetAllPostQuery } from "@/src/services/Post/queries";
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
 };
 
 const HomeItem = () => {
-  const { data: allList } = useGetList({ suspense: true });
+  const { data: allList } = useGetAllPostQuery({ suspense: true });
   return (
     <>
       {allList?.data.length!! > 0 ? (

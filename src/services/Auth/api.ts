@@ -1,8 +1,8 @@
 import axios from "axios";
 import { LoginResponse } from "@/src/types/Login/login.type";
 
-class AuthRepository {
-  public async login({ code }: { code: string }): Promise<LoginResponse> {
+class AuthApi {
+  public async loginApi({ code }: { code: string }): Promise<LoginResponse> {
     const { data } = await axios.post(
       `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/code`,
       {
@@ -13,4 +13,4 @@ class AuthRepository {
   }
 }
 
-export default new AuthRepository();
+export default new AuthApi();

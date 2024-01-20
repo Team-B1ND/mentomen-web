@@ -1,6 +1,6 @@
 import Search from "@/src/components/Search";
-import { QUERY_KEYS } from "@/src/queries/queryKey";
-import postRepository from "@/src/repositories/Post/post.repository";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
@@ -25,8 +25,8 @@ SerachPage.getInitialProps = async (ctx: NextPageContext) => {
   if (ctx.query.keyword) {
     await Promise.all([
       queryClient.prefetchQuery(
-        QUERY_KEYS.Post.getKeyWord(ctx.query.keyword as string),
-        () => postRepository.getPostByKeyWord(ctx.query.keyword as string)
+        QUERY_KEYS.Post.getPostByKeyWord(ctx.query.keyword as string),
+        () => PostApi.getPostByKeyWordApi(ctx.query.keyword as string)
       ),
     ]);
   }

@@ -1,15 +1,15 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
-import NoticeRepository from "@/src/repositories/Notice/notice.repository";
 import { NoticeListResponse } from "@/src/types/Notice/notice.type";
-import { QUERY_KEYS } from "../queryKey";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import NotificationApi from "./api";
 
-export const useGetNoticeCheck = () =>
+export const useGetNoticeCheckQuery = () =>
   useQuery(QUERY_KEYS.Notice.getNoticeCheck, () =>
-    NoticeRepository.getNoticeCheck()
+    NotificationApi.getNoticeCheckApi()
   );
 
-export const useGetNoticeList = (
+export const useGetNoticeListQuery = (
   options?: UseQueryOptions<
     NoticeListResponse,
     AxiosError,
@@ -19,7 +19,7 @@ export const useGetNoticeList = (
 ): UseQueryResult<NoticeListResponse, AxiosError> =>
   useQuery(
     QUERY_KEYS.Notice.getNoticeList,
-    () => NoticeRepository.getNoticeList(),
+    () => NotificationApi.getNoticeListApi(),
     {
       ...options,
     }

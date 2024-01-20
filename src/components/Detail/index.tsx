@@ -1,5 +1,4 @@
 import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
-import { useGetApost } from "@/src/queries/Post/post.query";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
 import ErrorBoundary from "../Common/ErrorBoundary";
@@ -14,6 +13,7 @@ import DetailSkeleton from "../Common/Skeleton/Detail";
 import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 import LikeInteraction from "../Common/PostInteraction/LikeInteraction";
 import ShareInteraction from "../Common/PostInteraction/ShareInteraction";
+import { useGetPostByIdQuery } from "@/src/services/Post/queries";
 
 const Detail = () => {
   const router = useRouter();
@@ -39,7 +39,7 @@ const Detail = () => {
 };
 
 const DetailItem = ({ postId }: { postId: number }) => {
-  const { data: detailPost } = useGetApost(postId, { suspense: true });
+  const { data: detailPost } = useGetPostByIdQuery(postId, { suspense: true });
   return (
     <S.DetailItemContainer>
       <S.PostArticle>

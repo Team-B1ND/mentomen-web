@@ -1,12 +1,12 @@
-import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
-import { Dispatch, SetStateAction, useState } from "react";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import {
-  usePostCommentMutation,
   useDeleteCommentMutation,
   usePatchCommentMutation,
-} from "@/src/queries/Comment/comment.query";
+  usePostCommentMutation,
+} from "@/src/services/Comment/mutations";
+import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
-import { QUERY_KEYS } from "@/src/queries/queryKey";
 
 export const useComment = (exisitComment?: string) => {
   const [comment, setComment] = useState(exisitComment || "");

@@ -1,6 +1,5 @@
 import { Suspense, useEffect } from "react";
 import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
-import { useGetMyPost } from "@/src/queries/User/user.query";
 import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
@@ -9,6 +8,7 @@ import Title from "../Common/Title";
 import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
 import { CountOfPostAtom } from "@/src/stores/Post/post.store";
+import { useGetMyPostQuery } from "@/src/services/User/queries";
 
 const MyPage = () => {
   useTokenCheck();
@@ -34,7 +34,7 @@ const MyPage = () => {
 };
 
 const MyPageItem = () => {
-  const { data: myPost } = useGetMyPost({ suspense: true });
+  const { data: myPost } = useGetMyPostQuery({ suspense: true });
   const setCountOfPost = useSetRecoilState(CountOfPostAtom);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { UserInfo } from "@/types/User/user.type";
+import { UserInfo } from "@/src/types/User/user.type";
 import { atom } from "recoil";
 
 export const UserDataAtom = atom<UserInfo | null>({

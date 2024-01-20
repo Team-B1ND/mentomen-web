@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { useGetTag } from "@/src/queries/Post/post.query";
 import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
 import post from "@/public/icons/title/post.png";
+import { useGetPostByTagQuery } from "@/src/services/Post/queries";
 
 const Tag = () => {
   const router = useRouter();
@@ -34,7 +34,10 @@ const Tag = () => {
 };
 
 const TagItem = ({ tag }: { tag: string }) => {
-  const { data: tagList } = useGetTag(tag?.toUpperCase(), { suspense: true });
+  const { data: tagList } = useGetPostByTagQuery(tag?.toUpperCase(), {
+    suspense: true,
+  });
+
   return (
     <>
       {tagList?.data.length!! > 0 ? (

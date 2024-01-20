@@ -1,20 +1,11 @@
-import {
-  useMutation,
-  useQuery,
-  UseQueryOptions,
-  UseQueryResult,
-} from "react-query";
-import PostRepository from "@/src/repositories/Post/post.repository";
-import {
-  ListPatchItem,
-  ListResponse,
-  PostSubmitType,
-} from "@/src/types/List/list.type";
+import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
+import { ListResponse } from "@/src/types/List/list.type";
 import { ListItemResponse } from "@/src/types/List/list.type";
 import { AxiosError } from "axios";
-import { QUERY_KEYS } from "../queryKey";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import PostApi from "./api";
 
-export const useGetList = (
+export const useGetAllPostQuery = (
   options?: UseQueryOptions<
     ListItemResponse,
     AxiosError,
@@ -22,14 +13,14 @@ export const useGetList = (
     string
   >
 ): UseQueryResult<ListItemResponse, AxiosError> => {
-  return useQuery(QUERY_KEYS.Post.getList, () => PostRepository.getAllPost(), {
+  return useQuery(QUERY_KEYS.Post.getAllPost, () => PostApi.getAllPostApi(), {
     ...options,
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,
   });
 };
 
-export const useGetApost = (
+export const useGetPostByIdQuery = (
   postId: number,
   options?: UseQueryOptions<
     ListResponse,
@@ -39,8 +30,8 @@ export const useGetApost = (
   >
 ): UseQueryResult<ListResponse, AxiosError> =>
   useQuery(
-    QUERY_KEYS.Post.getApost(postId),
-    () => PostRepository.getPostById(postId),
+    QUERY_KEYS.Post.getPostById(postId),
+    () => PostApi.getPostByIdApi(postId),
     {
       ...options,
       enabled: !!postId,
@@ -49,14 +40,7 @@ export const useGetApost = (
     }
   );
 
-export const usePostMySubmitMutation = () => {
-  const mutation = useMutation((data: PostSubmitType) =>
-    PostRepository.postSubmit(data)
-  );
-  return mutation;
-};
-
-export const useGetTag = (
+export const useGetPostByTagQuery = (
   tag: string,
   options?: UseQueryOptions<
     ListItemResponse,
@@ -66,8 +50,8 @@ export const useGetTag = (
   >
 ): UseQueryResult<ListItemResponse, AxiosError> =>
   useQuery(
-    QUERY_KEYS.Post.getTag(tag),
-    () => PostRepository.getPostByTag(tag),
+    QUERY_KEYS.Post.getPostByTag(tag),
+    () => PostApi.getPostByTagApi(tag),
     {
       ...options,
       enabled: !!tag,
@@ -76,7 +60,7 @@ export const useGetTag = (
     }
   );
 
-export const useGetKeyWord = (
+export const useGetPostByKeyWordQuery = (
   keyword: string,
   options?: UseQueryOptions<
     ListItemResponse,
@@ -86,8 +70,8 @@ export const useGetKeyWord = (
   >
 ): UseQueryResult<ListItemResponse, AxiosError> =>
   useQuery(
-    QUERY_KEYS.Post.getKeyWord(keyword),
-    () => PostRepository.getPostByKeyWord(keyword),
+    QUERY_KEYS.Post.getPostByKeyWord(keyword),
+    () => PostApi.getPostByKeyWordApi(keyword),
     {
       ...options,
       enabled: !!keyword,
@@ -95,18 +79,3 @@ export const useGetKeyWord = (
       cacheTime: 1000 * 60 * 60,
     }
   );
-
-export const usePatchMyPostMutation = () => {
-  const mutation = useMutation((data: ListPatchItem) =>
-    PostRepository.patchPost(data)
-  );
-  return mutation;
-};
-
-export const useDeletePostMutation = () => {
-  const mutation = useMutation((postId: number) =>
-    PostRepository.deletePost(postId)
-  );
-
-  return mutation;
-};

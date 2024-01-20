@@ -1,8 +1,8 @@
 import Home from "@/src/components/Home";
-import { QUERY_KEYS } from "@/src/queries/queryKey";
-import postRepository from "@/src/repositories/Post/post.repository";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
+import { QUERY_KEYS } from "../constants/Auth/auth.constant";
+import PostApi from "../services/Post/api";
 
 const HomePage = () => {
   return (
@@ -23,8 +23,8 @@ export const getServerSideProps = async () => {
 
   await Promise.all([
     queryClient.prefetchQuery(
-      QUERY_KEYS.Post.getList,
-      postRepository.getAllPost
+      QUERY_KEYS.Post.getAllPost,
+      PostApi.getAllPostApi
     ),
   ]);
 

@@ -1,17 +1,17 @@
 import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { useFileUploadMutation } from "@/src/queries/File/file.query";
-import {
-  useDeletePostMutation,
-  usePostMySubmitMutation,
-  usePatchMyPostMutation,
-} from "@/src/queries/Post/post.query";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { PostSubmitType } from "@/src/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
-import { QUERY_KEYS } from "@/src/queries/queryKey";
 import { useRecoilState } from "recoil";
 import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
+import {
+  useDeletePostMutation,
+  usePatchMyPostMutation,
+  usePostMySubmitMutation,
+} from "@/src/services/Post/mutations";
+import { useFileUploadMutation } from "@/src/services/File/mutations";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 
 export const useRegistPost = () => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
@@ -77,7 +77,6 @@ export const useRegistPost = () => {
     e: React.ChangeEvent<HTMLDivElement>
   ) => {
     setContent(e.currentTarget.innerText.trim()!);
-    console.log(content);
   };
 
   const handleDeletePostClick = (
@@ -89,8 +88,8 @@ export const useRegistPost = () => {
       deletePost.mutate(postId, {
         onSuccess: () => {
           queryInvalidates([
-            QUERY_KEYS.Post.getList,
-            QUERY_KEYS.Post.getApost(postId),
+            QUERY_KEYS.Post.getAllPost,
+            QUERY_KEYS.Post.getPostById(postId),
             QUERY_KEYS.User.getMyPost,
             ["post/GetTagQuery"],
           ]);
@@ -122,7 +121,7 @@ export const useRegistPost = () => {
         {
           onSuccess: () => {
             queryInvalidates([
-              QUERY_KEYS.Post.getList,
+              QUERY_KEYS.Post.getAllPost,
               QUERY_KEYS.User.getMyPost,
             ]);
 

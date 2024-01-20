@@ -43,7 +43,7 @@ export const PostWrap = styled.div`
 export const PostContent = styled.div`
   width: 100%;
   height: auto;
-  padding-left: 58px;
+  padding-left: 63px;
   padding-right: 23px;
   ${flex({ flexDirection: "column", rowGap: "4px" })}
 `;

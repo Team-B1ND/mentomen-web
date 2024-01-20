@@ -1,6 +1,6 @@
 import Detail from "@/src/components/Detail";
-import { QUERY_KEYS } from "@/src/queries/queryKey";
-import postRepository from "@/src/repositories/Post/post.repository";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
 import Head from "next/head";
 import React from "react";
@@ -26,8 +26,8 @@ DetailPage.getInitialProps = async (ctx: NextPageContext) => {
   if (ctx.query.id) {
     await Promise.all([
       queryClient.prefetchQuery(
-        QUERY_KEYS.Post.getApost(Number(ctx.query.id)),
-        () => postRepository.getPostById(Number(ctx.query.id))
+        QUERY_KEYS.Post.getPostById(Number(ctx.query.id)),
+        () => PostApi.getPostByIdApi(Number(ctx.query.id))
       ),
     ]);
   }

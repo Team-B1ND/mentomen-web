@@ -2,10 +2,10 @@ import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
-import authRepository from "@/src/repositories/Auth/auth.repository";
 import { useEffect } from "react";
 import token from "@/src/lib/token/token";
 import { useRouter } from "next/router";
+import AuthApi from "@/src/services/Auth/api";
 
 export const useDAtuhLogin = () => {
   const router = useRouter();
@@ -16,7 +16,7 @@ export const useDAtuhLogin = () => {
     if (code) {
       const request = async () => {
         try {
-          const { data } = await authRepository.login({
+          const { data } = await AuthApi.loginApi({
             code: code.toString(),
           });
 

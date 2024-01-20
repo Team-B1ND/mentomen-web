@@ -4,8 +4,8 @@ import token from "@/src/lib/token/token";
 import { ListItemResponse } from "@/src/types/List/list.type";
 import { UserResponse } from "@/src/types/User/user.type";
 
-class UserRepository {
-  public async getMyInfo(): Promise<UserResponse | void> {
+class UserApi {
+  public async getMyInfoApi(): Promise<UserResponse | void> {
     if (token.getCookie(ACCESS_TOKEN_KEY) !== undefined) {
       const { data } = await customAxios.get(`/user/my`);
       return data;
@@ -13,10 +13,10 @@ class UserRepository {
     return;
   }
 
-  public async getMyPost(): Promise<ListItemResponse> {
+  public async getMyPostApi(): Promise<ListItemResponse> {
     const { data } = await customAxios.get(`/user/post`);
     return data;
   }
 }
 
-export default new UserRepository();
+export default new UserApi();

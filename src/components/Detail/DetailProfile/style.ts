@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const ProfileBox = styled.div`
-  ${flex({ alignItems: "center", columnGap: "13px" })}
+  ${flex({ alignItems: "center", columnGap: "18px" })}
 `;
 
 export const ProfileImage = styled(Image)`

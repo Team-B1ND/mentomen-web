@@ -1,6 +1,6 @@
 import Tag from "@/src/components/Tag";
-import { QUERY_KEYS } from "@/src/queries/queryKey";
-import PostRepository from "@/src/repositories/Post/post.repository";
+import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
@@ -25,8 +25,8 @@ TagPage.getInitialProps = async (ctx: NextPageContext) => {
   if (ctx.query.tag) {
     await Promise.all([
       queryClient.prefetchQuery(
-        QUERY_KEYS.Post.getTag(ctx.query.tag as string),
-        () => PostRepository.getPostByTag(ctx.query.tag as string)
+        QUERY_KEYS.Post.getPostByTag(ctx.query.tag as string),
+        () => PostApi.getPostByTagApi(ctx.query.tag as string)
       ),
     ]);
   }
