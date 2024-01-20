@@ -1,7 +1,7 @@
 import DetailCommentsInput from "./DetailCommentsInput";
 import DetailCommentsList from "./DetailCommentsList";
 import styled from "styled-components";
-import flex from "@/src/style/flex";
+import flex from "@/src/styles/flex";
 import { useGetCommentQuery } from "@/src/services/Comment/queries";
 
 const DetailComments = ({ postId }: { postId: number }) => {

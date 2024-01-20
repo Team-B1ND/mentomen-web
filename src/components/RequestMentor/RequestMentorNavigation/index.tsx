@@ -1,5 +1,5 @@
 import leftArrow from "@/public/icons/RequestMentor/leftArrow.svg";
-import flex from "@/src/style/flex";
+import flex from "@/src/styles/flex";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 

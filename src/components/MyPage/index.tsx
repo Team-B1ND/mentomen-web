@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from "react";
 import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
-import * as S from "@/src/style/common.style";
+import * as S from "@/src/styles/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";

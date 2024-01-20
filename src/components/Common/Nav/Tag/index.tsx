@@ -3,7 +3,7 @@ import macbook from "@/public/icons/title/macbook.png";
 import { useRouter } from "next/router";
 import * as S from "./style";
 import Title from "../../Title";
-import { CustomLink } from "@/src/style/common.style";
+import { CustomLink } from "@/src/styles/common.style";
 import { NAV_TAGS_ITEMS } from "./constant";
 
 const Tag = () => {

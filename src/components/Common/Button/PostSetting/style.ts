@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import flex from "@/src/style/flex";
+import flex from "@/src/styles/flex";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
 export const Container = styled.div`

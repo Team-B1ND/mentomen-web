@@ -1,8 +1,8 @@
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "../style";
 import { useRouter } from "next/router";
-import { GetDateTime } from "@/src/util/Date/getDateTime";
-import { NonePostText } from "@/src/style/common.style";
+import { GetDateTime } from "@/src/utils/Date/getDateTime";
+import { NonePostText } from "@/src/styles/common.style";
 import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
 
 const NotificationItem = () => {

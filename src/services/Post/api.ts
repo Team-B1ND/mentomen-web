@@ -1,4 +1,4 @@
-import { customAxios } from "@/src/lib/Axios/customAxios";
+import { customAxios } from "@/src/libs/Axios/customAxios";
 import { ListPatchItem, PostSubmitType } from "@/src/types/List/list.type";
 import { ListResponse, ListItemResponse } from "@/src/types/List/list.type";
 

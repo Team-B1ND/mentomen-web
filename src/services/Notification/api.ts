@@ -1,6 +1,6 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
-import { customAxios } from "@/src/lib/Axios/customAxios";
-import token from "@/src/lib/token/token";
+import { customAxios } from "@/src/libs/Axios/customAxios";
+import token from "@/src/libs/token/token";
 import {
   NoticeCheckResponse,
   NoticeListResponse,

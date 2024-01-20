@@ -1,4 +1,4 @@
-import { customAxios } from "@/src/lib/Axios/customAxios";
+import { customAxios } from "@/src/libs/Axios/customAxios";
 import {
   postCommentType,
   getCommentResponse,

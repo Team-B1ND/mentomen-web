@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import * as S from "@/src/style/common.style";
+import * as S from "@/src/styles/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
-import { GetText } from "@/src/util/Text/getText";
+import { GetText } from "@/src/utils/Text/getText";
 import { useGetPostByKeyWordQuery } from "@/src/services/Post/queries";
 
 const Search = () => {

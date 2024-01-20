@@ -3,7 +3,7 @@ import {
   DAUTH_URL,
 } from "@/src/constants/Auth/auth.constant";
 import { useComment } from "@/src/hooks/Comment/useComment";
-import token from "@/src/lib/token/token";
+import token from "@/src/libs/token/token";
 import profile from "@/public/icons/user/aprofile.png";
 import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useEffect, useState } from "react";

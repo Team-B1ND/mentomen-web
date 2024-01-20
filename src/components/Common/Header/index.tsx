@@ -9,13 +9,13 @@ import {
 } from "@/src/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import token from "@/src/lib/token/token";
+import token from "@/src/libs/token/token";
 import profile from "@/public/icons/user/aprofile.png";
 import Portal from "@/src/components/Modal/Portal";
 import Search from "@/src/components/Modal/Search";
 import { useRouter } from "next/router";
 import { UserDataAtom } from "@/src/stores/User/user.store";
-import { CustomLink } from "@/src/style/common.style";
+import { CustomLink } from "@/src/styles/common.style";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
 

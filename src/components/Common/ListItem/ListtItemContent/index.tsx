@@ -1,4 +1,4 @@
-import { GetDateTime } from "@/src/util/Date/getDateTime";
+import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import * as S from "./style";
 import ShowMoreContent from "../../ShowMoreContent";
 import ListItemContentImage from "./ListItemContentImage";

@@ -2,7 +2,7 @@ import { ListItemType } from "@/src/types/List/list.type";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
 import EditingDots from "@/src/components/Common/Button/EditingDots";
-import { GetDateTime } from "@/src/util/Date/getDateTime";
+import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue } from "recoil";
 import { UserDataAtom } from "@/src/stores/User/user.store";
 
@@ -37,10 +37,7 @@ const DetailProfile = ({ ...attr }: ListItemType) => {
       </S.ProfileBox>
 
       {userData?.userId === attr.author && (
-        <EditingDots
-          customStyle={S.DotsStyle}
-          listItemData={attr}
-        />
+        <EditingDots customStyle={S.DotsStyle} listItemData={attr} />
       )}
     </S.Container>
   );

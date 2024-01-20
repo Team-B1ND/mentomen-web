@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import * as S from "@/src/style/common.style";
+import * as S from "@/src/styles/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";

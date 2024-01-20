@@ -1,5 +1,5 @@
-import flex from "@/src/style/flex";
-import { palette } from "@/src/style/palette";
+import flex from "@/src/styles/flex";
+import { palette } from "@/src/styles/palette";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 

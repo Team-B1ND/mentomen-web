@@ -1,4 +1,4 @@
-import flex from "@/src/style/flex";
+import flex from "@/src/styles/flex";
 import Image from "next/image";
 import { RxDotsVertical } from "react-icons/rx";
 import styled, { CSSObject } from "styled-components";

@@ -1,7 +1,7 @@
 import { getCommentType } from "@/src/types/Comment/comment.type";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
-import { GetDateTime } from "@/src/util/Date/getDateTime";
+import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue } from "recoil";
 import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useState } from "react";

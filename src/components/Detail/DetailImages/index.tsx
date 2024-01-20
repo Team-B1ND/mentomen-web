@@ -1,6 +1,6 @@
 import ViewImage from "@/src/components/Modal/ViewImage";
 import { slideOptions } from "@/src/constants/Slide/slide.constant";
-import { ItemImage, SlideWrapper, StyledSlider } from "@/src/style/slide";
+import { ItemImage, SlideWrapper, StyledSlider } from "@/src/styles/slide";
 import React, { useState } from "react";
 import Portal from "../../Modal/Portal";
 import * as S from "./style";

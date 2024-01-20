@@ -1,5 +1,5 @@
 import Provider from "@/src/components/Common/Provider";
-import { MenToMenToastContainer } from "@/src/util/Toast/menToMenToastContainer";
+import { MenToMenToastContainer } from "@/src/utils/Toast/menToMenToastContainer";
 import { NextComponentType } from "next";
 import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import React, { useEffect, useState } from "react";

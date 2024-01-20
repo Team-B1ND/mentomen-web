@@ -1,11 +1,11 @@
-import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
+import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
-import token from "@/src/lib/token/token";
+import token from "@/src/libs/token/token";
 
 const useTokenCheck = () => {
   const router = useRouter();

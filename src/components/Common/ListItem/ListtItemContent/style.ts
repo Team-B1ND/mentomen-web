@@ -1,4 +1,4 @@
-import flex from "@/src/style/flex";
+import flex from "@/src/styles/flex";
 import styled from "styled-components";
 
 export const ContentContainer = styled.div`

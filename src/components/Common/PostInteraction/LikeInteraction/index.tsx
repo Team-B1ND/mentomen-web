@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
-import token from "@/src/lib/token/token";
+import token from "@/src/libs/token/token";
 import { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import styled, { CSSObject } from "styled-components";

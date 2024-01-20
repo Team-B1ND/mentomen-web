@@ -1,4 +1,4 @@
-import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
+import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { PostSubmitType } from "@/src/types/List/list.type";

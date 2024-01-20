@@ -1,7 +1,7 @@
-import { palette } from "@/src/style/palette";
+import { palette } from "@/src/styles/palette";
 import Image from "next/image";
 import styled, { css } from "styled-components";
-import flex from "../../../style/flex";
+import flex from "../../../styles/flex";
 
 export const HeaderContainer = styled.header`
   position: fixed;

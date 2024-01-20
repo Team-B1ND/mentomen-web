@@ -1,5 +1,5 @@
-import flex from "@/src/style/flex";
-import getTag from "@/src/util/Tag/getTag";
+import flex from "@/src/styles/flex";
+import getTag from "@/src/utils/Tag/getTag";
 import styled from "styled-components";
 import Image from "next/image";
 

@@ -1,8 +1,8 @@
 import { BsArrowUpShort } from "react-icons/bs";
-import flex from "@/src/style/flex";
+import flex from "@/src/styles/flex";
 import React from "react";
 import styled from "styled-components";
-import { palette } from "@/src/style/palette";
+import { palette } from "@/src/styles/palette";
 
 const ScrollTopButton = () => {
   return (

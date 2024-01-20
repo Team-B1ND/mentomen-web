@@ -3,7 +3,7 @@ import {
   REFRESH_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
 import { useEffect } from "react";
-import token from "@/src/lib/token/token";
+import token from "@/src/libs/token/token";
 import { useRouter } from "next/router";
 import AuthApi from "@/src/services/Auth/api";
 

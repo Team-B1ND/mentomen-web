@@ -1,6 +1,6 @@
 import { ListItemType } from "@/src/types/List/list.type";
 import * as S from "./style";
-import getTag from "@/src/util/Tag/getTag";
+import getTag from "@/src/utils/Tag/getTag";
 import { useRouter } from "next/router";
 import EditingDots from "../../Button/EditingDots";
 

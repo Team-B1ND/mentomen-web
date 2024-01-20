@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import flex from "../../../style/flex";
+import flex from "../../../styles/flex";
 
 export const AsideContainer = styled.aside`
   width: 300px;

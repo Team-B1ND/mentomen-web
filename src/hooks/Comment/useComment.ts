@@ -4,7 +4,7 @@ import {
   usePatchCommentMutation,
   usePostCommentMutation,
 } from "@/src/services/Comment/mutations";
-import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
+import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 

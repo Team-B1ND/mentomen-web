@@ -1,4 +1,4 @@
-import { customAxios } from "@/src/lib/Axios/customAxios";
+import { customAxios } from "@/src/libs/Axios/customAxios";
 import { FileResponse } from "@/src/types/File/file.type";
 
 class FileApi {
