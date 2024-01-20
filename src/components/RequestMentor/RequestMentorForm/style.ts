@@ -19,17 +19,22 @@ export const TagIcon = styled(Image)`
   height: 30px;
 `;
 
-export const ContentInput = styled.div<{ placeholder: string }>`
+export const ContentInputContainer = styled.div`
   width: 100%;
   height: auto;
-
   padding-bottom: 35px;
+`;
+
+export const ContentInput = styled.div<{ placeholder: string }>`
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+
   outline: none;
   border: none;
 
   font-size: 16px;
-  white-space: pre-wrap;
-  line-height: 23px;
+  line-height: 18px;
 
   ${({ placeholder }) =>
     placeholder &&

@@ -25,7 +25,15 @@ export const useComment = (exisitComment?: string) => {
   };
 
   const handleCommentChange = (e: React.ChangeEvent<HTMLDivElement>) => {
-    setComment(e.currentTarget.innerText!);
+    // 브라우저 식별 => 크롬은 content 엔터키를 입력하면 줄바꿈이 2번되기 때문에
+    const isChrome =
+      /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if (isChrome) {
+      setComment(e.currentTarget.innerText.replace(/\n\n/g, "\n"));
+    } else {
+      // 아니라면 그냥 현재의 텍스트를 그대로 유지
+      setComment(e.currentTarget.innerText);
+    }
   };
 
   const handleDeleteComment = (commentId: number, postId: number) => {

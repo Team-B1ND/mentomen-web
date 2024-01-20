@@ -51,11 +51,11 @@ export const CommentUpadateTimeText = styled.p`
   color: #606060;
 `;
 
-export const CommentText = styled.p`
+export const CommentText = styled.div`
   white-space: pre-wrap;
   word-break: break-word;
   font-size: 15px;
-  line-height: 22px;
+  line-height: 18px;
 `;
 
 export const DotsIconContainer = styled.div`

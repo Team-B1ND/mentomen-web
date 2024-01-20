@@ -6,7 +6,7 @@ import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
-import post from "@/public/icons/title/post.png";
+import readingGlasses from "@/public/icons/title/readingGlasses.png";
 import { GetText } from "@/util/Text/getText";
 
 const Search = () => {
@@ -21,7 +21,7 @@ const Search = () => {
     <S.ListContainer>
       <S.TitleContainer>
         <Title
-          titleIcon={post}
+          titleIcon={readingGlasses}
           titleText={`${keywordEllipsis}에 관한 멘토 요청 글`}
           subTitleText={`검색한 ${keywordEllipsis}에 관한 멘토 요청 글을 조회할 수 있어요!`}
         />

@@ -50,7 +50,7 @@ const DetailItem = ({ postId }: { postId: number }) => {
             <ShowMoreContent
               content={detailPost?.data.content!}
               customStyle={{ fontSize: "15px", lineHeight: "21px" }}
-              maxHeight={84}
+              maxHeight={86}
             />
 
             {detailPost?.data.imgUrls !== null && (

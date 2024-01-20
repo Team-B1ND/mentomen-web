@@ -9,14 +9,14 @@ const ShareInteraction = ({ postId, customStyle }: PostInteractionProps) => {
   return (
     <ShareIcon
       onClick={() => handleSharePostClick(postId)}
-      customStyle={customStyle!}
+      customstyle={customStyle!}
     />
   );
 };
 
 export default ShareInteraction;
 
-const ShareIcon = styled(AiOutlineShareAlt)<{ customStyle: CSSObject }>`
+const ShareIcon = styled(AiOutlineShareAlt)<{ customstyle: CSSObject }>`
   ${S.HoverAnimation}
-  ${({ customStyle }) => customStyle}
+  ${({ customstyle }) => customstyle}
 `;

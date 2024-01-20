@@ -18,7 +18,7 @@ const ListItemContent = ({ ...attr }: Props) => {
   const getDateTime = new GetDateTime();
   return (
     <S.ContentContainer>
-      <ShowMoreContent content={attr.content} maxHeight={66} />
+      <ShowMoreContent content={attr.content} maxHeight={72} />
 
       {attr.imgUrls?.length > 0 && (
         <ListItemContentImage imgUrls={attr.imgUrls} />

@@ -4,10 +4,11 @@ import * as S from "./style";
 import { useRecoilValue } from "recoil";
 import profile from "@/public/icons/user/aprofile.png";
 import { UserDataAtom } from "@/stores/User/user.store";
-import { CustomLink } from "@/style/common.style";
+import { useRouter } from "next/router";
 
 const RequestMentor = () => {
   const userData = useRecoilValue(UserDataAtom);
+  const router = useRouter();
 
   return (
     <S.Container>
@@ -18,9 +19,9 @@ const RequestMentor = () => {
       />
       <S.RequestMentoBox>
         <S.Profile src={userData?.profileImage || profile} alt="프로필" />
-        <CustomLink href={"/request-mentor"}>
-          <S.RequestButton>멘토에게 요청할 내용이 무엇인가요?</S.RequestButton>
-        </CustomLink>
+        <S.RequestButton onClick={() => router.push("/request-mentor")}>
+          멘토에게 요청할 내용이 무엇인가요?
+        </S.RequestButton>
       </S.RequestMentoBox>
     </S.Container>
   );

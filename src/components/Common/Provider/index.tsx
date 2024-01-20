@@ -4,7 +4,6 @@ import { HideHeaderAtom, HideNavAtom } from "@/stores/common/common.store";
 import GlobalStyle from "@/style/globalStyle";
 import Header from "../Header";
 import Nav from "../Nav";
-import Portal from "@/components/Modal/Portal";
 import ScrollTopButton from "../Button/ScrollTop";
 import * as S from "./style";
 import { useRouter } from "next/router";

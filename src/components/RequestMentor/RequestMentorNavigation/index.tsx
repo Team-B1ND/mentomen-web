@@ -4,31 +4,31 @@ import Image from "next/image";
 import styled, { css } from "styled-components";
 
 interface Props {
-  content: string;
+  isRequiredPostData: boolean;
   handlePageOutEvent: () => void;
-  handlePostSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handlePostSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const RequestMentorNavigation = ({
-  content,
+  isRequiredPostData,
   handlePageOutEvent,
   handlePostSubmit,
 }: Props) => {
   return (
-    <NavigationBox lengthOfContent={content.trim().length}>
+    <NavigationBox isRequiredPostData={isRequiredPostData}>
       <PrevArrowIcon
         src={leftArrow}
         onClick={handlePageOutEvent}
         alt="이전 페이지로 이동"
       />
-      <button>멘토 요청하기</button>
+      <button onClick={handlePostSubmit}>멘토 요청하기</button>
     </NavigationBox>
   );
 };
 
 export default RequestMentorNavigation;
 
-export const NavigationBox = styled.div<{ lengthOfContent: number }>`
+export const NavigationBox = styled.div<{ isRequiredPostData: boolean }>`
   width: 100%;
   height: 60px;
 
@@ -49,8 +49,8 @@ export const NavigationBox = styled.div<{ lengthOfContent: number }>`
     color: gray;
 
     transition: all 0.3s ease-in-out;
-    ${({ lengthOfContent }) =>
-      lengthOfContent > 0 &&
+    ${({ isRequiredPostData }) =>
+      isRequiredPostData &&
       css`
         background-color: #2749dc;
         color: #f2f2f2;

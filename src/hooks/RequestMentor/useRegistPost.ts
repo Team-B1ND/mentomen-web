@@ -12,7 +12,6 @@ import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 import { QUERY_KEYS } from "@/queries/queryKey";
 
 export const useRegistPost = () => {
-  const selectFileImage = useRef<HTMLInputElement>(null);
   const [imgUrl, setImgUrl] = useState<string[]>([]);
   const [content, setContent] = useState("");
   const [postData, setPostData] = useState<PostSubmitType>({
@@ -21,14 +20,17 @@ export const useRegistPost = () => {
     tag: "",
   });
 
+  const selectFileImage = useRef<HTMLInputElement>(null);
+  const isRequiredPostData = content.trim() !== "" && postData.tag !== "";
+
   const formData = new FormData();
   const router = useRouter();
+  const { queryInvalidates } = useQueryInvalidates();
 
   const deletePost = useDeletePostMutation();
   const fileUpload = useFileUploadMutation();
   const postSubmit = usePostMySubmitMutation();
   const editSubmit = usePatchMyPostMutation();
-  const { queryInvalidates } = useQueryInvalidates();
 
   const handlePageOutEvent = () => {
     if (content.trim() !== "" || postData.tag !== "" || imgUrl.length !== 0) {
@@ -69,7 +71,16 @@ export const useRegistPost = () => {
   const handleRequestMentorInputChange = (
     e: React.ChangeEvent<HTMLDivElement>
   ) => {
-    setContent(e.currentTarget?.innerText);
+    // 브라우저 식별 => 크롬은 content 엔터키를 입력하면 줄바꿈이 2번되기 때문에
+    const isChrome =
+      /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    // 크롬이라면 두 번 연속으로 나타나는 줄바꿈을 하나의 줄바꿈으로 처리
+    if (isChrome) {
+      setContent(e.currentTarget.innerText.replace(/\n\n/g, "\n"));
+    } else {
+      // 아니라면 그냥 현재의 텍스트를 그대로 유지
+      setContent(e.currentTarget.innerText);
+    }
   };
 
   const handleDeletePostClick = (
@@ -103,37 +114,30 @@ export const useRegistPost = () => {
     }
   };
 
-  const handlePostSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handlePostSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const { tag } = postData;
 
-    if (tag === "") {
-      MenToMenToast.showInfo("태그를 지정해주세요.");
-      return;
+    if (content.trim() !== "" && postData.tag !== "") {
+      const { tag } = postData;
+
+      postSubmit.mutate(
+        { content: content.trim(), tag, imgUrls: imgUrl },
+        {
+          onSuccess: () => {
+            queryInvalidates([
+              QUERY_KEYS.Post.getList,
+              QUERY_KEYS.User.getMyPost,
+            ]);
+
+            MenToMenToast.showSuccess("게시글을 작성하였습니다.");
+            router.push("/");
+          },
+          onError: (e) => {
+            MenToMenToast.showError("게시글을 작성하지 못했습니다.");
+          },
+        }
+      );
     }
-
-    if (content.trim() === "") {
-      MenToMenToast.showInfo("글을 작성해주세요.");
-      return;
-    }
-
-    postSubmit.mutate(
-      { content: content.trimEnd(), tag, imgUrls: imgUrl },
-      {
-        onSuccess: () => {
-          queryInvalidates([
-            QUERY_KEYS.Post.getList,
-            QUERY_KEYS.User.getMyPost,
-          ]);
-
-          MenToMenToast.showSuccess("게시글을 작성하였습니다.");
-          router.push("/");
-        },
-        onError: (e) => {
-          MenToMenToast.showError("게시글을 작성하지 못했습니다.");
-        },
-      }
-    );
   };
 
   return {
@@ -147,10 +151,11 @@ export const useRegistPost = () => {
     setContent,
 
     selectFileImage,
+    isRequiredPostData,
+    handlePageOutEvent,
+
     handleFileUploadClick,
     handleFileUploadDrop,
-
-    handlePageOutEvent,
 
     handleRequestMentorInputChange,
     handleDeletePostClick,

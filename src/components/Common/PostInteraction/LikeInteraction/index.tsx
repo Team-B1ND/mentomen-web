@@ -14,12 +14,12 @@ const LikeInteraction = ({ postId, customStyle }: PostInteractionProps) => {
         (isLike ? (
           <FillHeartIcon
             onClick={() => setIsLike(false)}
-            customStyle={customStyle!}
+            customstyle={customStyle!}
           />
         ) : (
           <UnFillHeartIcon
             onClick={() => setIsLike(true)}
-            customStyle={customStyle!}
+            customstyle={customStyle!}
           />
         ))}
     </>
@@ -28,13 +28,13 @@ const LikeInteraction = ({ postId, customStyle }: PostInteractionProps) => {
 
 export default LikeInteraction;
 
-const UnFillHeartIcon = styled(AiOutlineHeart)<{ customStyle: CSSObject }>`
+const UnFillHeartIcon = styled(AiOutlineHeart)<{ customstyle: CSSObject }>`
   ${S.HoverAnimation}
-  ${({ customStyle }) => customStyle}
+  ${({ customstyle }) => customstyle}
 `;
 
-const FillHeartIcon = styled(AiFillHeart)<{ customStyle: CSSObject }>`
+const FillHeartIcon = styled(AiFillHeart)<{ customstyle: CSSObject }>`
   color: #ff3742;
   ${S.HoverAnimation}
-  ${({ customStyle }) => customStyle}
+  ${({ customstyle }) => customstyle}
 `;

@@ -32,7 +32,7 @@ export const CommentTextInput = styled.div<{
   padding: 0 3px 8px;
 
   font-size: 15px;
-  line-height: 21px;
+  line-height: 18px;
   background-color: transparent;
 
   white-space: pre-wrap;

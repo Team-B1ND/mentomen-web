@@ -7,14 +7,14 @@ import { PostInteractionProps } from "../type";
 const CommentInteraction = ({ postId, customStyle }: PostInteractionProps) => {
   return (
     <CustomLink href={`/detail/${postId}`}>
-      <CommentIcon customStyle={customStyle!} />
+      <CommentIcon customstyle={customStyle!} />
     </CustomLink>
   );
 };
 
 export default CommentInteraction;
 
-const CommentIcon = styled(AiOutlineComment)<{ customStyle: CSSObject }>`
+const CommentIcon = styled(AiOutlineComment)<{ customstyle: CSSObject }>`
   ${S.HoverAnimation}
-  ${({ customStyle }) => customStyle}
+  ${({ customstyle }) => customstyle}
 `;

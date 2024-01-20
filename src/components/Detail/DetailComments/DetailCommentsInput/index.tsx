@@ -54,6 +54,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                   ? setIsActiveCommentInput(true)
                   : (window.location.href = DAUTH_URL)
               }
+              suppressContentEditableWarning
             >
               {attr.commentId && attr.exisitComment}
             </S.CommentTextInput>

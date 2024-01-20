@@ -20,7 +20,7 @@ export const ContentText = styled.div<{
 
   white-space: pre-wrap;
   word-break: break-word;
-  line-height: 22px;
+  line-height: 18px;
 
   p {
     width: 100%;
