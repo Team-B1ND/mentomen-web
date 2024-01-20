@@ -5,7 +5,7 @@ import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
-import "@/src/style/font.css";
+import "@/src/styles/font.css";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
