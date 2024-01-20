@@ -1,9 +1,9 @@
-import { customAxios } from "@/lib/Axios/customAxios";
+import { customAxios } from "@/src/lib/Axios/customAxios";
 import {
   postCommentType,
   getCommentResponse,
   patchCommentType,
-} from "@/types/Comment/comment.type";
+} from "@/src/types/Comment/comment.type";
 
 class CommentRepository {
   public async postComment({

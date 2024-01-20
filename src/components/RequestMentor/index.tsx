@@ -1,11 +1,11 @@
 import request from "@/public/icons/title/request.png";
-import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
+import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
 import * as S from "./style";
 import Title from "../Common/Title";
 import RequestMentorNavigation from "./RequestMentorNavigation";
 import RequestMentorForm from "./RequestMentorForm";
-import useTokenCheck from "@/hooks/Auth/useTokenCheck";
-import { useRegistPost } from "@/hooks/RequestMentor/useRegistPost";
+import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
+import { useRegistPost } from "@/src/hooks/RequestMentor/useRegistPost";
 
 const RequestMentor = () => {
   useTokenCheck();

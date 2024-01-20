@@ -1,6 +1,6 @@
-import useTokenCheck from "@/hooks/Auth/useTokenCheck";
-import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
-import { UserDataAtom } from "@/stores/User/user.store";
+import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
+import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
+import { UserDataAtom } from "@/src/stores/User/user.store";
 import { Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import ErrorBoundary from "../Common/ErrorBoundary";

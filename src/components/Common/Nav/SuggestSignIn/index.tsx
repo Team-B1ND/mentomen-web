@@ -2,7 +2,7 @@ import Title from "../../Title";
 import lock from "@/public/icons/title/lock.png";
 import handshake from "@/public/icons/logo/handshake.png";
 import * as S from "./style";
-import { DAUTH_URL } from "@/constants/Auth/auth.constant";
+import { DAUTH_URL } from "@/src/constants/Auth/auth.constant";
 
 const SuggestSignIn = () => {
   return (

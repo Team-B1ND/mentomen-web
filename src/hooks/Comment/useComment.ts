@@ -1,12 +1,12 @@
-import { MenToMenToast } from "@/util/Toast/menToMenToast";
+import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
 import { Dispatch, SetStateAction, useState } from "react";
 import {
   usePostCommentMutation,
   useDeleteCommentMutation,
   usePatchCommentMutation,
-} from "@/queries/Comment/comment.query";
+} from "@/src/queries/Comment/comment.query";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
-import { QUERY_KEYS } from "@/queries/queryKey";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
 
 export const useComment = (exisitComment?: string) => {
   const [comment, setComment] = useState(exisitComment || "");
@@ -24,16 +24,8 @@ export const useComment = (exisitComment?: string) => {
     }, 10);
   };
 
-  const handleCommentChange = (e: React.ChangeEvent<HTMLDivElement>) => {
-    // 브라우저 식별 => 크롬은 content 엔터키를 입력하면 줄바꿈이 2번되기 때문에
-    const isChrome =
-      /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    if (isChrome) {
-      setComment(e.currentTarget.innerText.replace(/\n\n/g, "\n"));
-    } else {
-      // 아니라면 그냥 현재의 텍스트를 그대로 유지
-      setComment(e.currentTarget.innerText);
-    }
+  const handleCommentChange = (e: React.FormEvent<HTMLSpanElement>) => {
+    setComment(e.currentTarget.innerText.trim()!);
   };
 
   const handleDeleteComment = (commentId: number, postId: number) => {
@@ -43,7 +35,6 @@ export const useComment = (exisitComment?: string) => {
       deleteComment.mutate(commentId, {
         onSuccess: () => {
           queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
-          MenToMenToast.showSuccess("댓글을 삭제하였습니다!");
         },
         onError: (e) => {
           MenToMenToast.showError("댓글을 삭제하지 못했습니다!");
@@ -60,6 +51,11 @@ export const useComment = (exisitComment?: string) => {
     closeCommentInput?: () => void
   ) => {
     e.preventDefault();
+
+    if (comment.trim() === "") {
+      return MenToMenToast.showInfo("댓글을 입력해주세요!");
+    }
+
     // exisitComment가 있으면 댓글 수정
     if (exisitComment) {
       if (exisitComment === comment.trim()) {
@@ -70,7 +66,6 @@ export const useComment = (exisitComment?: string) => {
         { content: comment.trim(), commentId: commentId! },
         {
           onSuccess: () => {
-            MenToMenToast.showSuccess("댓글을 수정하였습니다!");
             queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
 
             setIsActiveCommentInput(false);
@@ -87,7 +82,6 @@ export const useComment = (exisitComment?: string) => {
         { content: comment.trim(), postId },
         {
           onSuccess: () => {
-            MenToMenToast.showSuccess("댓글을 작성하였습니다!");
             queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
 
             setIsActiveCommentInput(false);

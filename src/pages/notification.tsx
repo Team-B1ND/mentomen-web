@@ -1,6 +1,6 @@
-import Notification from "@/components/Notification";
-import { QUERY_KEYS } from "@/queries/queryKey";
-import noticeRepository from "@/repositories/Notice/notice.repository";
+import Notification from "@/src/components/Notification";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
+import noticeRepository from "@/src/repositories/Notice/notice.repository";
 import Head from "next/head";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";

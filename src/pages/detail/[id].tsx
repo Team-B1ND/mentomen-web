@@ -1,6 +1,6 @@
-import Detail from "@/components/Detail";
-import { QUERY_KEYS } from "@/queries/queryKey";
-import postRepository from "@/repositories/Post/post.repository";
+import Detail from "@/src/components/Detail";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
+import postRepository from "@/src/repositories/Post/post.repository";
 import { NextPageContext } from "next";
 import Head from "next/head";
 import React from "react";

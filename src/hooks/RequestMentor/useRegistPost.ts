@@ -1,23 +1,28 @@
-import { MenToMenToast } from "@/util/Toast/menToMenToast";
+import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
-import { useFileUploadMutation } from "@/queries/File/file.query";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useFileUploadMutation } from "@/src/queries/File/file.query";
 import {
   useDeletePostMutation,
   usePostMySubmitMutation,
   usePatchMyPostMutation,
-} from "@/queries/Post/post.query";
-import { PostSubmitType } from "@/types/List/list.type";
+} from "@/src/queries/Post/post.query";
+import { PostSubmitType } from "@/src/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
-import { QUERY_KEYS } from "@/queries/queryKey";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
+import { useRecoilState } from "recoil";
+import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
 
 export const useRegistPost = () => {
-  const [imgUrl, setImgUrl] = useState<string[]>([]);
-  const [content, setContent] = useState("");
+  const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
+
+  const [imgUrl, setImgUrl] = useState<string[]>(existingData?.imgUrls || []);
+
+  const [content, setContent] = useState(existingData?.content || "");
   const [postData, setPostData] = useState<PostSubmitType>({
     content: "",
     imgUrls: [],
-    tag: "",
+    tag: existingData?.tag || "",
   });
 
   const selectFileImage = useRef<HTMLInputElement>(null);
@@ -71,16 +76,8 @@ export const useRegistPost = () => {
   const handleRequestMentorInputChange = (
     e: React.ChangeEvent<HTMLDivElement>
   ) => {
-    // 브라우저 식별 => 크롬은 content 엔터키를 입력하면 줄바꿈이 2번되기 때문에
-    const isChrome =
-      /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    // 크롬이라면 두 번 연속으로 나타나는 줄바꿈을 하나의 줄바꿈으로 처리
-    if (isChrome) {
-      setContent(e.currentTarget.innerText.replace(/\n\n/g, "\n"));
-    } else {
-      // 아니라면 그냥 현재의 텍스트를 그대로 유지
-      setContent(e.currentTarget.innerText);
-    }
+    setContent(e.currentTarget.innerText.trim()!);
+    console.log(content);
   };
 
   const handleDeletePostClick = (
@@ -149,6 +146,9 @@ export const useRegistPost = () => {
 
     content,
     setContent,
+
+    existingData,
+    setExistData,
 
     selectFileImage,
     isRequiredPostData,

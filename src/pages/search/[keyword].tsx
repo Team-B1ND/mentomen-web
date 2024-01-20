@@ -1,6 +1,6 @@
-import Search from "@/components/Search";
-import { QUERY_KEYS } from "@/queries/queryKey";
-import postRepository from "@/repositories/Post/post.repository";
+import Search from "@/src/components/Search";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
+import postRepository from "@/src/repositories/Post/post.repository";
 import { NextPageContext } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";

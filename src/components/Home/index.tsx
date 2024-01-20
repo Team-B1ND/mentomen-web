@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { useGetList } from "@/queries/Post/post.query";
-import * as S from "@/style/common.style";
+import { useGetList } from "@/src/queries/Post/post.query";
+import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
-import Title from "@/components/Common/Title";
+import Title from "@/src/components/Common/Title";
 import post from "@/public/icons/title/post.png";
 
 const Home = () => {

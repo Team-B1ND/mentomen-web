@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import flex from "@/style/flex";
+import flex from "@/src/style/flex";
 
 export const ArticleContainer = styled.article`
   width: 100%;

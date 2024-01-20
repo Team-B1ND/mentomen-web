@@ -1,4 +1,4 @@
-import { MenToMenToast } from "@/util/Toast/menToMenToast";
+import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
 
 export const useSharePost = () => {
   const handleSharePostClick = async (postId: number) => {

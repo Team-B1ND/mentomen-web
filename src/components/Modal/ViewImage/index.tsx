@@ -1,5 +1,5 @@
-import useLockScroll from "@/hooks/common/useLockScroll";
-import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
+import useLockScroll from "@/src/hooks/common/useLockScroll";
+import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
 

@@ -2,14 +2,17 @@ import RequestMentorFormTag from "./Tag";
 import RequestMentorFormInput from "./Input";
 import RequestMentorFormAttachImage from "./AttachImage";
 import { Dispatch, RefObject, SetStateAction } from "react";
-import { PostSubmitType } from "@/types/List/list.type";
+import { PostSubmitType } from "@/src/types/List/list.type";
 
 interface Props {
   postData: PostSubmitType;
   setPostData: Dispatch<SetStateAction<PostSubmitType>>;
+  existingData: PostSubmitType | null;
+
   imgUrl: string[];
   setImgUrl: Dispatch<SetStateAction<string[]>>;
   selectFileImage: RefObject<HTMLInputElement>;
+
   handleRequestMentorInputChange: (
     e: React.ChangeEvent<HTMLDivElement>
   ) => void;

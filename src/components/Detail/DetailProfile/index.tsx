@@ -1,15 +1,13 @@
-import { ListItemType } from "@/types/List/list.type";
+import { ListItemType } from "@/src/types/List/list.type";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
-import EditingDots from "@/components/Common/Button/EditingDots";
-import { GetDateTime } from "@/util/Date/getDateTime";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { ExistingPostDataAtom } from "@/stores/Post/post.store";
-import { UserDataAtom } from "@/stores/User/user.store";
+import EditingDots from "@/src/components/Common/Button/EditingDots";
+import { GetDateTime } from "@/src/util/Date/getDateTime";
+import { useRecoilValue } from "recoil";
+import { UserDataAtom } from "@/src/stores/User/user.store";
 
 const DetailProfile = ({ ...attr }: ListItemType) => {
   const { grade, room, number } = attr.stdInfo;
-  const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
   const userData = useRecoilValue(UserDataAtom);
   const getDate = new GetDateTime();
   const updatePostStatus = attr.updateStatus;
@@ -40,9 +38,8 @@ const DetailProfile = ({ ...attr }: ListItemType) => {
 
       {userData?.userId === attr.author && (
         <EditingDots
-          postId={attr.postId}
           customStyle={S.DotsStyle}
-          onClick={() => setExistingPostData(attr)}
+          listItemData={attr}
         />
       )}
     </S.Container>

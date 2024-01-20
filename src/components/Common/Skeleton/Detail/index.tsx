@@ -1,4 +1,4 @@
-import { DetailItemContainer } from "@/components/Detail/style";
+import { DetailItemContainer } from "@/src/components/Detail/style";
 import { SkeletonBox } from "../style";
 import DetailCommentSkeleton from "./DetailComment";
 

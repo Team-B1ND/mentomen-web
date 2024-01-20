@@ -1,4 +1,4 @@
-import { GetDateTime } from "@/util/Date/getDateTime";
+import { GetDateTime } from "@/src/util/Date/getDateTime";
 import * as S from "./style";
 import ShowMoreContent from "../../ShowMoreContent";
 import ListItemContentImage from "./ListItemContentImage";
@@ -18,7 +18,7 @@ const ListItemContent = ({ ...attr }: Props) => {
   const getDateTime = new GetDateTime();
   return (
     <S.ContentContainer>
-      <ShowMoreContent content={attr.content} maxHeight={72} />
+      <ShowMoreContent content={attr.content} maxHeight={55} />
 
       {attr.imgUrls?.length > 0 && (
         <ListItemContentImage imgUrls={attr.imgUrls} />

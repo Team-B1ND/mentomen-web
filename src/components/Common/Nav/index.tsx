@@ -1,5 +1,5 @@
-import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
-import token from "@/lib/token/token";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
+import token from "@/src/lib/token/token";
 import { useRouter } from "next/router";
 import Profile from "./Profile";
 import QRcode from "./QRcode";

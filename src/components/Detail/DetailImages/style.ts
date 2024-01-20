@@ -1,4 +1,4 @@
-import flex from "@/style/flex";
+import flex from "@/src/style/flex";
 import styled from "styled-components";
 
 export const ImageContainer = styled.div`

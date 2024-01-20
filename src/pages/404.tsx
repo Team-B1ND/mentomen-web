@@ -1,5 +1,5 @@
-import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
-import flex from "@/style/flex";
+import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
+import flex from "@/src/style/flex";
 import styled from "styled-components";
 
 const NotFound = () => {

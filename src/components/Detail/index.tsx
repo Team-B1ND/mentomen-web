@@ -1,5 +1,5 @@
-import useHideHeaderOrNav from "@/hooks/common/useHideHeaderOrNav";
-import { useGetApost } from "@/queries/Post/post.query";
+import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
+import { useGetApost } from "@/src/queries/Post/post.query";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
 import ErrorBoundary from "../Common/ErrorBoundary";

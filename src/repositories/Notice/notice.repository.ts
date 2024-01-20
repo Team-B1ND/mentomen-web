@@ -1,10 +1,10 @@
-import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
-import { customAxios } from "@/lib/Axios/customAxios";
-import token from "@/lib/token/token";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
+import { customAxios } from "@/src/lib/Axios/customAxios";
+import token from "@/src/lib/token/token";
 import {
   NoticeCheckResponse,
   NoticeListResponse,
-} from "@/types/Notice/notice.type";
+} from "@/src/types/Notice/notice.type";
 
 class NoticeRepository {
   public async getNoticeCheck(): Promise<NoticeCheckResponse | void> {

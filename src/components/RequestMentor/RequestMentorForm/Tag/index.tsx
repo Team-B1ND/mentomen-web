@@ -1,7 +1,7 @@
 import { REQUEST_MENTOR_TAGS_ITEMS } from "./constant";
 import * as S from "../style";
 import { Dispatch, SetStateAction, useState } from "react";
-import { PostSubmitType } from "@/types/List/list.type";
+import { PostSubmitType } from "@/src/types/List/list.type";
 
 interface Props {
   postData: PostSubmitType;

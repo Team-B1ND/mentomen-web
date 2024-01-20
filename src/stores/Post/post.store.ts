@@ -1,14 +1,13 @@
 import { atom } from "recoil";
-import { ListItemType } from "@/types/List/list.type";
+import { ListItemType } from "@/src/types/List/list.type";
+import { recoilPersist } from "recoil-persist";
 
-export const ActiveEditPostFormAtom = atom<boolean>({
-  key: "activeEditPostKey",
-  default: false,
-});
+const { persistAtom } = recoilPersist();
 
 export const ExistingPostDataAtom = atom<ListItemType | null>({
   key: "existingPostDataKey",
   default: null,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const CountOfPostAtom = atom<number>({

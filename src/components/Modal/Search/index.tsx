@@ -1,6 +1,6 @@
-import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
-import useLockScroll from "@/hooks/common/useLockScroll";
-import { useKeyWordSearch } from "@/hooks/Search/useKeyWordSearch";
+import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
+import useLockScroll from "@/src/hooks/common/useLockScroll";
+import { useKeyWordSearch } from "@/src/hooks/Search/useKeyWordSearch";
 import { Dispatch, SetStateAction } from "react";
 import searchIcon from "@/public/images/Search.svg";
 import * as S from "./style";

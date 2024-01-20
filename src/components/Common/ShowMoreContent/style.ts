@@ -1,5 +1,5 @@
-import flex from "@/style/flex";
-import styled, { css, CSSObject } from "styled-components";
+import flex from "@/src/style/flex";
+import styled, { CSSObject } from "styled-components";
 
 export const ContentBox = styled.div`
   width: 100%;
@@ -18,13 +18,14 @@ export const ContentText = styled.div<{
   overflow: hidden;
   font-size: 14.5px;
 
-  white-space: pre-wrap;
-  word-break: break-word;
   line-height: 18px;
 
   p {
     width: 100%;
     height: 100%;
+
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   ${({ customstyle }) => customstyle};

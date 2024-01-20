@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
-import UserRepository from "@/repositories/User/user.repository";
-import { ListItemResponse } from "@/types/List/list.type";
+import UserRepository from "@/src/repositories/User/user.repository";
+import { ListItemResponse } from "@/src/types/List/list.type";
 import { QUERY_KEYS } from "../queryKey";
 
 export const useGetMyInfo = () =>

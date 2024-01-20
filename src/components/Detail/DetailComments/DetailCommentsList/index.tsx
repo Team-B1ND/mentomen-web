@@ -1,14 +1,14 @@
-import { getCommentType } from "@/types/Comment/comment.type";
+import { getCommentType } from "@/src/types/Comment/comment.type";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
-import { GetDateTime } from "@/util/Date/getDateTime";
+import { GetDateTime } from "@/src/util/Date/getDateTime";
 import { useRecoilValue } from "recoil";
-import { UserDataAtom } from "@/stores/User/user.store";
+import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useState } from "react";
 import DetailSetting from "./DetailSetting";
-import { useOutSideClickCloseModal } from "@/hooks/Modal/useOutSideClickCloseModal";
+import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import DetailCommentsInput from "../DetailCommentsInput";
-import { useComment } from "@/hooks/Comment/useComment";
+import { useComment } from "@/src/hooks/Comment/useComment";
 
 interface Props {
   commentsData: getCommentType[];

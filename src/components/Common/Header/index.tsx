@@ -3,18 +3,18 @@ import menTomen from "@/public/icons/logo/menTomen.png";
 import searchIcon from "@/public/images/Search.png";
 import notExistNotice from "@/public/icons/notice/notExistNotice.svg";
 import existNotice from "@/public/icons/notice/existNotice.svg";
-import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
+import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/src/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
-import { useGetNoticeCheck } from "@/queries/Notice/notice.query";
+import { useGetNoticeCheck } from "@/src/queries/Notice/notice.query";
 import { useSetRecoilState } from "recoil";
-import token from "@/lib/token/token";
+import token from "@/src/lib/token/token";
 import profile from "@/public/icons/user/aprofile.png";
-import { useGetMyInfo } from "@/queries/User/user.query";
-import Portal from "@/components/Modal/Portal";
-import Search from "@/components/Modal/Search";
+import { useGetMyInfo } from "@/src/queries/User/user.query";
+import Portal from "@/src/components/Modal/Portal";
+import Search from "@/src/components/Modal/Search";
 import { useRouter } from "next/router";
-import { UserDataAtom } from "@/stores/User/user.store";
-import { CustomLink } from "@/style/common.style";
+import { UserDataAtom } from "@/src/stores/User/user.store";
+import { CustomLink } from "@/src/style/common.style";
 
 function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);

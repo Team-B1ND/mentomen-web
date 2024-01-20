@@ -1,4 +1,4 @@
-import RequestMentor from "@/components/RequestMentor";
+import RequestMentor from "@/src/components/RequestMentor";
 import Head from "next/head";
 
 const RequestMentorPage = () => {

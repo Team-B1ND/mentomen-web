@@ -3,7 +3,7 @@ import handUp from "@/public/icons/title/handUp.png";
 import * as S from "./style";
 import { useRecoilValue } from "recoil";
 import profile from "@/public/icons/user/aprofile.png";
-import { UserDataAtom } from "@/stores/User/user.store";
+import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useRouter } from "next/router";
 
 const RequestMentor = () => {

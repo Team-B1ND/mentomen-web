@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginResponse } from "@/types/Login/login.type";
+import { LoginResponse } from "@/src/types/Login/login.type";
 
 class AuthRepository {
   public async login({ code }: { code: string }): Promise<LoginResponse> {

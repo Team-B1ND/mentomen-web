@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   ACCESS_TOKEN_KEY,
   REQUEST_TOKEN_KEY,
-} from "@/constants/Auth/auth.constant";
+} from "@/src/constants/Auth/auth.constant";
 import { requestHandler } from "./requestHandler";
 import { responseHandler } from "./responseHandler";
 import token from "../token/token";

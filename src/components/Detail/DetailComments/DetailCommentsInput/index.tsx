@@ -1,8 +1,11 @@
-import { ACCESS_TOKEN_KEY, DAUTH_URL } from "@/constants/Auth/auth.constant";
-import { useComment } from "@/hooks/Comment/useComment";
-import token from "@/lib/token/token";
+import {
+  ACCESS_TOKEN_KEY,
+  DAUTH_URL,
+} from "@/src/constants/Auth/auth.constant";
+import { useComment } from "@/src/hooks/Comment/useComment";
+import token from "@/src/lib/token/token";
 import profile from "@/public/icons/user/aprofile.png";
-import { UserDataAtom } from "@/stores/User/user.store";
+import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import * as S from "./style";
@@ -73,7 +76,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                   취소
                 </S.CancelButton>
                 <S.RegistButton
-                  isSameComment={attr.exisitComment === hooks.comment}
+                  isSameComment={attr.exisitComment === hooks.comment.trim()}
                   onClick={(e) => {
                     hooks.handleCommentSubmit(
                       e,

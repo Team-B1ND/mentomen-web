@@ -1,10 +1,10 @@
-import { NAV_TAGS_ITEMS } from "@/constants/Tags/tags.constant";
+import { NAV_TAGS_ITEMS } from "@/src/constants/Tags/tags.constant";
 import Image from "next/image";
 import macbook from "@/public/icons/title/macbook.png";
 import { useRouter } from "next/router";
 import * as S from "./style";
 import Title from "../../Title";
-import { CustomLink } from "@/style/common.style";
+import { CustomLink } from "@/src/style/common.style";
 
 const Tag = () => {
   const router = useRouter();

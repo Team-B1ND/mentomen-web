@@ -4,7 +4,7 @@ import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
   REQUEST_TOKEN_KEY,
-} from "@/constants/Auth/auth.constant";
+} from "@/src/constants/Auth/auth.constant";
 
 export const requestHandler = (config: AxiosRequestConfig) => {
   const access_token = token.getCookie(ACCESS_TOKEN_KEY);

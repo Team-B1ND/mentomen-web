@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { HideHeaderAtom, HideNavAtom } from "@/stores/common/common.store";
+import { HideHeaderAtom, HideNavAtom } from "@/src/stores/common/common.store";
 
 const useHideHeaderOrNav = (hideType: "Header" | "Nav" | "Both") => {
   const setHideHeader = useSetRecoilState(HideHeaderAtom);

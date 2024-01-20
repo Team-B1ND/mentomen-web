@@ -1,5 +1,4 @@
-import { AiOutlineShareAlt } from "react-icons/ai";
-import flex from "@/style/flex";
+import flex from "@/src/style/flex";
 import styled from "styled-components";
 
 export const ContentContainer = styled.div`

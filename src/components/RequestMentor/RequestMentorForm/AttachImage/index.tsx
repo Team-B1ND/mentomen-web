@@ -2,8 +2,8 @@ import upload from "@/public/icons/RequestMentor/upload.svg";
 import cancel from "@/public/icons/RequestMentor/cancel.svg";
 import { Dispatch, RefObject, SetStateAction, useState } from "react";
 import * as S from "../style";
-import ViewImage from "@/components/Modal/ViewImage";
-import Portal from "@/components/Modal/Portal";
+import ViewImage from "@/src/components/Modal/ViewImage";
+import Portal from "@/src/components/Modal/Portal";
 
 interface Props {
   imgUrl: string[];

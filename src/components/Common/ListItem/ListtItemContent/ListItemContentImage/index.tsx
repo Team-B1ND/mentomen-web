@@ -1,8 +1,8 @@
 import * as S from "../../style";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { slideOptions } from "@/constants/Slide/slide.constant";
-import { ItemImage, SlideWrapper, StyledSlider } from "@/style/slide";
+import { slideOptions } from "@/src/constants/Slide/slide.constant";
+import { ItemImage, SlideWrapper, StyledSlider } from "@/src/style/slide";
 
 const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (

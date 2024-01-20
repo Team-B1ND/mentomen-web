@@ -1,5 +1,5 @@
-import flex from "@/style/flex";
-import { palette } from "@/style/palette";
+import flex from "@/src/style/flex";
+import { palette } from "@/src/style/palette";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -21,11 +21,13 @@ export const CommentInputForm = styled.div`
   height: auto;
 `;
 
-export const CommentTextInput = styled.div<{
+export const CommentTextInput = styled.span<{
   placeholder: string;
 }>`
   width: 100%;
   height: auto;
+
+  display: block;
 
   outline: none;
   border: none;

@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { useGetKeyWord } from "@/queries/Post/post.query";
-import * as S from "@/style/common.style";
+import { useGetKeyWord } from "@/src/queries/Post/post.query";
+import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
-import { GetText } from "@/util/Text/getText";
+import { GetText } from "@/src/util/Text/getText";
 
 const Search = () => {
   const router = useRouter();

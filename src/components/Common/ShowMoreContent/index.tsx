@@ -1,4 +1,4 @@
-import useShowMoreContent from "@/hooks/common/useShowMoreContent";
+import useShowMoreContent from "@/src/hooks/common/useShowMoreContent";
 import { CSSObject } from "styled-components";
 import * as S from "./style";
 

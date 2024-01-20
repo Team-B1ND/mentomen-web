@@ -1,4 +1,4 @@
-import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
+import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
 

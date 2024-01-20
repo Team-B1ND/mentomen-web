@@ -1,4 +1,4 @@
-import flex from "@/style/flex";
+import flex from "@/src/style/flex";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -25,16 +25,20 @@ export const ContentInputContainer = styled.div`
   padding-bottom: 35px;
 `;
 
-export const ContentInput = styled.div<{ placeholder: string }>`
+export const ContentInput = styled.span<{ placeholder: string }>`
   width: 100%;
   height: 100%;
   min-height: 100px;
+
+  display: block;
 
   outline: none;
   border: none;
 
   font-size: 16px;
   line-height: 18px;
+  white-space: pre-wrap;
+  word-break: break-word;
 
   ${({ placeholder }) =>
     placeholder &&

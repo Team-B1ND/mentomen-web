@@ -1,5 +1,5 @@
-import { QUERY_KEYS } from "@/queries/queryKey";
-import userRepository from "@/repositories/User/user.repository";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
+import userRepository from "@/src/repositories/User/user.repository";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";
 import MyPage from "../components/MyPage";

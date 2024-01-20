@@ -1,11 +1,11 @@
-import Provider from "@/components/Common/Provider";
-import { MenToMenToastContainer } from "@/util/Toast/menToMenToastContainer";
+import Provider from "@/src/components/Common/Provider";
+import { MenToMenToastContainer } from "@/src/util/Toast/menToMenToastContainer";
 import { NextComponentType } from "next";
 import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
-import "@/style/font.css";
+import "@/src/style/font.css";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,

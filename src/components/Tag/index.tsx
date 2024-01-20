@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { useGetTag } from "@/queries/Post/post.query";
-import * as S from "@/style/common.style";
+import { useGetTag } from "@/src/queries/Post/post.query";
+import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";

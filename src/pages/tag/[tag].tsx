@@ -1,6 +1,6 @@
-import Tag from "@/components/Tag";
-import { QUERY_KEYS } from "@/queries/queryKey";
-import PostRepository from "@/repositories/Post/post.repository";
+import Tag from "@/src/components/Tag";
+import { QUERY_KEYS } from "@/src/queries/queryKey";
+import PostRepository from "@/src/repositories/Post/post.repository";
 import { NextPageContext } from "next";
 import Head from "next/head";
 import { dehydrate, QueryClient } from "react-query";

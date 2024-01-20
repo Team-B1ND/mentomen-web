@@ -1,19 +1,22 @@
 import { Dispatch, SetStateAction } from "react";
 import * as S from "./style";
-import { useRegistPost } from "@/hooks/RequestMentor/useRegistPost";
+import { useRegistPost } from "@/src/hooks/RequestMentor/useRegistPost";
 import { useSetRecoilState } from "recoil";
-import { ActiveEditPostFormAtom } from "@/stores/Post/post.store";
-import useEscCloseModal from "@/hooks/Modal/useEscCloseModal";
-import useLockScroll from "@/hooks/common/useLockScroll";
+import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
+import useLockScroll from "@/src/hooks/common/useLockScroll";
+import { useRouter } from "next/router";
+import { ListItemType } from "@/src/types/List/list.type";
+import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
 
 interface Props {
-  postId: number;
+  listItemData: ListItemType;
   setIsActivePostSetting: Dispatch<SetStateAction<boolean>>;
 }
 
-const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
+const PostSetting = ({ listItemData, setIsActivePostSetting }: Props) => {
+  const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
   const { handleDeletePostClick } = useRegistPost();
-  const setActiveEditPost = useSetRecoilState(ActiveEditPostFormAtom);
+  const router = useRouter();
 
   useEscCloseModal(() => setIsActivePostSetting(false));
   useLockScroll();
@@ -24,7 +27,8 @@ const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
         <S.TextBox
           onClick={() => {
             setIsActivePostSetting(false);
-            setActiveEditPost(true);
+            setExistingPostData(listItemData);
+            router.push("/request-mentor");
           }}
         >
           <S.EditIcon />
@@ -32,7 +36,9 @@ const PostSetting = ({ postId, setIsActivePostSetting }: Props) => {
         </S.TextBox>
         <S.TextBox
           isDelete={true}
-          onClick={() => handleDeletePostClick(postId, setIsActivePostSetting)}
+          onClick={() =>
+            handleDeletePostClick(listItemData.postId, setIsActivePostSetting)
+          }
         >
           <S.DeleteIcon />
           <p>삭제</p>

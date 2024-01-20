@@ -1,9 +1,9 @@
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
-} from "@/constants/Auth/auth.constant";
-import token from "@/lib/token/token";
-import { MenToMenToast } from "@/util/Toast/menToMenToast";
+} from "@/src/constants/Auth/auth.constant";
+import token from "@/src/lib/token/token";
+import { MenToMenToast } from "@/src/util/Toast/menToMenToast";
 import { useRouter } from "next/router";
 
 export function useLogout() {

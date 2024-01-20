@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { RxDotsVertical } from "react-icons/rx";
 import styled, { CSSObject } from "styled-components";
 import PostSetting from "../PostSetting";
-import Portal from "@/components/Modal/Portal";
+import Portal from "@/src/components/Modal/Portal";
+import { ListItemType } from "@/src/types/List/list.type";
 
 interface Props {
-  postId: number;
   onClick?: () => void;
   customStyle?: CSSObject;
+  listItemData: ListItemType;
 }
 
-const EditingDots = ({ postId, onClick, customStyle }: Props) => {
+const EditingDots = ({ onClick, customStyle, listItemData }: Props) => {
   const [isActivePostSetting, setIsActivePostSetting] = useState(false);
   return (
     <>
@@ -26,8 +27,8 @@ const EditingDots = ({ postId, onClick, customStyle }: Props) => {
       {isActivePostSetting && (
         <Portal>
           <PostSetting
-            postId={postId}
             setIsActivePostSetting={setIsActivePostSetting}
+            listItemData={listItemData}
           />
         </Portal>
       )}

@@ -1,8 +1,8 @@
-import { ACCESS_TOKEN_KEY } from "@/constants/Auth/auth.constant";
-import { customAxios } from "@/lib/Axios/customAxios";
-import token from "@/lib/token/token";
-import { ListItemResponse } from "@/types/List/list.type";
-import { UserResponse } from "@/types/User/user.type";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
+import { customAxios } from "@/src/lib/Axios/customAxios";
+import token from "@/src/lib/token/token";
+import { ListItemResponse } from "@/src/types/List/list.type";
+import { UserResponse } from "@/src/types/User/user.type";
 
 class UserRepository {
   public async getMyInfo(): Promise<UserResponse | void> {

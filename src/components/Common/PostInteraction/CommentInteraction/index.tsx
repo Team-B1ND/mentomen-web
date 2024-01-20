@@ -1,4 +1,4 @@
-import { CustomLink } from "@/style/common.style";
+import { CustomLink } from "@/src/style/common.style";
 import { AiOutlineComment } from "react-icons/ai";
 import styled, { CSSObject } from "styled-components";
 import * as S from "../style";

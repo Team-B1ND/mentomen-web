@@ -1,4 +1,4 @@
-import flex from "@/style/flex";
+import flex from "@/src/style/flex";
 import Image from "next/image";
 import styled from "styled-components";
 

@@ -1,14 +1,14 @@
 import { Suspense, useEffect } from "react";
-import useTokenCheck from "@/hooks/Auth/useTokenCheck";
-import { useGetMyPost } from "@/queries/User/user.query";
-import * as S from "@/style/common.style";
+import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
+import { useGetMyPost } from "@/src/queries/User/user.query";
+import * as S from "@/src/style/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
 import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
-import { CountOfPostAtom } from "@/stores/Post/post.store";
+import { CountOfPostAtom } from "@/src/stores/Post/post.store";
 
 const MyPage = () => {
   useTokenCheck();

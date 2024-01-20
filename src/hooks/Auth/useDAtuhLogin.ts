@@ -1,10 +1,10 @@
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
-} from "@/constants/Auth/auth.constant";
-import authRepository from "@/repositories/Auth/auth.repository";
+} from "@/src/constants/Auth/auth.constant";
+import authRepository from "@/src/repositories/Auth/auth.repository";
 import { useEffect } from "react";
-import token from "@/lib/token/token";
+import token from "@/src/lib/token/token";
 import { useRouter } from "next/router";
 
 export const useDAtuhLogin = () => {

@@ -1,5 +1,5 @@
-import { InputContainer } from "@/components/Detail/DetailComments/DetailCommentsInput/style";
-import flex from "@/style/flex";
+import { InputContainer } from "@/src/components/Detail/DetailComments/DetailCommentsInput/style";
+import flex from "@/src/style/flex";
 import styled from "styled-components";
 import { SkeletonBox } from "../style";
 

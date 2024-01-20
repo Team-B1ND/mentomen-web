@@ -1,4 +1,4 @@
-import flex from "@/style/flex";
+import flex from "@/src/style/flex";
 import React from "react";
 import styled, { CSSObject } from "styled-components";
 import Image, { StaticImageData } from "next/image";

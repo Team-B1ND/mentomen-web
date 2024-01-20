@@ -1,4 +1,4 @@
-import { palette } from "@/style/palette";
+import { palette } from "@/src/style/palette";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import flex from "../../../style/flex";
