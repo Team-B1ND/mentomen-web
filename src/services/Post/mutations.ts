@@ -1,4 +1,4 @@
-import { ListPatchItem, PostSubmitType } from "@/src/types/List/list.type";
+import { PostPatchItem, PostSubmitType } from "@/src/types/Post/post.type";
 import { useMutation } from "react-query";
 import PostApi from "./api";
 
@@ -10,7 +10,7 @@ export const usePostMySubmitMutation = () => {
 };
 
 export const usePatchMyPostMutation = () => {
-  const mutation = useMutation((data: ListPatchItem) =>
+  const mutation = useMutation((data: PostPatchItem) =>
     PostApi.patchPostApi(data)
   );
   return mutation;

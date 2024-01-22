@@ -1,9 +1,9 @@
-import { ListItemType } from "@/src/types/List/list.type";
+import { PostItemType } from "@/src/types/Post/post.type";
 import ListItemProfile from "./ListItmeProfile";
 import ListItemContent from "./ListtItemContent";
 import * as S from "./style";
 
-const ListItem = ({ data }: { data: ListItemType }) => {
+const ListItem = ({ data }: { data: PostItemType }) => {
   return (
     <S.ArticleContainer>
       <ListItemProfile {...data} />

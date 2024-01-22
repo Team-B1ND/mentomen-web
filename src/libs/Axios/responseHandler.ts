@@ -17,10 +17,6 @@ export const responseHandler = async (error: AxiosError) => {
       response: { status },
     } = error;
 
-    if (status === 500) {
-      MenToMenToast.showError("서버오류가 발생하였습니다.");
-    }
-
     if (access_token && refresh_token && status === 401) {
       try {
         const { data } = await axios.get(

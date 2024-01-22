@@ -5,9 +5,7 @@ export const ArticleContainer = styled.article`
   width: 100%;
   height: auto;
 
-  overflow: hidden;
   background-color: #fff;
-
   border-radius: 7px;
   border: 1px solid #ddd;
   padding: 0 13px 10px;

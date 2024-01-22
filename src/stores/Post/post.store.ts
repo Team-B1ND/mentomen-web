@@ -1,10 +1,10 @@
 import { atom } from "recoil";
-import { ListItemType } from "@/src/types/List/list.type";
+import { PostItemType } from "@/src/types/Post/post.type";
 import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
 
-export const ExistingPostDataAtom = atom<ListItemType | null>({
+export const ExistingPostDataAtom = atom<PostItemType | null>({
   key: "existingPostDataKey",
   default: null,
   effects_UNSTABLE: [persistAtom],

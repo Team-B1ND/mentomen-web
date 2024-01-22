@@ -1,4 +1,4 @@
-import { PostSubmitType } from "@/src/types/List/list.type";
+import { PostSubmitType } from "@/src/types/Post/post.type";
 import { useRouter } from "next/router";
 import * as S from "../style";
 

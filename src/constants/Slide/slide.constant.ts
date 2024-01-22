@@ -4,5 +4,4 @@ export const slideOptions = {
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: true,
-  className: "react__slick__slider__parent",
 };

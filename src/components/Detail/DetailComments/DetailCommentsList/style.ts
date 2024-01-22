@@ -1,7 +1,6 @@
 import flex from "@/src/styles/flex";
 import Image from "next/image";
-import { RxDotsVertical } from "react-icons/rx";
-import styled, { CSSObject } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.ul`
   width: 100%;
@@ -23,6 +22,11 @@ export const ProfileImage = styled(Image)`
   border-radius: 4rem;
   border: 1px solid #ddd;
 `;
+
+export const DotsStyle = {
+  backgroundColor: "#f9f9f9",
+  boxShadow: "0 2px 14px rgba(0, 0, 0, 0.2)",
+};
 
 export const CommentContent = styled.div`
   width: calc(100% - 40px);
@@ -56,54 +60,4 @@ export const CommentText = styled.div`
   word-break: break-word;
   font-size: 15px;
   line-height: 18px;
-`;
-
-export const DotsIconContainer = styled.div`
-  width: 30px;
-  position: relative;
-  ${flex({
-    flexDirection: "column",
-    rowGap: "5px",
-    alignItems: "end",
-  })}
-`;
-
-export const DetailIconWrap = styled.div`
-  width: 118px;
-  height: 85px;
-
-  font-size: 15px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
-  z-index: 2;
-  font-size: 15px;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  ${flex({ flexDirection: "column", justifyContent: "center" })}
-`;
-
-export const DotsIcon = styled(RxDotsVertical)<{
-  customstyle?: CSSObject;
-}>`
-  width: 30px;
-  height: 30px;
-
-  border-radius: 20px;
-  padding: 6px;
-  cursor: pointer;
-
-  transform: scale(1);
-  transition: all 0.1s ease-in-out;
-
-  &:active {
-    transform: scale(0.93);
-    background-color: #ddd;
-  }
-
-  ${({ customstyle }) => customstyle};
 `;

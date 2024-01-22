@@ -1,17 +1,18 @@
-import { getCommentType } from "@/src/types/Comment/comment.type";
+import { CommentType } from "@/src/types/Comment/comment.type";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
 import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue } from "recoil";
 import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useState } from "react";
-import DetailSetting from "./DetailSetting";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import DetailCommentsInput from "../DetailCommentsInput";
 import { useComment } from "@/src/hooks/Comment/useComment";
+import Setting from "@/src/components/Modal/Setting";
+import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
 
 interface Props {
-  commentsData: getCommentType[];
+  commentsData: CommentType[];
 }
 
 const DetailCommentsList = ({ commentsData }: Props) => {
@@ -66,19 +67,19 @@ const DetailCommentsList = ({ commentsData }: Props) => {
                 </S.CommenterInfoWrap>
 
                 {userData?.userId === item.userId && (
-                  <S.DotsIconContainer>
+                  <DotsIconContainer>
                     {commentId === item.commentId ? (
-                      <S.DetailIconWrap ref={modalEl}>
-                        <DetailSetting
-                          setCommentId={setCommentId}
-                          setIsEditComment={setIsEditComment}
-                          handleDeleteComment={() =>
-                            handleDeleteComment(item.commentId, item.postId)
-                          }
-                        />
-                      </S.DetailIconWrap>
+                      <Setting
+                        modalEl={modalEl}
+                        closeModalEvent={() => setCommentId(0)}
+                        modifyEvent={() => setIsEditComment(true)}
+                        deleteEvent={() =>
+                          handleDeleteComment(item.commentId, item.postId)
+                        }
+                        customStyle={S.DotsStyle}
+                      />
                     ) : (
-                      <S.DotsIcon
+                      <DotsIcon
                         onClick={() => {
                           setCommentId(item.commentId);
                           setExisitComment(item.content);
@@ -86,7 +87,7 @@ const DetailCommentsList = ({ commentsData }: Props) => {
                         }}
                       />
                     )}
-                  </S.DotsIconContainer>
+                  </DotsIconContainer>
                 )}
               </S.CommentContent>
             )}

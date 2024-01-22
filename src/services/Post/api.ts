@@ -1,9 +1,9 @@
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
-import { ListPatchItem, PostSubmitType } from "@/src/types/List/list.type";
-import { ListResponse, ListItemResponse } from "@/src/types/List/list.type";
+import { PostPatchItem, PostSubmitType } from "@/src/types/Post/post.type";
+import { PostResponse, PostItemResponse } from "@/src/types/Post/post.type";
 
 class PostApi {
-  public async getAllPostApi(): Promise<ListItemResponse> {
+  public async getAllPostApi(): Promise<PostItemResponse> {
     const { data } = await MenToMenAxios.get("/post/read-all");
     return data;
   }
@@ -12,22 +12,22 @@ class PostApi {
     await MenToMenAxios.post("/post/submit", data);
   }
 
-  public async getPostByIdApi(postId: number): Promise<ListResponse> {
+  public async getPostByIdApi(postId: number): Promise<PostResponse> {
     const { data } = await MenToMenAxios.get(`post/read-one/${postId}`);
     return data;
   }
 
-  public async getPostByTagApi(tag: string): Promise<ListItemResponse> {
+  public async getPostByTagApi(tag: string): Promise<PostItemResponse> {
     const { data } = await MenToMenAxios.get(`post/read-all/${tag}`);
     return data;
   }
 
-  public async getPostByKeyWordApi(keyword: string): Promise<ListItemResponse> {
+  public async getPostByKeyWordApi(keyword: string): Promise<PostItemResponse> {
     const { data } = await MenToMenAxios.get(`post/search/${keyword}`);
     return data;
   }
 
-  public async patchPostApi(data: ListPatchItem): Promise<void> {
+  public async patchPostApi(data: PostPatchItem): Promise<void> {
     await MenToMenAxios.patch("post/update", data);
   }
 

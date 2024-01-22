@@ -1,18 +1,18 @@
 import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
-import { ListResponse } from "@/src/types/List/list.type";
-import { ListItemResponse } from "@/src/types/List/list.type";
+import { PostResponse } from "@/src/types/Post/post.type";
+import { PostItemResponse } from "@/src/types/Post/post.type";
 import { AxiosError } from "axios";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import PostApi from "./api";
 
 export const useGetAllPostQuery = (
   options?: UseQueryOptions<
-    ListItemResponse,
+    PostItemResponse,
     AxiosError,
-    ListItemResponse,
+    PostItemResponse,
     string
   >
-): UseQueryResult<ListItemResponse, AxiosError> => {
+): UseQueryResult<PostItemResponse, AxiosError> => {
   return useQuery(QUERY_KEYS.Post.getAllPost, () => PostApi.getAllPostApi(), {
     ...options,
     staleTime: 1000 * 60 * 60,
@@ -23,12 +23,12 @@ export const useGetAllPostQuery = (
 export const useGetPostByIdQuery = (
   postId: number,
   options?: UseQueryOptions<
-    ListResponse,
+    PostResponse,
     AxiosError,
-    ListResponse,
+    PostResponse,
     (string | number)[]
   >
-): UseQueryResult<ListResponse, AxiosError> =>
+): UseQueryResult<PostResponse, AxiosError> =>
   useQuery(
     QUERY_KEYS.Post.getPostById(postId),
     () => PostApi.getPostByIdApi(postId),
@@ -43,12 +43,12 @@ export const useGetPostByIdQuery = (
 export const useGetPostByTagQuery = (
   tag: string,
   options?: UseQueryOptions<
-    ListItemResponse,
+    PostItemResponse,
     AxiosError,
-    ListItemResponse,
+    PostItemResponse,
     string[]
   >
-): UseQueryResult<ListItemResponse, AxiosError> =>
+): UseQueryResult<PostItemResponse, AxiosError> =>
   useQuery(
     QUERY_KEYS.Post.getPostByTag(tag),
     () => PostApi.getPostByTagApi(tag),
@@ -63,12 +63,12 @@ export const useGetPostByTagQuery = (
 export const useGetPostByKeyWordQuery = (
   keyword: string,
   options?: UseQueryOptions<
-    ListItemResponse,
+    PostItemResponse,
     AxiosError,
-    ListItemResponse,
+    PostItemResponse,
     string[]
   >
-): UseQueryResult<ListItemResponse, AxiosError> =>
+): UseQueryResult<PostItemResponse, AxiosError> =>
   useQuery(
     QUERY_KEYS.Post.getPostByKeyWord(keyword),
     () => PostApi.getPostByKeyWordApi(keyword),

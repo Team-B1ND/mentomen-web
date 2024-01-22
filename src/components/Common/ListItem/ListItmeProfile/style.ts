@@ -1,7 +1,6 @@
 import flex from "@/src/styles/flex";
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import Image from "next/image";
-import { RxDotsVertical } from "react-icons/rx";
 
 export const Profile = styled.div`
   width: 100%;
@@ -53,30 +52,15 @@ export const StudentInfoContainer = styled.div`
   font-family: "Pretendard-Bold" !important;
   font-weight: 700;
   font-size: 15px;
-
   ${flex({ alignItems: "center", columnGap: "3px" })}
 `;
 
-export const DotsIcon = styled(RxDotsVertical)<{
-  postsetting: string;
-}>`
-  width: 23px;
-  height: 23px;
+export const SettingStyle: CSSObject = {
+  top: "-15px",
+};
 
-  border-radius: 5px;
-  padding: 3px;
-  cursor: pointer;
-
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
-
-  background-color: ${({ postsetting }) => postsetting === "true" && "#ddd"};
-
-  &:hover {
-    background-color: #ddd;
-    transform: scale(0.93);
-  }
-  &:active {
-    background-color: #eee;
-  }
-`;
+export const DotsStyle: CSSObject = {
+  width: "23px",
+  height: "23px",
+  padding: "3px",
+};

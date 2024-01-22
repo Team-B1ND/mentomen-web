@@ -5,7 +5,7 @@ export interface postCommentType {
   postId: number;
 }
 
-export interface getCommentType extends ResponseType {
+export interface CommentType extends ResponseType {
   commentId: number;
   content: string;
   createDateTime: string;
@@ -21,8 +21,8 @@ export interface getCommentType extends ResponseType {
   userName: string;
 }
 
-export interface getCommentResponse extends ResponseType {
-  data: getCommentType[];
+export interface CommentDataType extends ResponseType {
+  data: CommentType[];
 }
 
 export interface patchCommentType {

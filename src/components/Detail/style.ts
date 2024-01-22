@@ -41,7 +41,7 @@ export const PostWrap = styled.div`
 `;
 
 export const PostContent = styled.div`
-  width: 100%;
+  width: 97%;
   height: auto;
   padding-left: 63px;
   padding-right: 23px;

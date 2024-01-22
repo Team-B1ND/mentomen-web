@@ -1,18 +1,18 @@
 import { AxiosError } from "axios";
 import { UseBaseQueryResult, useQuery, UseQueryOptions } from "react-query";
-import { getCommentResponse } from "@/src/types/Comment/comment.type";
+import { CommentDataType } from "@/src/types/Comment/comment.type";
 import CommentApi from "./api";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 
 export const useGetCommentQuery = (
   postId: number,
   options?: UseQueryOptions<
-    getCommentResponse,
+    CommentDataType,
     AxiosError,
-    getCommentResponse,
+    CommentDataType,
     (string | number)[]
   >
-): UseBaseQueryResult<getCommentResponse, AxiosError> =>
+): UseBaseQueryResult<CommentDataType, AxiosError> =>
   useQuery(
     QUERY_KEYS.Comment.getComment(postId),
     () => CommentApi.getCommentApi(postId),

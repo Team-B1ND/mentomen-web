@@ -15,7 +15,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
     <>
       <S.ImageContainer>
         <SlideWrapper>
-          <StyledSlider cursorSize="28px" cursor="pointer" {...slideOptions}>
+          <StyledSlider {...slideOptions}>
             {imgUrls.map((item, idx) => (
               <ItemImage
                 title="클릭하여 자세히보기"

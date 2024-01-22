@@ -8,12 +8,10 @@ export const SlideWrapper = styled.div`
 `;
 
 export const StyledSlider = styled(Slider)<{
-  cursorSize?: string;
-  cursor?: string;
+  arrowSize?: string;
 }>`
   .slick-track {
     ${flex({ alignItems: "center", justifyContent: "center" })};
-    cursor: ${({ cursor }) => cursor};
   }
 
   .slick-prev {
@@ -26,7 +24,7 @@ export const StyledSlider = styled(Slider)<{
 
   .slick-prev:before,
   .slick-next:before {
-    font-size: ${({ cursorSize }) => cursorSize || "25px"};
+    font-size: ${({ arrowSize }) => arrowSize || "25px"};
     color: #ddd;
     transition: all 0.3s ease-in-out;
   }
@@ -54,4 +52,5 @@ export const ItemImage = styled.img`
   object-fit: contain;
   border: none;
   outline: none;
+  cursor: pointer;
 `;

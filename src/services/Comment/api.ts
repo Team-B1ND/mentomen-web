@@ -1,7 +1,7 @@
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import {
   postCommentType,
-  getCommentResponse,
+  CommentDataType,
   patchCommentType,
 } from "@/src/types/Comment/comment.type";
 
@@ -16,7 +16,7 @@ class CommentApi {
     });
   }
 
-  public async getCommentApi(postId: number): Promise<getCommentResponse> {
+  public async getCommentApi(postId: number): Promise<CommentDataType> {
     const { data } = await MenToMenAxios.get(`/comment/read/${postId}`);
     return data;
   }

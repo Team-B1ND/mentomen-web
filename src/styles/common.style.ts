@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RxDotsVertical } from "react-icons/rx";
 import styled, { CSSObject } from "styled-components";
 import flex from "./flex";
 
@@ -36,4 +37,31 @@ export const CustomLink = styled(Link)<{ customstyle?: CSSObject }>`
   cursor: pointer;
   ${flex({ alignItems: "center", justifyContent: "center" })};
   ${({ customstyle }) => customstyle}
+`;
+
+export const DotsIconContainer = styled.div`
+  width: 30px;
+  position: relative;
+  z-index: 3;
+`;
+
+export const DotsIcon = styled(RxDotsVertical)<{
+  customstyle?: CSSObject;
+}>`
+  width: 30px;
+  height: 30px;
+
+  border-radius: 20px;
+  padding: 6px;
+  cursor: pointer;
+
+  transform: scale(1);
+  transition: all 0.1s ease-in-out;
+
+  &:active {
+    transform: scale(0.93);
+    background-color: #ddd;
+  }
+
+  ${({ customstyle }) => customstyle};
 `;

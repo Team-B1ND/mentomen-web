@@ -18,8 +18,16 @@ const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
       <S.Content>
         <Title
           titleIcon={request}
-          titleText="멘토 요청 글 작성하기"
-          subTitleText="태그를 선택하고 글을 작성하여 멘토에게 도움을 받아보세요!"
+          titleText={
+            type === "MODIFY"
+              ? "멘토 요청 글 수정하기"
+              : "멘토 요청 글 작성하기"
+          }
+          subTitleText={
+            type === "MODIFY"
+              ? "태그나 글 또는 이미지를 수정하여 멘토에게 도움을 받아보세요!"
+              : "태그를 선택하고 글을 작성하여 멘토에게 도움을 받아보세요!"
+          }
           customstyle={{ fontSize: "18px" }}
         />
         <RequestMentorForm {...hooks} />

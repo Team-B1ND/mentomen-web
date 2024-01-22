@@ -17,7 +17,6 @@ export const ContentText = styled.div<{
     isShowMoreContent ? "auto" : `${maxHeight}px`};
   overflow: hidden;
   font-size: 14.5px;
-
   line-height: 18px;
 
   p {

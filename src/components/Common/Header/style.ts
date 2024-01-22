@@ -83,9 +83,7 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
 
   border-radius: 4rem;
   border: ${({ isactivemypage }) =>
-    isactivemypage === "/mypage"
-      ? `2px solid ${palette.color}`
-      : "1px solid #ddd"};
+    isactivemypage === "/mypage" ? `2px solid #d9d9d9` : "1px solid #ddd"};
   margin: 0 2px 0 5px;
 
   cursor: pointer;
@@ -94,7 +92,7 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
   transition: all 0.15s ease-in-out;
   &:active,
   :hover {
-    border: 2px solid ${palette.color};
+    border: 2px solid #d9d9d9;
   }
 `;
 

@@ -1,7 +1,7 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import token from "@/src/libs/token/token";
-import { ListItemResponse } from "@/src/types/List/list.type";
+import { PostItemResponse } from "@/src/types/Post/post.type";
 import { UserResponse } from "@/src/types/User/user.type";
 
 class UserApi {
@@ -13,7 +13,7 @@ class UserApi {
     return;
   }
 
-  public async getMyPostApi(): Promise<ListItemResponse> {
+  public async getMyPostApi(): Promise<PostItemResponse> {
     const { data } = await MenToMenAxios.get(`/user/post`);
     return data;
   }

@@ -1,6 +1,6 @@
 import { ResponseType } from "../common/common.type";
 
-export interface ListItemType {
+export interface PostItemType {
   author: number;
   content: string;
   createDateTime: string;
@@ -14,7 +14,7 @@ export interface ListItemType {
   userName: string;
 }
 
-export interface ListPatchItem {
+export interface PostPatchItem {
   content: string;
   imgUrls: string[];
   postId: number;
@@ -28,13 +28,13 @@ export interface StdInfoType {
 }
 
 //단일 게시글 불러오기
-export interface ListResponse extends ResponseType {
-  data: ListItemType;
+export interface PostResponse extends ResponseType {
+  data: PostItemType;
 }
 
 //전체 게시글 불러오기
-export interface ListItemResponse extends ResponseType {
-  data: ListItemType[];
+export interface PostItemResponse extends ResponseType {
+  data: PostItemType[];
 }
 
 export interface PostSubmitType {

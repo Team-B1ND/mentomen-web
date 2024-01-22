@@ -72,7 +72,7 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
     isDrop &&
     css`
       transform: scale(0.97);
-      background-color: #f2f2f2;
+      background-color: #f9f9f9;
       border: 1.5px dashed #2745f2;
     `};
 
