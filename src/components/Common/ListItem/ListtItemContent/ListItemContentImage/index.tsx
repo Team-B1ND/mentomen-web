@@ -8,7 +8,7 @@ const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
     <S.ImageContainer sizeOfImages={imgUrls?.length}>
       <SlideWrapper>
-        <StyledSlider {...slideOptions} dots={true}>
+        <StyledSlider {...slideOptions}>
           {imgUrls.map((item, idx) => (
             <ItemImage key={idx} src={item} alt="이미지" />
           ))}

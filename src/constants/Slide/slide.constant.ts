@@ -3,4 +3,5 @@ export const slideOptions = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
+  dots: true,
 };
