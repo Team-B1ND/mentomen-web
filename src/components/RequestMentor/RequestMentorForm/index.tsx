@@ -5,8 +5,8 @@ import { Dispatch, RefObject, SetStateAction } from "react";
 import { PostSubmitType } from "@/src/types/List/list.type";
 
 interface Props {
-  postData: PostSubmitType;
-  setPostData: Dispatch<SetStateAction<PostSubmitType>>;
+  tag: string;
+  setTag: Dispatch<SetStateAction<string>>;
   existingData: PostSubmitType | null;
 
   imgUrl: string[];

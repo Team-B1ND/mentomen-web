@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
      body {
       background-color: #f4f4f4;
      }
+     img {
+      user-drag: none;
+     }
     ${reset}
 `;
 

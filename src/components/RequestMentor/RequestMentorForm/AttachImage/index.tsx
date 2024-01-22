@@ -13,13 +13,7 @@ interface Props {
   handleFileUploadDrop: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
-const RequestMentorFormAttachImage = ({
-  imgUrl,
-  setImgUrl,
-  selectFileImage,
-  handleFileUploadClick,
-  handleFileUploadDrop,
-}: Props) => {
+const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
   const [isDrop, setIsDrop] = useState(false);
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);
   const [selectImage, setSelectedImage] = useState("");
@@ -30,7 +24,7 @@ const RequestMentorFormAttachImage = ({
         <S.AttachImageWrap
           isDrop={isDrop}
           onDrop={(e) => {
-            handleFileUploadDrop(e);
+            hooks.handleFileUploadDrop(e);
             setIsDrop(false);
           }}
           onDragOver={(e) => {
@@ -44,12 +38,12 @@ const RequestMentorFormAttachImage = ({
         >
           <input
             type="file"
-            onChange={handleFileUploadClick}
-            ref={selectFileImage}
+            onChange={hooks.handleFileUploadClick}
+            ref={hooks.selectFileImage}
             multiple
             accept=".jpeg, .jpg, .png"
           />
-          <button onClick={() => selectFileImage.current?.click()}>
+          <button onClick={() => hooks.selectFileImage.current?.click()}>
             <S.UploadIcon src={upload} alt="업로드" />
             <p>이미지 선택</p>
           </button>
@@ -58,13 +52,15 @@ const RequestMentorFormAttachImage = ({
           </S.AttachImageText>
         </S.AttachImageWrap>
 
-        {imgUrl.length > 0 && (
+        {hooks.imgUrl?.length > 0 && (
           <S.PreviewAttachImageBox>
-            {imgUrl.map((item, idx) => (
+            {hooks.imgUrl.map((item, idx) => (
               <S.PreviewImageWrap key={idx}>
                 <S.CancelPreviewImage
                   onClick={() =>
-                    setImgUrl((prev) => prev.filter((img) => img !== item))
+                    hooks.setImgUrl((prev) =>
+                      prev.filter((img) => img !== item)
+                    )
                   }
                 >
                   <S.CancelIcon src={cancel} alt="취소" />

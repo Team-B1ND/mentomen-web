@@ -1,34 +1,44 @@
 import leftArrow from "@/public/icons/RequestMentor/leftArrow.svg";
 import flex from "@/src/styles/flex";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
 
 interface Props {
   isRequiredPostData: boolean;
+  isCoincidePostData: boolean;
   handlePageOutEvent: () => void;
   handlePostSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const RequestMentorNavigation = ({
-  isRequiredPostData,
-  handlePageOutEvent,
-  handlePostSubmit,
-}: Props) => {
+const RequestMentorNavigation = ({ ...hooks }: Props) => {
+  const router = useRouter();
+  console.log(hooks.isCoincidePostData);
   return (
-    <NavigationBox isRequiredPostData={isRequiredPostData}>
+    <NavigationBox
+      isRequiredPostData={hooks.isRequiredPostData}
+      isCoincidePostData={hooks.isCoincidePostData}
+    >
       <PrevArrowIcon
         src={leftArrow}
-        onClick={handlePageOutEvent}
+        onClick={hooks.handlePageOutEvent}
         alt="이전 페이지로 이동"
       />
-      <button onClick={handlePostSubmit}>멘토 요청하기</button>
+      <button onClick={hooks.handlePostSubmit}>
+        {router.pathname === "/request-mentor/modify"
+          ? "멘토 요청 수정하기"
+          : "멘토 요청하기"}
+      </button>
     </NavigationBox>
   );
 };
 
 export default RequestMentorNavigation;
 
-export const NavigationBox = styled.div<{ isRequiredPostData: boolean }>`
+export const NavigationBox = styled.div<{
+  isRequiredPostData: boolean;
+  isCoincidePostData: boolean;
+}>`
   width: 100%;
   height: 60px;
 
@@ -54,6 +64,12 @@ export const NavigationBox = styled.div<{ isRequiredPostData: boolean }>`
       css`
         background-color: #2749dc;
         color: #f2f2f2;
+      `}
+    ${({ isCoincidePostData }) =>
+      isCoincidePostData &&
+      css`
+        background-color: #0000000d;
+        color: gray;
       `}
   }
 

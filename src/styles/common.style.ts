@@ -32,6 +32,7 @@ export const NonePostText = styled.div`
 export const CustomLink = styled(Link)<{ customstyle?: CSSObject }>`
   color: #000;
   text-decoration: none;
+  user-drag: none;
   cursor: pointer;
   ${flex({ alignItems: "center", justifyContent: "center" })};
   ${({ customstyle }) => customstyle}

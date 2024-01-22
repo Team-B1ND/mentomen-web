@@ -20,6 +20,5 @@ export const useDeletePostMutation = () => {
   const mutation = useMutation((postId: number) =>
     PostApi.deletePostApi(postId)
   );
-
   return mutation;
 };

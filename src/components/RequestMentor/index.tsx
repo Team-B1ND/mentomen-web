@@ -7,10 +7,10 @@ import RequestMentorForm from "./RequestMentorForm";
 import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
 import { useRegistPost } from "@/src/hooks/RequestMentor/useRegistPost";
 
-const RequestMentor = () => {
+const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
   useTokenCheck();
   useHideHeaderOrNav("Both");
-  const { ...hooks } = useRegistPost();
+  const { ...hooks } = useRegistPost(type);
 
   return (
     <S.Container>

@@ -6,6 +6,7 @@ import {
 } from "@/src/constants/Auth/auth.constant";
 import token from "../token/token";
 import { MenToMenAxios } from "./MenToMenAxios";
+import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 
 export const responseHandler = async (error: AxiosError) => {
   const access_token = token.getCookie(ACCESS_TOKEN_KEY);
@@ -15,6 +16,10 @@ export const responseHandler = async (error: AxiosError) => {
       config: originalRequest,
       response: { status },
     } = error;
+
+    if (status === 500) {
+      MenToMenToast.showError("서버오류가 발생하였습니다.");
+    }
 
     if (access_token && refresh_token && status === 401) {
       try {

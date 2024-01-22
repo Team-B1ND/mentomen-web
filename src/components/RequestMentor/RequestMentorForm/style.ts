@@ -47,6 +47,7 @@ export const ContentInput = styled.span<{ placeholder: string }>`
       &:empty:before {
         content: attr(placeholder);
         color: #64748b;
+        line-height: 20px;
         font-family: "Pretendard-Light" !important;
       }
     `};
@@ -65,14 +66,22 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
 
   border-radius: 7px;
   transition: all 0.2s ease-in-out;
-  border: 1.7px dashed ${({ isDrop }) => (isDrop ? "#2745f2" : "#ddd")};
+  border: 1.7px dashed #ddd;
+
+  ${({ isDrop }) =>
+    isDrop &&
+    css`
+      transform: scale(0.97);
+      background-color: #f2f2f2;
+      border: 1.5px dashed #2745f2;
+    `};
 
   ${flex({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     rowGap: "15px",
-  })}
+  })};
 
   input {
     display: none;

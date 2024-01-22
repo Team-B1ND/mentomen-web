@@ -28,7 +28,7 @@ const PostSetting = ({ listItemData, setIsActivePostSetting }: Props) => {
           onClick={() => {
             setIsActivePostSetting(false);
             setExistingPostData(listItemData);
-            router.push("/request-mentor");
+            router.push("/request-mentor/modify");
           }}
         >
           <S.EditIcon />

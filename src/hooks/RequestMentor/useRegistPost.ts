@@ -1,7 +1,6 @@
 import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
-import { PostSubmitType } from "@/src/types/List/list.type";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 import { useRecoilState } from "recoil";
 import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
@@ -13,35 +12,47 @@ import {
 import { useFileUploadMutation } from "@/src/services/File/mutations";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 
-export const useRegistPost = () => {
+export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
-
-  const [imgUrl, setImgUrl] = useState<string[]>(existingData?.imgUrls || []);
-
-  const [content, setContent] = useState(existingData?.content || "");
-  const [postData, setPostData] = useState<PostSubmitType>({
-    content: "",
-    imgUrls: [],
-    tag: existingData?.tag || "",
-  });
-
+  const [imgUrl, setImgUrl] = useState<string[]>(
+    type === "MODIFY" ? existingData?.imgUrls ?? [] : []
+  );
+  const [content, setContent] = useState(
+    type === "MODIFY" ? existingData?.content : ""
+  );
+  const [tag, setTag] = useState(type === "MODIFY" ? existingData?.tag! : "");
   const selectFileImage = useRef<HTMLInputElement>(null);
-  const isRequiredPostData = content.trim() !== "" && postData.tag !== "";
+
+  const isRequiredPostData = content?.trim() !== "" && tag !== "";
+  const isCoincidePostData =
+    JSON.stringify({ content, tag, imgUrl }) ===
+    JSON.stringify({
+      content: existingData?.content,
+      tag: existingData?.tag,
+      imgUrl: existingData?.imgUrls,
+    });
 
   const formData = new FormData();
   const router = useRouter();
   const { queryInvalidates } = useQueryInvalidates();
 
+  const ImageFileUpload = useFileUploadMutation();
   const deletePost = useDeletePostMutation();
-  const fileUpload = useFileUploadMutation();
-  const postSubmit = usePostMySubmitMutation();
-  const editSubmit = usePatchMyPostMutation();
+  const uploadPost = usePostMySubmitMutation();
+  const modifyPost = usePatchMyPostMutation();
 
   const handlePageOutEvent = () => {
-    if (content.trim() !== "" || postData.tag !== "" || imgUrl.length !== 0) {
-      const answer = window.confirm(
-        "작성하신 글을 저장되지 않습니다! 나가시겠습니까?"
-      );
+    if (content?.trim() !== "" || tag !== "" || imgUrl.length !== 0) {
+      let answer = false;
+      if (type === "MODIFY") {
+        answer = window.confirm(
+          "수정하신 글은 저장되지 않습니다! 나가시겠습니까?"
+        );
+      } else {
+        answer = window.confirm(
+          "작성하신 글을 저장되지 않습니다! 나가시겠습니까?"
+        );
+      }
       if (!answer) return;
     }
     router.back();
@@ -54,7 +65,7 @@ export const useRegistPost = () => {
       formData.append("file", item);
     });
 
-    fileUpload.mutate(formData, {
+    ImageFileUpload.mutate(formData, {
       onSuccess: (res) => {
         res.data.map((item) => setImgUrl((prev) => [...prev, item.imgUrl]));
       },
@@ -113,32 +124,60 @@ export const useRegistPost = () => {
   const handlePostSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    if (content.trim() !== "" && postData.tag !== "") {
-      const { tag } = postData;
+    if (content?.trim() !== "" && tag !== "") {
+      const submitData = {
+        content: content?.trim()!,
+        tag: tag!,
+        imgUrls: imgUrl,
+      };
 
-      postSubmit.mutate(
-        { content: content.trim(), tag, imgUrls: imgUrl },
-        {
+      if (type === "MODIFY") {
+        if (isCoincidePostData) {
+          return MenToMenToast.showInfo("내용을 수정해주세요!");
+        }
+
+        modifyPost.mutate(
+          {
+            postId: existingData?.postId!,
+            ...submitData,
+          },
+          {
+            onSuccess: () => {
+              queryInvalidates([
+                QUERY_KEYS.Post.getAllPost,
+                QUERY_KEYS.User.getMyPost,
+                QUERY_KEYS.Post.getPostById(existingData?.postId!),
+              ]);
+              MenToMenToast.showSuccess("게시글을 수정하였습니다.");
+              router.push("/");
+              setExistData(null);
+            },
+            onError: (e) => {
+              MenToMenToast.showError("게시글을 수정하지 못했습니다.");
+            },
+          }
+        );
+      } else {
+        uploadPost.mutate(submitData, {
           onSuccess: () => {
             queryInvalidates([
               QUERY_KEYS.Post.getAllPost,
               QUERY_KEYS.User.getMyPost,
             ]);
-
             MenToMenToast.showSuccess("게시글을 작성하였습니다.");
             router.push("/");
           },
           onError: (e) => {
             MenToMenToast.showError("게시글을 작성하지 못했습니다.");
           },
-        }
-      );
+        });
+      }
     }
   };
 
   return {
-    postData,
-    setPostData,
+    tag,
+    setTag,
 
     imgUrl,
     setImgUrl,
@@ -149,8 +188,10 @@ export const useRegistPost = () => {
     existingData,
     setExistData,
 
-    selectFileImage,
     isRequiredPostData,
+    isCoincidePostData,
+
+    selectFileImage,
     handlePageOutEvent,
 
     handleFileUploadClick,

@@ -1,14 +1,13 @@
 import { REQUEST_MENTOR_TAGS_ITEMS } from "./constant";
 import * as S from "../style";
 import { Dispatch, SetStateAction, useState } from "react";
-import { PostSubmitType } from "@/src/types/List/list.type";
 
 interface Props {
-  postData: PostSubmitType;
-  setPostData: Dispatch<SetStateAction<PostSubmitType>>;
+  tag: string;
+  setTag: Dispatch<SetStateAction<string>>;
 }
 
-const RequestMentorFormTag = ({ postData, setPostData }: Props) => {
+const RequestMentorFormTag = ({ tag, setTag }: Props) => {
   const [postTagId, setPostTagId] = useState("");
   return (
     <S.TagUl>
@@ -17,11 +16,11 @@ const RequestMentorFormTag = ({ postData, setPostData }: Props) => {
           key={item.id}
           onMouseEnter={() => setPostTagId(item.id)}
           onMouseLeave={() => setPostTagId("")}
-          onClick={() => setPostData((prev) => ({ ...prev, tag: item.id }))}
+          onClick={() => setTag(item.id)}
         >
           <S.TagIcon
             src={
-              postData.tag === item.id || postTagId === item.id
+              tag === item.id || postTagId === item.id
                 ? item.fillTag
                 : item.unFillTag
             }

@@ -46,7 +46,11 @@ function Header() {
       <S.HeaderContainer>
         <S.Wrapper>
           <CustomLink href={"/"}>
-            <S.Logo src={menTomen} alt="멘투멘 로고" />
+            <S.Logo
+              src={menTomen}
+              onDragStart={(e) => e.preventDefault()}
+              alt="멘투멘 로고"
+            />
           </CustomLink>
 
           <S.HeaderAbleContainer>
@@ -83,12 +87,9 @@ function Header() {
                   />
                 </CustomLink>
 
-                <CustomLink href={"/request-mentor"}>
+                <CustomLink href={"/request-mentor/write"}>
                   <S.MenToRequest
-                    onClick={() => {
-                      isActiveSearch && setIsActiveSearch(false);
-                      // setIsActivePostForm(true);
-                    }}
+                    onClick={() => isActiveSearch && setIsActiveSearch(false)}
                   >
                     멘토 요청하기
                   </S.MenToRequest>

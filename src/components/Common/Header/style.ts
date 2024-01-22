@@ -31,6 +31,7 @@ export const Wrapper = styled.div`
 export const Logo = styled(Image)`
   width: 100px;
   height: 32px;
+
   cursor: pointer;
 
   transition: all 0.05s ease-in-out;
