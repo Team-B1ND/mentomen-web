@@ -18,10 +18,10 @@ export const StyledSlider = styled(Slider)<{
 
   .slick-prev {
     z-index: 1;
-    left: 10px;
+    left: 10px !important;
   }
   .slick-next {
-    right: 15px;
+    right: 15px !important;
   }
 
   .slick-prev:before,

@@ -3294,7 +3294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-slick@npm:^0.23.10":
+"@types/react-slick@npm:^0.23.13":
   version: 0.23.13
   resolution: "@types/react-slick@npm:0.23.13"
   dependencies:
@@ -9607,7 +9607,7 @@ __metadata:
     "@types/react": "npm:^18.2.38"
     "@types/react-dom": "npm:^18.2.18"
     "@types/react-is": "npm:^18"
-    "@types/react-slick": "npm:^0.23.10"
+    "@types/react-slick": "npm:^0.23.13"
     "@types/styled-components": "npm:^5.1.26"
     axios: "npm:^0.27.2"
     babel-plugin-styled-components: "npm:^2.1.4"

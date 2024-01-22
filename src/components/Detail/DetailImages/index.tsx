@@ -1,5 +1,7 @@
 import ViewImage from "@/src/components/Modal/ViewImage";
 import { slideOptions } from "@/src/constants/Slide/slide.constant";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { ItemImage, SlideWrapper, StyledSlider } from "@/src/styles/slide";
 import React, { useState } from "react";
 import Portal from "../../Modal/Portal";
@@ -12,24 +14,22 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
     <>
       <S.ImageContainer>
-        <S.ImageWrapper>
-          <SlideWrapper>
-            <StyledSlider cursorSize="28px" cursor="pointer" {...slideOptions}>
-              {imgUrls.map((item, idx) => (
-                <ItemImage
-                  title="클릭하여 자세히보기"
-                  key={idx}
-                  src={item}
-                  onClick={() => {
-                    setIsActiveDetailImage(true);
-                    setImgUrl(item);
-                  }}
-                  alt="이미지"
-                />
-              ))}
-            </StyledSlider>
-          </SlideWrapper>
-        </S.ImageWrapper>
+        <SlideWrapper>
+          <StyledSlider cursorSize="28px" cursor="pointer" {...slideOptions}>
+            {imgUrls.map((item, idx) => (
+              <ItemImage
+                title="클릭하여 자세히보기"
+                key={idx}
+                src={item}
+                onClick={() => {
+                  setIsActiveDetailImage(true);
+                  setImgUrl(item);
+                }}
+                alt="이미지"
+              />
+            ))}
+          </StyledSlider>
+        </SlideWrapper>
       </S.ImageContainer>
 
       {isActiveDetailImage && (
