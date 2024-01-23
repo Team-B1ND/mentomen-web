@@ -4,7 +4,7 @@ import styled, { CSSObject } from "styled-components";
 export const ContentBox = styled.div`
   width: 100%;
   height: auto;
-  padding: 10px 0;
+  padding: 6px 0 10px 0;
   ${flex({ flexDirection: "column", rowGap: "6px" })}
 `;
 

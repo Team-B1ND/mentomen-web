@@ -37,7 +37,7 @@ export const PostArticle = styled.article`
 export const PostWrap = styled.div`
   width: 100%;
   height: auto;
-  ${flex({ flexDirection: "column", rowGap: "2px" })}
+  ${flex({ flexDirection: "column" })}
 `;
 
 export const PostContent = styled.div`

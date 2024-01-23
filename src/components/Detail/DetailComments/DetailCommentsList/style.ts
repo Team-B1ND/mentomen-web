@@ -37,7 +37,7 @@ export const CommentContent = styled.div`
 
 export const CommenterInfoWrap = styled.div`
   width: calc(100% - 30px);
-  ${flex({ flexDirection: "column", rowGap: "8px" })};
+  ${flex({ flexDirection: "column" })};
 `;
 
 export const CommenterInfo = styled.div`
