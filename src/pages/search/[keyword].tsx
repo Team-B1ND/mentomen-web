@@ -19,7 +19,7 @@ const SerachPage = ({ keyword }: { keyword: string }) => {
   );
 };
 
-SerachPage.getInitialProps = async (ctx: NextPageContext) => {
+export const getServerSideProps = async (ctx: NextPageContext) => {
   const queryClient = new QueryClient();
 
   if (ctx.query.keyword) {

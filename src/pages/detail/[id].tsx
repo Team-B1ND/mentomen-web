@@ -20,7 +20,7 @@ const DetailPage = () => {
   );
 };
 
-DetailPage.getInitialProps = async (ctx: NextPageContext) => {
+export const getServerSideProps = async (ctx: NextPageContext) => {
   const queryClient = new QueryClient();
 
   if (ctx.query.id) {
