@@ -21,6 +21,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
                 title="클릭하여 자세히보기"
                 key={idx}
                 src={item}
+                customstyle={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsActiveDetailImage(true);
                   setImgUrl(item);

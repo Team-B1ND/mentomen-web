@@ -28,7 +28,11 @@ const Search = () => {
       </S.TitleContainer>
 
       <S.ListWrapper>
-        <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
+        <ErrorBoundary
+          fallback={
+            <S.NoneDataText>리스트를 불러오지 못했습니다.</S.NoneDataText>
+          }
+        >
           <Suspense fallback={<ListItemSkeleton />}>
             <SearchItem keyword={keyword as string} />
           </Suspense>
@@ -50,7 +54,7 @@ const SearchItem = ({ keyword }: { keyword: string }) => {
           <ListItem key={item.postId} data={item} />
         ))
       ) : (
-        <S.NonePostText>검색한 멘토 요청 글이 없습니다.</S.NonePostText>
+        <S.NoneDataText>검색한 멘토 요청 글이 없습니다.</S.NoneDataText>
       )}
     </>
   );

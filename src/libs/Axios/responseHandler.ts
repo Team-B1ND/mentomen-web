@@ -6,7 +6,6 @@ import {
 } from "@/src/constants/Auth/auth.constant";
 import token from "../token/token";
 import { MenToMenAxios } from "./MenToMenAxios";
-import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 
 export const responseHandler = async (error: AxiosError) => {
   const access_token = token.getCookie(ACCESS_TOKEN_KEY);

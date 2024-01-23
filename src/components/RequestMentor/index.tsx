@@ -25,7 +25,7 @@ const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
           }
           subTitleText={
             type === "MODIFY"
-              ? "태그나 글 또는 이미지를 수정하여 멘토에게 도움을 받아보세요!"
+              ? "태그나 글 또는 이미지를 수정하여 다시 멘토에게 도움을 요청하세요!"
               : "태그를 선택하고 글을 작성하여 멘토에게 도움을 받아보세요!"
           }
           customstyle={{ fontSize: "18px" }}

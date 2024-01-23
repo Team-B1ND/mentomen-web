@@ -11,13 +11,13 @@ export const TagContainer = styled.div`
 
   nav {
     background-color: #fff;
-    border-radius: 7px;
+    border-radius: 5px;
     border: 1px solid #ddd;
 
     padding: 10px 6px 10px;
     font-weight: 400;
     font-size: 17px;
-    ${flex({ rowGap: "10px", flexDirection: "column" })};
+    ${flex({ rowGap: "8px", flexDirection: "column" })};
   }
 `;
 

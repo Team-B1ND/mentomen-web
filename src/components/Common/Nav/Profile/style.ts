@@ -12,7 +12,7 @@ export const UserBox = styled.div`
   height: auto;
 
   border: 1px solid #ddd;
-  border-radius: 7px;
+  border-radius: 5px;
   background-color: #fff;
 
   padding: 14px 12px;

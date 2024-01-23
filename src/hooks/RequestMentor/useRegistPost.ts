@@ -1,6 +1,6 @@
 import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 import { useRecoilState } from "recoil";
 import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
@@ -29,7 +29,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
     JSON.stringify({
       content: existingData?.content,
       tag: existingData?.tag,
-      imgUrl: existingData?.imgUrls,
+      imgUrl: existingData?.imgUrls ?? [],
     });
 
   const formData = new FormData();
@@ -144,7 +144,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
               ]);
               MenToMenToast.showSuccess("게시글을 수정하였습니다.");
               router.push("/");
-              setExistData(null);
+              localStorage.removeItem("recoil-persist");
             },
             onError: (e) => {
               MenToMenToast.showError("게시글을 수정하지 못했습니다.");

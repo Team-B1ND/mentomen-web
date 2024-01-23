@@ -23,15 +23,6 @@ export const CloseIcon = styled(AiOutlineClose)`
   right: 10px;
   color: #fff;
   cursor: pointer;
-
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
-  border-radius: 5px;
-
-  &:active {
-    background-color: #ddd;
-    transform: scale(0.93);
-  }
 `;
 
 export const Wrapper = styled.div`

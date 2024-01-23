@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import flex from "./flex";
 
 export const SlideWrapper = styled.div`
@@ -45,12 +45,12 @@ export const StyledSlider = styled(Slider)<{
   }
 `;
 
-export const ItemImage = styled.img`
+export const ItemImage = styled.img<{ customstyle?: CSSObject }>`
   width: 100%;
   height: 100%;
 
   object-fit: contain;
   border: none;
   outline: none;
-  cursor: pointer;
+  ${({ customstyle }) => customstyle}
 `;

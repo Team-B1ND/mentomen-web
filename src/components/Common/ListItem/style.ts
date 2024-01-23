@@ -6,7 +6,7 @@ export const ArticleContainer = styled.article`
   height: auto;
 
   background-color: #fff;
-  border-radius: 7px;
+  border-radius: 5px;
   border: 1px solid #ddd;
   padding: 0 13px 10px;
 

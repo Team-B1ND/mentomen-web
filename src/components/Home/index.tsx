@@ -21,7 +21,7 @@ const Home = () => {
       <S.ListWrapper>
         <ErrorBoundary
           fallback={
-            <S.NonePostText>리스트를 불러오지 못했습니다.</S.NonePostText>
+            <S.NoneDataText>리스트를 불러오지 못했습니다.</S.NoneDataText>
           }
         >
           <Suspense fallback={<ListItemSkeleton />}>
@@ -40,7 +40,7 @@ const HomeItem = () => {
       {allList?.data.length!! > 0 ? (
         allList?.data.map((item) => <ListItem key={item.postId} data={item} />)
       ) : (
-        <S.NonePostText>멘토 요청 글이 없습니다.</S.NonePostText>
+        <S.NoneDataText>멘토 요청 글이 없습니다.</S.NoneDataText>
       )}
     </>
   );

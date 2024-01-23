@@ -24,7 +24,7 @@ export const TitleContainer = styled.div`
   height: auto;
 `;
 
-export const NonePostText = styled.div`
+export const NoneDataText = styled.div`
   width: 550px;
   height: 620px;
   ${flex({ alignItems: "center", justifyContent: "center" })}

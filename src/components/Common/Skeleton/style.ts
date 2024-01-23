@@ -20,8 +20,8 @@ export const SkeletonBox = styled.div<{
   height?: string;
   customStyle?: CSSObject;
 }>`
-  width: ${({ width }) => width || "550px"};
-  height: ${({ height }) => height || "550px"};
+  width: ${({ width }) => width || "100%"};
+  height: ${({ height }) => height || "350px"};
   border-radius: 5px;
   border: 1px solid #ddd;
 

@@ -28,7 +28,7 @@ const Detail = () => {
           subTitleText="멘티가 올린 글을 자세하게 살펴보고 댓글을 달아 해결해 주세요!"
           customstyle={{ fontSize: "18px" }}
         />
-        <ErrorBoundary fallback={<>Error</>}>
+        <ErrorBoundary fallback={<p>데이터를 불러오지 못했습니다.</p>}>
           <Suspense fallback={<DetailSkeleton />}>
             <DetailItem postId={Number(id)} />
           </Suspense>
@@ -71,7 +71,13 @@ const DetailItem = ({ postId }: { postId: number }) => {
         </S.PostWrap>
       </S.PostArticle>
 
-      <ErrorBoundary fallback={<>Error)</>}>
+      <ErrorBoundary
+        fallback={
+          <S.NoneCommentDataText>
+            댓글을 불러오지 못했습니다.
+          </S.NoneCommentDataText>
+        }
+      >
         <Suspense fallback={<DetailCommentSkeleton />}>
           <DetailComments postId={postId} />
         </Suspense>

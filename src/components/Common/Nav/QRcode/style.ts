@@ -12,7 +12,7 @@ export const QRCodeBox = styled.div`
   height: auto;
 
   background-color: #fff;
-  border-radius: 7px;
+  border-radius: 5px;
 
   border: 1px solid #ddd;
   padding: 15px 10px;

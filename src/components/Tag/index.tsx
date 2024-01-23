@@ -23,7 +23,7 @@ const Tag = () => {
       </S.TitleContainer>
 
       <S.ListWrapper>
-        <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
+        <ErrorBoundary fallback={<S.NoneDataText>리스트를 불러오지 못했습니다.</S.NoneDataText>}>
           <Suspense fallback={<ListItemSkeleton />}>
             <TagItem tag={tag as string} />
           </Suspense>
@@ -43,7 +43,7 @@ const TagItem = ({ tag }: { tag: string }) => {
       {tagList?.data.length!! > 0 ? (
         tagList?.data.map((item) => <ListItem key={item.postId} data={item} />)
       ) : (
-        <S.NonePostText>해당 태그 관련 멘토 요청 글이 없습니다.</S.NonePostText>
+        <S.NoneDataText>해당 태그 관련 멘토 요청 글이 없습니다.</S.NoneDataText>
       )}
     </>
   );

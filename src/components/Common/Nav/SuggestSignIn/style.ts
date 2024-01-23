@@ -13,7 +13,7 @@ export const SuggestSignInBox = styled.div`
 
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 7px;
+  border-radius: 5px;
 
   padding: 0 15px;
   ${flex({ alignItems: "center", justifyContent: "center" })}

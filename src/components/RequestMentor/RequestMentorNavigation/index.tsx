@@ -13,7 +13,7 @@ interface Props {
 
 const RequestMentorNavigation = ({ ...hooks }: Props) => {
   const router = useRouter();
-  console.log(hooks.isCoincidePostData);
+
   return (
     <NavigationBox
       isRequiredPostData={hooks.isRequiredPostData}

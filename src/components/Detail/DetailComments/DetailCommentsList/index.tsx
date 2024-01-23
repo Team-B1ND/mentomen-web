@@ -10,6 +10,7 @@ import DetailCommentsInput from "../DetailCommentsInput";
 import { useComment } from "@/src/hooks/Comment/useComment";
 import Setting from "@/src/components/Modal/Setting";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
+import ShowMoreContent from "@/src/components/Common/ShowMoreContent";
 
 interface Props {
   commentsData: CommentType[];
@@ -63,7 +64,7 @@ const DetailCommentsList = ({ commentsData }: Props) => {
                       )}
                     </S.CommentUpadateTimeText>
                   </S.CommenterInfo>
-                  <S.CommentText>{item.content}</S.CommentText>
+                  <ShowMoreContent content={item.content} maxHeight={55} />
                 </S.CommenterInfoWrap>
 
                 {userData?.userId === item.userId && (

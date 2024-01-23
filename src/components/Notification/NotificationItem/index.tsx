@@ -2,7 +2,7 @@ import profile from "@/public/icons/user/aprofile.png";
 import * as S from "../style";
 import { useRouter } from "next/router";
 import { GetDateTime } from "@/src/utils/Date/getDateTime";
-import { NonePostText } from "@/src/styles/common.style";
+import { NoneDataText } from "@/src/styles/common.style";
 import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
 
 const NotificationItem = () => {
@@ -41,7 +41,7 @@ const NotificationItem = () => {
           </S.NoticeItemBox>
         ))
       ) : (
-        <NonePostText>알림이 없습니다.</NonePostText>
+        <NoneDataText>알림이 없습니다.</NoneDataText>
       )}
     </S.NoticeItemContainer>
   );

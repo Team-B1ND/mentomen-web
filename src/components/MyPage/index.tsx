@@ -46,9 +46,9 @@ const MyPageItem = () => {
       {myPost?.data.length!! > 0 ? (
         myPost?.data.map((item) => <ListItem key={item.postId} data={item} />)
       ) : (
-        <S.NonePostText>
+        <S.NoneDataText>
           아직 자신이 작성한 멘토 요청 글이 없습니다.
-        </S.NonePostText>
+        </S.NoneDataText>
       )}
     </>
   );

@@ -28,7 +28,7 @@ export const PostArticle = styled.article`
   min-height: 150px;
 
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 5px;
 
   padding: 16px;
   background-color: #fff;
@@ -57,3 +57,9 @@ export const InteractionStyle = {
   width: "25px",
   height: "25px",
 };
+
+export const NoneCommentDataText = styled.div`
+  width: 100%;
+  height: 250px;
+  ${flex({ alignItems: "center", justifyContent: "center" })}
+`;

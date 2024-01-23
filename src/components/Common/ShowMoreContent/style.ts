@@ -21,8 +21,7 @@ export const ContentText = styled.div<{
 
   p {
     width: 100%;
-    height: 100%;
-
+    height: auto;
     white-space: pre-wrap;
     word-break: break-word;
   }
