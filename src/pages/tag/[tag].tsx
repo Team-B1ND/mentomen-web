@@ -19,7 +19,7 @@ const TagPage = ({ tag }: { tag: string }) => {
   );
 };
 
-export const getStaticPaths = async (ctx: NextPageContext) => {
+TagPage.getInitialProps = async (ctx: NextPageContext) => {
   const queryClient = new QueryClient();
 
   if (ctx.query.tag) {
