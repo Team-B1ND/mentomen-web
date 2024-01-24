@@ -56,7 +56,8 @@ export const StudentInfoContainer = styled.div`
 `;
 
 export const SettingStyle: CSSObject = {
-  top: "-15px",
+  top: "26px",
+  left: "7px",
 };
 
 export const DotsStyle: CSSObject = {

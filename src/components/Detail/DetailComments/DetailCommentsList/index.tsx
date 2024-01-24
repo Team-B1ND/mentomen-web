@@ -69,6 +69,7 @@ const DetailCommentsList = ({ commentsData }: Props) => {
 
                 {userData?.userId === item.userId && (
                   <DotsIconContainer>
+                    {commentId === item.commentId && <DotsIcon />}
                     {commentId === item.commentId ? (
                       <Setting
                         modalEl={modalEl}
@@ -77,7 +78,7 @@ const DetailCommentsList = ({ commentsData }: Props) => {
                         deleteEvent={() =>
                           handleDeleteComment(item.commentId, item.postId)
                         }
-                        customStyle={S.DotsStyle}
+                        customStyle={S.SettingStyle}
                       />
                     ) : (
                       <DotsIcon

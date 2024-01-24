@@ -23,7 +23,10 @@ const ShowMoreContent = ({ content, maxHeight, customStyle }: Props) => {
       </S.ContentText>
 
       {contentHeight > maxHeight && (
-        <S.ShowMoreText onClick={() => setIsShowMoreContent((prev) => !prev)}>
+        <S.ShowMoreText
+          isShowMoreContent={isShowMoreContent}
+          onClick={() => setIsShowMoreContent((prev) => !prev)}
+        >
           {isShowMoreContent ? "... 간략히 보기" : "... 더 보기"}
         </S.ShowMoreText>
       )}

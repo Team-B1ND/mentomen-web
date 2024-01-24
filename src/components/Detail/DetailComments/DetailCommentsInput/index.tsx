@@ -1,7 +1,4 @@
-import {
-  ACCESS_TOKEN_KEY,
-  DAUTH_URL,
-} from "@/src/constants/Auth/auth.constant";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
 import { useComment } from "@/src/hooks/Comment/useComment";
 import token from "@/src/libs/token/token";
 import profile from "@/public/icons/user/aprofile.png";
@@ -9,6 +6,7 @@ import { UserDataAtom } from "@/src/stores/User/user.store";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import * as S from "./style";
+import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
 
 interface Props {
   postId: number;
@@ -55,7 +53,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
               onClick={() =>
                 accessToken !== undefined
                   ? setIsActiveCommentInput(true)
-                  : (window.location.href = DAUTH_URL)
+                  : redirectToDAuthLogin()
               }
               suppressContentEditableWarning
             >

@@ -29,9 +29,12 @@ export const ContentText = styled.div<{
   ${({ customstyle }) => customstyle};
 `;
 
-export const ShowMoreText = styled.p`
-  font-size: 14px;
+export const ShowMoreText = styled.p<{ isShowMoreContent: boolean }>`
+  width: ${({ isShowMoreContent }) => (isShowMoreContent ? "80px" : "55px")};
+
   cursor: pointer;
   color: #64748b;
+
+  font-size: 14px;
   font-family: "Pretendard-Medium" !important;
 `;

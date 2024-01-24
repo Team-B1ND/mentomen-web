@@ -36,6 +36,7 @@ const ListItemProfile = ({ ...attr }: PostItemType) => {
 
         {asPath === "/mypage" && (
           <DotsIconContainer style={{ width: "23px" }}>
+            {isActiveSetting && <DotsIcon customstyle={S.DotsStyle} />}
             {isActiveSetting ? (
               <Setting
                 modalEl={modalEl}
@@ -50,7 +51,7 @@ const ListItemProfile = ({ ...attr }: PostItemType) => {
             ) : (
               <DotsIcon
                 customstyle={S.DotsStyle}
-                onClick={() => setIsActiveSetting(true)}
+                onClick={() => setIsActiveSetting((prev) => !prev)}
               />
             )}
           </DotsIconContainer>

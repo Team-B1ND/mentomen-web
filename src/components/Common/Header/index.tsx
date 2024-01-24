@@ -3,10 +3,7 @@ import menTomen from "@/public/icons/logo/menTomen.png";
 import searchIcon from "@/public/images/Search.png";
 import notExistNotice from "@/public/icons/notice/notExistNotice.svg";
 import existNotice from "@/public/icons/notice/existNotice.svg";
-import {
-  ACCESS_TOKEN_KEY,
-  DAUTH_URL,
-} from "@/src/constants/Auth/auth.constant";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import token from "@/src/libs/token/token";
@@ -18,6 +15,7 @@ import { UserDataAtom } from "@/src/stores/User/user.store";
 import { CustomLink } from "@/src/styles/common.style";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
+import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
 
 function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
@@ -96,9 +94,7 @@ function Header() {
                 </CustomLink>
               </>
             ) : (
-              <S.StartMenToMen
-                onClick={() => (window.location.href = DAUTH_URL)}
-              >
+              <S.StartMenToMen onClick={redirectToDAuthLogin}>
                 멘투멘 시작하기
               </S.StartMenToMen>
             )}

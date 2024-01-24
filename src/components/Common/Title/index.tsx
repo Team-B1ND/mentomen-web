@@ -1,12 +1,12 @@
 import flex from "@/src/styles/flex";
-import React from "react";
+import React, { ReactNode } from "react";
 import styled, { CSSObject } from "styled-components";
 import Image, { StaticImageData } from "next/image";
 
 interface Props {
-  titleText: string;
+  titleText: ReactNode;
   titleIcon?: string | StaticImageData;
-  subTitleText?: string;
+  subTitleText?: ReactNode;
   customstyle?: CSSObject;
 }
 

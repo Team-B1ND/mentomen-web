@@ -42,7 +42,6 @@ export const CustomLink = styled(Link)<{ customstyle?: CSSObject }>`
 export const DotsIconContainer = styled.div`
   width: 30px;
   position: relative;
-  z-index: 3;
 `;
 
 export const DotsIcon = styled(RxDotsVertical)<{

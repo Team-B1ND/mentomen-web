@@ -23,9 +23,8 @@ export const ProfileImage = styled(Image)`
   border: 1px solid #ddd;
 `;
 
-export const DotsStyle = {
+export const SettingStyle = {
   backgroundColor: "#f9f9f9",
-  boxShadow: "0 2px 14px rgba(0, 0, 0, 0.2)",
 };
 
 export const CommentContent = styled.div`

@@ -2,7 +2,7 @@ import Title from "../../Title";
 import lock from "@/public/icons/title/lock.png";
 import handshake from "@/public/icons/logo/handshake.png";
 import * as S from "./style";
-import { DAUTH_URL } from "@/src/constants/Auth/auth.constant";
+import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
 
 const SuggestSignIn = () => {
   return (
@@ -14,7 +14,7 @@ const SuggestSignIn = () => {
       />
 
       <S.SuggestSignInBox>
-        <button onClick={() => (window.location.href = DAUTH_URL)}>
+        <button onClick={redirectToDAuthLogin}>
           <S.MenToMenIcon src={handshake} alt="멘투멘" />
           <S.MenToMenStartText>멘투멘 시작하기</S.MenToMenStartText>
         </button>

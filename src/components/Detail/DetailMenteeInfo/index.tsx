@@ -1,5 +1,4 @@
 import { PostItemType } from "@/src/types/Post/post.type";
-import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
 import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -12,12 +11,13 @@ import { useRouter } from "next/router";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
 
-const DetailProfile = ({ ...attr }: PostItemType) => {
+const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
   const [isActiveSetting, setIsActiveSetting] = useState(false);
   const { modalEl } = useOutSideClickCloseModal(() =>
     setIsActiveSetting(false)
   );
+
   const { handleDeletePostClick } = useRegistPost();
   const router = useRouter();
 
@@ -29,16 +29,9 @@ const DetailProfile = ({ ...attr }: PostItemType) => {
   return (
     <S.Container>
       <S.ProfileBox>
-        <S.ProfileImage
-          src={attr.profileUrl || profile}
-          width={45}
-          height={45}
-          alt="프로필"
-        />
-
-        <S.PosterInfo>
+        <S.MenteeInfo>
           <div>
-            <S.PosterName>{attr.userName}</S.PosterName>
+            <S.MenteeName>{attr.userName}</S.MenteeName>
             <S.UploadPostTime>
               {getDate.uploadTimeAgo(new Date(attr.updateDateTime))}
               {updatePostStatus === "UPDATE" && " (수정됨)"}
@@ -47,15 +40,18 @@ const DetailProfile = ({ ...attr }: PostItemType) => {
           <S.ClassInfo>
             {grade}학년 {room}반 {number}번
           </S.ClassInfo>
-        </S.PosterInfo>
+        </S.MenteeInfo>
       </S.ProfileBox>
 
       {userData?.userId === attr.author && (
         <DotsIconContainer>
+          {isActiveSetting && <DotsIcon />}
           {isActiveSetting ? (
             <Setting
               modalEl={modalEl}
-              closeModalEvent={() => setIsActiveSetting(false)}
+              closeModalEvent={() => {
+                setIsActiveSetting(false);
+              }}
               modifyEvent={() => {
                 setExistingPostData(attr);
                 router.push("/request-mentor/modify");
@@ -63,7 +59,11 @@ const DetailProfile = ({ ...attr }: PostItemType) => {
               deleteEvent={() => handleDeletePostClick(attr.postId)}
             />
           ) : (
-            <DotsIcon onClick={() => setIsActiveSetting(true)} />
+            <DotsIcon
+              onClick={() => {
+                setIsActiveSetting((prev) => !prev);
+              }}
+            />
           )}
         </DotsIconContainer>
       )}
@@ -71,4 +71,4 @@ const DetailProfile = ({ ...attr }: PostItemType) => {
   );
 };
 
-export default DetailProfile;
+export default DetailMenteeInfo;

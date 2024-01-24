@@ -16,5 +16,6 @@ export default CommentInteraction;
 
 const CommentIcon = styled(AiOutlineComment)<{ customstyle: CSSObject }>`
   ${S.HoverAnimation}
+  ${S.IconStyle}
   ${({ customstyle }) => customstyle}
 `;

@@ -12,10 +12,10 @@ const useTokenCheck = () => {
 
   useEffect(() => {
     const checkToken = () => {
-      const accessToken = token.getCookie(ACCESS_TOKEN_KEY);
-      const refreshToken = token.getCookie(REFRESH_TOKEN_KEY);
-
-      if (!accessToken || !refreshToken) {
+      if (
+        !token.getCookie(ACCESS_TOKEN_KEY) ||
+        !token.getCookie(REFRESH_TOKEN_KEY)
+      ) {
         MenToMenToast.showInfo("로그인이 필요한 서비스입니다.");
         router.push("/");
       }
