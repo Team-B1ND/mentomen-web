@@ -12,91 +12,98 @@ import Setting from "@/src/components/Modal/Setting";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
 import ShowMoreContent from "@/src/components/Common/ShowMoreContent";
 
-interface Props {
-  commentsData: CommentType[];
-}
-
-const DetailCommentsList = ({ commentsData }: Props) => {
-  const userData = useRecoilValue(UserDataAtom);
-  const [commentId, setCommentId] = useState(0);
-  const [isEditComment, setIsEditComment] = useState(false);
-  const [exisitComment, setExisitComment] = useState("");
-
-  const { modalEl } = useOutSideClickCloseModal(() => setCommentId(0));
-  const { handleDeleteComment } = useComment();
-  const dateTime = new GetDateTime();
-  const reverseCommentData = commentsData.slice(0).reverse();
-
+const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
+  const reverseCommentData = data.slice(0).reverse();
   return (
     <S.Container>
-      {reverseCommentData.map((item) => {
-        const { grade, room, number } = item.stdInfo;
-        return (
-          <S.CommentsList key={item.commentId}>
-            <S.ProfileImage
-              src={item.profileUrl || profile}
-              width={40}
-              height={40}
-              alt="멘토 프로필"
-            />
-
-            {isEditComment && commentId === item.commentId ? (
-              <DetailCommentsInput
-                postId={item.postId}
-                commentId={commentId}
-                exisitComment={exisitComment}
-                closeCommentInput={() => setCommentId(0)}
-              />
-            ) : (
-              <S.CommentContent>
-                <S.CommenterInfoWrap>
-                  <S.CommenterInfo>
-                    <S.CommenterNameAndClass>
-                      {`${grade}${room}${number > 10 ? number : `0${number}`} ${
-                        item.userName
-                      }`}
-                    </S.CommenterNameAndClass>
-                    <S.CommentUpadateTimeText>
-                      {dateTime.uploadTimeAgo(new Date(item.updateDateTime!))}
-                      {dateTime.compareDate(
-                        new Date(item.createDateTime),
-                        new Date(item.updateDateTime!)
-                      )}
-                    </S.CommentUpadateTimeText>
-                  </S.CommenterInfo>
-                  <ShowMoreContent content={item.content} maxHeight={55} />
-                </S.CommenterInfoWrap>
-
-                {userData?.userId === item.userId && (
-                  <DotsIconContainer>
-                    {commentId === item.commentId && <DotsIcon />}
-                    {commentId === item.commentId ? (
-                      <Setting
-                        modalEl={modalEl}
-                        closeModalEvent={() => setCommentId(0)}
-                        modifyEvent={() => setIsEditComment(true)}
-                        deleteEvent={() =>
-                          handleDeleteComment(item.commentId, item.postId)
-                        }
-                        customStyle={S.SettingStyle}
-                      />
-                    ) : (
-                      <DotsIcon
-                        onClick={() => {
-                          setCommentId(item.commentId);
-                          setExisitComment(item.content);
-                          setIsEditComment(false);
-                        }}
-                      />
-                    )}
-                  </DotsIconContainer>
-                )}
-              </S.CommentContent>
-            )}
-          </S.CommentsList>
-        );
-      })}
+      {reverseCommentData.map((item) => (
+        <DetailCommentsListItem key={item.commentId} {...item} />
+      ))}
     </S.Container>
+  );
+};
+
+const DetailCommentsListItem = ({ ...attr }: CommentType) => {
+  const { grade, room, number } = attr.stdInfo;
+
+  const userData = useRecoilValue(UserDataAtom);
+  const [isEditComment, setIsEditComment] = useState(false);
+  const [exisitComment, setExisitComment] = useState("");
+  const [isActiveSetting, setIsActiveSetting] = useState(false);
+
+  const { modalEl } = useOutSideClickCloseModal(() =>
+    setIsActiveSetting(false)
+  );
+  const { handleDeleteComment } = useComment();
+  const dateTime = new GetDateTime();
+
+  return (
+    <S.CommentsList key={attr.commentId}>
+      <S.ProfileImage
+        src={attr.profileUrl || profile}
+        width={40}
+        height={40}
+        alt="멘토 프로필"
+      />
+
+      {isEditComment && isActiveSetting ? (
+        <DetailCommentsInput
+          postId={attr.postId}
+          commentId={attr.commentId}
+          exisitComment={exisitComment}
+          closeCommentInput={() => setIsActiveSetting(false)}
+        />
+      ) : (
+        <S.CommentContent>
+          <S.CommenterInfoWrap>
+            <S.CommenterInfo>
+              <S.CommenterNameAndClass>
+                {`${grade}${room}${number > 10 ? number : `0${number}`} ${
+                  attr.userName
+                }`}
+              </S.CommenterNameAndClass>
+              <S.CommentUpadateTimeText>
+                {dateTime.uploadTimeAgo(new Date(attr.updateDateTime!))}
+                {dateTime.compareDate(
+                  new Date(attr.createDateTime),
+                  new Date(attr.updateDateTime!)
+                )}
+              </S.CommentUpadateTimeText>
+            </S.CommenterInfo>
+            <ShowMoreContent content={attr.content} maxHeight={55} />
+          </S.CommenterInfoWrap>
+
+          <DotsIconContainer>
+            {userData?.userId === attr.userId && (
+              <>
+                {isActiveSetting ? (
+                  <>
+                    <DotsIcon />
+                    <Setting
+                      modalEl={modalEl}
+                      closeModalEvent={() => setIsActiveSetting(false)}
+                      modifyEvent={() => setIsEditComment(true)}
+                      deleteEvent={() =>
+                        handleDeleteComment(attr.commentId, attr.postId)
+                      }
+                      customStyle={S.SettingStyle}
+                    />
+                  </>
+                ) : (
+                  <DotsIcon
+                    onClick={() => {
+                      setExisitComment(attr.content);
+                      setIsEditComment(false);
+                      setIsActiveSetting(true);
+                    }}
+                  />
+                )}
+              </>
+            )}
+          </DotsIconContainer>
+        </S.CommentContent>
+      )}
+    </S.CommentsList>
   );
 };
 

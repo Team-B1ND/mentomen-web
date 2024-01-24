@@ -10,7 +10,7 @@ const DetailComments = ({ postId }: { postId: number }) => {
     <Container>
       <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
       <DetailCommentsInput postId={postId} />
-      <DetailCommentsList commentsData={commentsData?.data!} />
+      <DetailCommentsList data={commentsData?.data!} />
     </Container>
   );
 };

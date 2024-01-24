@@ -6,8 +6,8 @@ export const Container = styled.ul`
   width: 100%;
   height: auto;
   min-height: 300px;
-  padding-top: 10px;
-  ${flex({ flexDirection: "column", rowGap: "30px" })}
+  padding-top: 20px;
+  ${flex({ flexDirection: "column", rowGap: "35px" })}
 `;
 
 export const CommentsList = styled.li`

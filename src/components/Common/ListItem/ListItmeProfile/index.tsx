@@ -33,27 +33,30 @@ const ListItemProfile = ({ ...attr }: PostItemType) => {
             {grade}학년 {room}반 {number}번
           </S.GradeClassNumber>
         </S.StudentInfoWrap>
-
         {asPath === "/mypage" && (
           <DotsIconContainer style={{ width: "23px" }}>
-            {isActiveSetting && <DotsIcon customstyle={S.DotsStyle} />}
-            {isActiveSetting ? (
-              <Setting
-                modalEl={modalEl}
-                closeModalEvent={() => setIsActiveSetting(false)}
-                modifyEvent={() => {
-                  setExistingPostData(attr);
-                  router.push("/request-mentor/modify");
-                }}
-                deleteEvent={() => handleDeletePostClick(attr.postId)}
-                customStyle={S.SettingStyle}
-              />
-            ) : (
-              <DotsIcon
-                customstyle={S.DotsStyle}
-                onClick={() => setIsActiveSetting((prev) => !prev)}
-              />
-            )}
+            <>
+              {isActiveSetting ? (
+                <>
+                  <DotsIcon customstyle={S.DotsStyle} />
+                  <Setting
+                    modalEl={modalEl}
+                    closeModalEvent={() => setIsActiveSetting(false)}
+                    modifyEvent={() => {
+                      setExistingPostData(attr);
+                      router.push("/request-mentor/modify");
+                    }}
+                    deleteEvent={() => handleDeletePostClick(attr.postId)}
+                    customStyle={S.SettingStyle}
+                  />
+                </>
+              ) : (
+                <DotsIcon
+                  customstyle={S.DotsStyle}
+                  onClick={() => setIsActiveSetting((prev) => !prev)}
+                />
+              )}
+            </>
           </DotsIconContainer>
         )}
       </S.UserInfo>

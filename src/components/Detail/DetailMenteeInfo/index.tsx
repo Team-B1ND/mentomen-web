@@ -45,26 +45,30 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
 
       {userData?.userId === attr.author && (
         <DotsIconContainer>
-          {isActiveSetting && <DotsIcon />}
-          {isActiveSetting ? (
-            <Setting
-              modalEl={modalEl}
-              closeModalEvent={() => {
-                setIsActiveSetting(false);
-              }}
-              modifyEvent={() => {
-                setExistingPostData(attr);
-                router.push("/request-mentor/modify");
-              }}
-              deleteEvent={() => handleDeletePostClick(attr.postId)}
-            />
-          ) : (
-            <DotsIcon
-              onClick={() => {
-                setIsActiveSetting((prev) => !prev);
-              }}
-            />
-          )}
+          <>
+            {isActiveSetting ? (
+              <>
+                <DotsIcon />
+                <Setting
+                  modalEl={modalEl}
+                  closeModalEvent={() => {
+                    setIsActiveSetting(false);
+                  }}
+                  modifyEvent={() => {
+                    setExistingPostData(attr);
+                    router.push("/request-mentor/modify");
+                  }}
+                  deleteEvent={() => handleDeletePostClick(attr.postId)}
+                />
+              </>
+            ) : (
+              <DotsIcon
+                onClick={() => {
+                  setIsActiveSetting((prev) => !prev);
+                }}
+              />
+            )}
+          </>
         </DotsIconContainer>
       )}
     </S.Container>
