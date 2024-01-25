@@ -7,6 +7,8 @@ import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import Title from "../Common/Title";
 import post from "@/public/icons/title/post.png";
 import { useGetPostByTagQuery } from "@/src/services/Post/queries";
+import getTag from "@/src/utils/Tag/getTag";
+import styled from "styled-components";
 
 const Tag = () => {
   const router = useRouter();
@@ -17,13 +19,21 @@ const Tag = () => {
       <S.TitleContainer>
         <Title
           titleIcon={post}
-          titleText={`${tag} 멘토 요청 글`}
+          titleText={
+            <>
+              <TagText tag={tag?.toString()!}>{tag}</TagText> 멘토 요청 글
+            </>
+          }
           subTitleText={`포스팅된 ${tag} 멘토 요청 글을 조회할 수 있어요!`}
         />
       </S.TitleContainer>
 
       <S.ListWrapper>
-        <ErrorBoundary fallback={<S.NoneDataText>리스트를 불러오지 못했습니다.</S.NoneDataText>}>
+        <ErrorBoundary
+          fallback={
+            <S.NoneDataText>리스트를 불러오지 못했습니다.</S.NoneDataText>
+          }
+        >
           <Suspense fallback={<ListItemSkeleton />}>
             <TagItem tag={tag as string} />
           </Suspense>
@@ -50,3 +60,8 @@ const TagItem = ({ tag }: { tag: string }) => {
 };
 
 export default Tag;
+
+const TagText = styled.span<{ tag: string }>`
+  font-family: "Pretendard-Bold" !important;
+  color: ${({ tag }) => getTag.getTagColor(tag)};
+`;

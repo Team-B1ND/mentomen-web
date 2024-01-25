@@ -16,7 +16,7 @@ const ViewImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
     <S.Container onClick={() => setIsActiveDetailImage(false)}>
       <S.CloseIcon size={27} onClick={() => setIsActiveDetailImage(false)} />
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
-        <S.Image src={imgUrl} alt="이미지 없음" />
+        <S.Image src={imgUrl} alt="전체보기" />
       </S.Wrapper>
     </S.Container>
   );

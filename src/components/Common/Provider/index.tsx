@@ -17,8 +17,8 @@ const Proivder = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <GlobalStyle />
-      {router.pathname !== "/callback" && <ScrollTopButton />}
       <S.Container>
+        {router.pathname !== "/callback" && <ScrollTopButton />}
         <ProgressBar />
         {!hideHeader && <Header />}
         <S.Wrapper hideHeader={hideHeader}>

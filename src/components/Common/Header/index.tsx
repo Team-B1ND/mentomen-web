@@ -1,5 +1,5 @@
 import * as S from "./style";
-import menTomen from "@/public/icons/logo/menTomen.png";
+import menTomen from "@/public/icons/logo/menTomen2.png";
 import searchIcon from "@/public/images/Search.png";
 import notExistNotice from "@/public/icons/notice/notExistNotice.svg";
 import existNotice from "@/public/icons/notice/existNotice.svg";
@@ -51,7 +51,7 @@ function Header() {
             />
           </CustomLink>
 
-          <S.HeaderAbleContainer>
+          <S.ItemContainer>
             <S.SearchIcon
               isactivesearch={isActiveSearch.toString()}
               src={searchIcon}
@@ -98,7 +98,7 @@ function Header() {
                 멘투멘 시작하기
               </S.StartMenToMen>
             )}
-          </S.HeaderAbleContainer>
+          </S.ItemContainer>
         </S.Wrapper>
       </S.HeaderContainer>
 

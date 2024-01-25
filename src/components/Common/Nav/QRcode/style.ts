@@ -23,10 +23,11 @@ export const QRCodeBox = styled.div`
 export const QRCodeContainer = styled.div`
   width: auto;
   height: auto;
-  ${flex({ flexDirection: "column", alignItems: "center", rowGap: "3px" })}
+  ${flex({ flexDirection: "column", alignItems: "center" })}
 
   p {
     font-family: "Pretendard-Bold" !important;
+    font-size: 15px;
   }
 `;
 
