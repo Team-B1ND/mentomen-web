@@ -36,7 +36,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   );
 };
 
-export const getInitialProps = async ({
+App.getInitialProps = async ({
   Component,
   ctx,
 }: AppContext): Promise<AppInitialProps> => {
