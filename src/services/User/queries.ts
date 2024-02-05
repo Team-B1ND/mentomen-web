@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
+import { useQuery, UseQueryOptions } from "react-query";
 import { PostItemResponse } from "@/src/types/Post/post.type";
 import UserApi from "./api";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
@@ -17,9 +17,9 @@ export const useGetMyPostQuery = (
     PostItemResponse,
     string
   >
-): UseQueryResult<PostItemResponse, AxiosError> =>
+) =>
   useQuery(QUERY_KEYS.User.getMyPost, () => UserApi.getMyPostApi(), {
-    ...options,
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,
+    ...options,
   });
