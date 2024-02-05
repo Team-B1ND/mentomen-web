@@ -10,7 +10,7 @@ import DetailCommentsInput from "../DetailCommentsInput";
 import { useComment } from "@/src/hooks/Comment/useComment";
 import Setting from "@/src/components/Modal/Setting";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
-import ShowMoreContent from "@/src/components/common/ShowMoreContent";
+import ShowMoreContent from "@/src/components/Common/ShowMoreContent";
 
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();

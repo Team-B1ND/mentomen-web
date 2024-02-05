@@ -1,18 +1,18 @@
 import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
-import ErrorBoundary from "../common/ErrorBoundary";
-import ShowMoreContent from "../common/ShowMoreContent";
-import Title from "../common/Title";
+import ErrorBoundary from "../Common/ErrorBoundary";
+import ShowMoreContent from "../Common/ShowMoreContent";
+import Title from "../Common/Title";
 import DetailComments from "./DetailComments";
 import DetailImages from "./DetailImages";
 import DetailMenteeInfo from "./DetailMenteeInfo";
 import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
-import DetailSkeleton from "../common/Skeleton/Detail";
-import DetailCommentSkeleton from "../common/Skeleton/Detail/DetailComment";
-import LikeInteraction from "../common/PostInteraction/LikeInteraction";
-import ShareInteraction from "../common/PostInteraction/ShareInteraction";
+import DetailSkeleton from "../Common/Skeleton/Detail";
+import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
+import LikeInteraction from "../Common/PostInteraction/LikeInteraction";
+import ShareInteraction from "../Common/PostInteraction/ShareInteraction";
 import { useGetPostByIdQuery } from "@/src/services/Post/queries";
 import profile from "@/public/icons/user/aprofile.png";
 

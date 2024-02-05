@@ -6,7 +6,7 @@ import { SlideWrapper, StyledSlider } from "@/src/styles/slide";
 import React, { useState } from "react";
 import Portal from "../../Modal/Portal";
 import * as S from "./style";
-import ImageView from "../../common/ImageView";
+import ImageView from "../../Common/ImageView";
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);

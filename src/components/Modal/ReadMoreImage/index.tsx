@@ -1,7 +1,7 @@
 import useLockScroll from "@/src/hooks/common/useLockScroll";
 import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
-import ImageView from "../../common/ImageView";
+import ImageView from "../../Common/ImageView";
 import * as S from "./style";
 
 interface Props {
