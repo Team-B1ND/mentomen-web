@@ -13,19 +13,16 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   width: 95%;
-  height: auto;
 `;
 
 export const DetailItemContainer = styled.div`
   width: 100%;
-  height: auto;
   padding-bottom: 30px;
   ${flex({ flexDirection: "column", alignItems: "center" })}
 `;
 
 export const PostArticle = styled.article`
   width: 100%;
-  height: auto;
   min-height: 130px;
 
   border: 1px solid #ddd;
@@ -45,14 +42,12 @@ export const ProfileImage = styled(Image)`
 
 export const PostWrap = styled.div`
   width: calc(100% - 45px);
-  height: auto;
   padding-left: 18px;
   ${flex({ flexDirection: "column" })}
 `;
 
 export const PostContent = styled.div`
   width: 97%;
-  height: auto;
   padding-right: 23px;
   ${flex({ flexDirection: "column", rowGap: "4px" })}
 `;

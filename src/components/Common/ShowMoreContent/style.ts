@@ -3,7 +3,6 @@ import styled, { CSSObject } from "styled-components";
 
 export const ContentBox = styled.div`
   width: 100%;
-  height: auto;
   padding: 6px 0 10px 0;
   ${flex({ flexDirection: "column", rowGap: "6px" })}
 `;
@@ -21,7 +20,6 @@ export const ContentText = styled.div<{
 
   p {
     width: 100%;
-    height: auto;
     white-space: pre-wrap;
     word-break: break-word;
   }

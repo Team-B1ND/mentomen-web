@@ -4,13 +4,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: auto;
 `;
 
 export const QRCodeBox = styled.div`
   width: 100%;
-  height: auto;
-
   background-color: #fff;
   border-radius: 5px;
 
@@ -21,8 +18,6 @@ export const QRCodeBox = styled.div`
 `;
 
 export const QRCodeContainer = styled.div`
-  width: auto;
-  height: auto;
   ${flex({ flexDirection: "column", alignItems: "center" })}
 
   p {

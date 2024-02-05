@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: auto;
 `;
 
 export const SuggestSignInBox = styled.div`
@@ -30,11 +29,8 @@ export const SuggestSignInBox = styled.div`
     border: 1px solid #e2e8f0;
     cursor: pointer;
 
-    transition: all 0.2s ease-in-out;
-    transform: scale(1);
     &:active {
-      opacity: 0.8;
-      transform: scale(0.965);
+      opacity: 0.6;
     }
 
     ${flex({

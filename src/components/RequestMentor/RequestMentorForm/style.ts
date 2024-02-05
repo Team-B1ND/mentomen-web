@@ -4,10 +4,9 @@ import styled, { css } from "styled-components";
 
 export const TagUl = styled.div`
   width: 100%;
-  height: auto;
-
   list-style: none;
   padding: 5px 0 35px 0;
+
   ${flex({ columnGap: "13px" })}
   li {
     cursor: pointer;
@@ -21,7 +20,6 @@ export const TagIcon = styled(Image)`
 
 export const ContentInputContainer = styled.div`
   width: 100%;
-  height: auto;
   padding-bottom: 35px;
 `;
 
@@ -55,8 +53,6 @@ export const ContentInput = styled.span<{ placeholder: string }>`
 
 export const AttachImageBox = styled.div`
   width: 100%;
-  height: auto;
-
   ${flex({ flexDirection: "column", rowGap: "15px" })}
 `;
 
@@ -125,7 +121,6 @@ export const UploadIcon = styled(Image)`
 
 export const PreviewAttachImageBox = styled.div`
   width: 100%;
-  height: auto;
   padding-left: 2px;
 
   display: flex;

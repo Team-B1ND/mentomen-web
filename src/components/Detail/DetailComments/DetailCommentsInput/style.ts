@@ -5,7 +5,6 @@ import styled, { css } from "styled-components";
 
 export const InputContainer = styled.div`
   width: 100%;
-  height: auto;
   ${flex({ columnGap: "10px" })}
 `;
 
@@ -18,15 +17,12 @@ export const MyProfileImage = styled(Image)`
 
 export const CommentInputForm = styled.div`
   width: 100%;
-  height: auto;
 `;
 
 export const CommentTextInput = styled.span<{
   placeholder: string;
 }>`
   width: 100%;
-  height: auto;
-
   display: block;
 
   outline: none;

@@ -4,7 +4,6 @@ import Image from "next/image";
 
 export const Profile = styled.div`
   width: 100%;
-  height: auto;
 
   ${flex({
     alignItems: "flex-start",
