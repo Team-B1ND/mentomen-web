@@ -37,14 +37,12 @@ export default DetailCommentSkeleton;
 
 const Container = styled.div`
   width: 100%;
-  height: auto;
   padding: 25px 16px 36px 16px;
   ${flex({ flexDirection: "column", rowGap: "23px" })}
 `;
 
 const CommentBox = styled.div`
   width: 100%;
-  height: auto;
   padding-top: 10px;
   ${flex({ flexDirection: "column", rowGap: "20px" })}
 `;

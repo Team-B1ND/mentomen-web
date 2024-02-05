@@ -1,4 +1,4 @@
-import Provider from "@/src/components/Common/Provider";
+import Provider from "@/src/components/common/Provider";
 import { MenToMenToastContainer } from "@/src/utils/Toast/menToMenToastContainer";
 import { NextComponentType } from "next";
 import type { AppContext, AppInitialProps, AppProps } from "next/app";
@@ -11,7 +11,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
   pageProps,
 }: AppProps) => {
-  const [queryClient] = React.useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

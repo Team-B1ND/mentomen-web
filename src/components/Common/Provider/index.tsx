@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { useRecoilValue } from "recoil";
 import { HideHeaderAtom, HideNavAtom } from "@/src/stores/common/common.store";
 import GlobalStyle from "@/src/styles/globalStyle";
@@ -8,8 +7,9 @@ import ScrollTopButton from "../Button/ScrollTop";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import ProgressBar from "../ProgressBar";
+import { PropsWithChildren } from "@/src/types/common/common.type";
 
-const Proivder = ({ children }: { children: ReactNode }) => {
+const Proivder = ({ children }: PropsWithChildren) => {
   const hideHeader = useRecoilValue(HideHeaderAtom);
   const hideNav = useRecoilValue(HideNavAtom);
   const router = useRouter();

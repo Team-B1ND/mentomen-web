@@ -32,3 +32,8 @@
   src: url("../../public/fonts/Pretendard-Light.woff2");
   font-family: "Pretendard-Light";
 }
+
+@font-face {
+  src: url("../../public/fonts/Pretendard-Variable.woff2");
+  font-family: "Pretendard-Variable";
+}

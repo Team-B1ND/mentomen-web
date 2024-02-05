@@ -19,7 +19,7 @@ export default DetailComments;
 
 const Container = styled.div`
   width: 100%;
-  height: auto;
+
   padding: 25px 16px 36px 16px;
   ${flex({ flexDirection: "column", rowGap: "23px" })}
 `;

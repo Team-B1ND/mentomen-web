@@ -23,7 +23,7 @@ const Tag = () => {
           <CustomLink
             href={`/tag/${item.title}`}
             key={item.color}
-            customstyle={{ justifyContent: "left" }}
+            customstyle={S.LinkStyle}
           >
             <S.TagItemWrap>
               <div>

@@ -1,6 +1,6 @@
 import styled, { CSSObject } from "styled-components";
-import { AiOutlineEdit } from "react-icons/ai";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineEdit } from "@react-icons/all-files/ai/AiOutlineEdit";
+import { AiOutlineDelete } from "@react-icons/all-files/ai/AiOutlineDelete";
 import flex from "@/src/styles/flex";
 
 export const Container = styled.div<{ customstyle?: CSSObject }>`

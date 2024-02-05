@@ -1,10 +1,10 @@
 import { Suspense, useEffect } from "react";
 import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
 import * as S from "@/src/styles/common.style";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import ListItem from "../Common/ListItem";
-import ListItemSkeleton from "../Common/Skeleton/ListItem";
-import Title from "../Common/Title";
+import ErrorBoundary from "../common/ErrorBoundary";
+import ListItem from "../common/ListItem";
+import ListItemSkeleton from "../common/Skeleton/ListItem";
+import Title from "../common/Title";
 import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
 import { CountOfPostAtom } from "@/src/stores/Post/post.store";

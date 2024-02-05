@@ -21,7 +21,6 @@ export const ListWrapper = styled.div`
 
 export const TitleContainer = styled.div`
   width: 100%;
-  height: auto;
 `;
 
 export const NoneDataText = styled.div`
@@ -33,6 +32,7 @@ export const NoneDataText = styled.div`
 export const CustomLink = styled(Link)<{ customstyle?: CSSObject }>`
   color: #000;
   text-decoration: none;
+
   user-drag: none;
   cursor: pointer;
   ${flex({ alignItems: "center", justifyContent: "center" })};
