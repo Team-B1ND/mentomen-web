@@ -1,11 +1,9 @@
-import {
-  ACCESS_TOKEN_KEY,
-  DAUTH_URL,
-} from "@/src/constants/Auth/auth.constant";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
 import token from "@/src/libs/token/token";
 import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
 import { useState } from "react";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
+import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
 import styled, { css, CSSObject } from "styled-components";
 import * as S from "../style";
 import { PostInteractionProps } from "../type";

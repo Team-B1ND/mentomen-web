@@ -1,5 +1,5 @@
 import { CustomLink } from "@/src/styles/common.style";
-import { AiOutlineComment } from "react-icons/ai";
+import { AiOutlineComment } from "@react-icons/all-files/ai/AiOutlineComment";
 import styled, { CSSObject } from "styled-components";
 import * as S from "../style";
 import { PostInteractionProps } from "../type";
