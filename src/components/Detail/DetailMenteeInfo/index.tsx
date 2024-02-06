@@ -10,6 +10,7 @@ import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
 import { useRouter } from "next/router";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
+import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
 
 const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
@@ -20,6 +21,7 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
 
   const { handleDeletePostClick } = useRegistPost();
   const router = useRouter();
+  const pageView = GoogleAnalyzer.pageView;
 
   const { grade, room, number } = attr.stdInfo;
   const userData = useRecoilValue(UserDataAtom);
@@ -56,6 +58,7 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
                   }}
                   modifyEvent={() => {
                     setExistingPostData(attr);
+                    pageView(`/request-mentor/modify`);
                     router.push("/request-mentor/modify");
                   }}
                   deleteEvent={() => handleDeletePostClick(attr.postId)}

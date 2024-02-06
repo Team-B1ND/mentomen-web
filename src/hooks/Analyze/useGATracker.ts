@@ -2,18 +2,20 @@ import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const useGtag = () => {
+const useGATracker = () => {
   const router = useRouter();
   const pageView = GoogleAnalyzer.pageView;
 
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") return;
+    const handleRouteChange = (url: URL) => {
+      pageView(url);
+    };
 
-    router.events.on("routeChangeComplete", pageView);
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", pageView);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 };
 
-export default useGtag;
+export default useGATracker;

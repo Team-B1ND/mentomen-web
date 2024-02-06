@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
 import "@/src/styles/font.css";
-import useGtag from "../hooks/Analyze/useGtag";
+import useGATracker from "../hooks/Analyze/useGATracker";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -15,7 +15,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
 
-  useGtag();
+  useGATracker();
   useEffect(() => {
     setIsClient(true);
   }, []);
