@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/user-event", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:13.5.0"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/babel__preset-env", "npm:7.9.6"],\
+          ["@types/gtag.js", "npm:0.0.18"],\
           ["@types/jest", "npm:27.5.2"],\
           ["@types/js-cookie", "npm:3.0.6"],\
           ["@types/node", "npm:18.19.4"],\
@@ -6107,6 +6108,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/graceful-fs", "npm:4.1.9"],\
           ["@types/node", "npm:20.10.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/gtag.js", [\
+      ["npm:0.0.18", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-gtag.js-npm-0.0.18-dbe2f5d9eb-10c0.zip/node_modules/@types/gtag.js/",\
+        "packageDependencies": [\
+          ["@types/gtag.js", "npm:0.0.18"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14197,6 +14207,7 @@ const RAW_RUNTIME_STATE =
           ["@testing-library/user-event", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:13.5.0"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/babel__preset-env", "npm:7.9.6"],\
+          ["@types/gtag.js", "npm:0.0.18"],\
           ["@types/jest", "npm:27.5.2"],\
           ["@types/js-cookie", "npm:3.0.6"],\
           ["@types/node", "npm:18.19.4"],\

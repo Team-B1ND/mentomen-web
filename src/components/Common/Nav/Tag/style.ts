@@ -40,6 +40,7 @@ export const LinkStyle: CSSObject = {
 };
 
 export const TagItemWrap = styled.div`
+  width: 100%;
   ${flex({ alignItems: "center" })}
 
   div {

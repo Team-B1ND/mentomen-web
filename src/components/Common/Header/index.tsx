@@ -16,6 +16,7 @@ import { CustomLink } from "@/src/styles/common.style";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
 import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
+import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
 
 function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
@@ -23,6 +24,7 @@ function Header() {
 
   const setUserData = useSetRecoilState(UserDataAtom);
   const router = useRouter();
+  const pageView = GoogleAnalyzer.pageView;
 
   const { data: noticeCheck } = useGetNoticeCheckQuery();
   const { data: myInfo } = useGetMyInfoQuery();
@@ -47,6 +49,7 @@ function Header() {
             <S.Logo
               src={menTomen}
               onDragStart={(e) => e.preventDefault()}
+              onClick={() => pageView("/")}
               alt="멘투멘 로고"
             />
           </CustomLink>
@@ -71,6 +74,7 @@ function Header() {
                     onClick={() => {
                       isActiveSearch && setIsActiveSearch(false);
                       setIsHaveNotice(false);
+                      pageView("/notification");
                     }}
                     alt="알림"
                   />
@@ -80,14 +84,20 @@ function Header() {
                   <S.ProfileIcon
                     src={myInfo?.data.profileImage || profile}
                     isactivemypage={router.pathname}
-                    onClick={() => isActiveSearch && setIsActiveSearch(false)}
+                    onClick={() => {
+                      isActiveSearch && setIsActiveSearch(false);
+                      pageView("/mypage");
+                    }}
                     alt="프로필"
                   />
                 </CustomLink>
 
                 <CustomLink href={"/request-mentor/write"}>
                   <S.MenToRequest
-                    onClick={() => isActiveSearch && setIsActiveSearch(false)}
+                    onClick={() => {
+                      isActiveSearch && setIsActiveSearch(false);
+                      pageView("/request-mentor/write");
+                    }}
                   >
                     멘토 요청하기
                   </S.MenToRequest>

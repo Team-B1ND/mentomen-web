@@ -55,7 +55,7 @@ const SearchItem = ({ keyword }: { keyword: string }) => {
   return (
     <>
       {searchList?.data.length!! > 0 ? (
-        searchList?.data.map((item) => (
+        searchList?.data.(
           <ListItem key={item.postId} data={item} />
         ))
       ) : (
