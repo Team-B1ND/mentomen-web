@@ -4,10 +4,9 @@ import styled from "styled-components";
 
 export const Container = styled.ul`
   width: 100%;
-  height: auto;
   min-height: 300px;
-  padding-top: 10px;
-  ${flex({ flexDirection: "column", rowGap: "30px" })}
+  padding-top: 20px;
+  ${flex({ flexDirection: "column", rowGap: "35px" })}
 `;
 
 export const CommentsList = styled.li`
@@ -23,9 +22,8 @@ export const ProfileImage = styled(Image)`
   border: 1px solid #ddd;
 `;
 
-export const DotsStyle = {
+export const SettingStyle = {
   backgroundColor: "#f9f9f9",
-  boxShadow: "0 2px 14px rgba(0, 0, 0, 0.2)",
 };
 
 export const CommentContent = styled.div`
@@ -37,7 +35,7 @@ export const CommentContent = styled.div`
 
 export const CommenterInfoWrap = styled.div`
   width: calc(100% - 30px);
-  ${flex({ flexDirection: "column", rowGap: "8px" })};
+  ${flex({ flexDirection: "column" })};
 `;
 
 export const CommenterInfo = styled.div`

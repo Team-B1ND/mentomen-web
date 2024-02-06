@@ -5,12 +5,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 85%;
   height: 100%;
-  ${flex({ flexDirection: "column", rowGap: "10px" })}
+  ${flex({ flexDirection: "column", rowGap: "30px" })}
 `;
 
 export const NoticeItemContainer = styled.div`
   width: 100%;
-  height: auto;
   padding-left: 3px;
   ${flex({ flexDirection: "column", alignItems: "center", rowGap: "13px" })}
 `;

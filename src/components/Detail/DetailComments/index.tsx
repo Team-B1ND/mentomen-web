@@ -10,7 +10,7 @@ const DetailComments = ({ postId }: { postId: number }) => {
     <Container>
       <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
       <DetailCommentsInput postId={postId} />
-      <DetailCommentsList commentsData={commentsData?.data!} />
+      <DetailCommentsList data={commentsData?.data!} />
     </Container>
   );
 };
@@ -19,7 +19,7 @@ export default DetailComments;
 
 const Container = styled.div`
   width: 100%;
-  height: auto;
+
   padding: 25px 16px 36px 16px;
   ${flex({ flexDirection: "column", rowGap: "23px" })}
 `;

@@ -1,23 +1,25 @@
 import styled, { CSSObject } from "styled-components";
-import { AiOutlineEdit } from "react-icons/ai";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineEdit } from "@react-icons/all-files/ai/AiOutlineEdit";
+import { AiOutlineDelete } from "@react-icons/all-files/ai/AiOutlineDelete";
 import flex from "@/src/styles/flex";
 
 export const Container = styled.div<{ customstyle?: CSSObject }>`
-  width: 118px;
+  width: 115px;
   height: 85px;
 
   font-size: 15px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 5px;
 
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.15);
-  z-index: 2;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
   font-size: 15px;
 
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 32px;
+  left: 10px;
+
+  z-index: 2;
 
   ${flex({ flexDirection: "column", justifyContent: "center" })}
   ${({ customstyle }) => customstyle};
@@ -30,24 +32,23 @@ export const Button = styled.button<{ buttonType: "MODIFY" | "DELETE" }>`
   cursor: pointer;
   color: #0f0f0f;
   font-size: 14px;
-  padding-right: 10px;
 
   outline: none;
   border: none;
   background-color: transparent;
+  padding-left: 18px;
 
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: #eee;
+    background-color: #ddd;
   }
   &:active {
     background-color: #ddd;
-    transition: all 0s ease-in-out;
     color: ${({ buttonType }) =>
       buttonType === "MODIFY" ? "#007aff" : "#ff3b30"};
   }
 
-  ${flex({ alignItems: "center", justifyContent: "center", columnGap: "14px" })}
+  ${flex({ alignItems: "center", columnGap: "10px" })};
 `;
 
 export const EditIcon = styled(AiOutlineEdit)`

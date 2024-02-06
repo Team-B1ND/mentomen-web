@@ -6,14 +6,16 @@ import React, { useEffect, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
 import "@/src/styles/font.css";
+import useGATracker from "../hooks/Analyze/useGATracker";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
   pageProps,
 }: AppProps) => {
-  const [queryClient] = React.useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
 
+  useGATracker();
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -36,7 +38,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   );
 };
 
-export const getInitialProps = async ({
+App.getInitialProps = async ({
   Component,
   ctx,
 }: AppContext): Promise<AppInitialProps> => {

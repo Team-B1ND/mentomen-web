@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
       background-color: #f4f4f4;
      }
      img {
+      user-select: none;
       user-drag: none;
      }
     ${reset}

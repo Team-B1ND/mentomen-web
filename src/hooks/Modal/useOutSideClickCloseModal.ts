@@ -1,21 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 export const useOutSideClickCloseModal = (closeCallback: () => void) => {
   const modalEl = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const clickOutside = (e: Event) => {
+  const clickOutside = useCallback(
+    (e: Event) => {
       if (modalEl.current && !modalEl.current.contains(e.target as Node)) {
         closeCallback();
       }
-    };
+    },
+    [closeCallback]
+  );
 
-    window.addEventListener("mousedown", clickOutside);
-
+  useEffect(() => {
+    window.addEventListener("mouseup", clickOutside);
     return () => {
-      window.removeEventListener("mousedown", clickOutside);
+      window.removeEventListener("mouseup", clickOutside);
     };
-  }, [modalEl, closeCallback]);
+  }, [modalEl, clickOutside]);
 
   return {
     modalEl,

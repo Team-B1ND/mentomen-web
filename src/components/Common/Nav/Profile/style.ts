@@ -4,13 +4,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: auto;
 `;
 
 export const UserBox = styled.div`
   width: 100%;
-  height: auto;
-
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #fff;
@@ -21,8 +18,6 @@ export const UserBox = styled.div`
 
 export const UserWrap = styled.div`
   width: 100%;
-  height: auto;
-
   padding-bottom: 15px;
   border-bottom: 1px solid #ddd;
   ${flex({ columnGap: "10px", alignItems: "center" })}

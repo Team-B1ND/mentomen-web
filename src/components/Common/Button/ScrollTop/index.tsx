@@ -1,4 +1,4 @@
-import { BsArrowUpShort } from "react-icons/bs";
+import { BsArrowUpShort } from "@react-icons/all-files/bs/BsArrowUpShort";
 import flex from "@/src/styles/flex";
 import React from "react";
 import styled from "styled-components";

@@ -6,7 +6,7 @@ import ShowMoreContent from "../Common/ShowMoreContent";
 import Title from "../Common/Title";
 import DetailComments from "./DetailComments";
 import DetailImages from "./DetailImages";
-import DetailProfile from "./DetailProfile";
+import DetailMenteeInfo from "./DetailMenteeInfo";
 import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
 import DetailSkeleton from "../Common/Skeleton/Detail";
@@ -14,6 +14,7 @@ import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 import LikeInteraction from "../Common/PostInteraction/LikeInteraction";
 import ShareInteraction from "../Common/PostInteraction/ShareInteraction";
 import { useGetPostByIdQuery } from "@/src/services/Post/queries";
+import profile from "@/public/icons/user/aprofile.png";
 
 const Detail = () => {
   const router = useRouter();
@@ -43,8 +44,15 @@ const DetailItem = ({ postId }: { postId: number }) => {
   return (
     <S.DetailItemContainer>
       <S.PostArticle>
+        <S.ProfileImage
+          src={detailPost?.data.profileUrl || profile}
+          width={45}
+          height={45}
+          alt="프로필"
+        />
+
         <S.PostWrap>
-          <DetailProfile {...detailPost?.data!} />
+          <DetailMenteeInfo {...detailPost?.data!} />
 
           <S.PostContent>
             <ShowMoreContent
@@ -52,22 +60,18 @@ const DetailItem = ({ postId }: { postId: number }) => {
               customStyle={{ fontSize: "15px", lineHeight: "21px" }}
               maxHeight={86}
             />
-
             {detailPost?.data.imgUrls !== null && (
               <DetailImages imgUrls={detailPost?.data.imgUrls!} />
             )}
-
-            <S.IconContainer>
-              <LikeInteraction
-                postId={postId}
-                customStyle={S.InteractionStyle}
-              />
-              <ShareInteraction
-                postId={postId}
-                customStyle={S.InteractionStyle}
-              />
-            </S.IconContainer>
           </S.PostContent>
+
+          <S.IconContainer>
+            <LikeInteraction postId={postId} customStyle={S.InteractionStyle} />
+            <ShareInteraction
+              postId={postId}
+              customStyle={S.InteractionStyle}
+            />
+          </S.IconContainer>
         </S.PostWrap>
       </S.PostArticle>
 

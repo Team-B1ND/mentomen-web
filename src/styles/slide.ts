@@ -1,10 +1,9 @@
 import Slider from "react-slick";
-import styled, { CSSObject } from "styled-components";
+import styled from "styled-components";
 import flex from "./flex";
 
 export const SlideWrapper = styled.div`
   width: 100%;
-  height: auto;
 `;
 
 export const StyledSlider = styled(Slider)<{
@@ -16,10 +15,10 @@ export const StyledSlider = styled(Slider)<{
 
   .slick-prev {
     z-index: 1;
-    left: 10px !important;
+    left: 8px !important;
   }
   .slick-next {
-    right: 15px !important;
+    right: 13px !important;
   }
 
   .slick-prev:before,
@@ -43,14 +42,4 @@ export const StyledSlider = styled(Slider)<{
       color: #ddd;
     }
   }
-`;
-
-export const ItemImage = styled.img<{ customstyle?: CSSObject }>`
-  width: 100%;
-  height: 100%;
-
-  object-fit: contain;
-  border: none;
-  outline: none;
-  ${({ customstyle }) => customstyle}
 `;

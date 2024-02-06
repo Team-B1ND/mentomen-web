@@ -8,6 +8,7 @@ import Title from "../Common/Title";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
 import { GetText } from "@/src/utils/Text/getText";
 import { useGetPostByKeyWordQuery } from "@/src/services/Post/queries";
+import styled from "styled-components";
 
 const Search = () => {
   const router = useRouter();
@@ -22,7 +23,11 @@ const Search = () => {
       <S.TitleContainer>
         <Title
           titleIcon={readingGlasses}
-          titleText={`${keywordEllipsis}에 관한 멘토 요청 글`}
+          titleText={
+            <>
+              <SearchText>{keywordEllipsis}</SearchText>에 관한 멘토 요청 글
+            </>
+          }
           subTitleText={`검색한 ${keywordEllipsis}에 관한 멘토 요청 글을 조회할 수 있어요!`}
         />
       </S.TitleContainer>
@@ -61,3 +66,8 @@ const SearchItem = ({ keyword }: { keyword: string }) => {
 };
 
 export default Search;
+
+const SearchText = styled.span`
+  font-family: "Pretendard-Bold" !important;
+  color: #2749dc;
+`;

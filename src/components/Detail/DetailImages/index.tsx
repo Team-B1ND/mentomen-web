@@ -1,11 +1,12 @@
-import ViewImage from "@/src/components/Modal/ViewImage";
+import ReadMoreImage from "@/src/components/Modal/ReadMoreImage";
 import { slideOptions } from "@/src/constants/Slide/slide.constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ItemImage, SlideWrapper, StyledSlider } from "@/src/styles/slide";
+import { SlideWrapper, StyledSlider } from "@/src/styles/slide";
 import React, { useState } from "react";
 import Portal from "../../Modal/Portal";
 import * as S from "./style";
+import ImageView from "../../Common/ImageView";
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);
@@ -17,7 +18,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
         <SlideWrapper>
           <StyledSlider {...slideOptions}>
             {imgUrls.map((item, idx) => (
-              <ItemImage
+              <ImageView
                 title="클릭하여 자세히보기"
                 key={idx}
                 src={item}
@@ -35,7 +36,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 
       {isActiveDetailImage && (
         <Portal>
-          <ViewImage
+          <ReadMoreImage
             imgUrl={imgUrl}
             setIsActiveDetailImage={setIsActiveDetailImage}
           />

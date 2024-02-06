@@ -1,12 +1,10 @@
 import flex from "@/src/styles/flex";
 import getTag from "@/src/utils/Tag/getTag";
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import Image from "next/image";
 
 export const TagContainer = styled.div`
   width: 100%;
-  height: auto;
-
   ${flex({ flexDirection: "column" })};
 
   nav {
@@ -26,25 +24,28 @@ export const DeveloperIcon = styled(Image)`
   height: 25px;
 `;
 
+export const LinkStyle: CSSObject = {
+  transition: "0.2s all ease-in-out",
+  transform: "scale(1)",
+  borderRadius: "7px",
+  justifyContent: "left",
+
+  "&:hover": {
+    backgroundColor: "#eee",
+  },
+  "&:active": {
+    color: "#ddd",
+    transform: "scale(0.99)",
+  },
+};
+
 export const TagItemWrap = styled.div`
+  width: 100%;
   ${flex({ alignItems: "center" })}
 
   div {
-    width: auto;
     padding: 3px 10px 3px 10px;
     ${flex({ alignItems: "center", columnGap: "15px" })}
-
-    transition: 0.2s all ease-in-out;
-    transform: scale(1);
-    border-radius: 7px;
-
-    &:hover {
-      background-color: #eee;
-      transform: scale(0.96);
-    }
-    &:active {
-      color: #ddd;
-    }
   }
 `;
 
@@ -54,7 +55,6 @@ export const TagImg = {
 };
 
 export const TagName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
-  width: auto;
   height: 30px;
 
   color: ${({ isSelectTag, selectTag }) =>

@@ -1,5 +1,4 @@
 import flex from "@/src/styles/flex";
-import Image from "next/image";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -12,14 +11,7 @@ export const ProfileBox = styled.div`
   ${flex({ alignItems: "center", columnGap: "18px" })}
 `;
 
-export const ProfileImage = styled(Image)`
-  width: 45px;
-  height: 45px;
-  border-radius: 4rem;
-  border: 1px solid #ddd;
-`;
-
-export const PosterInfo = styled.div`
+export const MenteeInfo = styled.div`
   ${flex({ flexDirection: "column", rowGap: "5px" })}
   div {
     font-size: 15px;
@@ -27,7 +19,7 @@ export const PosterInfo = styled.div`
   }
 `;
 
-export const PosterName = styled.p`
+export const MenteeName = styled.p`
   font-family: "Pretendard-Medium" !important;
 `;
 

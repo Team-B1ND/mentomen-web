@@ -1,19 +1,16 @@
-import { palette } from "@/src/styles/palette";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import flex from "../../../styles/flex";
 
 export const HeaderContainer = styled.header`
+  width: 100%;
+  height: 65px;
+
   position: fixed;
   top: 0;
   left: 0;
 
-  width: 100%;
-  height: 65px;
-
-  ${flex({ alignItems: "center" })}
-
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
   padding: 0 10px;
 
@@ -31,7 +28,6 @@ export const Wrapper = styled.div`
 export const Logo = styled(Image)`
   width: 100px;
   height: 32px;
-
   cursor: pointer;
 
   transition: all 0.05s ease-in-out;
@@ -40,7 +36,7 @@ export const Logo = styled(Image)`
   }
 `;
 
-export const HeaderAbleContainer = styled.div`
+export const ItemContainer = styled.div`
   ${flex({ alignItems: "center", columnGap: "3px" })}
 `;
 

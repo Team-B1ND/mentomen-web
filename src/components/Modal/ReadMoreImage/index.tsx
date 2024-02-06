@@ -1,6 +1,7 @@
 import useLockScroll from "@/src/hooks/common/useLockScroll";
 import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
 import { Dispatch, SetStateAction } from "react";
+import ImageView from "../../Common/ImageView";
 import * as S from "./style";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
   setIsActiveDetailImage: Dispatch<SetStateAction<boolean>>;
 }
 
-const ViewImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
+const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
   useEscCloseModal(() => setIsActiveDetailImage(false));
   useLockScroll();
 
@@ -16,10 +17,14 @@ const ViewImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
     <S.Container onClick={() => setIsActiveDetailImage(false)}>
       <S.CloseIcon size={27} onClick={() => setIsActiveDetailImage(false)} />
       <S.Wrapper onClick={(e) => e.stopPropagation()}>
-        <S.Image src={imgUrl} alt="이미지 없음" />
+        <ImageView
+          src={imgUrl}
+          customstyle={{ height: "100vh" }}
+          alt="전체보기"
+        />
       </S.Wrapper>
     </S.Container>
   );
 };
 
-export default ViewImage;
+export default ReadMoreImage;

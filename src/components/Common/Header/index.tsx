@@ -1,12 +1,9 @@
 import * as S from "./style";
-import menTomen from "@/public/icons/logo/menTomen.png";
+import menTomen from "@/public/icons/logo/menTomen2.png";
 import searchIcon from "@/public/images/Search.png";
 import notExistNotice from "@/public/icons/notice/notExistNotice.svg";
 import existNotice from "@/public/icons/notice/existNotice.svg";
-import {
-  ACCESS_TOKEN_KEY,
-  DAUTH_URL,
-} from "@/src/constants/Auth/auth.constant";
+import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import token from "@/src/libs/token/token";
@@ -18,6 +15,8 @@ import { UserDataAtom } from "@/src/stores/User/user.store";
 import { CustomLink } from "@/src/styles/common.style";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
+import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
+import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
 
 function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
@@ -25,6 +24,7 @@ function Header() {
 
   const setUserData = useSetRecoilState(UserDataAtom);
   const router = useRouter();
+  const pageView = GoogleAnalyzer.pageView;
 
   const { data: noticeCheck } = useGetNoticeCheckQuery();
   const { data: myInfo } = useGetMyInfoQuery();
@@ -49,11 +49,12 @@ function Header() {
             <S.Logo
               src={menTomen}
               onDragStart={(e) => e.preventDefault()}
+              onClick={() => pageView("/")}
               alt="멘투멘 로고"
             />
           </CustomLink>
 
-          <S.HeaderAbleContainer>
+          <S.ItemContainer>
             <S.SearchIcon
               isactivesearch={isActiveSearch.toString()}
               src={searchIcon}
@@ -73,6 +74,7 @@ function Header() {
                     onClick={() => {
                       isActiveSearch && setIsActiveSearch(false);
                       setIsHaveNotice(false);
+                      pageView("/notification");
                     }}
                     alt="알림"
                   />
@@ -82,27 +84,31 @@ function Header() {
                   <S.ProfileIcon
                     src={myInfo?.data.profileImage || profile}
                     isactivemypage={router.pathname}
-                    onClick={() => isActiveSearch && setIsActiveSearch(false)}
+                    onClick={() => {
+                      isActiveSearch && setIsActiveSearch(false);
+                      pageView("/mypage");
+                    }}
                     alt="프로필"
                   />
                 </CustomLink>
 
                 <CustomLink href={"/request-mentor/write"}>
                   <S.MenToRequest
-                    onClick={() => isActiveSearch && setIsActiveSearch(false)}
+                    onClick={() => {
+                      isActiveSearch && setIsActiveSearch(false);
+                      pageView("/request-mentor/write");
+                    }}
                   >
                     멘토 요청하기
                   </S.MenToRequest>
                 </CustomLink>
               </>
             ) : (
-              <S.StartMenToMen
-                onClick={() => (window.location.href = DAUTH_URL)}
-              >
+              <S.StartMenToMen onClick={redirectToDAuthLogin}>
                 멘투멘 시작하기
               </S.StartMenToMen>
             )}
-          </S.HeaderAbleContainer>
+          </S.ItemContainer>
         </S.Wrapper>
       </S.HeaderContainer>
 

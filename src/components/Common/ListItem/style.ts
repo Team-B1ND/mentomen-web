@@ -3,8 +3,6 @@ import flex from "@/src/styles/flex";
 
 export const ArticleContainer = styled.article`
   width: 100%;
-  height: auto;
-
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #ddd;

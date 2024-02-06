@@ -1,5 +1,16 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import {
+  googleAnalyticsScript,
+  googleTagManagerScriptURL,
+} from "../constants/Analyze/ga.constant";
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -29,5 +40,21 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+  render() {
+    return (
+      <Html>
+        <Head>
+          <>
+            <script async src={googleTagManagerScriptURL} />
+            <script dangerouslySetInnerHTML={googleAnalyticsScript} />
+          </>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

@@ -5,10 +5,12 @@ import * as S from "./style";
 import Title from "../../Title";
 import { CustomLink } from "@/src/styles/common.style";
 import { NAV_TAGS_ITEMS } from "./constant";
+import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
 
 const Tag = () => {
   const router = useRouter();
   const { tag } = router.query;
+  const pageView = GoogleAnalyzer.pageView;
 
   return (
     <S.TagContainer>
@@ -19,31 +21,30 @@ const Tag = () => {
       />
 
       <nav>
-        {NAV_TAGS_ITEMS.map((item) => (
-          <CustomLink
-            href={`/tag/${item.title}`}
-            key={item.color}
-            customstyle={{ justifyContent: "left" }}
-          >
-            <S.TagItemWrap>
-              <div>
-                <Image
-                  src={item.image}
-                  width={1000}
-                  height={1000}
-                  style={S.TagImg}
-                  alt=""
-                />
-                <S.TagName
-                  isSelectTag={item.title === tag}
-                  selectTag={tag as string}
-                >
-                  {item.title}
-                </S.TagName>
-              </div>
-            </S.TagItemWrap>
-          </CustomLink>
-        ))}
+        {NAV_TAGS_ITEMS.map((item) => {
+          const link = `/tag/${item.title}`;
+          return (
+            <CustomLink href={link} key={item.color} customstyle={S.LinkStyle}>
+              <S.TagItemWrap onClick={() => pageView(link)}>
+                <div>
+                  <Image
+                    src={item.image}
+                    width={1000}
+                    height={1000}
+                    style={S.TagImg}
+                    alt=""
+                  />
+                  <S.TagName
+                    isSelectTag={item.title === tag}
+                    selectTag={tag as string}
+                  >
+                    {item.title}
+                  </S.TagName>
+                </div>
+              </S.TagItemWrap>
+            </CustomLink>
+          );
+        })}
       </nav>
     </S.TagContainer>
   );
