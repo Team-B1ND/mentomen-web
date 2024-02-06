@@ -45,12 +45,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {process.env.NODE_ENV !== "development" && (
-            <>
-              <script async src={googleTagManagerScriptURL} />
-              <script dangerouslySetInnerHTML={googleAnalyticsScript} />
-            </>
-          )}
+          <>
+            <script async src={googleTagManagerScriptURL} />
+            <script dangerouslySetInnerHTML={googleAnalyticsScript} />
+          </>
         </Head>
         <body>
           <Main />
