@@ -26,21 +26,19 @@ const Tag = () => {
           return (
             <CustomLink href={link} key={item.color} customstyle={S.LinkStyle}>
               <S.TagItemWrap onClick={() => pageView(link)}>
-                <div>
-                  <Image
-                    src={item.image}
-                    width={1000}
-                    height={1000}
-                    style={S.TagImg}
-                    alt=""
-                  />
-                  <S.TagName
-                    isSelectTag={item.title === tag}
-                    selectTag={tag as string}
-                  >
-                    {item.title}
-                  </S.TagName>
-                </div>
+                <Image
+                  src={item.image}
+                  width={1000}
+                  height={1000}
+                  style={S.TagImg}
+                  alt="태그"
+                />
+                <S.TagName
+                  isSelectTag={item.title === tag}
+                  selectTag={tag as string}
+                >
+                  {item.title}
+                </S.TagName>
               </S.TagItemWrap>
             </CustomLink>
           );

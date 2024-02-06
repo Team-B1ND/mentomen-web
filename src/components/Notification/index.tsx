@@ -9,6 +9,7 @@ import Title from "../Common/Title";
 import NotificationItem from "./NotificationItem";
 import bell from "@/public/icons/title/bell.png";
 import * as S from "./style";
+import { NoneDataText } from "@/src/styles/common.style";
 
 const Notification = () => {
   useTokenCheck();
@@ -22,11 +23,18 @@ const Notification = () => {
         subTitleText={`${userData?.name} 님에게 온 멘토 요청 글 알림을 확인해 보세요!`}
         customstyle={{ fontSize: "18px" }}
       />
-      <ErrorBoundary fallback={<>Error:)</>}>
-        <Suspense fallback={<NotiicationSkeleton />}>
-          <NotificationItem />
-        </Suspense>
-      </ErrorBoundary>
+
+      <S.NoticeItemContainer>
+        <ErrorBoundary
+          fallback={
+            <NoneDataText>알림 정보를 불러오지 못했습니다.</NoneDataText>
+          }
+        >
+          <Suspense fallback={<NotiicationSkeleton />}>
+            <NotificationItem />
+          </Suspense>
+        </ErrorBoundary>
+      </S.NoticeItemContainer>
     </S.Container>
   );
 };

@@ -19,9 +19,9 @@ export default DetailComments;
 
 const Container = styled.div`
   width: 100%;
+  padding: 25px 16px 15px 20px;
 
-  padding: 25px 16px 36px 16px;
-  ${flex({ flexDirection: "column", rowGap: "23px" })}
+  ${flex({ flexDirection: "column", rowGap: "23px" })};
 `;
 
 const CommentCount = styled.p`

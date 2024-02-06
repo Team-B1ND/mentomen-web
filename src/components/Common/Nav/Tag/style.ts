@@ -25,7 +25,7 @@ export const DeveloperIcon = styled(Image)`
 `;
 
 export const LinkStyle: CSSObject = {
-  transition: "0.2s all ease-in-out",
+  transition: "0.1s all ease-in-out",
   transform: "scale(1)",
   borderRadius: "7px",
   justifyContent: "left",
@@ -41,12 +41,8 @@ export const LinkStyle: CSSObject = {
 
 export const TagItemWrap = styled.div`
   width: 100%;
-  ${flex({ alignItems: "center" })}
-
-  div {
-    padding: 3px 10px 3px 10px;
-    ${flex({ alignItems: "center", columnGap: "15px" })}
-  }
+  padding: 3px 10px 3px 10px;
+  ${flex({ alignItems: "center", columnGap: "15px" })}
 `;
 
 export const TagImg = {

@@ -31,7 +31,6 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: [
           <>
-            <div id="modal-root" />
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>,
@@ -45,12 +44,11 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <>
-            <script async src={googleTagManagerScriptURL} />
-            <script dangerouslySetInnerHTML={googleAnalyticsScript} />
-          </>
+          <script async src={googleTagManagerScriptURL} />
+          <script dangerouslySetInnerHTML={googleAnalyticsScript} />
         </Head>
         <body>
+          <div id="modal-root" />
           <Main />
           <NextScript />
         </body>

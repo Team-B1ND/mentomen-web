@@ -4,19 +4,17 @@ import { useRouter } from "next/router";
 import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { NoneDataText } from "@/src/styles/common.style";
 import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
+import { GetText } from "@/src/utils/Text/getText";
 
 const NotificationItem = () => {
   const { data: noticeList } = useGetNoticeListQuery({ suspense: true });
   const router = useRouter();
 
   return (
-    <S.NoticeItemContainer>
+    <>
       {noticeList?.data.length! > 0 ? (
         noticeList?.data.map((item, idx) => (
-          <S.NoticeItemBox
-            key={idx}
-            onClick={() => router.push(`/detail/${item.postId}`)}
-          >
+          <S.NoticeItemBox key={idx}>
             <S.ProfileImage
               src={item.senderProfileImage || profile}
               width={50}
@@ -24,7 +22,9 @@ const NotificationItem = () => {
               alt="프로필"
             />
 
-            <S.NoticeContent>
+            <S.NoticeContent
+              onClick={() => router.push(`/detail/${item.postId}`)}
+            >
               <S.SenderWrap>
                 <S.SenderMessage>
                   <span>{item.senderName}</span> 님이 회원님의 게시글에 댓글을
@@ -32,7 +32,9 @@ const NotificationItem = () => {
                 </S.SenderMessage>
               </S.SenderWrap>
 
-              <S.SenderComment>{item.commentContent}</S.SenderComment>
+              <S.SenderComment>
+                {new GetText(item.commentContent).stringEllipsis(135)}
+              </S.SenderComment>
 
               <S.CommentUpdateDate>
                 {new GetDateTime().uploadTimeAgo(new Date(item.createDateTime))}
@@ -43,7 +45,7 @@ const NotificationItem = () => {
       ) : (
         <NoneDataText>알림이 없습니다.</NoneDataText>
       )}
-    </S.NoticeItemContainer>
+    </>
   );
 };
 

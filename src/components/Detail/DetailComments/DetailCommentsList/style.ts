@@ -4,15 +4,14 @@ import styled from "styled-components";
 
 export const Container = styled.ul`
   width: 100%;
-  min-height: 300px;
-  padding-top: 20px;
+  /* min-height: 300px; */
+  border-radius: 5px;
   ${flex({ flexDirection: "column", rowGap: "35px" })}
 `;
 
 export const CommentsList = styled.li`
-  width:100%:
-  height:auto;
-  ${flex({ columnGap: "15px" })}
+  width: 100%;
+  ${flex({ columnGap: "20px" })};
 `;
 
 export const ProfileImage = styled(Image)`
@@ -35,7 +34,7 @@ export const CommentContent = styled.div`
 
 export const CommenterInfoWrap = styled.div`
   width: calc(100% - 30px);
-  ${flex({ flexDirection: "column" })};
+  ${flex({ flexDirection: "column", rowGap: "5px" })};
 `;
 
 export const CommenterInfo = styled.div`

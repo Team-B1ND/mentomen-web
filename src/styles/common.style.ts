@@ -26,6 +26,7 @@ export const TitleContainer = styled.div`
 export const NoneDataText = styled.div`
   width: 550px;
   height: 620px;
+  color: gray;
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
