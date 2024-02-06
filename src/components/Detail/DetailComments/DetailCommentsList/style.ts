@@ -4,13 +4,16 @@ import styled from "styled-components";
 
 export const Container = styled.ul`
   width: 100%;
-  /* min-height: 300px; */
+  background-color: #fff;
   border-radius: 5px;
-  ${flex({ flexDirection: "column", rowGap: "35px" })}
+  border: 1px solid #ddd;
+  ${flex({ flexDirection: "column" })}
 `;
 
-export const CommentsList = styled.li`
+export const CommentsList = styled.li<{ isLast: boolean }>`
   width: 100%;
+  border-bottom: ${({ isLast }) => !isLast && "1px solid #ddd"};
+  padding: 20px 16px 10px 20px;
   ${flex({ columnGap: "20px" })};
 `;
 
@@ -40,9 +43,12 @@ export const CommenterInfoWrap = styled.div`
 export const CommenterInfo = styled.div`
   padding-top: 1px;
   ${flex({ rowGap: "5px", flexDirection: "column" })}
+  div {
+    ${flex({ columnGap: "6px", alignItems: "flex-end" })}
+  }
 `;
 
-export const CommenterNameAndClass = styled.p`
+export const CommenterName = styled.p`
   font-size: 14px;
   font-family: "Pretendard-Medium" !important;
 `;
@@ -50,6 +56,11 @@ export const CommenterNameAndClass = styled.p`
 export const CommentUpadateTimeText = styled.p`
   font-size: 12px;
   color: #606060;
+`;
+
+export const CommenterClassInfo = styled.p`
+  color: #858585;
+  font-size: 13px;
 `;
 
 export const CommentText = styled.div`

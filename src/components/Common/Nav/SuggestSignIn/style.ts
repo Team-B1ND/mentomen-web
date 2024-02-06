@@ -14,19 +14,18 @@ export const SuggestSignInBox = styled.div`
   border: 1px solid #ddd;
   border-radius: 5px;
 
-  padding: 0 15px;
+  overflow: hidden;
+
   ${flex({ alignItems: "center", justifyContent: "center" })}
 
   button {
     width: 100%;
-    height: 55px;
+    height: 100%;
 
-    border-radius: 5px;
     outline: none;
     border: none;
 
-    background-color: #f8fbfc;
-    border: 1px solid #e2e8f0;
+    background-color: #fff;
     cursor: pointer;
 
     &:active {
@@ -47,7 +46,7 @@ export const MenToMenIcon = styled(Image)`
 `;
 
 export const MenToMenStartText = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Pretendard-Bold" !important;
   color: #29275c;
 `;

@@ -48,8 +48,8 @@ export const DotsIconContainer = styled.div`
 export const DotsIcon = styled(RxDotsVertical)<{
   customstyle?: CSSObject;
 }>`
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
 
   border-radius: 20px;
   padding: 6px;

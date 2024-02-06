@@ -8,8 +8,10 @@ const DetailComments = ({ postId }: { postId: number }) => {
   const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });
   return (
     <Container>
-      <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
-      <DetailCommentsInput postId={postId} />
+      <InputWrap>
+        <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
+        <DetailCommentsInput postId={postId} />
+      </InputWrap>
       <DetailCommentsList data={commentsData?.data!} />
     </Container>
   );
@@ -19,8 +21,14 @@ export default DetailComments;
 
 const Container = styled.div`
   width: 100%;
-  padding: 25px 16px 15px 20px;
+  ${flex({ flexDirection: "column", rowGap: "15px" })};
+`;
 
+const InputWrap = styled.div`
+  background-color: #fff;
+  padding: 20px 16px 25px 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
   ${flex({ flexDirection: "column", rowGap: "23px" })};
 `;
 

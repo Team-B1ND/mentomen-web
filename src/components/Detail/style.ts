@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 export const DetailItemContainer = styled.div`
   width: 100%;
   padding-bottom: 30px;
-  ${flex({ flexDirection: "column", alignItems: "center" })}
+  ${flex({ flexDirection: "column", alignItems: "center", rowGap: "15px" })}
 `;
 
 export const PostArticle = styled.article`
@@ -70,6 +70,7 @@ export const InteractionStyle = {
 
 export const NoneCommentDataText = styled.div`
   width: 100%;
-  height: 250px;
+  height: 300px;
+  color: gray;
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;

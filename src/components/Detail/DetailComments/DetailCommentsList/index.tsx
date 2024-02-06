@@ -16,14 +16,21 @@ const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();
   return (
     <S.Container>
-      {reverseCommentData.map((item) => (
-        <DetailCommentsListItem key={item.commentId} {...item} />
+      {reverseCommentData.map((item, idx) => (
+        <DetailCommentsListItem
+          key={item.commentId}
+          {...item}
+          isLast={idx === reverseCommentData.length - 1}
+        />
       ))}
     </S.Container>
   );
 };
 
-const DetailCommentsListItem = ({ ...attr }: CommentType) => {
+const DetailCommentsListItem = ({
+  isLast,
+  ...attr
+}: CommentType & { isLast: boolean }) => {
   const { grade, room, number } = attr.stdInfo;
 
   const userData = useRecoilValue(UserDataAtom);
@@ -38,7 +45,7 @@ const DetailCommentsListItem = ({ ...attr }: CommentType) => {
   const dateTime = new GetDateTime();
 
   return (
-    <S.CommentsList key={attr.commentId}>
+    <S.CommentsList key={attr.commentId} isLast={isLast}>
       <S.ProfileImage
         src={attr.profileUrl || profile}
         width={40}
@@ -57,19 +64,22 @@ const DetailCommentsListItem = ({ ...attr }: CommentType) => {
         <S.CommentContent>
           <S.CommenterInfoWrap>
             <S.CommenterInfo>
-              <S.CommenterNameAndClass>
-                {`${grade}${room}${number > 10 ? number : `0${number}`} ${
-                  attr.userName
-                }`}
-              </S.CommenterNameAndClass>
-              <S.CommentUpadateTimeText>
-                {dateTime.uploadTimeAgo(new Date(attr.updateDateTime!))}
-                {dateTime.compareDate(
-                  new Date(attr.createDateTime),
-                  new Date(attr.updateDateTime!)
-                )}
-              </S.CommentUpadateTimeText>
+              <div>
+                <S.CommenterName>{attr.userName}</S.CommenterName>
+                <S.CommentUpadateTimeText>
+                  {dateTime.uploadTimeAgo(new Date(attr.updateDateTime!))}
+                  {dateTime.compareDate(
+                    new Date(attr.createDateTime),
+                    new Date(attr.updateDateTime!)
+                  )}
+                </S.CommentUpadateTimeText>
+              </div>
+
+              <S.CommenterClassInfo>
+                {grade}학년 {room}반 {number}번
+              </S.CommenterClassInfo>
             </S.CommenterInfo>
+
             <ShowMoreContent content={attr.content} maxHeight={55} />
           </S.CommenterInfoWrap>
 
