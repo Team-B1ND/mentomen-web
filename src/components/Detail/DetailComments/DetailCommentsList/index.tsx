@@ -15,7 +15,7 @@ import ShowMoreContent from "@/src/components/Common/ShowMoreContent";
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();
   return (
-    <S.Container>
+    <S.Container commentLenght={reverseCommentData.length}>
       {reverseCommentData.map((item, idx) => (
         <DetailCommentsListItem
           key={item.commentId}

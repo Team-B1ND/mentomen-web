@@ -2,11 +2,11 @@ import flex from "@/src/styles/flex";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.ul`
+export const Container = styled.ul<{ commentLenght: number }>`
   width: 100%;
   background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #ddd;
+  border: ${({ commentLenght }) => commentLenght > 0 && "1px solid #ddd"};
   ${flex({ flexDirection: "column" })}
 `;
 
