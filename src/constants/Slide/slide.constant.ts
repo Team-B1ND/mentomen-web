@@ -1,4 +1,4 @@
-export const slideOptions = {
+export const SlideOptions = {
   infinite: true,
   speed: 500,
   slidesToShow: 1,

@@ -1,7 +1,7 @@
 import request from "@/public/icons/title/request.png";
 import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
 import * as S from "./style";
-import Title from "../Common/Title";
+import Title from "../Common/ui/Title";
 import RequestMentorNavigation from "./RequestMentorNavigation";
 import RequestMentorForm from "./RequestMentorForm";
 import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";

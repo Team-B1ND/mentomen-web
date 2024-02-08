@@ -1,11 +1,11 @@
 import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
 import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
-import { UserDataAtom } from "@/src/stores/User/user.store";
+import { UserDataAtom } from "@/src/store/User/user.store";
 import { Suspense } from "react";
 import { useRecoilValue } from "recoil";
 import ErrorBoundary from "../Common/ErrorBoundary";
-import NotiicationSkeleton from "../Common/Skeleton/Notiication";
-import Title from "../Common/Title";
+import NotificationSkeleton from "../Common/ui/Skeleton/Notification";
+import Title from "../Common/ui/Title";
 import NotificationItem from "./NotificationItem";
 import bell from "@/public/icons/title/bell.png";
 import * as S from "./style";
@@ -30,7 +30,7 @@ const Notification = () => {
             <NoneDataText>알림 정보를 불러오지 못했습니다.</NoneDataText>
           }
         >
-          <Suspense fallback={<NotiicationSkeleton />}>
+          <Suspense fallback={<NotificationSkeleton />}>
             <NotificationItem />
           </Suspense>
         </ErrorBoundary>

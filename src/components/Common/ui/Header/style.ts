@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled, { css } from "styled-components";
-import flex from "../../../styles/flex";
+import flex from "../../../../styles/flex";
 
 export const HeaderContainer = styled.header`
   width: 100%;

@@ -4,7 +4,7 @@ import getTag from "@/src/utils/Tag/getTag";
 import { useRouter } from "next/router";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
 import { useSetRecoilState } from "recoil";
-import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
+import { ExistingPostDataAtom } from "@/src/store/Post/post.store";
 import { useState } from "react";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import { useRegistPost } from "@/src/hooks/RequestMentor/useRegistPost";

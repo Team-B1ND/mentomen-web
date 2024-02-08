@@ -1,10 +1,10 @@
-import { UserDataAtom } from "@/src/stores/User/user.store";
+import { UserDataAtom } from "@/src/store/User/user.store";
 import { useRecoilValue } from "recoil";
 import Title from "../../Title";
 import * as S from "./style";
 import profile from "@/public/icons/user/aprofile.png";
 import developer from "@/public/icons/title/developer.png";
-import { CountOfPostAtom } from "@/src/stores/Post/post.store";
+import { CountOfPostAtom } from "@/src/store/Post/post.store";
 import { useLogout } from "@/src/hooks/Auth/useLogout";
 
 const Profile = () => {

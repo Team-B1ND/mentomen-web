@@ -5,8 +5,13 @@ import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import NotificationApi from "./api";
 
 export const useGetNoticeCheckQuery = () =>
-  useQuery(QUERY_KEYS.Notice.getNoticeCheck, () =>
-    NotificationApi.getNoticeCheckApi()
+  useQuery(
+    QUERY_KEYS.Notice.getNoticeCheck,
+    () => NotificationApi.getNoticeCheckApi(),
+    {
+      cacheTime: 1000 * 60 * 60,
+      staleTime: 1000 * 60 * 60,
+    }
   );
 
 export const useGetNoticeListQuery = (
@@ -21,6 +26,8 @@ export const useGetNoticeListQuery = (
     QUERY_KEYS.Notice.getNoticeList,
     () => NotificationApi.getNoticeListApi(),
     {
+      cacheTime: 1000 * 60 * 60,
+      staleTime: 1000 * 60 * 60,
       ...options,
     }
   );

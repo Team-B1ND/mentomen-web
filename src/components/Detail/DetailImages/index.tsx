@@ -1,12 +1,12 @@
 import ReadMoreImage from "@/src/components/Modal/ReadMoreImage";
-import { slideOptions } from "@/src/constants/Slide/slide.constant";
+import { SlideOptions } from "@/src/constants/Slide/slide.constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SlideWrapper, StyledSlider } from "@/src/styles/slide";
 import React, { useState } from "react";
 import Portal from "../../Modal/Portal";
 import * as S from "./style";
-import ImageView from "../../Common/ImageView";
+import ImageView from "../../Common/ui/ImageView";
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);
@@ -16,7 +16,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
     <>
       <S.ImageContainer>
         <SlideWrapper>
-          <StyledSlider {...slideOptions}>
+          <StyledSlider {...SlideOptions}>
             {imgUrls.map((item, idx) => (
               <ImageView
                 title="클릭하여 자세히보기"

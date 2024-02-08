@@ -1,6 +1,6 @@
 import NextNProgress, { NextNProgressProps } from "nextjs-progressbar";
 
-const ProgressBar = ({ ...attr }: NextNProgressProps) => {
+const PageProgressBar = ({ ...attr }: NextNProgressProps) => {
   return (
     <NextNProgress
       color="#2745F2"
@@ -13,4 +13,4 @@ const ProgressBar = ({ ...attr }: NextNProgressProps) => {
   );
 };
 
-export default ProgressBar;
+export default PageProgressBar;

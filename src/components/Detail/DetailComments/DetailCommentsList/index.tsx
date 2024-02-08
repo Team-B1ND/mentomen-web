@@ -3,14 +3,14 @@ import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
 import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue } from "recoil";
-import { UserDataAtom } from "@/src/stores/User/user.store";
+import { UserDataAtom } from "@/src/store/User/user.store";
 import { useState } from "react";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import DetailCommentsInput from "../DetailCommentsInput";
 import { useComment } from "@/src/hooks/Comment/useComment";
 import Setting from "@/src/components/Modal/Setting";
 import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
-import ShowMoreContent from "@/src/components/Common/ShowMoreContent";
+import ShowMoreContent from "@/src/components/Common/ui/ShowMoreContent";
 
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();

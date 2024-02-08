@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { SkeletonBox } from "../style";
 
-const NotiicationSkeleton = () => {
+const NotificationSkeleton = () => {
   return (
     <Container>
       {Array.from({ length: 20 }).map((_, idx) => (
@@ -11,7 +11,7 @@ const NotiicationSkeleton = () => {
   );
 };
 
-export default NotiicationSkeleton;
+export default NotificationSkeleton;
 
 const Container = styled.div`
   width: 100%;
