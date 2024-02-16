@@ -92,7 +92,7 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
   }
 `;
 
-export const MenToRequest = styled.div`
+export const MenToRequest = styled.p`
   width: 105px;
   height: 40px;
   border-radius: 50px;
