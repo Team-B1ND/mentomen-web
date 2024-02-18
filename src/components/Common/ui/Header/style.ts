@@ -92,7 +92,7 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
   }
 `;
 
-export const MenToRequest = styled.p`
+export const MenToRequest = styled.div`
   width: 105px;
   height: 40px;
   border-radius: 50px;
@@ -113,7 +113,7 @@ export const MenToRequest = styled.p`
   }
 `;
 
-export const StartMenToMen = styled.h1`
+export const StartMenToMen = styled.div`
   font-family: "Pretendard-Medium" !important;
   font-size: 17px;
   padding: 8px;

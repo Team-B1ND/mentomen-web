@@ -39,7 +39,7 @@ export const LinkStyle: CSSObject = {
   },
 };
 
-export const TagItemWrap = styled.span`
+export const TagItemWrap = styled.div`
   width: 100%;
   padding: 3px 10px 3px 10px;
   ${flex({ alignItems: "center", columnGap: "15px" })}
