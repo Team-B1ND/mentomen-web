@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import * as S from "./style";
 import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
+import { usePasteInput } from "@/src/hooks/Paste/usePasteInput";
 
 interface Props {
   postId: number;
@@ -18,6 +19,7 @@ interface Props {
 const DetailCommentsInput = ({ ...attr }: Props) => {
   const userData = useRecoilValue(UserDataAtom);
   const { ...hooks } = useComment(attr.exisitComment!);
+  const { handlePasteInput } = usePasteInput();
   const [isActiveCommentInput, setIsActiveCommentInput] = useState(false);
   const accessToken = token.getCookie(ACCESS_TOKEN_KEY);
 
@@ -50,6 +52,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                 accessToken !== undefined || attr.commentId ? true : false
               }
               onInput={hooks.handleCommentChange}
+              onPaste={handlePasteInput}
               onClick={() =>
                 accessToken !== undefined
                   ? setIsActiveCommentInput(true)

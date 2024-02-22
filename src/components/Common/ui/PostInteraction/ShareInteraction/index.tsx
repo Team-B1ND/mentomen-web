@@ -1,4 +1,4 @@
-import { useSharePost } from "@/src/hooks/RequestMentor/useSharePost";
+import { useSharePost } from "./hooks";
 import { AiOutlineShareAlt } from "@react-icons/all-files/ai/AiOutlineShareAlt";
 import styled, { CSSObject } from "styled-components";
 import * as S from "../style";

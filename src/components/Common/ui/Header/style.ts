@@ -117,5 +117,9 @@ export const StartMenToMen = styled.div`
   font-family: "Pretendard-Medium" !important;
   font-size: 17px;
   padding: 8px;
-  ${HoverAnimation}
+
+  ${HoverAnimation};
+  &:hover {
+    transform: scale(0.96);
+  }
 `;
