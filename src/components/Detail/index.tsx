@@ -41,6 +41,7 @@ const Detail = () => {
 
 const DetailItem = ({ postId }: { postId: number }) => {
   const { data: detailPost } = useGetPostByIdQuery(postId, { suspense: true });
+
   return (
     <S.DetailItemContainer>
       <S.PostArticle>
