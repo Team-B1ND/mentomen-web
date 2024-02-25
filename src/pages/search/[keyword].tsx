@@ -7,14 +7,14 @@ import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 const SerachPage = ({ keyword }: { keyword: string }) => {
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: `멘투멘 | ${keyword} 검색`,
     description: `멘투멘 ${keyword}를 검색하셨습니다.`,
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Search />
     </>
   );

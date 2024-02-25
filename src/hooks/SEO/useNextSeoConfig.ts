@@ -1,4 +1,4 @@
-import { NextSeoProps } from "next-seo";
+import { DefaultSeoProps, NextSeoProps } from "next-seo";
 
 interface Type {
   title: string;
@@ -6,7 +6,7 @@ interface Type {
 }
 
 export const useNextSeoConfig = ({ title, description }: Type) => {
-  const SeoConfigProps: NextSeoProps = {
+  const SeoNextConfigProps: NextSeoProps = {
     title,
     description,
     additionalLinkTags: [
@@ -27,5 +27,23 @@ export const useNextSeoConfig = ({ title, description }: Type) => {
       ],
     },
   };
-  return { SeoConfigProps };
+
+  const SeoDefaultConfigProps: DefaultSeoProps = {
+    title,
+    description,
+    openGraph: {
+      type: "website",
+      locale: "ko_KR",
+      url: "https://mentomen.vercel.app",
+      site_name: "멘투멘",
+      title,
+      description: description,
+      images: [
+        {
+          url: "/images/meta-iPhone-image.png",
+        },
+      ],
+    },
+  };
+  return { SeoNextConfigProps, SeoDefaultConfigProps };
 };

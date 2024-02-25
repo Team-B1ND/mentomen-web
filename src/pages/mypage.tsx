@@ -7,14 +7,14 @@ import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
 import UserApi from "../services/User/api";
 
 const MyPagePage = () => {
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: "맨투멘 | 내 정보 페이지",
     description: "맨투맨 내 정보 페이지입니다.",
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <MyPage />
     </>
   );

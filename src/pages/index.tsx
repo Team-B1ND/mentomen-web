@@ -6,14 +6,14 @@ import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
 import PostApi from "../services/Post/api";
 
 const HomePage = () => {
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: "멘투멘 | 멘토와 멘티를 잇다",
     description: "멘투멘 메인 페이지입니다.",
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Home />
     </>
   );

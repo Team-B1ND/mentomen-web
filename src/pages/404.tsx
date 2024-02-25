@@ -7,14 +7,14 @@ import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
 const NotFound = () => {
   useHideHeaderOrNav("Both");
 
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: "멘투멘 | 존재하지 않는 페이지",
     description: "맨투맨 존재하지 않는 페이지입니다.",
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Container>404 - 존재하지 않는 페이지입니다.</Container>
     </>
   );

@@ -11,14 +11,14 @@ function AuthLoadingPage() {
   useDAtuhLogin();
   useHideHeaderOrNav("Both");
 
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: "멘투멘 | DAuth 로그인 중...",
     description: "맨투맨 DAuth 로그인 중...",
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Container>
         <B1ndLogo src={b1nd} alt="" />
         <Text>

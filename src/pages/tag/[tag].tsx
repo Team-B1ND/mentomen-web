@@ -7,14 +7,14 @@ import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 const TagPage = ({ tag }: { tag: string }) => {
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: `멘투멘 | ${tag} 태그 페이지`,
     description: `맨투맨 ${tag} 태그 페이지입니다.`,
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Tag />
     </>
   );

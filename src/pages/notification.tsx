@@ -8,14 +8,14 @@ import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
 import NotificationApi from "../services/Notification/api";
 
 const NotificationPage = () => {
-  const { SeoConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useNextSeoConfig({
     title: "멘투멘 | 내 알림 페이지",
     description: "멘투멘 내 알림 페이지입니다.",
   });
 
   return (
     <>
-      <NextSeo {...SeoConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Notification />
     </>
   );
