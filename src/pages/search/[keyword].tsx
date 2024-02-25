@@ -2,7 +2,13 @@ import Search from "@/src/components/Search";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
-import { NextPageContext } from "next";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetStaticPaths,
+  GetStaticProps,
+  NextPageContext,
+} from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
@@ -21,23 +27,30 @@ const SerachPage = ({ keyword }: { keyword: string }) => {
   );
 };
 
-SerachPage.getInitialProps = async (ctx: NextPageContext) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const queryClient = new QueryClient();
 
-  if (ctx.query.keyword) {
-    await Promise.all([
-      queryClient.prefetchQuery(
-        QUERY_KEYS.Post.getPostByKeyWord(ctx.query.keyword as string),
-        () => PostApi.getPostByKeyWordApi(ctx.query.keyword as string)
-      ),
-    ]);
-  }
+  const keyword = context.params?.keyword as string;
+
+  await Promise.all([
+    queryClient.prefetchQuery(QUERY_KEYS.Post.getPostByKeyWord(keyword), () =>
+      PostApi.getPostByKeyWordApi(keyword)
+    ),
+  ]);
 
   return {
-    keyword: ctx.query.keyword as string,
     props: {
+      keyword,
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 2,
   };
 };
 

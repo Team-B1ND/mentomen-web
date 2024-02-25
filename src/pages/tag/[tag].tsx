@@ -2,7 +2,7 @@ import Tag from "@/src/components/Tag";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
-import { NextPageContext } from "next";
+import { GetStaticPaths, GetStaticProps, NextPageContext } from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
@@ -21,22 +21,30 @@ const TagPage = ({ tag }: { tag: string }) => {
   );
 };
 
-TagPage.getInitialProps = async (ctx: NextPageContext) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const queryClient = new QueryClient();
 
-  if (ctx.query.tag) {
-    await Promise.all([
-      queryClient.prefetchQuery(
-        QUERY_KEYS.Post.getPostByTag(ctx.query.tag as string),
-        () => PostApi.getPostByTagApi(ctx.query.tag as string)
-      ),
-    ]);
-  }
+  const tag = context.params?.tag as string;
+
+  await Promise.all([
+    queryClient.prefetchQuery(QUERY_KEYS.Post.getPostByTag(tag), () =>
+      PostApi.getPostByTagApi(tag)
+    ),
+  ]);
+
   return {
-    tag: ctx.query.tag as string,
     props: {
+      tag,
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 2,
   };
 };
 

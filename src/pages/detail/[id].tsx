@@ -2,7 +2,7 @@ import Detail from "@/src/components/Detail";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
-import { NextPageContext } from "next";
+import { GetStaticPaths, GetStaticProps, NextPageContext } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
@@ -22,23 +22,30 @@ const DetailPage = ({ id }: { id: string }) => {
   );
 };
 
-DetailPage.getInitialProps = async (ctx: NextPageContext) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const queryClient = new QueryClient();
 
-  if (ctx.query.id) {
-    await Promise.all([
-      queryClient.prefetchQuery(
-        QUERY_KEYS.Post.getPostById(Number(ctx.query.id)),
-        () => PostApi.getPostByIdApi(Number(ctx.query.id))
-      ),
-    ]);
-  }
+  const id = context.params?.id as string;
+
+  await Promise.all([
+    queryClient.prefetchQuery(QUERY_KEYS.Post.getPostById(Number(id)), () =>
+      PostApi.getPostByIdApi(Number(id))
+    ),
+  ]);
 
   return {
-    id: ctx.query.id as string,
     props: {
+      id,
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 2,
   };
 };
 
