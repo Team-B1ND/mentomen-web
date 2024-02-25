@@ -5,7 +5,7 @@ import { useDAtuhLogin } from "../hooks/Auth/useDAtuhLogin";
 import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 import b1nd from "@/public/icons/logo/b1nd.png";
 import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
-import { DefaultSeo, NextSeo } from "next-seo";
+import { NextSeo } from "next-seo";
 
 function AuthLoadingPage() {
   useDAtuhLogin();
@@ -19,7 +19,7 @@ function AuthLoadingPage() {
 
   return (
     <>
-      <DefaultSeo {...SeoNextConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Container>
         <B1ndLogo src={b1nd} alt="" />
         <Text>

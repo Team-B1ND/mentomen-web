@@ -1,5 +1,5 @@
 import Home from "@/src/components/Home";
-import { DefaultSeo, NextSeo } from "next-seo";
+import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
 import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
@@ -13,7 +13,7 @@ const HomePage = () => {
 
   return (
     <>
-      <DefaultSeo {...SeoNextConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Home />
     </>
   );
