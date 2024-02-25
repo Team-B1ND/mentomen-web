@@ -17,8 +17,8 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
   const { SeoConfigProps } = useNextSeoConfig({
-    title: "멘투멘 | 멘토와 멘티를 잇다",
-    description: "멘투멘입니다.",
+    title: "멘투멘 - 멘토와 멘티를 잇다",
+    description: "멘토에게 궁금하거나 알고 싶었던 전공지식에 관해 물어보세요!",
   });
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 
   return (
     <>
-      <DefaultSeo {...SeoConfigProps} />
+      <NextSeo {...SeoConfigProps} />
       {isClient && (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>

@@ -22,7 +22,7 @@ export const useNextSeoConfig = ({ title, description }: Type) => {
       url: "https://mentomen.vercel.app",
       images: [
         {
-          url: "/images/meta-mentomen-image.jpeg",
+          url: "/images/meta-iPhone-image.jpeg",
         },
       ],
     },
