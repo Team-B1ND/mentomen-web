@@ -1,4 +1,4 @@
-import { NextSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import MyPage from "../components/MyPage";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
@@ -14,7 +14,7 @@ const MyPagePage = () => {
 
   return (
     <>
-      <NextSeo {...SeoNextConfigProps} />
+      <DefaultSeo {...SeoNextConfigProps} />
       <MyPage />
     </>
   );

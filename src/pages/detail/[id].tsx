@@ -3,7 +3,7 @@ import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
-import { NextSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 
@@ -16,7 +16,7 @@ const DetailPage = ({ id }: { id: string }) => {
 
   return (
     <>
-      <NextSeo {...SeoNextConfigProps} />
+      <DefaultSeo {...SeoNextConfigProps} />
       <Detail />
     </>
   );

@@ -1,5 +1,5 @@
 import Notification from "@/src/components/Notification";
-import { NextSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
@@ -15,7 +15,7 @@ const NotificationPage = () => {
 
   return (
     <>
-      <NextSeo {...SeoNextConfigProps} />
+      <DefaultSeo {...SeoNextConfigProps} />
       <Notification />
     </>
   );
