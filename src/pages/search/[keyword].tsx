@@ -1,13 +1,13 @@
 import Search from "@/src/components/Search";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
-import { useNextSeoConfig } from "@/src/hooks/SEO/useNextSeoConfig";
+import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 const SerachPage = ({ keyword }: { keyword: string }) => {
-  const { SeoNextConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useSeoConfig({
     title: `멘투멘 | ${keyword} 검색`,
     description: `멘투멘 ${keyword}를 검색하셨습니다.`,
   });

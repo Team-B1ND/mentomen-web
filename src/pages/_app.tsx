@@ -8,7 +8,7 @@ import { RecoilRoot } from "recoil";
 import "@/src/styles/font.css";
 import useGATracker from "../hooks/Analyze/useGATracker";
 import { DefaultSeo } from "next-seo";
-import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
+import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -16,7 +16,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
-  const { SeoDefaultConfigProps } = useNextSeoConfig({
+  const { SeoDefaultConfigProps } = useSeoConfig({
     title: "멘투멘 - 멘토와 멘티를 잇다",
     description: "멘토에게 궁금하거나 알고 싶었던 전공지식에 관해 물어보세요!",
   });

@@ -1,14 +1,13 @@
 import Notification from "@/src/components/Notification";
 import { NextSeo } from "next-seo";
-import Head from "next/head";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
-import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
+import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
 import NotificationApi from "../services/Notification/api";
 
 const NotificationPage = () => {
-  const { SeoNextConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 내 알림 페이지",
     description: "멘투멘 내 알림 페이지입니다.",
   });

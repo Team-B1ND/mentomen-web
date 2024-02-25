@@ -1,6 +1,6 @@
 import Detail from "@/src/components/Detail";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
-import { useNextSeoConfig } from "@/src/hooks/SEO/useNextSeoConfig";
+import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
 import { NextSeo } from "next-seo";
@@ -8,7 +8,7 @@ import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 
 const DetailPage = () => {
-  const { SeoNextConfigProps } = useNextSeoConfig({
+  const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 상세 페이지",
     description: "맨투멘 상세 페이지입니다.",
   });

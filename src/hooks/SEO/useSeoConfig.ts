@@ -5,7 +5,7 @@ interface Type {
   description: string;
 }
 
-export const useNextSeoConfig = ({ title, description }: Type) => {
+export const useSeoConfig = ({ title, description }: Type) => {
   const SeoNextConfigProps: NextSeoProps = {
     title,
     description,
@@ -19,7 +19,6 @@ export const useNextSeoConfig = ({ title, description }: Type) => {
       type: "website",
       title,
       description,
-      url: "https://mentomen.vercel.app",
       images: [
         {
           url: "/images/meta-iPhone-image.png",
@@ -34,7 +33,6 @@ export const useNextSeoConfig = ({ title, description }: Type) => {
     openGraph: {
       type: "website",
       locale: "ko_KR",
-      url: "https://mentomen.vercel.app",
       site_name: "멘투멘",
       title,
       description: description,
