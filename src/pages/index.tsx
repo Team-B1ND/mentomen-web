@@ -15,7 +15,7 @@ const HomePage = () => {
     <>
       <DefaultSeo {...SeoDefaultConfigProps} />
       <Home />
-    </>1
+    </>
   );
 };
 
