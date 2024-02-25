@@ -7,6 +7,8 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
 import "@/src/styles/font.css";
 import useGATracker from "../hooks/Analyze/useGATracker";
+import { DefaultSeo, NextSeo } from "next-seo";
+import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -14,6 +16,10 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
+  const { SeoConfigProps } = useNextSeoConfig({
+    title: "멘투멘 | 멘토와 멘티를 잇다",
+    description: "멘투멘입니다.",
+  });
 
   useEffect(() => {
     setIsClient(true);
@@ -23,6 +29,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 
   return (
     <>
+      <DefaultSeo {...SeoConfigProps} />
       {isClient && (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>

@@ -2,18 +2,18 @@ import Home from "@/src/components/Home";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
-import { useNextSeo } from "../hooks/common/useNextSeo";
+import { useNextSeoConfig } from "../hooks/SEO/useNextSeoConfig";
 import PostApi from "../services/Post/api";
 
 const HomePage = () => {
-  const { SeoProps } = useNextSeo({
+  const { SeoConfigProps } = useNextSeoConfig({
     title: "멘투멘 | 멘토와 멘티를 잇다",
     description: "멘투멘 메인 페이지입니다.",
   });
 
   return (
     <>
-      <NextSeo {...SeoProps} />
+      <NextSeo {...SeoConfigProps} />
       <Home />
     </>
   );

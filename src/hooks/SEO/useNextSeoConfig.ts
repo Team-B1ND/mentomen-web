@@ -5,14 +5,14 @@ interface Type {
   description: string;
 }
 
-export const useNextSeo = ({ title, description }: Type) => {
-  const SeoProps: NextSeoProps = {
+export const useNextSeoConfig = ({ title, description }: Type) => {
+  const SeoConfigProps: NextSeoProps = {
     title,
     description,
     additionalLinkTags: [
       {
         rel: "icon",
-        href: "/favicon.ico",
+        href: "/icons/logo/favicon.ico",
       },
     ],
     openGraph: {
@@ -22,10 +22,10 @@ export const useNextSeo = ({ title, description }: Type) => {
       url: "https://mentomen.vercel.app",
       images: [
         {
-          url: "/meta-image.png",
+          url: "/images/meta-mentomen-image.jpeg",
         },
       ],
     },
   };
-  return { SeoProps };
+  return { SeoConfigProps };
 };

@@ -1,20 +1,20 @@
 import Tag from "@/src/components/Tag";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
-import { useNextSeo } from "@/src/hooks/common/useNextSeo";
+import { useNextSeoConfig } from "@/src/hooks/SEO/useNextSeoConfig";
 import PostApi from "@/src/services/Post/api";
 import { NextPageContext } from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 const TagPage = ({ tag }: { tag: string }) => {
-  const { SeoProps } = useNextSeo({
+  const { SeoConfigProps } = useNextSeoConfig({
     title: `멘투멘 | ${tag} 태그 페이지`,
     description: `맨투맨 ${tag} 태그 페이지입니다.`,
   });
 
   return (
     <>
-      <NextSeo {...SeoProps} />
+      <NextSeo {...SeoConfigProps} />
       <Tag />
     </>
   );
