@@ -9,7 +9,6 @@ const MyPagePage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "맨투멘 | 내 정보 페이지",
     description: "맨투맨 내 정보 페이지입니다.",
-    url: "/mypage",
   });
 
   return (

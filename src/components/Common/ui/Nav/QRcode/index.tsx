@@ -14,7 +14,12 @@ const QRcode = () => {
       <S.QRCodeBox>
         {QRCODE_ITEMS.map((item) => (
           <S.QRCodeContainer key={item.id}>
-            <S.AndroidQRCodeImage src={item.QRcode} alt="AOS" />
+            <S.AndroidQRCodeImage
+              src={item.QRcode}
+              width={130}
+              height={130}
+              alt="AOS"
+            />
             <p>{item.title}</p>
           </S.QRCodeContainer>
         ))}

@@ -19,7 +19,6 @@ export const useSeoConfig = ({ title, description, url }: Type) => {
     openGraph: {
       type: "website",
       title,
-      url: `https://memtomen.vercel.app${url || "/"}`,
       description,
       images: [
         {

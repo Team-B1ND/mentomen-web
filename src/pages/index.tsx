@@ -1,21 +1,21 @@
 import Home from "@/src/components/Home";
-import { NextSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
 import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
 import PostApi from "../services/Post/api";
 
 const HomePage = () => {
-  const { SeoNextConfigProps } = useSeoConfig({
+  const { SeoDefaultConfigProps } = useSeoConfig({
     title: "멘투멘 | 멘토와 멘티를 잇다",
-    description: "멘투멘 메인 페이지입니다.",
+    description: "멘토에게 궁금하거나 알고 싶었던 전공지식에 관해 물어보세요!",
   });
 
   return (
     <>
-      <NextSeo {...SeoNextConfigProps} />
+      <DefaultSeo {...SeoDefaultConfigProps} />
       <Home />
-    </>
+    </>1
   );
 };
 

@@ -10,7 +10,6 @@ const RegistPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 멘토 요청 작성 페이지",
     description: "멘투멘 멘토 요청 작성 페이지입니다.",
-    url: "/request-mentor/write",
   });
 
   return (
