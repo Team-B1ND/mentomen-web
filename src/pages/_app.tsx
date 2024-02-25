@@ -29,11 +29,11 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 
   return (
     <>
-      <DefaultSeo {...SeoDefaultConfigProps} />
       {isClient && (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <RecoilRoot>
+              <DefaultSeo {...SeoDefaultConfigProps} />
               <MenToMenToastContainer />
               <Provider>
                 <Component {...pageProps} />
