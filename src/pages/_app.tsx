@@ -10,10 +10,7 @@ import useGATracker from "../hooks/Analyze/useGATracker";
 import { DefaultSeo } from "next-seo";
 import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
 
-const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
-  Component,
-  pageProps,
-}: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
   const [isClient, setIsClient] = useState(false);
   const { SeoDefaultConfigProps } = useSeoConfig({
@@ -29,11 +26,11 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 
   return (
     <>
+      <DefaultSeo {...SeoDefaultConfigProps} />
       {isClient && (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <RecoilRoot>
-              <DefaultSeo {...SeoDefaultConfigProps} />
               <MenToMenToastContainer />
               <Provider>
                 <Component {...pageProps} />

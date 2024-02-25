@@ -10,6 +10,7 @@ const SerachPage = ({ keyword }: { keyword: string }) => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: `멘투멘 | ${keyword} 검색`,
     description: `멘투멘 ${keyword}를 검색하셨습니다.`,
+    url: `/search/${keyword}`,
   });
 
   return (

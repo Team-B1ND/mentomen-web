@@ -10,6 +10,7 @@ const NotificationPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 내 알림 페이지",
     description: "멘투멘 내 알림 페이지입니다.",
+    url: "/notification",
   });
 
   return (

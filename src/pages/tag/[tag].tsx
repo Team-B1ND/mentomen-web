@@ -10,6 +10,7 @@ const TagPage = ({ tag }: { tag: string }) => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: `멘투멘 | ${tag} 태그 페이지`,
     description: `맨투맨 ${tag} 태그 페이지입니다.`,
+    url: `/tag/${tag}`,
   });
 
   return (
