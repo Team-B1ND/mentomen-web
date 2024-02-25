@@ -29,7 +29,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
 
   return (
     <>
-      <DefaultSeo {...SeoDefaultConfigProps} />
+      {/* <DefaultSeo {...SeoDefaultConfigProps} /> */}
       {isClient && (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
