@@ -14,6 +14,7 @@ function AuthLoadingPage() {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | DAuth 로그인 중...",
     description: "맨투맨 DAuth 로그인 중...",
+    url: "/callback",
   });
 
   return (

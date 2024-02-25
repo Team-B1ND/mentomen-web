@@ -3,9 +3,10 @@ import { DefaultSeoProps, NextSeoProps } from "next-seo";
 interface Type {
   title: string;
   description: string;
+  url?: string;
 }
 
-export const useSeoConfig = ({ title, description }: Type) => {
+export const useSeoConfig = ({ title, description, url }: Type) => {
   const SeoNextConfigProps: NextSeoProps = {
     title,
     description,
@@ -18,6 +19,7 @@ export const useSeoConfig = ({ title, description }: Type) => {
     openGraph: {
       type: "website",
       title,
+      url: `https://memtomen.vercel.app${url || "/"}`,
       description,
       images: [
         {
