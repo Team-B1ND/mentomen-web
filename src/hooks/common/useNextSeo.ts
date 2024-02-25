@@ -19,9 +19,10 @@ export const useNextSeo = ({ title, description }: Type) => {
       type: "website",
       title,
       description,
+      url: "https://mentomen.vercel.app",
       images: [
         {
-          url: "/favicon.ico",
+          url: "/meta-image.png",
         },
       ],
     },
