@@ -10,10 +10,22 @@ export const useSeoConfig = ({ title, description, url }: Type) => {
   const SeoNextConfigProps: NextSeoProps = {
     title,
     description,
+    additionalLinkTags: [
+      {
+        rel: "icon",
+        href: "/icons/logo/favicon.ico",
+      },
+    ],
     openGraph: {
       title,
       url: `https://mentomen.vercel.app${url || "/"}`,
       description,
+      type: "website",
+      images: [
+        {
+          url: "/images/meta-iPhone-image.png",
+        },
+      ],
     },
   };
 

@@ -1,20 +1,19 @@
-import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
+import SEOConfig from "../components/Common/SEO";
 import MyPage from "../components/MyPage";
 import { QUERY_KEYS } from "../constants/Auth/auth.constant";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
 import UserApi from "../services/User/api";
 
 const MyPagePage = () => {
-  const { SeoNextConfigProps } = useSeoConfig({
+  const SEOConfigProps = {
     title: "맨투멘 | 내 정보 페이지",
     description: "맨투맨 내 정보 페이지입니다.",
     url: "/mypage",
-  });
+  };
 
   return (
     <>
-      <NextSeo {...SeoNextConfigProps} />
+      <SEOConfig {...SEOConfigProps} />
       <MyPage />
     </>
   );
