@@ -13,7 +13,6 @@ export const useSeoConfig = ({ title, description, url }: Type) => {
     openGraph: {
       title,
       description,
-      url: `https://mentomen.vercel.app${url || "/"}`,
     },
   };
 
@@ -32,6 +31,7 @@ export const useSeoConfig = ({ title, description, url }: Type) => {
       type: "website",
       locale: "ko_KR",
       site_name: "멘투멘",
+      url: `https://mentomen.vercel.app${url || "/"}`,
       images: [
         {
           url: "/images/meta-iPhone-image.png",
