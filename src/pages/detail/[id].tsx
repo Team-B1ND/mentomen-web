@@ -7,11 +7,10 @@ import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 
-const DetailPage = ({ id }: { id: string }) => {
+const DetailPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 상세 페이지",
     description: "맨투멘 상세 페이지입니다.",
-    url: `/detail/${id}`,
   });
 
   return (

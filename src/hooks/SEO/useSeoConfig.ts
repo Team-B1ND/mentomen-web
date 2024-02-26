@@ -3,10 +3,9 @@ import { DefaultSeoProps, NextSeoProps } from "next-seo";
 interface Type {
   title: string;
   description: string;
-  url?: string;
 }
 
-export const useSeoConfig = ({ title, description, url }: Type) => {
+export const useSeoConfig = ({ title, description }: Type) => {
   const SeoNextConfigProps: NextSeoProps = {
     title,
     description,
@@ -31,7 +30,6 @@ export const useSeoConfig = ({ title, description, url }: Type) => {
       type: "website",
       locale: "ko_KR",
       site_name: "멘투멘",
-      url: `https://mentomen.vercel.app${url || "/"}`,
       images: [
         {
           url: "/images/meta-iPhone-image.png",

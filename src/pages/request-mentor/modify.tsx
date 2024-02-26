@@ -10,7 +10,6 @@ const ModifyPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 멘토 요청 수정 페이지",
     description: "멘투멘 멘토 요청 수정 페이지입니다.",
-    url: "/request-mentor/modify",
   });
 
   return (
