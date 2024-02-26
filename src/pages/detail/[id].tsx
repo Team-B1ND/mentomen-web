@@ -1,21 +1,22 @@
-import SEOConfig from "@/src/components/Common/SEO";
 import Detail from "@/src/components/Detail";
 import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
 import PostApi from "@/src/services/Post/api";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, NextPageContext } from "next";
+import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 
 const DetailPage = ({ id }: { id: string }) => {
-  const SEOConfigProps = {
+  const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 상세 페이지",
     description: "맨투멘 상세 페이지입니다.",
     url: `/detail/${id}`,
-  };
+  });
 
   return (
     <>
-      <SEOConfig {...SEOConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Detail />
     </>
   );

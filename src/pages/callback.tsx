@@ -4,21 +4,22 @@ import styled from "styled-components";
 import { useDAtuhLogin } from "../hooks/Auth/useDAtuhLogin";
 import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 import b1nd from "@/public/icons/logo/b1nd.png";
-import SEOConfig from "../components/Common/SEO";
+import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
+import { NextSeo } from "next-seo";
 
 function AuthLoadingPage() {
   useDAtuhLogin();
   useHideHeaderOrNav("Both");
 
-  const SEOConfigProps = {
+  const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | DAuth 로그인 중...",
     description: "맨투맨 DAuth 로그인 중...",
     url: "/callback",
-  };
+  });
 
   return (
     <>
-      <SEOConfig {...SEOConfigProps} />
+      <NextSeo {...SeoNextConfigProps} />
       <Container>
         <B1ndLogo src={b1nd} alt="" />
         <Text>
