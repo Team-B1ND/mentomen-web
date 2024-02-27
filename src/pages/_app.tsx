@@ -8,6 +8,7 @@ import "@/src/styles/font.css";
 import useGATracker from "../hooks/Analyze/useGATracker";
 import { DefaultSeo } from "next-seo";
 import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
+import Head from "next/head";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
@@ -26,6 +27,12 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <DefaultSeo {...SeoDefaultConfigProps} />
+      <Head>
+        <meta
+          name="google-site-verification"
+          content={process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ID}
+        />
+      </Head>
       {isClient && (
         <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
