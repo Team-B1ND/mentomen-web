@@ -39,7 +39,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "eslintConfig": {
     "extends": [
@@ -75,7 +76,8 @@
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "eslint-config-next": "14.0.3",
+    "next-sitemap": "^4.2.3"
   },
   "packageManager": "yarn@4.0.2"
 }

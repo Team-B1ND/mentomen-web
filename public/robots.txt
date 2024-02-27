@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /exclude
+
+# Host
+Host: https://mentomen.vercel.app/
+
+# Sitemaps
+Sitemap: https://mentomen.vercel.app/sitemap.xml

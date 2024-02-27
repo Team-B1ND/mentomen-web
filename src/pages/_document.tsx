@@ -46,6 +46,10 @@ export default class MyDocument extends Document {
         <Head>
           <script async src={googleTagManagerScriptURL} />
           <script dangerouslySetInnerHTML={googleAnalyticsScript} />
+          <meta
+            name="google-site-verification"
+            content={process.env.NEXT_PUBLIC_GOOGLE_SEARCH_ID}
+          />
         </Head>
         <body>
           <div id="modal-root" />
