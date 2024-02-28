@@ -10,7 +10,7 @@ import { dehydrate, QueryClient } from "react-query";
 const DetailPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 상세 페이지",
-    description: "맨투멘 상세 페이지입니다.",
+    description: "멘투멘 상세 페이지입니다.",
   });
 
   return (

@@ -8,8 +8,8 @@ import UserApi from "../services/User/api";
 
 const MyPagePage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
-    title: "맨투멘 | 내 정보 페이지",
-    description: "맨투맨 내 정보 페이지입니다.",
+    title: "멘투멘 | 내 정보 페이지",
+    description: "멘투멘 내 정보 페이지입니다.",
   });
 
   return (

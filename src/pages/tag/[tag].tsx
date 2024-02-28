@@ -9,7 +9,7 @@ import { dehydrate, QueryClient } from "react-query";
 const TagPage = ({ tag }: { tag: string }) => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: `멘투멘 | ${tag} 태그 페이지`,
-    description: `맨투맨 ${tag} 태그 페이지입니다.`,
+    description: `멘투멘 ${tag} 태그 페이지입니다.`,
   });
 
   return (
