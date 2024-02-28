@@ -1,7 +1,7 @@
 import { useRecoilValue } from "recoil";
 import { HideHeaderAtom, HideNavAtom } from "@/src/store/common/common.store";
-import Header from "../ui/Header";
-import Nav from "../ui/Nav";
+import Header from "../Common/Header";
+import Nav from "../Common/Nav";
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { GlobalStyle, PropsWithChildren } from "@/src/stories/core";

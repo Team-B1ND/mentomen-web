@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
+import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import post from "@/public/icons/title/post.png";
 import { useGetAllPostQuery } from "@/src/services/Post/queries";
 import * as S from "@/src/stories/core";

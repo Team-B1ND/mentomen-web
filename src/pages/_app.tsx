@@ -1,4 +1,4 @@
-import Provider from "@/src/components/Common/Provider";
+import Provider from "@/src/components/Provider";
 import type { AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";

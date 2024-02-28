@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from "react";
 import * as S from "@/src/stories/core";
-import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
+import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
 import { CountOfPostAtom } from "@/src/store/Post/post.store";

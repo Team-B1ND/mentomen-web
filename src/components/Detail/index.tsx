@@ -5,8 +5,8 @@ import DetailImages from "./DetailImages";
 import DetailMenteeInfo from "./DetailMenteeInfo";
 import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
-import DetailSkeleton from "../Common/ui/Skeleton/Detail";
-import DetailCommentSkeleton from "../Common/ui/Skeleton/Detail/DetailComment";
+import DetailSkeleton from "../Common/Skeleton/Detail";
+import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 
 import { useGetPostByIdQuery } from "@/src/services/Post/queries";
 import profile from "@/public/icons/user/aprofile.png";

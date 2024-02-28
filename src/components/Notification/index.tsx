@@ -1,7 +1,7 @@
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { Suspense } from "react";
 import { useRecoilValue } from "recoil";
-import NotificationSkeleton from "../Common/ui/Skeleton/Notification";
+import NotificationSkeleton from "../Common/Skeleton/Notification";
 import NotificationItem from "./NotificationItem";
 import bell from "@/public/icons/title/bell.png";
 import * as S from "./style";

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
 import * as S from "@/src/stories/core";
-import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
+import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
 import { useGetPostByKeyWordQuery } from "@/src/services/Post/queries";
 import styled from "styled-components";
