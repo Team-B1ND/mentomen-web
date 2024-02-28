@@ -9,7 +9,19 @@ import { useGATracker, useSeoConfig } from "../stories/hooks";
 import { MenToMenToastContainer } from "../stories/utils";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnReconnect: false,
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+          },
+        },
+      })
+  );
+
   const [isClient, setIsClient] = useState(false);
   const { SeoDefaultConfigProps } = useSeoConfig({
     title: "멘투멘 - 멘토와 멘티를 잇다",
