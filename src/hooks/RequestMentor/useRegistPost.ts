@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 import { useRecoilState } from "recoil";
-import { ExistingPostDataAtom } from "@/src/stores/Post/post.store";
+import { ExistingPostDataAtom } from "@/src/store/Post/post.store";
 import {
   useDeletePostMutation,
   usePatchMyPostMutation,

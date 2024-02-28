@@ -3,11 +3,11 @@ import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
 import * as S from "@/src/styles/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
-import ListItemSkeleton from "../Common/Skeleton/ListItem";
-import Title from "../Common/Title";
+import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
+import Title from "../Common/ui/Title";
 import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
-import { CountOfPostAtom } from "@/src/stores/Post/post.store";
+import { CountOfPostAtom } from "@/src/store/Post/post.store";
 import { useGetMyPostQuery } from "@/src/services/User/queries";
 
 const MyPage = () => {

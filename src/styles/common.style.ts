@@ -26,6 +26,7 @@ export const TitleContainer = styled.div`
 export const NoneDataText = styled.div`
   width: 550px;
   height: 620px;
+  color: gray;
   ${flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
@@ -47,8 +48,8 @@ export const DotsIconContainer = styled.div`
 export const DotsIcon = styled(RxDotsVertical)<{
   customstyle?: CSSObject;
 }>`
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
 
   border-radius: 20px;
   padding: 6px;

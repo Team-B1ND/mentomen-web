@@ -16,12 +16,11 @@ export const NoticeItemContainer = styled.div`
 
 export const NoticeItemBox = styled.div`
   width: 100%;
-  height: 95px;
+  min-height: 95px;
 
   border-bottom: 1px solid #cbd5e1;
   padding-top: 7px;
   padding-bottom: 15px;
-  cursor: pointer;
 
   ${flex({ columnGap: "15px" })}
 `;
@@ -36,6 +35,7 @@ export const ProfileImage = styled(Image)`
 export const NoticeContent = styled.div`
   width: calc(100% - 50px);
   height: 100%;
+  cursor: pointer;
   ${flex({ flexDirection: "column", rowGap: "10px" })}
 `;
 
@@ -67,6 +67,7 @@ export const SenderComment = styled.p`
   font-size: 15px;
   color: #334155;
   font-family: "Pretendard-Bold" !important;
+  line-height: 20px;
 `;
 
 export const CommentUpdateDate = styled.p`

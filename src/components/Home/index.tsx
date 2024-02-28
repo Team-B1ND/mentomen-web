@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import * as S from "@/src/styles/common.style";
 import ErrorBoundary from "../Common/ErrorBoundary";
 import ListItem from "../Common/ListItem";
-import ListItemSkeleton from "../Common/Skeleton/ListItem";
-import Title from "@/src/components/Common/Title";
+import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
+import Title from "@/src/components/Common/ui/Title";
 import post from "@/public/icons/title/post.png";
 import { useGetAllPostQuery } from "@/src/services/Post/queries";
 

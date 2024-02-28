@@ -2,17 +2,19 @@ import flex from "@/src/styles/flex";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.ul`
+export const Container = styled.ul<{ commentLenght: number }>`
   width: 100%;
-  min-height: 300px;
-  padding-top: 20px;
-  ${flex({ flexDirection: "column", rowGap: "35px" })}
+  background-color: #fff;
+  border-radius: 5px;
+  border: ${({ commentLenght }) => commentLenght > 0 && "1px solid #ddd"};
+  ${flex({ flexDirection: "column" })}
 `;
 
-export const CommentsList = styled.li`
-  width:100%:
-  height:auto;
-  ${flex({ columnGap: "15px" })}
+export const CommentsList = styled.li<{ isLast: boolean }>`
+  width: 100%;
+  border-bottom: ${({ isLast }) => !isLast && "1px solid #ddd"};
+  padding: 20px 16px 10px 20px;
+  ${flex({ columnGap: "20px" })};
 `;
 
 export const ProfileImage = styled(Image)`
@@ -35,15 +37,18 @@ export const CommentContent = styled.div`
 
 export const CommenterInfoWrap = styled.div`
   width: calc(100% - 30px);
-  ${flex({ flexDirection: "column" })};
+  ${flex({ flexDirection: "column", rowGap: "5px" })};
 `;
 
 export const CommenterInfo = styled.div`
   padding-top: 1px;
   ${flex({ rowGap: "5px", flexDirection: "column" })}
+  div {
+    ${flex({ columnGap: "6px", alignItems: "flex-end" })}
+  }
 `;
 
-export const CommenterNameAndClass = styled.p`
+export const CommenterName = styled.p`
   font-size: 14px;
   font-family: "Pretendard-Medium" !important;
 `;
@@ -51,6 +56,11 @@ export const CommenterNameAndClass = styled.p`
 export const CommentUpadateTimeText = styled.p`
   font-size: 12px;
   color: #606060;
+`;
+
+export const CommenterClassInfo = styled.p`
+  color: #858585;
+  font-size: 13px;
 `;
 
 export const CommentText = styled.div`

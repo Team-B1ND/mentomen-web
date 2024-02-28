@@ -1,10 +1,10 @@
 import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import * as S from "./style";
-import ShowMoreContent from "../../ShowMoreContent";
+import ShowMoreContent from "../../ui/ShowMoreContent";
 import ListItemContentImage from "./ListItemContentImage";
-import CommentInteraction from "../../PostInteraction/CommentInteraction";
-import LikeInteraction from "../../PostInteraction/LikeInteraction";
-import ShareInteraction from "../../PostInteraction/ShareInteraction";
+import CommentInteraction from "../../ui/PostInteraction/CommentInteraction";
+import LikeInteraction from "../../ui/PostInteraction/LikeInteraction";
+import ShareInteraction from "../../ui/PostInteraction/ShareInteraction";
 
 interface Props {
   updateDateTime: string;

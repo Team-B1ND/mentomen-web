@@ -16,6 +16,7 @@
     "dayjs": "1.11.10",
     "js-cookie": "^3.0.5",
     "next": "14.0.3",
+    "next-seo": "^6.5.0",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,7 +39,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +67,7 @@
     "@types/babel__preset-env": "^7",
     "@types/gtag.js": "^0.0.18",
     "@types/js-cookie": "^3.0.6",
+    "@types/next-seo": "^2.1.2",
     "@types/node": "^18.11.10",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.18",
@@ -73,7 +76,8 @@
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "eslint-config-next": "14.0.3",
+    "next-sitemap": "^4.2.3"
   },
   "packageManager": "yarn@4.0.2"
 }
