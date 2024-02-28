@@ -28,7 +28,9 @@ const Search = () => {
               <SearchText>{keywordEllipsis}</SearchText>에 관한 멘토 요청 글
             </>
           }
-          subTitleText={`검색한 ${keywordEllipsis}에 관한 멘토 요청 글을 조회할 수 있어요!`}
+          subTitleText={`검색한 ${
+            keywordEllipsis || ""
+          }에 관한 멘토 요청 글을 조회할 수 있어요!`}
         />
       </S.TitleContainer>
 

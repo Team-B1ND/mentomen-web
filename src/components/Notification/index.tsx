@@ -14,7 +14,9 @@ import { NoneDataText } from "@/src/styles/common.style";
 const Notification = () => {
   useTokenCheck();
   useHideHeaderOrNav("Nav");
+
   const userData = useRecoilValue(UserDataAtom);
+
   return (
     <S.Container>
       <Title

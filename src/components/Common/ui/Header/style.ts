@@ -48,10 +48,10 @@ const HoverAnimation = css`
 
   &:hover {
     background-color: #ddd;
-    transform: scale(0.93);
   }
   &:active {
     background-color: #eee;
+    transform: scale(0.93);
   }
 `;
 
@@ -119,7 +119,7 @@ export const StartMenToMen = styled.div`
   padding: 8px;
 
   ${HoverAnimation};
-  &:hover {
+  &:active {
     transform: scale(0.96);
   }
 `;
