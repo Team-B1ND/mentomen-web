@@ -28,7 +28,7 @@ export const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
   );
 };
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100%;
 
@@ -41,7 +41,7 @@ export const Container = styled.div`
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
-export const CloseIcon = styled(AiOutlineClose)`
+const CloseIcon = styled(AiOutlineClose)`
   position: absolute;
   top: 10px;
   right: 10px;
@@ -49,6 +49,6 @@ export const CloseIcon = styled(AiOutlineClose)`
   cursor: pointer;
 `;
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

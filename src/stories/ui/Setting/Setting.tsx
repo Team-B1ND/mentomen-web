@@ -50,7 +50,7 @@ const Container = styled.div<{ customstyle?: CSSObject }>`
   ${({ customstyle }) => customstyle};
 `;
 
-export const Button = styled.button<{ buttonType: "MODIFY" | "DELETE" }>`
+const Button = styled.button<{ buttonType: "MODIFY" | "DELETE" }>`
   width: 100%;
   height: 41.5%;
 
@@ -76,12 +76,12 @@ export const Button = styled.button<{ buttonType: "MODIFY" | "DELETE" }>`
   ${Flex({ alignItems: "center", columnGap: "10px" })};
 `;
 
-export const EditIcon = styled(AiOutlineEdit)`
+const EditIcon = styled(AiOutlineEdit)`
   width: 23px;
   height: 23px;
 `;
 
-export const DeleteIcon = styled(AiOutlineDelete)`
+const DeleteIcon = styled(AiOutlineDelete)`
   width: 22px;
   height: 22px;
 `;

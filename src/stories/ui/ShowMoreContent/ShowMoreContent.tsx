@@ -34,13 +34,13 @@ export const ShowMoreContent = ({ content, maxHeight, customStyle }: Props) => {
   );
 };
 
-export const ContentBox = styled.div`
+const ContentBox = styled.div`
   width: 100%;
   padding: 6px 0 10px 0;
   ${Flex({ flexDirection: "column", rowGap: "6px" })}
 `;
 
-export const ContentText = styled.div<{
+const ContentText = styled.div<{
   isShowMoreContent: boolean;
   maxHeight: number;
   customstyle?: CSSObject;
@@ -60,7 +60,7 @@ export const ContentText = styled.div<{
   ${({ customstyle }) => customstyle};
 `;
 
-export const ShowMoreText = styled.p<{ isShowMoreContent: boolean }>`
+const ShowMoreText = styled.p<{ isShowMoreContent: boolean }>`
   width: ${({ isShowMoreContent }) => (isShowMoreContent ? "80px" : "55px")};
 
   cursor: pointer;
