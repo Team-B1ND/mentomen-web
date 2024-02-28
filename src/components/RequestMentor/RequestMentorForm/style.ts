@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -7,7 +7,7 @@ export const TagUl = styled.div`
   list-style: none;
   padding: 5px 0 35px 0;
 
-  ${flex({ columnGap: "13px" })}
+  ${Flex({ columnGap: "13px" })}
   li {
     cursor: pointer;
   }
@@ -53,7 +53,7 @@ export const ContentInput = styled.span<{ placeholder: string }>`
 
 export const AttachImageBox = styled.div`
   width: 100%;
-  ${flex({ flexDirection: "column", rowGap: "15px" })}
+  ${Flex({ flexDirection: "column", rowGap: "15px" })}
 `;
 
 export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
@@ -72,7 +72,7 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
       border: 1.5px dashed #2745f2;
     `};
 
-  ${flex({
+  ${Flex({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -105,7 +105,7 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
       font-family: "Pretendard-Medium" !important;
     }
 
-    ${flex({ alignItems: "center", columnGap: "5px" })}
+    ${Flex({ alignItems: "center", columnGap: "5px" })}
   }
 `;
 
@@ -155,7 +155,7 @@ export const CancelPreviewImage = styled.div`
   &:hover {
     background-color: rgba(255, 55, 66, 0.89);
   }
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 export const CancelIcon = styled(Image)`

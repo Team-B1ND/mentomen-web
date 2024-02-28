@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -16,7 +16,7 @@ export const SuggestSignInBox = styled.div`
 
   overflow: hidden;
 
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 
   button {
     width: 100%;
@@ -32,7 +32,7 @@ export const SuggestSignInBox = styled.div`
       opacity: 0.6;
     }
 
-    ${flex({
+    ${Flex({
       alignItems: "center",
       justifyContent: "center",
       columnGap: "4px",

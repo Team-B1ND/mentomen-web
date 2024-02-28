@@ -1,6 +1,10 @@
+import {
+  PostItemResponse,
+  PostPatchItem,
+  PostResponse,
+  PostSubmitType,
+} from "@/src/stories/core";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
-import { PostPatchItem, PostSubmitType } from "@/src/types/Post/post.type";
-import { PostResponse, PostItemResponse } from "@/src/types/Post/post.type";
 
 class PostApi {
   public async getAllPostApi(): Promise<PostItemResponse> {

@@ -2,7 +2,7 @@ import RequestMentorFormTag from "./Tag";
 import RequestMentorFormInput from "./Input";
 import RequestMentorFormAttachImage from "./AttachImage";
 import { Dispatch, RefObject, SetStateAction } from "react";
-import { PostSubmitType } from "@/src/types/Post/post.type";
+import { PostSubmitType } from "@/src/stories/core";
 
 interface Props {
   tag: string;

@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -13,14 +13,14 @@ export const UserBox = styled.div`
   background-color: #fff;
 
   padding: 14px 12px;
-  ${flex({ flexDirection: "column", rowGap: "7px" })}
+  ${Flex({ flexDirection: "column", rowGap: "7px" })}
 `;
 
 export const UserWrap = styled.div`
   width: 100%;
   padding-bottom: 15px;
   border-bottom: 1px solid #ddd;
-  ${flex({ columnGap: "10px", alignItems: "center" })}
+  ${Flex({ columnGap: "10px", alignItems: "center" })}
 `;
 
 export const ProfileImage = styled(Image)`
@@ -33,10 +33,10 @@ export const ProfileImage = styled(Image)`
 export const ProfileContent = styled.div`
   width: calc(100% - 50px);
   height: 100%;
-  ${flex({ flexDirection: "column", rowGap: "13px" })}
+  ${Flex({ flexDirection: "column", rowGap: "13px" })}
 
   div {
-    ${flex({ flexDirection: "column", rowGap: "7px" })}
+    ${Flex({ flexDirection: "column", rowGap: "7px" })}
   }
 `;
 
@@ -68,7 +68,7 @@ export const Test = styled.div`
   padding: 0 3px;
 
   padding-top: 6px;
-  ${flex({ alignItems: "center", justifyContent: "space-between" })}
+  ${Flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
 export const Logout = styled.p`

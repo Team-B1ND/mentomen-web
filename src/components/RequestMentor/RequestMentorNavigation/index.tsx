@@ -1,5 +1,5 @@
 import leftArrow from "@/public/icons/RequestMentor/leftArrow.svg";
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
@@ -73,7 +73,7 @@ export const NavigationBox = styled.div<{
       `}
   }
 
-  ${flex({ alignItems: "center", justifyContent: "space-between" })}
+  ${Flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
 export const PrevArrowIcon = styled(Image)`

@@ -1,6 +1,6 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
+import { Flex } from "@/src/stories/layout";
 import token from "@/src/libs/token/token";
-import flex from "@/src/styles/flex";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Profile from "./Profile";
@@ -49,5 +49,5 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: 850px;
-  ${flex({ flexDirection: "column", rowGap: "35px" })};
+  ${Flex({ flexDirection: "column", rowGap: "35px" })};
 `;

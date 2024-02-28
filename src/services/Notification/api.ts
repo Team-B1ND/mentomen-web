@@ -1,10 +1,7 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
+import { NoticeCheckResponse, NoticeListResponse } from "@/src/stories/core";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import token from "@/src/libs/token/token";
-import {
-  NoticeCheckResponse,
-  NoticeListResponse,
-} from "@/src/types/Notice/notice.type";
 
 class NotificationApi {
   public async getNoticeCheckApi(): Promise<NoticeCheckResponse | void> {

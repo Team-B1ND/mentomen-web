@@ -2,8 +2,8 @@ import Notification from "@/src/components/Notification";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
-import { QUERY_KEYS } from "../constants/Auth/auth.constant";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
+import { QUERY_KEYS } from "../stories/core";
+import { useSeoConfig } from "../stories/hooks";
 import NotificationApi from "../services/Notification/api";
 
 const NotificationPage = () => {

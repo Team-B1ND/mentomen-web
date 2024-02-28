@@ -1,13 +1,11 @@
 import { useRecoilValue } from "recoil";
 import { HideHeaderAtom, HideNavAtom } from "@/src/store/common/common.store";
-import GlobalStyle from "@/src/styles/globalStyle";
 import Header from "../ui/Header";
 import Nav from "../ui/Nav";
-import ScrollTopButton from "../ui/ScrollTopButton";
 import * as S from "./style";
 import { useRouter } from "next/router";
-import PageProgressBar from "../ui/PageProgressBar";
-import { PropsWithChildren } from "@/src/types/common/common.type";
+import { GlobalStyle, PropsWithChildren } from "@/src/stories/core";
+import { PageProgressBar, ScrollTopButton } from "@/src/stories/ui";
 
 const Proivder = ({ children }: PropsWithChildren) => {
   const hideHeader = useRecoilValue(HideHeaderAtom);

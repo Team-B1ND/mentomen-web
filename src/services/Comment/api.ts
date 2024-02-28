@@ -1,9 +1,9 @@
-import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import {
-  postCommentType,
   CommentDataType,
   patchCommentType,
-} from "@/src/types/Comment/comment.type";
+  postCommentType,
+} from "@/src/stories/core";
+import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 
 class CommentApi {
   public async postCommentApi({

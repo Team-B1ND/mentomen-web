@@ -1,11 +1,10 @@
-import flex from "@/src/styles/flex";
-import { palette } from "@/src/styles/palette";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
 export const InputContainer = styled.div`
   width: 100%;
-  ${flex({ columnGap: "10px" })}
+  ${Flex({ columnGap: "10px" })}
 `;
 
 export const MyProfileImage = styled(Image)`
@@ -39,7 +38,7 @@ export const CommentTextInput = styled.span<{
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   &:focus {
-    border-bottom: 2px solid ${palette.color};
+    border-bottom: 2px solid #29275c;
   }
 
   ${({ placeholder }) =>
@@ -57,7 +56,7 @@ export const CommentSubmitContainer = styled.div`
   width: 100%;
   height: 37px;
   margin-top: 10px;
-  ${flex({ alignItems: "center", justifyContent: "end", columnGap: "5px" })}
+  ${Flex({ alignItems: "center", justifyContent: "end", columnGap: "5px" })}
 
   button {
     width: 65px;

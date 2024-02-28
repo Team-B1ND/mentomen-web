@@ -1,5 +1,5 @@
 import { DetailItemContainer } from "@/src/components/Detail/style";
-import { SkeletonBox } from "../style";
+import { SkeletonBox } from "@/src/stories/ui";
 import DetailCommentSkeleton from "./DetailComment";
 
 const DetailSkeleton = () => {

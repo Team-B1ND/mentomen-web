@@ -1,11 +1,11 @@
-import flex from "@/src/styles/flex";
-import getTag from "@/src/utils/Tag/getTag";
 import styled, { CSSObject } from "styled-components";
 import Image from "next/image";
+import { Flex } from "@/src/stories/layout";
+import { GetTag } from "@/src/stories/utils";
 
 export const TagContainer = styled.div`
   width: 100%;
-  ${flex({ flexDirection: "column" })};
+  ${Flex({ flexDirection: "column" })};
 
   nav {
     background-color: #fff;
@@ -15,7 +15,7 @@ export const TagContainer = styled.div`
     padding: 10px 6px 10px;
     font-weight: 400;
     font-size: 17px;
-    ${flex({ rowGap: "8px", flexDirection: "column" })};
+    ${Flex({ rowGap: "8px", flexDirection: "column" })};
   }
 `;
 
@@ -42,7 +42,7 @@ export const LinkStyle: CSSObject = {
 export const TagItemWrap = styled.div`
   width: 100%;
   padding: 3px 10px 3px 10px;
-  ${flex({ alignItems: "center", columnGap: "15px" })}
+  ${Flex({ alignItems: "center", columnGap: "15px" })}
 `;
 
 export const TagImg = {
@@ -54,8 +54,8 @@ export const TagName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
   height: 30px;
 
   color: ${({ isSelectTag, selectTag }) =>
-    isSelectTag && getTag.getTagColor(selectTag)};
+    isSelectTag && new GetTag().getTagColor(selectTag)};
   font-family: "Pretendard-Medium" !important;
 
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

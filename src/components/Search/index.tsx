@@ -1,14 +1,13 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import * as S from "@/src/styles/common.style";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import ListItem from "../Common/ListItem";
+import * as S from "@/src/stories/core";
 import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
-import Title from "../Common/ui/Title";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
-import { GetText } from "@/src/utils/Text/getText";
 import { useGetPostByKeyWordQuery } from "@/src/services/Post/queries";
 import styled from "styled-components";
+import { ErrorBoundary } from "@/src/stories/layout";
+import { ListItem, Title } from "@/src/stories/ui";
+import { GetText } from "@/src/stories/utils";
 
 const Search = () => {
   const router = useRouter();

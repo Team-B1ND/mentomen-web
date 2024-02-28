@@ -1,7 +1,7 @@
 import * as S from "./style";
-import Title from "../../Title";
 import phone from "@/public/icons/title/phone.png";
 import { QRCODE_ITEMS } from "./constant";
+import { Title } from "@/src/stories/ui";
 
 const QRcode = () => {
   return (

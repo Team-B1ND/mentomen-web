@@ -1,4 +1,4 @@
-import { PostPatchItem, PostSubmitType } from "@/src/types/Post/post.type";
+import { PostPatchItem, PostSubmitType } from "@/src/stories/core";
 import { useMutation } from "react-query";
 import PostApi from "./api";
 

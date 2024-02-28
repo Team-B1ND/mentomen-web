@@ -1,5 +1,5 @@
+import { PostItemType } from "@/src/stories/core";
 import { atom } from "recoil";
-import { PostItemType } from "@/src/types/Post/post.type";
 import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();

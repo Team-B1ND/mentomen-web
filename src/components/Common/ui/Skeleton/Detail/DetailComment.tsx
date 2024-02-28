@@ -1,7 +1,7 @@
 import { InputContainer } from "@/src/components/Detail/DetailComments/DetailCommentsInput/style";
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
+import { SkeletonBox } from "@/src/stories/ui";
 import styled from "styled-components";
-import { SkeletonBox } from "../style";
 
 const DetailCommentSkeleton = () => {
   return (
@@ -38,17 +38,17 @@ export default DetailCommentSkeleton;
 const Container = styled.div`
   width: 100%;
   padding: 25px 16px 36px 16px;
-  ${flex({ flexDirection: "column", rowGap: "23px" })}
+  ${Flex({ flexDirection: "column", rowGap: "23px" })}
 `;
 
 const CommentBox = styled.div`
   width: 100%;
   padding-top: 10px;
-  ${flex({ flexDirection: "column", rowGap: "20px" })}
+  ${Flex({ flexDirection: "column", rowGap: "20px" })}
 `;
 
 const Comment = styled.div`
   width: 100%;
   height: 100px;
-  ${flex({ columnGap: "15px" })}
+  ${Flex({ columnGap: "15px" })}
 `;

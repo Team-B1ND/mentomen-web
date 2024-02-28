@@ -1,8 +1,8 @@
 import Detail from "@/src/components/Detail";
-import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
-import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
+import { QUERY_KEYS } from "@/src/stories/core";
+import { useSeoConfig } from "@/src/stories/hooks";
 import PostApi from "@/src/services/Post/api";
-import { GetStaticPaths, GetStaticProps, NextPageContext } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";

@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -14,11 +14,11 @@ export const QRCodeBox = styled.div`
   border: 1px solid #ddd;
   padding: 15px 10px;
 
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 export const QRCodeContainer = styled.div`
-  ${flex({ flexDirection: "column", alignItems: "center" })}
+  ${Flex({ flexDirection: "column", alignItems: "center" })}
 
   p {
     font-family: "Pretendard-Bold" !important;

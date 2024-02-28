@@ -1,5 +1,5 @@
-import { usePasteInput } from "@/src/hooks/Paste/usePasteInput";
-import { PostSubmitType } from "@/src/types/Post/post.type";
+import { PostSubmitType } from "@/src/stories/core";
+import { usePasteInput } from "@/src/stories/hooks";
 import { useRouter } from "next/router";
 import * as S from "../style";
 

@@ -1,17 +1,17 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
 export const Container = styled.div`
   width: 85%;
   height: 100%;
-  ${flex({ flexDirection: "column", rowGap: "30px" })}
+  ${Flex({ flexDirection: "column", rowGap: "30px" })}
 `;
 
 export const NoticeItemContainer = styled.div`
   width: 100%;
   padding-left: 3px;
-  ${flex({ flexDirection: "column", alignItems: "center", rowGap: "13px" })}
+  ${Flex({ flexDirection: "column", alignItems: "center", rowGap: "13px" })}
 `;
 
 export const NoticeItemBox = styled.div`
@@ -22,7 +22,7 @@ export const NoticeItemBox = styled.div`
   padding-top: 7px;
   padding-bottom: 15px;
 
-  ${flex({ columnGap: "15px" })}
+  ${Flex({ columnGap: "15px" })}
 `;
 
 export const ProfileImage = styled(Image)`
@@ -36,7 +36,7 @@ export const NoticeContent = styled.div`
   width: calc(100% - 50px);
   height: 100%;
   cursor: pointer;
-  ${flex({ flexDirection: "column", rowGap: "10px" })}
+  ${Flex({ flexDirection: "column", rowGap: "10px" })}
 `;
 
 export const SenderWrap = styled.div`

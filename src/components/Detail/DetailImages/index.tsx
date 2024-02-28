@@ -1,12 +1,10 @@
-import ReadMoreImage from "@/src/components/Modal/ReadMoreImage";
 import { SlideOptions } from "@/src/constants/Slide/slide.constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SlideWrapper, StyledSlider } from "@/src/styles/slide";
 import React, { useState } from "react";
-import Portal from "../../Modal/Portal";
 import * as S from "./style";
-import ImageView from "../../Common/ui/ImageView";
+import { Portal, SlideWrapper, StyledSlider } from "@/src/stories/layout";
+import { ImageView, ReadMoreImage } from "@/src/stories/ui";
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);

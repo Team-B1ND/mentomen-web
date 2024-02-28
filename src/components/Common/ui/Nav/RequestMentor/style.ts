@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -16,7 +16,7 @@ export const RequestMentoBox = styled.div`
 
   padding: 0 15px;
 
-  ${flex({ alignItems: "center", justifyContent: "center", columnGap: "10px" })}
+  ${Flex({ alignItems: "center", justifyContent: "center", columnGap: "10px" })}
 `;
 
 export const Profile = styled(Image)`
@@ -38,5 +38,5 @@ export const RequestButton = styled.div`
   font-size: 13px;
   cursor: pointer;
 
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

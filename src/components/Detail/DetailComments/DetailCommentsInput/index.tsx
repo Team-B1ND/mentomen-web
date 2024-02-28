@@ -1,13 +1,12 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
-import { useComment } from "@/src/hooks/Comment/useComment";
 import token from "@/src/libs/token/token";
 import profile from "@/public/icons/user/aprofile.png";
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import * as S from "./style";
-import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
-import { usePasteInput } from "@/src/hooks/Paste/usePasteInput";
+import { useComment, usePasteInput } from "@/src/stories/hooks";
+import { redirectToDAuthLogin } from "@/src/stories/utils";
 
 interface Props {
   postId: number;

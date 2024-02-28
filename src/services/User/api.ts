@@ -1,8 +1,7 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
+import { PostItemResponse, UserResponse } from "@/src/stories/core";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import token from "@/src/libs/token/token";
-import { PostItemResponse } from "@/src/types/Post/post.type";
-import { UserResponse } from "@/src/types/User/user.type";
 
 class UserApi {
   public async getMyInfoApi(): Promise<UserResponse | void> {

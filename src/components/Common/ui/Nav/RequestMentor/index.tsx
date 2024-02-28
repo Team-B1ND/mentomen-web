@@ -1,10 +1,10 @@
-import Title from "../../Title";
 import handUp from "@/public/icons/title/handUp.png";
 import * as S from "./style";
 import { useRecoilValue } from "recoil";
 import profile from "@/public/icons/user/aprofile.png";
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { useRouter } from "next/router";
+import { Title } from "@/src/stories/ui";
 
 const RequestMentor = () => {
   const userData = useRecoilValue(UserDataAtom);

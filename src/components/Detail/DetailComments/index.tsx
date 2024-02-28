@@ -1,8 +1,8 @@
 import DetailCommentsInput from "./DetailCommentsInput";
 import DetailCommentsList from "./DetailCommentsList";
 import styled from "styled-components";
-import flex from "@/src/styles/flex";
 import { useGetCommentQuery } from "@/src/services/Comment/queries";
+import { Flex } from "@/src/stories/layout";
 
 const DetailComments = ({ postId }: { postId: number }) => {
   const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });
@@ -21,7 +21,7 @@ export default DetailComments;
 
 const Container = styled.div`
   width: 100%;
-  ${flex({ flexDirection: "column", rowGap: "15px" })};
+  ${Flex({ flexDirection: "column", rowGap: "15px" })};
 `;
 
 const InputWrap = styled.div`
@@ -29,7 +29,7 @@ const InputWrap = styled.div`
   padding: 20px 16px 25px 20px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  ${flex({ flexDirection: "column", rowGap: "23px" })};
+  ${Flex({ flexDirection: "column", rowGap: "23px" })};
 `;
 
 const CommentCount = styled.p`

@@ -2,15 +2,15 @@ import Image from "next/image";
 import macbook from "@/public/icons/title/macbook.png";
 import { useRouter } from "next/router";
 import * as S from "./style";
-import Title from "../../Title";
-import { CustomLink } from "@/src/styles/common.style";
+import { CustomLink } from "@/src/stories/core";
 import { NAV_TAGS_ITEMS } from "./constant";
-import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
+import { Title } from "@/src/stories/ui";
+import { GoogleAnalyzer } from "@/src/stories/utils";
 
 const Tag = () => {
   const router = useRouter();
   const { tag } = router.query;
-  const pageView = GoogleAnalyzer.pageView;
+  const pageView = new GoogleAnalyzer().pageView;
 
   return (
     <S.TagContainer>

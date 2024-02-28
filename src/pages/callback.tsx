@@ -1,11 +1,13 @@
-import flex from "@/src/styles/flex";
 import Image from "next/image";
 import styled from "styled-components";
-import { useDAtuhLogin } from "../hooks/Auth/useDAtuhLogin";
-import useHideHeaderOrNav from "../hooks/common/useHideHeaderOrNav";
 import b1nd from "@/public/icons/logo/b1nd.png";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
 import { NextSeo } from "next-seo";
+import { Flex } from "../stories/layout";
+import {
+  useDAtuhLogin,
+  useHideHeaderOrNav,
+  useSeoConfig,
+} from "../stories/hooks";
 
 function AuthLoadingPage() {
   useDAtuhLogin();
@@ -34,7 +36,7 @@ export default AuthLoadingPage;
 const Container = styled.div`
   width: 100%;
   height: 95vh;
-  ${flex({
+  ${Flex({
     flexDirection: "column",
     rowGap: "10px",
     alignItems: "center",

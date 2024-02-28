@@ -1,8 +1,7 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "react-query";
-import { NoticeListResponse } from "@/src/types/Notice/notice.type";
-import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import NotificationApi from "./api";
+import { NoticeListResponse, QUERY_KEYS } from "@/src/stories/core";
 
 export const useGetNoticeCheckQuery = () =>
   useQuery(

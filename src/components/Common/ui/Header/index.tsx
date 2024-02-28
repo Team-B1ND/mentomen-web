@@ -8,15 +8,14 @@ import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import token from "@/src/libs/token/token";
 import profile from "@/public/icons/user/aprofile.png";
-import Portal from "@/src/components/Modal/Portal";
 import Search from "@/src/components/Modal/Search";
 import { useRouter } from "next/router";
 import { UserDataAtom } from "@/src/store/User/user.store";
-import { CustomLink } from "@/src/styles/common.style";
+import { CustomLink } from "@/src/stories/core";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
-import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
-import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
+import { Portal } from "@/src/stories/layout";
+import { GoogleAnalyzer, redirectToDAuthLogin } from "@/src/stories/utils";
 
 function Header() {
   const [isActiveSearch, setIsActiveSearch] = useState(false);
@@ -24,7 +23,7 @@ function Header() {
 
   const setUserData = useSetRecoilState(UserDataAtom);
   const router = useRouter();
-  const pageView = GoogleAnalyzer.pageView;
+  const pageView = new GoogleAnalyzer().pageView;
 
   const { data: noticeCheck } = useGetNoticeCheckQuery();
   const { data: myInfo } = useGetMyInfoQuery();

@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import styled from "styled-components";
 
 export const ImageContainer = styled.div`
@@ -10,5 +10,5 @@ export const ImageContainer = styled.div`
 
   overflow: hidden;
   border: 1px solid #ddd;
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

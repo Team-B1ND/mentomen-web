@@ -1,8 +1,8 @@
-import Title from "../../Title";
 import lock from "@/public/icons/title/lock.png";
 import handshake from "@/public/icons/logo/handshake.png";
 import * as S from "./style";
-import { redirectToDAuthLogin } from "@/src/utils/Auth/redirectToDAuthLogin";
+import { Title } from "@/src/stories/ui";
+import { redirectToDAuthLogin } from "@/src/stories/utils";
 
 const SuggestSignIn = () => {
   return (

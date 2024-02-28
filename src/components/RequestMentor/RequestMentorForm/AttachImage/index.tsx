@@ -2,8 +2,8 @@ import upload from "@/public/icons/RequestMentor/upload.svg";
 import cancel from "@/public/icons/RequestMentor/cancel.svg";
 import { Dispatch, RefObject, SetStateAction, useState } from "react";
 import * as S from "../style";
-import ViewImage from "@/src/components/Modal/ReadMoreImage";
-import Portal from "@/src/components/Modal/Portal";
+import { Portal } from "@/src/stories/layout";
+import { ReadMoreImage } from "@/src/stories/ui";
 
 interface Props {
   imgUrl: string[];
@@ -84,7 +84,7 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
 
       {isActiveDetailImage && (
         <Portal>
-          <ViewImage
+          <ReadMoreImage
             imgUrl={selectImage}
             setIsActiveDetailImage={setIsActiveDetailImage}
           />

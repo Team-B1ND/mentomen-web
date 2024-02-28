@@ -1,8 +1,8 @@
 import Home from "@/src/components/Home";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
-import { QUERY_KEYS } from "../constants/Auth/auth.constant";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
+import { QUERY_KEYS } from "../stories/core";
+import { useSeoConfig } from "../stories/hooks";
 import PostApi from "../services/Post/api";
 
 const HomePage = () => {

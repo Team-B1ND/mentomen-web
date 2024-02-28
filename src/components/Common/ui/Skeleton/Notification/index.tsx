@@ -1,5 +1,5 @@
+import { SkeletonBox } from "@/src/stories/ui";
 import styled from "styled-components";
-import { SkeletonBox } from "../style";
 
 const NotificationSkeleton = () => {
   return (

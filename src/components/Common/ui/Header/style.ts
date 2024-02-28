@@ -1,6 +1,6 @@
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled, { css } from "styled-components";
-import flex from "../../../../styles/flex";
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -16,13 +16,13 @@ export const HeaderContainer = styled.header`
 
   white-space: nowrap;
   z-index: 4;
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 export const Wrapper = styled.div`
   width: 950px;
   height: 100%;
-  ${flex({ alignItems: "center", justifyContent: "space-between" })}
+  ${Flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
 export const Logo = styled(Image)`
@@ -37,7 +37,7 @@ export const Logo = styled(Image)`
 `;
 
 export const ItemContainer = styled.div`
-  ${flex({ alignItems: "center", columnGap: "3px" })}
+  ${Flex({ alignItems: "center", columnGap: "3px" })}
 `;
 
 const HoverAnimation = css`
@@ -106,7 +106,7 @@ export const MenToRequest = styled.div`
   font-family: "Pretendard-Medium" !important;
   background-color: #2749dc;
 
-  ${flex({ alignItems: "center", justifyContent: "center" })};
+  ${Flex({ alignItems: "center", justifyContent: "center" })};
   transition: all 0.1s ease-in-out;
   &:active {
     opacity: 0.8;

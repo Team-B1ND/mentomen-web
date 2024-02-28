@@ -1,9 +1,8 @@
-import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
-import useLockScroll from "@/src/hooks/common/useLockScroll";
 import { useKeyWordSearch } from "./hooks";
 import { Dispatch, SetStateAction } from "react";
 import searchIcon from "@/public/images/Search.svg";
 import * as S from "./style";
+import { useEscCloseModal, useLockScroll } from "@/src/stories/hooks";
 
 interface Props {
   setIsActiveSearch: Dispatch<SetStateAction<boolean>>;

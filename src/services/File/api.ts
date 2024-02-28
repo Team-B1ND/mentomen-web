@@ -1,5 +1,5 @@
+import { FileResponse } from "@/src/stories/core";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
-import { FileResponse } from "@/src/types/File/file.type";
 
 class FileApi {
   public async postFileUploadApi(file: FormData): Promise<FileResponse> {

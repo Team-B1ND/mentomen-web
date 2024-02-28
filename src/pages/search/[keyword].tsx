@@ -1,6 +1,6 @@
 import Search from "@/src/components/Search";
-import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
-import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
+import { QUERY_KEYS } from "@/src/stories/core";
+import { useSeoConfig } from "@/src/stories/hooks";
 import PostApi from "@/src/services/Post/api";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
