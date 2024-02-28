@@ -8,13 +8,13 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 7000,
   generateRobotsTxt: true,
-  exclude: ["/exclude/review", "/exclude/**"],
+  exclude: ["/callback/**", "/request-mentor/**"],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/exclude"],
+        disallow: ["/callback", "/request-mentor"],
       },
     ],
     additionalSitemaps: [
