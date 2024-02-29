@@ -2,7 +2,7 @@ import Detail from "@/src/components/Detail";
 import { QUERY_KEYS } from "@/src/stories/core";
 import { useSeoConfig } from "@/src/stories/hooks";
 import PostApi from "@/src/services/Post/api";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
@@ -21,14 +21,7 @@ const DetailPage = () => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const queryClient = new QueryClient();
 
   const id = context.params?.id as string;
@@ -44,7 +37,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       id,
       dehydratedState: dehydrate(queryClient),
     },
-    revalidate: 2,
   };
 };
 

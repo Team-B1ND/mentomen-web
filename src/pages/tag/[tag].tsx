@@ -2,7 +2,7 @@ import Tag from "@/src/components/Tag";
 import { QUERY_KEYS } from "@/src/stories/core";
 import { useSeoConfig } from "@/src/stories/hooks";
 import PostApi from "@/src/services/Post/api";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
@@ -20,14 +20,7 @@ const TagPage = ({ tag }: { tag: string }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const queryClient = new QueryClient();
 
   const tag = context.params?.tag as string;
@@ -43,7 +36,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       tag,
       dehydratedState: dehydrate(queryClient),
     },
-    revalidate: 2,
   };
 };
 

@@ -8,6 +8,7 @@ import { useGetMyPostQuery } from "@/src/services/User/queries";
 import { useTokenCheck } from "@/src/stories/hooks";
 import { ErrorBoundary } from "@/src/stories/layout";
 import { ListItem, Title } from "@/src/stories/ui";
+import { NoneDataText } from "@/src/stories/core";
 
 const MyPage = () => {
   useTokenCheck();
@@ -22,7 +23,9 @@ const MyPage = () => {
       </S.TitleContainer>
 
       <S.ListWrapper>
-        <ErrorBoundary fallback={<>리스트를 불러오지 못했습니다.</>}>
+        <ErrorBoundary
+          fallback={<NoneDataText>리스트를 불러오지 못했습니다.</NoneDataText>}
+        >
           <Suspense fallback={<ListItemSkeleton />}>
             <MyPageItem />
           </Suspense>
