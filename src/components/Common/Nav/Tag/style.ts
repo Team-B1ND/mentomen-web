@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Flex } from "@/src/stories/layout";
 import { GetTag } from "@/src/stories/utils";
 
-export const TagContainer = styled.div`
+export const TagContainer = styled.article`
   width: 100%;
   ${Flex({ flexDirection: "column" })};
 
@@ -39,7 +39,7 @@ export const LinkStyle: CSSObject = {
   },
 };
 
-export const TagItemWrap = styled.div`
+export const TagItemWrap = styled.li`
   width: 100%;
   padding: 3px 10px 3px 10px;
   ${Flex({ alignItems: "center", columnGap: "15px" })}

@@ -2,7 +2,7 @@ import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.article`
   width: 100%;
 `;
 
