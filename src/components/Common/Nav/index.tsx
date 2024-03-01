@@ -4,7 +4,7 @@ import token from "@/src/libs/token/token";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Profile from "./Profile";
-import QRcode from "./QRcode";
+import QRCode from "./QR-Code";
 import RequestMento from "./RequestMentor";
 import SuggestSignIn from "./SuggestSignIn";
 import Tag from "./Tag";
@@ -21,7 +21,7 @@ const Nav = () => {
           ) : (
             <SuggestSignIn />
           )}
-          <QRcode />
+          <QRCode />
         </Wrapper>
       </Container>
     </Aside>

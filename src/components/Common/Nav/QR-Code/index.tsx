@@ -3,7 +3,7 @@ import phone from "@/public/icons/title/phone.png";
 import { QRCODE_ITEMS } from "./constant";
 import { Title } from "@/src/stories/ui";
 
-const QRcode = () => {
+const QRCode = () => {
   return (
     <S.Container>
       <Title
@@ -14,7 +14,7 @@ const QRcode = () => {
       <S.QRCodeBox>
         {QRCODE_ITEMS.map((item) => (
           <S.QRCodeContainer key={item.id}>
-            <S.AndroidQRCodeImage
+            <S.QRCodeImage
               src={item.QRcode}
               width={130}
               height={130}
@@ -28,4 +28,4 @@ const QRcode = () => {
   );
 };
 
-export default QRcode;
+export default QRCode;
