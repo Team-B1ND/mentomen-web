@@ -1,6 +1,6 @@
 import * as S from "./style";
 import menTomen from "@/public/icons/logo/menTomen2.png";
-import searchIcon from "@/public/images/Search.png";
+import searchIcon from "@/public/icons/Search/HeaderSearch.png";
 import notExistNotice from "@/public/icons/notice/notExistNotice.svg";
 import existNotice from "@/public/icons/notice/existNotice.svg";
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
