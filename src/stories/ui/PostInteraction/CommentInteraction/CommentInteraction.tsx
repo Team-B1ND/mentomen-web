@@ -1,5 +1,5 @@
-import { CustomLink } from "@/src/stories/core";
 import { GoogleAnalyzer } from "@/src/stories/utils";
+import { CustomLink } from "@/src/stories/styles";
 import { AiOutlineComment } from "@react-icons/all-files/ai/AiOutlineComment";
 import styled, { CSSObject } from "styled-components";
 import * as S from "../style";

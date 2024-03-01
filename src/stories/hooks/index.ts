@@ -6,7 +6,7 @@ export * from "./Content";
 export * from "./HideHeaderOrNav";
 export * from "./Invalidates";
 export * from "./Modal";
-export * from "./Paste";
+export * from "./ClipboardPaste";
 export * from "./RequestMentor";
 export * from "./Scroll";
 export * from "./SEO";

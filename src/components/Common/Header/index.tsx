@@ -11,7 +11,7 @@ import profile from "@/public/icons/user/aprofile.png";
 import Search from "@/src/components/Modal/Search";
 import { useRouter } from "next/router";
 import { UserDataAtom } from "@/src/store/User/user.store";
-import { CustomLink } from "@/src/stories/core";
+import { CustomLink } from "@/src/stories/styles";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
 import { Portal } from "@/src/stories/layout";

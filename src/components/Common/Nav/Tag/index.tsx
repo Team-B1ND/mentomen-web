@@ -2,7 +2,7 @@ import Image from "next/image";
 import macbook from "@/public/icons/title/macbook.png";
 import { useRouter } from "next/router";
 import * as S from "./style";
-import { CustomLink } from "@/src/stories/core";
+import { CustomLink } from "@/src/stories/styles";
 import { NAV_TAGS_ITEMS } from "./constant";
 import { Title } from "@/src/stories/ui";
 import { GoogleAnalyzer } from "@/src/stories/utils";

@@ -6,10 +6,10 @@ import styled, { CSSObject } from "styled-components";
 import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import { useOutSideClickCloseModal, useRegistPost } from "@/src/stories/hooks";
-import { DotsIcon, PostItemType } from "@/src/stories/core";
-import { DotsIconContainer } from "@/src/stories/core";
+import { PostItemType } from "@/src/stories/core";
 import { GetTag } from "@/src/stories/utils";
 import { Setting } from "../../Setting";
+import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
 
 export const ListItemProfile = ({ ...attr }: PostItemType) => {
   const router = useRouter();

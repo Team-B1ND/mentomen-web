@@ -1,7 +1,7 @@
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "../style";
 import { useRouter } from "next/router";
-import { NoneDataText } from "@/src/stories/core";
+import { NoneDataText } from "@/src/stories/styles";
 import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
 import { GetDateTime, GetText } from "@/src/stories/utils";
 

@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import post from "@/public/icons/title/post.png";
 import { useGetAllPostQuery } from "@/src/services/Post/queries";
-import * as S from "@/src/stories/core";
+import * as S from "@/src/stories/styles";
 import { ErrorBoundary } from "@/src/stories/layout";
 import { ListItem, Title } from "@/src/stories/ui";
 
