@@ -23,7 +23,7 @@ const slideInAnimation = keyframes`
   }
 `;
 
-export const Wrapper = styled.div`
+export const SearchInputWrap = styled.article`
   width: 100%;
   height: 85px;
 

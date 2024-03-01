@@ -36,7 +36,7 @@ export const Logo = styled(Image)`
   }
 `;
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled.nav`
   ${Flex({ alignItems: "center", columnGap: "3px" })}
 `;
 

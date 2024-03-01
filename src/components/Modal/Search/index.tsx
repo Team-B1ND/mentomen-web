@@ -17,7 +17,7 @@ const Search = ({ setIsActiveSearch }: Props) => {
 
   return (
     <S.Container onClick={() => setIsActiveSearch(false)}>
-      <S.Wrapper onClick={(e) => e.stopPropagation()}>
+      <S.SearchInputWrap onClick={(e) => e.stopPropagation()}>
         <S.Form onSubmit={(e) => handleSearchSubmit(e, setIsActiveSearch)}>
           <button>
             <S.SearchIcon src={searchIcon} alt="검색" />
@@ -28,7 +28,7 @@ const Search = ({ setIsActiveSearch }: Props) => {
             onChange={handleSerachChange}
           />
         </S.Form>
-      </S.Wrapper>
+      </S.SearchInputWrap>
     </S.Container>
   );
 };
