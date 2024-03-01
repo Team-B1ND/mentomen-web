@@ -4,7 +4,7 @@ import post from "@/public/icons/title/post.png";
 import { useSetRecoilState } from "recoil";
 import { CountOfPostAtom } from "@/src/store/Post/post.store";
 import { useGetMyPostQuery } from "@/src/services/User/queries";
-import { useTokenCheck } from "@/src/stories/hooks";
+import { useTokenCheck } from "@/src/hooks/Auth";
 import { ErrorBoundary } from "@/src/stories/layout";
 import { ListItem, Title } from "@/src/stories/ui";
 import {

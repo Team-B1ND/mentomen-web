@@ -1,6 +1,7 @@
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
-import { useHideHeaderOrNav, useSeoConfig } from "../stories/hooks";
+import { useHideHeaderOrNav } from "../hooks/HideHeaderOrNav";
+import { useSeoConfig } from "../hooks/SEO";
 import { Flex } from "../stories/layout";
 
 const NotFound = () => {

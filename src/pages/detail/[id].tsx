@@ -1,6 +1,6 @@
 import Detail from "@/src/components/Detail";
 import { QUERY_KEYS } from "@/src/stories/core";
-import { useSeoConfig } from "@/src/stories/hooks";
+import { useSeoConfig } from "@/src/hooks/SEO";
 import PostApi from "@/src/services/Post/api";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";

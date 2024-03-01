@@ -1,4 +1,4 @@
-import { useHideHeaderOrNav } from "@/src/stories/hooks";
+import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 
 const NotFound = () => {
   useHideHeaderOrNav("Both");

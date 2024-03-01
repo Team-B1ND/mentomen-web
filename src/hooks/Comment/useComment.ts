@@ -4,8 +4,8 @@ import {
   usePostCommentMutation,
 } from "@/src/services/Comment/mutations";
 import { Dispatch, SetStateAction, useState } from "react";
-import { QUERY_KEYS } from "../../core";
-import { MenToMenToast } from "../../utils";
+import { QUERY_KEYS } from "../../stories/core";
+import { MenToMenToast } from "../../stories/utils";
 import { useQueryInvalidates } from "../Invalidates";
 
 export const useComment = (exisitComment?: string) => {

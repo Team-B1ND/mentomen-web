@@ -4,7 +4,7 @@ import * as S from "./style";
 import profile from "@/public/icons/user/aprofile.png";
 import developer from "@/public/icons/title/developer.png";
 import { CountOfPostAtom } from "@/src/store/Post/post.store";
-import { useLogout } from "@/src/stories/hooks";
+import { useLogout } from "@/src/hooks/Auth";
 import { Title } from "@/src/stories/ui";
 
 const Profile = () => {

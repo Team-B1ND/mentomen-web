@@ -3,11 +3,9 @@ import styled from "styled-components";
 import b1nd from "@/public/icons/logo/b1nd.png";
 import { NextSeo } from "next-seo";
 import { Flex } from "../stories/layout";
-import {
-  useDAtuhLogin,
-  useHideHeaderOrNav,
-  useSeoConfig,
-} from "../stories/hooks";
+import { useDAtuhLogin } from "../hooks/Auth";
+import { useHideHeaderOrNav } from "../hooks/HideHeaderOrNav";
+import { useSeoConfig } from "../hooks/SEO";
 
 function AuthLoadingPage() {
   useDAtuhLogin();

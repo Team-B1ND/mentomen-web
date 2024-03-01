@@ -6,9 +6,10 @@ import NotificationItem from "./NotificationItem";
 import bell from "@/public/icons/title/bell.png";
 import * as S from "./style";
 import { NoneDataText } from "@/src/stories/styles";
-import { useHideHeaderOrNav, useTokenCheck } from "@/src/stories/hooks";
+import { useTokenCheck } from "@/src/hooks/Auth";
 import { ErrorBoundary } from "@/src/stories/layout";
 import { Title } from "@/src/stories/ui";
+import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 
 const Notification = () => {
   useTokenCheck();

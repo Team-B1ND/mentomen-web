@@ -5,10 +5,11 @@ import { useState } from "react";
 import { ExistingPostDataAtom } from "@/src/store/Post/post.store";
 import { useRouter } from "next/router";
 import { PostItemType } from "@/src/stories/core";
-import { useOutSideClickCloseModal, useRegistPost } from "@/src/stories/hooks";
 import { Setting } from "@/src/stories/ui";
 import { GetDateTime, GoogleAnalyzer } from "@/src/stories/utils";
 import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
+import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
+import { useRegistPost } from "@/src/hooks/RequestMentor";
 
 const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);

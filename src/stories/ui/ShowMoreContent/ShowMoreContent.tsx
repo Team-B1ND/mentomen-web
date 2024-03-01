@@ -1,5 +1,5 @@
+import { useShowMoreContent } from "@/src/hooks/Content";
 import styled, { CSSObject } from "styled-components";
-import { useShowMoreContent } from "../../hooks";
 import { Flex } from "../../layout";
 
 interface Props {

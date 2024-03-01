@@ -5,11 +5,12 @@ import { UserDataAtom } from "@/src/store/User/user.store";
 import { useState } from "react";
 import DetailCommentsInput from "../DetailCommentsInput";
 import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
-import { useComment, useOutSideClickCloseModal } from "@/src/stories/hooks";
 import { ShowMoreContent } from "@/src/stories/ui";
 import { Setting } from "@/src/stories/ui";
 import { GetDateTime } from "@/src/stories/utils";
 import { CommentType } from "@/src/stories/core";
+import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
+import { useComment } from "@/src/hooks/Comment";
 
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();

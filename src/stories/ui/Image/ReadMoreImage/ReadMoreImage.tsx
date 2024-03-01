@@ -1,4 +1,5 @@
-import { useEscCloseModal, useLockScroll } from "@/src/stories/hooks";
+import { useEscCloseModal } from "@/src/hooks/Modal";
+import { useLockScroll } from "@/src/hooks/Scroll";
 import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";

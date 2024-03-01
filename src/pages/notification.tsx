@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../stories/core";
-import { useSeoConfig } from "../stories/hooks";
+import { useSeoConfig } from "../hooks/SEO";
 import NotificationApi from "../services/Notification/api";
 
 const NotificationPage = () => {

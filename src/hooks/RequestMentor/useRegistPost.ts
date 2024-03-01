@@ -8,9 +8,9 @@ import {
   usePostMySubmitMutation,
 } from "@/src/services/Post/mutations";
 import { useFileUploadMutation } from "@/src/services/File/mutations";
-import { QUERY_KEYS } from "../../core";
+import { QUERY_KEYS } from "../../stories/core";
 import { useQueryInvalidates } from "../Invalidates";
-import { MenToMenToast } from "../../utils";
+import { MenToMenToast } from "../../stories/utils";
 
 export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
@@ -59,7 +59,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   };
 
   const handleFileUpload = (selectedFiles: FileList) => {
-    const filesArray = Array.from(selectedFiles) as File[];
+    const filesArray = Array.from(selectedFiles);
 
     filesArray.map((item) => {
       formData.append("file", item);

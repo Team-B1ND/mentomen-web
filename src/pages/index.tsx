@@ -2,8 +2,8 @@ import Home from "@/src/components/Home";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../stories/core";
-import { useSeoConfig } from "../stories/hooks";
 import PostApi from "../services/Post/api";
+import { useSeoConfig } from "../hooks/SEO";
 
 const HomePage = () => {
   const { SeoNextConfigProps } = useSeoConfig({

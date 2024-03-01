@@ -5,7 +5,7 @@ import {
   REFRESH_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
 import token from "@/src/libs/token/token";
-import { MenToMenToast } from "../../utils";
+import { MenToMenToast } from "../../stories/utils";
 
 export const useTokenCheck = () => {
   const router = useRouter();

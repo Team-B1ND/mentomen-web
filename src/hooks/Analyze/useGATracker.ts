@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { GoogleAnalyzer } from "../../utils";
+import { GoogleAnalyzer } from "../../stories/utils";
 
 export const useGATracker = () => {
   const router = useRouter();

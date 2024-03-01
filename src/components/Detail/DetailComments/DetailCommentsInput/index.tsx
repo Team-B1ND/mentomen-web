@@ -5,8 +5,9 @@ import { UserDataAtom } from "@/src/store/User/user.store";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import * as S from "./style";
-import { useComment, useClipboardPaste } from "@/src/stories/hooks";
 import { redirectToDAuthLogin } from "@/src/stories/utils";
+import { useComment } from "@/src/hooks/Comment";
+import { useClipboardPaste } from "@/src/hooks/ClipboardPaste";
 
 interface Props {
   postId: number;

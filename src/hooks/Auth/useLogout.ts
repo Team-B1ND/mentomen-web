@@ -4,7 +4,7 @@ import {
 } from "@/src/constants/Auth/auth.constant";
 import token from "@/src/libs/token/token";
 import { useRouter } from "next/router";
-import { MenToMenToast } from "../../utils";
+import { MenToMenToast } from "../../stories/utils";
 
 export function useLogout() {
   const router = useRouter();

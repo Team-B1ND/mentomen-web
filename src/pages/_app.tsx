@@ -5,8 +5,9 @@ import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
 import "@/src/stories/core/design-token/font.css";
 import { DefaultSeo } from "next-seo";
-import { useGATracker, useSeoConfig } from "../stories/hooks";
 import { MenToMenToastContainer } from "../stories/utils";
+import { useSeoConfig } from "../hooks/SEO";
+import { useGATracker } from "../hooks/Analyze";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(

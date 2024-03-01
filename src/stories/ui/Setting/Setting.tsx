@@ -1,7 +1,7 @@
+import { useEscCloseModal } from "@/src/hooks/Modal";
 import { AiOutlineDelete } from "@react-icons/all-files/ai/AiOutlineDelete";
 import { AiOutlineEdit } from "@react-icons/all-files/ai/AiOutlineEdit";
 import styled, { CSSObject } from "styled-components";
-import { useEscCloseModal } from "../../hooks";
 import { Flex } from "../../layout";
 
 interface Props {
