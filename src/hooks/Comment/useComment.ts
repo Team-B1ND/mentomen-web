@@ -17,6 +17,11 @@ export const useComment = (exisitComment?: string) => {
   const deleteComment = useDeleteCommentMutation();
   const editComment = usePatchCommentMutation();
 
+  /**
+   * 댓글을 작성하다가 취소를 누르면 댓글 value를 공백으로 바꾸는데
+   * 이때 chrome에서는 input 깜빡임이 사라지지만 safari에서는 input 깜빡임이 안 사라지기 때문에
+   * 아래 메서드를 만들었음
+   */
   const handleRenderCommentInput = () => {
     setIsSubmitComment(true);
     setTimeout(() => {
