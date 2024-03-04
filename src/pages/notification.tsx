@@ -4,7 +4,7 @@ import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../stories/core";
 import { useSeoConfig } from "../hooks/SEO";
-import NotificationApi from "../services/Notification/api";
+import NotificationApi from "../services/Notification/NotificationApi";
 
 const NotificationPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({

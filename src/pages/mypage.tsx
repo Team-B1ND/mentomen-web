@@ -3,7 +3,7 @@ import { dehydrate, QueryClient } from "react-query";
 import MyPage from "../components/MyPage";
 import { QUERY_KEYS } from "../stories/core";
 import { useSeoConfig } from "../hooks/SEO";
-import UserApi from "../services/User/api";
+import UserApi from "../services/User/UserApi";
 
 const MyPagePage = () => {
   const { SeoNextConfigProps } = useSeoConfig({

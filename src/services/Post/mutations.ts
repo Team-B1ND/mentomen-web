@@ -1,6 +1,6 @@
 import { PostPatchItem, PostSubmitType } from "@/src/stories/core";
 import { useMutation } from "react-query";
-import PostApi from "./api";
+import PostApi from "./PostApi";
 
 export const usePostMySubmitMutation = () => {
   const mutation = useMutation((data: PostSubmitType) =>

@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "react-query";
-import UserApi from "./api";
+import UserApi from "./UserApi";
 import { PostItemResponse, QUERY_KEYS } from "@/src/stories/core";
 
 export const useGetMyInfoQuery = () =>

@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import FileApi from "./api";
+import FileApi from "./FileApi";
 
 export const useFileUploadMutation = () => {
   const mutation = useMutation((file: FormData) =>

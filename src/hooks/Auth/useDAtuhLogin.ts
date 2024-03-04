@@ -5,7 +5,7 @@ import {
 import { useEffect } from "react";
 import token from "@/src/libs/token/token";
 import { useRouter } from "next/router";
-import AuthApi from "@/src/services/Auth/api";
+import AuthApi from "@/src/services/Auth/AuthApi";
 
 export const useDAtuhLogin = () => {
   const router = useRouter();
