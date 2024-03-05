@@ -117,8 +117,8 @@ const SettingStyle: CSSObject = {
 };
 
 const DotsStyle: CSSObject = {
-  width: "21px",
-  height: "21px",
+  width: "23px",
+  height: "23px",
   padding: "3px",
   marginLeft: "2px",
 };
