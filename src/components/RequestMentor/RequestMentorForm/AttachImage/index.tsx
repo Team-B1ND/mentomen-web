@@ -9,6 +9,8 @@ interface Props {
   imgUrl: string[];
   setImgUrl: Dispatch<SetStateAction<string[]>>;
   selectFileImage: RefObject<HTMLInputElement>;
+  isRequestImage: boolean;
+
   handleFileUploadClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleFileUploadDrop: (e: React.DragEvent<HTMLDivElement>) => void;
 }
@@ -23,6 +25,7 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
       <S.AttachImageBox>
         <S.AttachImageWrap
           isDrop={isDrop}
+          isRequestImage={hooks.isRequestImage}
           onDrop={(e) => {
             hooks.handleFileUploadDrop(e);
             setIsDrop(false);
@@ -43,12 +46,23 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
             multiple
             accept=".jpeg, .jpg, .png"
           />
-          <button onClick={() => hooks.selectFileImage.current?.click()}>
+          <button
+            onClick={() =>
+              !hooks.isRequestImage && hooks.selectFileImage.current?.click()
+            }
+          >
             <S.UploadIcon src={upload} alt="업로드" />
             <p>이미지 선택</p>
           </button>
           <S.AttachImageText>
-            또는 해당 박스 안에 이미지를 드래그 하세요!
+            {hooks.isRequestImage ? (
+              "로딩 중..."
+            ) : (
+              <>
+                또는 해당 박스 안에 <span>10MB 이하</span>의 이미지들(.jpeg,
+                .jpg, .png)을 드래그 하세요!
+              </>
+            )}
           </S.AttachImageText>
         </S.AttachImageWrap>
 

@@ -8,6 +8,7 @@ interface Props {
   tag: string;
   setTag: Dispatch<SetStateAction<string>>;
   existingData: PostSubmitType | null;
+  isRequestImage: boolean;
 
   imgUrl: string[];
   setImgUrl: Dispatch<SetStateAction<string[]>>;

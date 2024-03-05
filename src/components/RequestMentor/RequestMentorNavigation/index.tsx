@@ -7,6 +7,7 @@ import styled, { css } from "styled-components";
 interface Props {
   isRequiredPostData: boolean;
   isCoincidePostData: boolean;
+  isRequestImage: boolean;
   handlePageOutEvent: () => void;
   handlePostSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -18,6 +19,7 @@ const RequestMentorNavigation = ({ ...hooks }: Props) => {
     <NavigationBox
       isRequiredPostData={hooks.isRequiredPostData}
       isCoincidePostData={hooks.isCoincidePostData}
+      isRequestImage={hooks.isRequestImage}
     >
       <PrevArrowIcon
         src={leftArrow}
@@ -38,6 +40,7 @@ export default RequestMentorNavigation;
 export const NavigationBox = styled.div<{
   isRequiredPostData: boolean;
   isCoincidePostData: boolean;
+  isRequestImage: boolean;
 }>`
   width: 100%;
   height: 60px;
@@ -65,8 +68,8 @@ export const NavigationBox = styled.div<{
         background-color: #2749dc;
         color: #f2f2f2;
       `}
-    ${({ isCoincidePostData }) =>
-      isCoincidePostData &&
+    ${({ isCoincidePostData, isRequestImage }) =>
+      (isCoincidePostData || isRequestImage) &&
       css`
         background-color: #0000000d;
         color: gray;

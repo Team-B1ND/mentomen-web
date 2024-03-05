@@ -56,7 +56,10 @@ export const AttachImageBox = styled.div`
   ${Flex({ flexDirection: "column", rowGap: "15px" })}
 `;
 
-export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
+export const AttachImageWrap = styled.div<{
+  isDrop: boolean;
+  isRequestImage: boolean;
+}>`
   width: 100%;
   height: 130px;
 
@@ -64,8 +67,9 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
   transition: all 0.2s ease-in-out;
   border: 1.7px dashed #ddd;
 
-  ${({ isDrop }) =>
+  ${({ isDrop, isRequestImage }) =>
     isDrop &&
+    !isRequestImage &&
     css`
       transform: scale(0.97);
       background-color: #f9f9f9;
@@ -93,12 +97,17 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
     border: 1px solid #000;
 
     transition: all 0.2s ease-in-out;
-    &:hover {
-      background-color: #eee;
-    }
-    &:active {
-      background-color: #ddd;
-    }
+
+    ${({ isRequestImage }) =>
+      !isRequestImage &&
+      css`
+        &:hover {
+          background-color: #eee;
+        }
+        &:active {
+          background-color: #ddd;
+        }
+      `};
 
     p {
       font-size: 14px;
@@ -112,6 +121,10 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
 export const AttachImageText = styled.p`
   font-size: 14px;
   color: #64748b;
+
+  span {
+    color: #2749dc;
+  }
 `;
 
 export const UploadIcon = styled(Image)`

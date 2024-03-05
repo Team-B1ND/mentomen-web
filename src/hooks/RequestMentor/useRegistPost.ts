@@ -11,6 +11,7 @@ import { useFileUploadMutation } from "@/src/services/File/mutations";
 import { QUERY_KEYS } from "../../stories/core";
 import { useQueryInvalidates } from "../Invalidates";
 import { MenToMenToast } from "../../stories/utils";
+import axios, { AxiosError } from "axios";
 
 export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
@@ -21,6 +22,8 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
     type === "MODIFY" ? existingData?.content : ""
   );
   const [tag, setTag] = useState(type === "MODIFY" ? existingData?.tag! : "");
+
+  const [isRequestImage, setIsRequestImage] = useState(false);
   const selectFileImage = useRef<HTMLInputElement>(null);
 
   const isRequiredPostData = content?.trim() !== "" && tag !== "";
@@ -61,15 +64,30 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const handleFileUpload = (selectedFiles: FileList) => {
     const filesArray = Array.from(selectedFiles);
 
-    filesArray.map((item) => {
-      formData.append("file", item);
-    });
+    if (filesArray.length > 0) {
+      filesArray.map((item) => {
+        formData.append("file", item);
+      });
 
-    ImageFileUpload.mutate(formData, {
-      onSuccess: (res) => {
-        res.data.map((item) => setImgUrl((prev) => [...prev, item.imgUrl]));
-      },
-    });
+      setIsRequestImage(true);
+      ImageFileUpload.mutate(formData, {
+        onSuccess: (res) => {
+          res.data.map((item) => setImgUrl((prev) => [...prev, item.imgUrl]));
+        },
+        onError: (err) => {
+          const errCode = err as AxiosError;
+
+          if (errCode.response?.status === 400) {
+            MenToMenToast.showError("확장자가 알맞지 않습니다.");
+          } else {
+            MenToMenToast.showError("이미지 용량이 큽니다.");
+          }
+        },
+        onSettled: () => {
+          setIsRequestImage(false);
+        },
+      });
+    }
   };
 
   const handleFileUploadClick = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,9 +97,11 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   };
 
   const handleFileUploadDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const selectedFiles = e.dataTransfer.files;
-    handleFileUpload(selectedFiles);
+    if (!isRequestImage) {
+      e.preventDefault();
+      const selectedFiles = e.dataTransfer.files;
+      handleFileUpload(selectedFiles);
+    }
   };
 
   const handleRequestMentorInputChange = (
@@ -102,7 +122,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
             ["post/GetTagQuery"],
           ]);
 
-          if (router.pathname === "/detail/[id]") {
+          if (router.pathname.includes("/detail")) {
             router.push("/");
           }
 
@@ -118,7 +138,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const handlePostSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    if (content?.trim() !== "" && tag !== "") {
+    if (content?.trim() !== "" && tag !== "" && !isRequestImage) {
       const submitData = {
         content: content?.trim()!,
         tag: tag!,
@@ -184,6 +204,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
 
     isRequiredPostData,
     isCoincidePostData,
+    isRequestImage,
 
     selectFileImage,
     handlePageOutEvent,

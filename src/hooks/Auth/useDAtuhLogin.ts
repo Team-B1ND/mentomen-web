@@ -3,8 +3,8 @@ import {
   REFRESH_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
 import { useEffect } from "react";
-import token from "@/src/libs/token/token";
 import { useRouter } from "next/router";
+import token from "@/src/libs/token/token";
 import AuthApi from "@/src/services/Auth/AuthApi";
 
 export const useDAtuhLogin = () => {
@@ -24,7 +24,7 @@ export const useDAtuhLogin = () => {
           token.setCookie(REFRESH_TOKEN_KEY, data.refreshToken);
           window.location.replace("/");
           router.push("/");
-        } catch (e) {}
+        } catch (_) {}
       };
       request();
     }
