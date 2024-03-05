@@ -163,7 +163,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
                 QUERY_KEYS.Post.getPostById(existingData?.postId!),
               ]);
               MenToMenToast.showSuccess("게시글을 수정하였습니다.");
-              router.push("/");
+              router.push(`/detail/${existingData?.postId}`);
               localStorage.removeItem("recoil-persist");
             },
             onError: (e) => {

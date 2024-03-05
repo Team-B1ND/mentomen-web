@@ -6,7 +6,6 @@ import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
-import CommentApi from "@/src/services/Comment/CommentApi";
 
 const DetailPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
@@ -30,9 +29,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   await Promise.all([
     queryClient.prefetchQuery(QUERY_KEYS.Post.getPostById(id), () =>
       PostApi.getPostByIdApi(id)
-    ),
-    queryClient.prefetchQuery(QUERY_KEYS.Comment.getComment(id), () =>
-      CommentApi.getCommentApi(id)
     ),
   ]);
 
