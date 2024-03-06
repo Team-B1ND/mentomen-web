@@ -48,7 +48,7 @@ const ContentText = styled.div<{
   max-height: ${({ isShowMoreContent, maxHeight }) =>
     isShowMoreContent ? "auto" : `${maxHeight}px`};
   overflow: hidden;
-  font-size: 14.5px;
+  font-size: 15px;
   line-height: 18px;
 
   p {

@@ -11,7 +11,14 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
       <SlideWrapper>
         <StyledSlider {...SlideOptions}>
           {imgUrls.map((item, idx) => (
-            <ImageView key={idx} src={item} alt="이미지" />
+            <ImageView
+              key={idx}
+              src={item}
+              loading="lazy"
+              width={520}
+              height={520}
+              alt="이미지"
+            />
           ))}
         </StyledSlider>
       </SlideWrapper>
@@ -21,7 +28,7 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
 
 const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
-  height: 420px;
+  height: 520px;
 
   border-radius: 5px;
   border: 1px solid #ddd;

@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           queries: {
             refetchOnReconnect: false,
             refetchOnWindowFocus: false,
-            refetchOnMount: false,
+            // refetchOnMount: false,
           },
         },
       })

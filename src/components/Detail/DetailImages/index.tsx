@@ -2,9 +2,9 @@ import { SlideOptions } from "@/src/constants/Slide/slide.constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from "react";
-import * as S from "./style";
-import { Portal, SlideWrapper, StyledSlider } from "@/src/stories/layout";
+import { Flex, Portal, SlideWrapper, StyledSlider } from "@/src/stories/layout";
 import { ImageView, ReadMoreImage } from "@/src/stories/ui";
+import styled from "styled-components";
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);
@@ -12,7 +12,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 
   return (
     <>
-      <S.ImageContainer>
+      <ImageContainer>
         <SlideWrapper>
           <StyledSlider {...SlideOptions}>
             {imgUrls.map((item, idx) => (
@@ -20,6 +20,8 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
                 title="클릭하여 자세히보기"
                 key={idx}
                 src={item}
+                width={491}
+                height={491}
                 customstyle={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsActiveDetailImage(true);
@@ -30,7 +32,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
             ))}
           </StyledSlider>
         </SlideWrapper>
-      </S.ImageContainer>
+      </ImageContainer>
 
       {isActiveDetailImage && (
         <Portal>
@@ -45,3 +47,15 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 };
 
 export default DetailImages;
+
+const ImageContainer = styled.div`
+  width: 65%;
+  height: 492px;
+
+  background-color: #000;
+  border-radius: 5px;
+
+  overflow: hidden;
+  border: 1px solid #ddd;
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
+`;
