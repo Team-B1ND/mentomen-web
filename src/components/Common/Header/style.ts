@@ -86,8 +86,7 @@ export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
   overflow: hidden;
 
   transition: all 0.15s ease-in-out;
-  &:active,
-  :hover {
+  &:active {
     border: 2px solid #d9d9d9;
   }
 `;

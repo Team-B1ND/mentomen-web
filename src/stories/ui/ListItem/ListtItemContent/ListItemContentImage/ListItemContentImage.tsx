@@ -14,7 +14,6 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
             <ImageView
               key={idx}
               src={item}
-              loading="lazy"
               width={520}
               height={520}
               alt="이미지"
@@ -28,7 +27,7 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
 
 const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
-  height: 520px;
+  height: 100%;
 
   border-radius: 5px;
   border: 1px solid #ddd;

@@ -12,6 +12,7 @@ export const Container = styled.div<{ commentLenght: number }>`
 
 export const CommentsList = styled.article<{ isLast: boolean }>`
   width: 100%;
+  min-height: 106px;
   border-bottom: ${({ isLast }) => !isLast && "1px solid #ddd"};
   padding: 20px 16px 10px 20px;
   ${Flex({ columnGap: "20px" })};

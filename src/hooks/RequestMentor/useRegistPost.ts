@@ -111,7 +111,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   };
 
   const handleDeletePostClick = (postId: number) => {
-    const answer = window.confirm("해당 게시글을 삭제하시겠습니까?");
+    const answer = window.confirm("해당 멘토 요청 글을 삭제하시겠습니까?");
     if (answer) {
       deletePost.mutate(postId, {
         onSuccess: () => {
@@ -126,10 +126,10 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
             router.push("/");
           }
 
-          MenToMenToast.showSuccess("게시글을 삭제하였습니다.");
+          MenToMenToast.showSuccess("멘토 요청 글을 삭제하였습니다.");
         },
         onError: () => {
-          MenToMenToast.showError("게시글을 삭제하지 못했습니다.");
+          MenToMenToast.showError("멘토 요청 글을 삭제하지 못했습니다.");
         },
       });
     }
@@ -162,12 +162,12 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
                 QUERY_KEYS.User.getMyPost,
                 QUERY_KEYS.Post.getPostById(existingData?.postId!),
               ]);
-              MenToMenToast.showSuccess("게시글을 수정하였습니다.");
+              MenToMenToast.showSuccess("멘토 요청 글을 수정하였습니다.");
               router.push(`/detail/${existingData?.postId}`);
               localStorage.removeItem("recoil-persist");
             },
             onError: (e) => {
-              MenToMenToast.showError("게시글을 수정하지 못했습니다.");
+              MenToMenToast.showError("멘토 요청 글을 수정하지 못했습니다.");
             },
           }
         );
@@ -178,11 +178,11 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
               QUERY_KEYS.Post.getAllPost,
               QUERY_KEYS.User.getMyPost,
             ]);
-            MenToMenToast.showSuccess("게시글을 작성하였습니다.");
+            MenToMenToast.showSuccess("멘토 요청 글을 작성하였습니다.");
             router.push("/");
           },
           onError: (e) => {
-            MenToMenToast.showError("게시글을 작성하지 못했습니다.");
+            MenToMenToast.showError("멘토 요청 글을 작성하지 못했습니다.");
           },
         });
       }
