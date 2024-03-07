@@ -35,7 +35,7 @@ const DetailSkeleton = () => {
         </ContentWrap>
       </Box>
 
-      <DetailCommentSkeleton sizeOfCommentData={sizeOfCommentData} />
+      <DetailCommentSkeleton />
     </DetailItemContainer>
   );
 };
