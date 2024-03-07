@@ -19,12 +19,12 @@ const DetailComments = ({ postId }: { postId: number }) => {
 
 export default DetailComments;
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   ${Flex({ flexDirection: "column", rowGap: "15px" })};
 `;
 
-const InputWrap = styled.div`
+export const InputWrap = styled.div`
   background-color: #fff;
   padding: 20px 16px 25px 20px;
   border-radius: 5px;
