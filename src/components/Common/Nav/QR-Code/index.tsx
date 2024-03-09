@@ -16,9 +16,10 @@ const QRCode = () => {
           <S.QRCodeContainer key={item.id}>
             <S.QRCodeImage
               src={item.QRcode}
+              onClick={() => window.open(item.link, "_blank")}
               width={130}
               height={130}
-              alt="AOS"
+              alt={item.title}
             />
             <p>{item.title}</p>
           </S.QRCodeContainer>
