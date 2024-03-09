@@ -8,7 +8,9 @@ interface Props extends ImageProps {
 
 export const ImageView = ({ ...attr }: Props) => {
   const { width, height, ...rest } = attr;
-  return <StyledImage width={width} height={height} {...rest} />;
+  return (
+    <StyledImage width={width || 1000} height={height || 1000} {...rest} />
+  );
 };
 
 const StyledImage = styled(Image)<{ customstyle?: CSSObject }>`

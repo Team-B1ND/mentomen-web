@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: process.env.NEXT_PUBLIC_PROTOCOL,
@@ -12,6 +12,9 @@ const nextConfig = {
         hostname: process.env.NEXT_PUBLIC_PROFILE_URL,
       },
     ],
+  },
+  compiler: {
+    styledComponents: true,
   },
   reactStrictMode: true,
 };
