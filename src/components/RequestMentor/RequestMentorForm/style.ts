@@ -179,8 +179,8 @@ export const CancelIcon = styled(Image)`
 `;
 
 export const PreviewImage = styled(Image)`
-  width: 100%;
-  height: 100%;
+  width: 205px;
+  height: 140px;
   object-fit: cover;
   cursor: pointer;
 

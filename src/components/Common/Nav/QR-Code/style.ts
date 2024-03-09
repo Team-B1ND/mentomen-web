@@ -29,4 +29,5 @@ export const QRCodeContainer = styled.div`
 export const QRCodeImage = styled(Image)`
   width: 130px;
   height: 130px;
+  cursor: pointer;
 `;
