@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { CSSObject } from "styled-components";
+import styled, { css, CSSObject } from "styled-components";
 import Image, { ImageProps } from "next/image";
 import { skeletonAnimation } from "@/src/stories/ui";
 
@@ -18,10 +18,10 @@ const ImageView = ({ ...attr }: Props) => {
       <StyledImage
         width={width}
         height={height}
+        isLoad={isLoadImage}
         onLoad={() => setIsLoadImage(false)}
         {...rest}
       />
-      {isLoadImage && <LoadImage />}
     </>
   );
 };
@@ -30,24 +30,17 @@ export default ImageView;
 
 const StyledImage = styled(Image)<{
   customstyle?: CSSObject;
+  isLoad: boolean;
 }>`
   object-fit: contain;
   border: none;
   outline: none;
+
+  ${({ isLoad }) =>
+    isLoad &&
+    css`
+      ${skeletonAnimation}
+    `}
+
   ${({ customstyle }) => customstyle}
-`;
-
-const LoadImage = styled.div`
-  width: 680px;
-  height: 680px;
-  border-radius: 10px;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  ${skeletonAnimation}
 `;
