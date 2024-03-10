@@ -14,15 +14,13 @@ const ImageView = ({ ...attr }: Props) => {
   const [isLoadImage, setIsLoadImage] = useState(true);
 
   return (
-    <>
-      <StyledImage
-        width={width}
-        height={height}
-        isLoad={isLoadImage}
-        onLoad={() => setIsLoadImage(false)}
-        {...rest}
-      />
-    </>
+    <StyledImage
+      width={width}
+      height={height}
+      isLoadImage={isLoadImage}
+      onLoad={() => setIsLoadImage(false)}
+      {...rest}
+    />
   );
 };
 
@@ -30,14 +28,14 @@ export default ImageView;
 
 const StyledImage = styled(Image)<{
   customstyle?: CSSObject;
-  isLoad: boolean;
+  isLoadImage: boolean;
 }>`
   object-fit: contain;
   border: none;
   outline: none;
 
-  ${({ isLoad }) =>
-    isLoad &&
+  ${({ isLoadImage }) =>
+    isLoadImage &&
     css`
       ${skeletonAnimation}
     `}
