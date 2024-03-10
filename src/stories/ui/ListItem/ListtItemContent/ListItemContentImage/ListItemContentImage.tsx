@@ -3,7 +3,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { SlideOptions } from "@/src/constants/Slide/slide.constant";
 import styled from "styled-components";
 import { Flex, SlideWrapper, StyledSlider } from "@/src/stories/layout";
-import { ImageView } from "../../../Image";
+import dynamic from "next/dynamic";
+const ImageView = dynamic(
+  () => import("@/src/components/Common/Image/ImageView"),
+  { ssr: false }
+);
 
 export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
@@ -27,13 +31,13 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
 
 const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
-  height: 100%;
+  height: 520px;
 
   border-radius: 5px;
   border: 1px solid #ddd;
   overflow: hidden;
-
   background-color: ${({ sizeOfImages }) =>
     sizeOfImages && sizeOfImages > 0 ? "#000" : "#eee"};
+
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

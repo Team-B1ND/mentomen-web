@@ -3,7 +3,11 @@ import cancel from "@/public/icons/RequestMentor/cancel.svg";
 import { Dispatch, RefObject, SetStateAction, useState } from "react";
 import * as S from "../style";
 import { Portal } from "@/src/stories/layout";
-import { ReadMoreImage } from "@/src/stories/ui";
+import dynamic from "next/dynamic";
+const ReadMoreImage = dynamic(
+  () => import("@/src/components/Common/Image/ReadMoreImage"),
+  { ssr: false }
+);
 
 interface Props {
   imgUrl: string[];

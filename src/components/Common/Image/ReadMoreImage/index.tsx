@@ -3,8 +3,8 @@ import { useLockScroll } from "@/src/hooks/Scroll";
 import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
-import { Flex } from "../../../layout";
-import { ImageView } from "../ImageView";
+import { Flex } from "../../../../stories/layout";
+import ImageView from "../ImageView";
 
 interface Props {
   imgUrl: string;
@@ -21,6 +21,8 @@ export const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
       <Wrapper onClick={(e) => e.stopPropagation()}>
         <ImageView
           src={imgUrl}
+          width={1000}
+          height={1000}
           customstyle={{ height: "100vh" }}
           alt="전체보기"
         />
@@ -28,6 +30,8 @@ export const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
     </Container>
   );
 };
+
+export default ReadMoreImage;
 
 const Container = styled.div`
   width: 100%;

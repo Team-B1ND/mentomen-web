@@ -3,8 +3,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from "react";
 import { Flex, Portal, SlideWrapper, StyledSlider } from "@/src/stories/layout";
-import { ImageView, ReadMoreImage } from "@/src/stories/ui";
 import styled from "styled-components";
+import dynamic from "next/dynamic";
+const ImageView = dynamic(() => import("../../Common/Image/ImageView"), {
+  ssr: false,
+});
+const ReadMoreImage = dynamic(
+  () => import("../../Common/Image/ReadMoreImage"),
+  { ssr: false }
+);
 
 const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
   const [isActiveDetailImage, setIsActiveDetailImage] = useState(false);

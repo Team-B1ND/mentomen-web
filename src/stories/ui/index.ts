@@ -1,4 +1,3 @@
-export * from "./Image";
 export * from "./ListItem";
 export * from "./PageProgressBar";
 export * from "./PostInteraction";

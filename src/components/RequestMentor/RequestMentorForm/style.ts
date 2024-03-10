@@ -1,4 +1,5 @@
 import { Flex } from "@/src/stories/layout";
+import { skeletonAnimation } from "@/src/stories/ui";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -150,6 +151,7 @@ export const PreviewImageWrap = styled.div`
   overflow: hidden;
 
   position: relative;
+  ${skeletonAnimation}
 `;
 
 export const CancelPreviewImage = styled.div`
