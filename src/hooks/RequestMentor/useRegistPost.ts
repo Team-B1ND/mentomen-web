@@ -13,6 +13,7 @@ import { useQueryInvalidates } from "../Invalidates";
 import { MenToMenToast } from "../../stories/utils";
 import { AxiosError } from "axios";
 import PostErrorHandler from "@/src/stories/utils/Error/PostErrorHandler";
+import FileErrorHandler from "@/src/stories/utils/Error/FileErrorHandler";
 
 export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
@@ -76,13 +77,10 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
           res.data.map((item) => setImgUrl((prev) => [...prev, item.imgUrl]));
         },
         onError: (err) => {
-          const errCode = err as AxiosError;
-
-          if (errCode.response?.status === 400) {
-            MenToMenToast.showError("확장자가 알맞지 않습니다.");
-          } else {
-            MenToMenToast.showError("이미지 용량이 큽니다.");
-          }
+          const errorCode = err as AxiosError;
+          MenToMenToast.showError(
+            FileErrorHandler.uploadError(errorCode.response?.status!)
+          );
         },
         onSettled: () => {
           setIsRequestImage(false);
@@ -132,7 +130,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
         onError: (e) => {
           const errorCode = e as AxiosError;
           MenToMenToast.showError(
-            PostErrorHandler.deletePostHandler(errorCode.response?.status!)
+            PostErrorHandler.deletePost(errorCode.response?.status!)
           );
         },
       });
@@ -173,7 +171,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
             onError: (e) => {
               const errorCode = e as AxiosError;
               MenToMenToast.showError(
-                PostErrorHandler.modifyPostHandler(errorCode.response?.status!)
+                PostErrorHandler.modifyPost(errorCode.response?.status!)
               );
             },
           }
@@ -191,7 +189,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
           onError: (e) => {
             const errorCode = e as AxiosError;
             MenToMenToast.showError(
-              PostErrorHandler.registPostHandler(errorCode.response?.status!)
+              PostErrorHandler.registPost(errorCode.response?.status!)
             );
           },
         });

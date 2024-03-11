@@ -1,7 +1,7 @@
 import CommonErrorHandler from "./CommonErrorHandler";
 
 class PostErrorHandler extends CommonErrorHandler {
-  registPostHandler = (status: number) => {
+  registPost = (status: number) => {
     switch (status) {
       case 500:
         return this.serverError();
@@ -10,7 +10,7 @@ class PostErrorHandler extends CommonErrorHandler {
     }
   };
 
-  modifyPostHandler = (status: number) => {
+  modifyPost = (status: number) => {
     switch (status) {
       case 500:
         return this.serverError();
@@ -19,7 +19,7 @@ class PostErrorHandler extends CommonErrorHandler {
     }
   };
 
-  deletePostHandler = (status: number) => {
+  deletePost = (status: number) => {
     switch (status) {
       case 500:
         return this.serverError();

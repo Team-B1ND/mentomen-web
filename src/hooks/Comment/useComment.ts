@@ -46,9 +46,7 @@ export const useComment = (exisitComment?: string) => {
         onError: (e) => {
           const errorCode = e as AxiosError;
           MenToMenToast.showError(
-            CommentErrorHandler.deleteCommentHandler(
-              errorCode.response?.status!
-            )
+            CommentErrorHandler.deleteComment(errorCode.response?.status!)
           );
         },
       });
@@ -87,9 +85,7 @@ export const useComment = (exisitComment?: string) => {
           onError: (e) => {
             const errorCode = e as AxiosError;
             MenToMenToast.showError(
-              CommentErrorHandler.modifyCommentHandler(
-                errorCode.response?.status!
-              )
+              CommentErrorHandler.modifyComment(errorCode.response?.status!)
             );
           },
         }
@@ -109,9 +105,7 @@ export const useComment = (exisitComment?: string) => {
           onError: (e) => {
             const errorCode = e as AxiosError;
             MenToMenToast.showError(
-              CommentErrorHandler.registCommentHandler(
-                errorCode.response?.status!
-              )
+              CommentErrorHandler.registComment(errorCode.response?.status!)
             );
           },
         }
