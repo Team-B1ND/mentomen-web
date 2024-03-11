@@ -10,11 +10,17 @@ export const Container = styled.div`
 
 export const NoticeItemContainer = styled.div`
   width: 100%;
+  min-height: 650px;
   padding-left: 3px;
-  ${Flex({ flexDirection: "column", alignItems: "center", rowGap: "13px" })}
+  ${Flex({
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-between",
+    rowGap: "10px",
+  })}
 `;
 
-export const NoticeItemBox = styled.div`
+export const NoticeItemBox = styled.article`
   width: 100%;
   min-height: 95px;
 

@@ -1,5 +1,6 @@
 export * from "./ListItem";
 export * from "./PageProgressBar";
+export * from "./Pagination";
 export * from "./PostInteraction";
 export * from "./ScrollTopButton";
 export * from "./Setting";

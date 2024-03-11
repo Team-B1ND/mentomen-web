@@ -24,8 +24,8 @@ export const TitleContainer = styled.div`
 `;
 
 export const NoneDataText = styled.div`
-  width: 550px;
-  height: 620px;
+  width: 100%;
+  height: 560px;
   color: gray;
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

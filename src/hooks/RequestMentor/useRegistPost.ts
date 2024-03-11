@@ -11,7 +11,8 @@ import { useFileUploadMutation } from "@/src/services/File/mutations";
 import { QUERY_KEYS } from "../../stories/core";
 import { useQueryInvalidates } from "../Invalidates";
 import { MenToMenToast } from "../../stories/utils";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
+import PostErrorHandler from "@/src/stories/utils/Error/PostErrorHandler";
 
 export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
@@ -128,8 +129,11 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
 
           MenToMenToast.showSuccess("멘토 요청 글을 삭제하였습니다.");
         },
-        onError: () => {
-          MenToMenToast.showError("멘토 요청 글을 삭제하지 못했습니다.");
+        onError: (e) => {
+          const errorCode = e as AxiosError;
+          MenToMenToast.showError(
+            PostErrorHandler.deletePostHandler(errorCode.response?.status!)
+          );
         },
       });
     }
@@ -167,7 +171,10 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
               localStorage.removeItem("recoil-persist");
             },
             onError: (e) => {
-              MenToMenToast.showError("멘토 요청 글을 수정하지 못했습니다.");
+              const errorCode = e as AxiosError;
+              MenToMenToast.showError(
+                PostErrorHandler.modifyPostHandler(errorCode.response?.status!)
+              );
             },
           }
         );
@@ -182,7 +189,10 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
             router.push("/");
           },
           onError: (e) => {
-            MenToMenToast.showError("멘토 요청 글을 작성하지 못했습니다.");
+            const errorCode = e as AxiosError;
+            MenToMenToast.showError(
+              PostErrorHandler.registPostHandler(errorCode.response?.status!)
+            );
           },
         });
       }

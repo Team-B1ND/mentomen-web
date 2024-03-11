@@ -3,6 +3,8 @@ import {
   usePatchCommentMutation,
   usePostCommentMutation,
 } from "@/src/services/Comment/mutations";
+import CommentErrorHandler from "@/src/stories/utils/Error/CommentErrorHandler";
+import { AxiosError } from "axios";
 import { Dispatch, SetStateAction, useState } from "react";
 import { QUERY_KEYS } from "../../stories/core";
 import { MenToMenToast } from "../../stories/utils";
@@ -42,7 +44,12 @@ export const useComment = (exisitComment?: string) => {
           queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
         },
         onError: (e) => {
-          MenToMenToast.showError("댓글을 삭제하지 못했습니다!");
+          const errorCode = e as AxiosError;
+          MenToMenToast.showError(
+            CommentErrorHandler.deleteCommentHandler(
+              errorCode.response?.status!
+            )
+          );
         },
       });
     }
@@ -78,7 +85,12 @@ export const useComment = (exisitComment?: string) => {
             closeCommentInput!();
           },
           onError: (e) => {
-            MenToMenToast.showError("댓글을 수정하지 못하였습니다.");
+            const errorCode = e as AxiosError;
+            MenToMenToast.showError(
+              CommentErrorHandler.modifyCommentHandler(
+                errorCode.response?.status!
+              )
+            );
           },
         }
       );
@@ -95,7 +107,12 @@ export const useComment = (exisitComment?: string) => {
             handleRenderCommentInput();
           },
           onError: (e) => {
-            MenToMenToast.showError("댓글을 등록하지 못하였습니다.");
+            const errorCode = e as AxiosError;
+            MenToMenToast.showError(
+              CommentErrorHandler.registCommentHandler(
+                errorCode.response?.status!
+              )
+            );
           },
         }
       );
