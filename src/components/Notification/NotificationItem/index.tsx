@@ -4,16 +4,16 @@ import { useRouter } from "next/router";
 import { NoneDataText } from "@/src/stories/styles";
 import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
 import { GetDateTime, GetText } from "@/src/stories/utils";
-import { Pagination, SkeletonBox } from "@/src/stories/ui";
-import { useState } from "react";
+import { Pagination } from "@/src/stories/ui";
 import styled from "styled-components";
 import { Flex } from "@/src/stories/layout";
+import { useState } from "react";
 
 const NotificationItem = () => {
   const { data: noticeList } = useGetNoticeListQuery({ suspense: true });
   const router = useRouter();
 
-  const [limit, _] = useState(8);
+  const limit = 8;
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
