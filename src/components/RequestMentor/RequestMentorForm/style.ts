@@ -35,7 +35,7 @@ export const ContentInput = styled.span<{ placeholder: string }>`
   border: none;
 
   font-size: 16px;
-  line-height: 18px;
+  line-height: 20px;
   white-space: pre-wrap;
   word-break: break-word;
 
@@ -64,6 +64,8 @@ export const AttachImageWrap = styled.div<{
   width: 100%;
   height: 130px;
 
+  cursor: ${({ isRequestImage }) => !isRequestImage && "pointer"};
+
   border-radius: 7px;
   transition: all 0.2s ease-in-out;
   border: 1.7px dashed #ddd;
@@ -73,7 +75,6 @@ export const AttachImageWrap = styled.div<{
     !isRequestImage &&
     css`
       transform: scale(0.97);
-      background-color: #f9f9f9;
       border: 1.5px dashed #2745f2;
     `};
 
@@ -92,23 +93,10 @@ export const AttachImageWrap = styled.div<{
     padding: 6px 7px;
     border-radius: 5px;
     background-color: transparent;
+    cursor: ${({ isRequestImage }) => !isRequestImage && "pointer"};
 
-    cursor: pointer;
     outline: none;
     border: 1px solid #000;
-
-    transition: all 0.2s ease-in-out;
-
-    ${({ isRequestImage }) =>
-      !isRequestImage &&
-      css`
-        &:hover {
-          background-color: #eee;
-        }
-        &:active {
-          background-color: #ddd;
-        }
-      `};
 
     p {
       font-size: 14px;

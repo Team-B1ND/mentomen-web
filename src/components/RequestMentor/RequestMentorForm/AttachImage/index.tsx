@@ -30,6 +30,9 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
         <S.AttachImageWrap
           isDrop={isDrop}
           isRequestImage={hooks.isRequestImage}
+          onClick={() =>
+            !hooks.isRequestImage && hooks.selectFileImage.current?.click()
+          }
           onDrop={(e) => {
             hooks.handleFileUploadDrop(e);
             setIsDrop(false);
@@ -50,11 +53,7 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
             multiple
             accept=".jpeg, .jpg, .png"
           />
-          <button
-            onClick={() =>
-              !hooks.isRequestImage && hooks.selectFileImage.current?.click()
-            }
-          >
+          <button>
             <S.UploadIcon src={upload} alt="업로드" />
             <p>이미지 선택</p>
           </button>

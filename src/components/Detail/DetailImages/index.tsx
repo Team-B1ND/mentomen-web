@@ -27,8 +27,8 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
                 title="클릭하여 자세히보기"
                 key={idx}
                 src={item}
-                width={491}
-                height={491}
+                width={400}
+                height={400}
                 customstyle={{ cursor: "pointer" }}
                 onClick={() => {
                   setIsActiveDetailImage(true);
@@ -56,8 +56,8 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 export default DetailImages;
 
 const ImageContainer = styled.div`
-  width: 65%;
-  height: 492px;
+  width: 400px;
+  height: 400px;
 
   background-color: #000;
   border-radius: 5px;
