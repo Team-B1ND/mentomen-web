@@ -4,7 +4,7 @@ import styled, { CSSObject } from "styled-components";
 import { Flex } from "../../layout";
 
 export const ListContainer = styled.main`
-  width: 550px;
+  width: 500px;
   height: 100%;
   flex-wrap: wrap;
 

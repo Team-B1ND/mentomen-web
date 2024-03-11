@@ -18,8 +18,8 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
             <ImageView
               key={idx}
               src={item}
-              width={520}
-              height={520}
+              width={470}
+              height={470}
               alt="이미지"
             />
           ))}
@@ -31,7 +31,7 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
 
 const ImageContainer = styled.div<{ sizeOfImages: number }>`
   width: 100%;
-  height: 520px;
+  height: 470px;
 
   border-radius: 5px;
   border: 1px solid #ddd;
