@@ -1,4 +1,3 @@
-import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import {
@@ -6,8 +5,9 @@ import {
   REFRESH_TOKEN_KEY,
 } from "@/src/constants/Auth/auth.constant";
 import token from "@/src/libs/token/token";
+import { MenToMenToast } from "../../stories/utils";
 
-const useTokenCheck = () => {
+export const useTokenCheck = () => {
   const router = useRouter();
   const accessKey = ACCESS_TOKEN_KEY;
   const refreshKey = REFRESH_TOKEN_KEY;
@@ -23,5 +23,3 @@ const useTokenCheck = () => {
     checkToken();
   }, [router]);
 };
-
-export default useTokenCheck;

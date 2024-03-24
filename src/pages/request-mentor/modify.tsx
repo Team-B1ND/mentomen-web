@@ -1,5 +1,5 @@
 import RequestMentor from "@/src/components/RequestMentor";
-import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
+import { useSeoConfig } from "@/src/hooks/SEO";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";

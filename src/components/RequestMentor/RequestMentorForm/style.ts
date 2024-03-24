@@ -1,4 +1,5 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
+import { skeletonAnimation } from "@/src/stories/ui";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -7,14 +8,14 @@ export const TagUl = styled.div`
   list-style: none;
   padding: 5px 0 35px 0;
 
-  ${flex({ columnGap: "13px" })}
+  ${Flex({ columnGap: "13px" })}
   li {
     cursor: pointer;
   }
 `;
 
 export const TagIcon = styled(Image)`
-  width: 68px;
+  width: 74px;
   height: 30px;
 `;
 
@@ -34,7 +35,7 @@ export const ContentInput = styled.span<{ placeholder: string }>`
   border: none;
 
   font-size: 16px;
-  line-height: 18px;
+  line-height: 20px;
   white-space: pre-wrap;
   word-break: break-word;
 
@@ -53,26 +54,31 @@ export const ContentInput = styled.span<{ placeholder: string }>`
 
 export const AttachImageBox = styled.div`
   width: 100%;
-  ${flex({ flexDirection: "column", rowGap: "15px" })}
+  ${Flex({ flexDirection: "column", rowGap: "15px" })}
 `;
 
-export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
+export const AttachImageWrap = styled.div<{
+  isDrop: boolean;
+  isRequestImage: boolean;
+}>`
   width: 100%;
   height: 130px;
+
+  cursor: ${({ isRequestImage }) => !isRequestImage && "pointer"};
 
   border-radius: 7px;
   transition: all 0.2s ease-in-out;
   border: 1.7px dashed #ddd;
 
-  ${({ isDrop }) =>
+  ${({ isDrop, isRequestImage }) =>
     isDrop &&
+    !isRequestImage &&
     css`
       transform: scale(0.97);
-      background-color: #f9f9f9;
       border: 1.5px dashed #2745f2;
     `};
 
-  ${flex({
+  ${Flex({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -87,31 +93,27 @@ export const AttachImageWrap = styled.div<{ isDrop: boolean }>`
     padding: 6px 7px;
     border-radius: 5px;
     background-color: transparent;
+    cursor: ${({ isRequestImage }) => !isRequestImage && "pointer"};
 
-    cursor: pointer;
     outline: none;
     border: 1px solid #000;
-
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      background-color: #eee;
-    }
-    &:active {
-      background-color: #ddd;
-    }
 
     p {
       font-size: 14px;
       font-family: "Pretendard-Medium" !important;
     }
 
-    ${flex({ alignItems: "center", columnGap: "5px" })}
+    ${Flex({ alignItems: "center", columnGap: "5px" })}
   }
 `;
 
 export const AttachImageText = styled.p`
   font-size: 14px;
   color: #64748b;
+
+  span {
+    color: #2749dc;
+  }
 `;
 
 export const UploadIcon = styled(Image)`
@@ -137,6 +139,7 @@ export const PreviewImageWrap = styled.div`
   overflow: hidden;
 
   position: relative;
+  ${skeletonAnimation}
 `;
 
 export const CancelPreviewImage = styled.div`
@@ -155,7 +158,7 @@ export const CancelPreviewImage = styled.div`
   &:hover {
     background-color: rgba(255, 55, 66, 0.89);
   }
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 export const CancelIcon = styled(Image)`
@@ -166,8 +169,8 @@ export const CancelIcon = styled(Image)`
 `;
 
 export const PreviewImage = styled(Image)`
-  width: 100%;
-  height: 100%;
+  width: 205px;
+  height: 140px;
   object-fit: cover;
   cursor: pointer;
 

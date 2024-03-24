@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 
@@ -23,7 +23,7 @@ const slideInAnimation = keyframes`
   }
 `;
 
-export const Wrapper = styled.div`
+export const SearchInputWrap = styled.article`
   width: 100%;
   height: 85px;
 
@@ -31,19 +31,19 @@ export const Wrapper = styled.div`
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
   animation: ${slideInAnimation} 0.3s ease-in-out;
 
-  ${flex({ justifyContent: "center" })}
+  ${Flex({ justifyContent: "center" })}
 `;
 
 export const Form = styled.form`
   width: 950px;
   height: 100%;
-  ${flex({ alignItems: "center", columnGap: "10px" })}
+  ${Flex({ alignItems: "center", columnGap: "10px" })}
 
   button {
     outline: none;
     border: none;
     background-color: transparent;
-    ${flex({ alignItems: "center", justifyContent: "center" })}
+    ${Flex({ alignItems: "center", justifyContent: "center" })}
   }
 
   input {

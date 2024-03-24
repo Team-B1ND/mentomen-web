@@ -1,11 +1,11 @@
 import request from "@/public/icons/title/request.png";
-import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
 import * as S from "./style";
-import Title from "../Common/ui/Title";
 import RequestMentorNavigation from "./RequestMentorNavigation";
 import RequestMentorForm from "./RequestMentorForm";
-import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
-import { useRegistPost } from "@/src/hooks/RequestMentor/useRegistPost";
+import { Title } from "@/src/stories/ui";
+import { useTokenCheck } from "@/src/hooks/Auth";
+import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
+import { useRegistPost } from "@/src/hooks/RequestMentor";
 
 const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
   useTokenCheck();

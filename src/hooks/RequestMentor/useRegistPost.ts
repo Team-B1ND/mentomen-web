@@ -1,7 +1,5 @@
-import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
 import { useRecoilState } from "recoil";
 import { ExistingPostDataAtom } from "@/src/store/Post/post.store";
 import {
@@ -10,7 +8,12 @@ import {
   usePostMySubmitMutation,
 } from "@/src/services/Post/mutations";
 import { useFileUploadMutation } from "@/src/services/File/mutations";
-import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
+import { QUERY_KEYS } from "../../stories/core";
+import { useQueryInvalidates } from "../Invalidates";
+import { MenToMenToast } from "../../stories/utils";
+import { AxiosError } from "axios";
+import PostErrorHandler from "@/src/stories/utils/Error/PostErrorHandler";
+import FileErrorHandler from "@/src/stories/utils/Error/FileErrorHandler";
 
 export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const [existingData, setExistData] = useRecoilState(ExistingPostDataAtom);
@@ -21,6 +24,8 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
     type === "MODIFY" ? existingData?.content : ""
   );
   const [tag, setTag] = useState(type === "MODIFY" ? existingData?.tag! : "");
+
+  const [isRequestImage, setIsRequestImage] = useState(false);
   const selectFileImage = useRef<HTMLInputElement>(null);
 
   const isRequiredPostData = content?.trim() !== "" && tag !== "";
@@ -59,17 +64,29 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   };
 
   const handleFileUpload = (selectedFiles: FileList) => {
-    const filesArray = Array.from(selectedFiles) as File[];
+    const filesArray = Array.from(selectedFiles);
 
-    filesArray.map((item) => {
-      formData.append("file", item);
-    });
+    if (filesArray.length > 0) {
+      filesArray.map((item) => {
+        formData.append("file", item);
+      });
 
-    ImageFileUpload.mutate(formData, {
-      onSuccess: (res) => {
-        res.data.map((item) => setImgUrl((prev) => [...prev, item.imgUrl]));
-      },
-    });
+      setIsRequestImage(true);
+      ImageFileUpload.mutate(formData, {
+        onSuccess: (res) => {
+          res.data.map((item) => setImgUrl((prev) => [...prev, item.imgUrl]));
+        },
+        onError: (err) => {
+          const errorCode = err as AxiosError;
+          MenToMenToast.showError(
+            FileErrorHandler.uploadError(errorCode.response?.status!)
+          );
+        },
+        onSettled: () => {
+          setIsRequestImage(false);
+        },
+      });
+    }
   };
 
   const handleFileUploadClick = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,9 +96,11 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   };
 
   const handleFileUploadDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const selectedFiles = e.dataTransfer.files;
-    handleFileUpload(selectedFiles);
+    if (!isRequestImage) {
+      e.preventDefault();
+      const selectedFiles = e.dataTransfer.files;
+      handleFileUpload(selectedFiles);
+    }
   };
 
   const handleRequestMentorInputChange = (
@@ -91,7 +110,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   };
 
   const handleDeletePostClick = (postId: number) => {
-    const answer = window.confirm("해당 게시글을 삭제하시겠습니까?");
+    const answer = window.confirm("해당 멘토 요청 글을 삭제하시겠습니까?");
     if (answer) {
       deletePost.mutate(postId, {
         onSuccess: () => {
@@ -102,14 +121,17 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
             ["post/GetTagQuery"],
           ]);
 
-          if (router.pathname === "/detail/[id]") {
+          if (router.pathname.includes("/detail")) {
             router.push("/");
           }
 
-          MenToMenToast.showSuccess("게시글을 삭제하였습니다.");
+          MenToMenToast.showSuccess("멘토 요청 글을 삭제하였습니다.");
         },
-        onError: () => {
-          MenToMenToast.showError("게시글을 삭제하지 못했습니다.");
+        onError: (e) => {
+          const errorCode = e as AxiosError;
+          MenToMenToast.showError(
+            PostErrorHandler.deletePost(errorCode.response?.status!)
+          );
         },
       });
     }
@@ -118,7 +140,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
   const handlePostSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    if (content?.trim() !== "" && tag !== "") {
+    if (content?.trim() !== "" && tag !== "" && !isRequestImage) {
       const submitData = {
         content: content?.trim()!,
         tag: tag!,
@@ -142,12 +164,15 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
                 QUERY_KEYS.User.getMyPost,
                 QUERY_KEYS.Post.getPostById(existingData?.postId!),
               ]);
-              MenToMenToast.showSuccess("게시글을 수정하였습니다.");
-              router.push("/");
+              MenToMenToast.showSuccess("멘토 요청 글을 수정하였습니다.");
+              router.push(`/detail/${existingData?.postId}`);
               localStorage.removeItem("recoil-persist");
             },
             onError: (e) => {
-              MenToMenToast.showError("게시글을 수정하지 못했습니다.");
+              const errorCode = e as AxiosError;
+              MenToMenToast.showError(
+                PostErrorHandler.modifyPost(errorCode.response?.status!)
+              );
             },
           }
         );
@@ -158,11 +183,14 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
               QUERY_KEYS.Post.getAllPost,
               QUERY_KEYS.User.getMyPost,
             ]);
-            MenToMenToast.showSuccess("게시글을 작성하였습니다.");
+            MenToMenToast.showSuccess("멘토 요청 글을 작성하였습니다.");
             router.push("/");
           },
           onError: (e) => {
-            MenToMenToast.showError("게시글을 작성하지 못했습니다.");
+            const errorCode = e as AxiosError;
+            MenToMenToast.showError(
+              PostErrorHandler.registPost(errorCode.response?.status!)
+            );
           },
         });
       }
@@ -184,6 +212,7 @@ export const useRegistPost = (type?: "WRITE" | "MODIFY") => {
 
     isRequiredPostData,
     isCoincidePostData,
+    isRequestImage,
 
     selectFileImage,
     handlePageOutEvent,

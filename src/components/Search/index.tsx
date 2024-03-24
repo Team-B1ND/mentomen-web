@@ -1,14 +1,18 @@
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import * as S from "@/src/styles/common.style";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import ListItem from "../Common/ListItem";
-import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
-import Title from "../Common/ui/Title";
+import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import readingGlasses from "@/public/icons/title/readingGlasses.png";
-import { GetText } from "@/src/utils/Text/getText";
 import { useGetPostByKeyWordQuery } from "@/src/services/Post/queries";
 import styled from "styled-components";
+import { ErrorBoundary } from "@/src/stories/layout";
+import { ListItem, Title } from "@/src/stories/ui";
+import { GetText } from "@/src/stories/utils";
+import {
+  ListContainer,
+  ListWrapper,
+  NoneDataText,
+  TitleContainer,
+} from "@/src/stories/styles";
 
 const Search = () => {
   const router = useRouter();
@@ -19,8 +23,8 @@ const Search = () => {
       : keyword;
 
   return (
-    <S.ListContainer>
-      <S.TitleContainer>
+    <ListContainer>
+      <TitleContainer>
         <Title
           titleIcon={readingGlasses}
           titleText={
@@ -28,22 +32,22 @@ const Search = () => {
               <SearchText>{keywordEllipsis}</SearchText>에 관한 멘토 요청 글
             </>
           }
-          subTitleText={`검색한 ${keywordEllipsis}에 관한 멘토 요청 글을 조회할 수 있어요!`}
+          subTitleText={`검색한 ${
+            keywordEllipsis || ""
+          }에 관한 멘토 요청 글을 조회할 수 있어요!`}
         />
-      </S.TitleContainer>
+      </TitleContainer>
 
-      <S.ListWrapper>
+      <ListWrapper>
         <ErrorBoundary
-          fallback={
-            <S.NoneDataText>리스트를 불러오지 못했습니다.</S.NoneDataText>
-          }
+          fallback={<NoneDataText>리스트를 불러오지 못했습니다.</NoneDataText>}
         >
           <Suspense fallback={<ListItemSkeleton />}>
             <SearchItem keyword={keyword as string} />
           </Suspense>
         </ErrorBoundary>
-      </S.ListWrapper>
-    </S.ListContainer>
+      </ListWrapper>
+    </ListContainer>
   );
 };
 
@@ -59,7 +63,7 @@ const SearchItem = ({ keyword }: { keyword: string }) => {
           <ListItem key={item.postId} data={item} />
         ))
       ) : (
-        <S.NoneDataText>검색한 멘토 요청 글이 없습니다.</S.NoneDataText>
+        <NoneDataText>검색한 멘토 요청 글이 없습니다.</NoneDataText>
       )}
     </>
   );

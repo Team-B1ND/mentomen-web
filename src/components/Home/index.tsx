@@ -1,11 +1,10 @@
 import { Suspense } from "react";
-import * as S from "@/src/styles/common.style";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import ListItem from "../Common/ListItem";
-import ListItemSkeleton from "../Common/ui/Skeleton/ListItem";
-import Title from "@/src/components/Common/ui/Title";
+import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import post from "@/public/icons/title/post.png";
 import { useGetAllPostQuery } from "@/src/services/Post/queries";
+import * as S from "@/src/stories/styles";
+import { ErrorBoundary } from "@/src/stories/layout";
+import { ListItem, Title } from "@/src/stories/ui";
 
 const Home = () => {
   return (

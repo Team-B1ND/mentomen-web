@@ -1,20 +1,21 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.ul<{ commentLenght: number }>`
+export const Container = styled.div<{ commentLenght: number }>`
   width: 100%;
   background-color: #fff;
   border-radius: 5px;
   border: ${({ commentLenght }) => commentLenght > 0 && "1px solid #ddd"};
-  ${flex({ flexDirection: "column" })}
+  ${Flex({ flexDirection: "column" })}
 `;
 
-export const CommentsList = styled.li<{ isLast: boolean }>`
+export const CommentsList = styled.article<{ isLast: boolean }>`
   width: 100%;
+  min-height: 106px;
   border-bottom: ${({ isLast }) => !isLast && "1px solid #ddd"};
   padding: 20px 16px 10px 20px;
-  ${flex({ columnGap: "20px" })};
+  ${Flex({ columnGap: "20px" })};
 `;
 
 export const ProfileImage = styled(Image)`
@@ -32,19 +33,19 @@ export const CommentContent = styled.div`
   width: calc(100% - 40px);
   height: 100%;
   padding-top: 3px;
-  ${flex({ columnGap: "5px" })}
+  ${Flex({ columnGap: "5px" })}
 `;
 
 export const CommenterInfoWrap = styled.div`
   width: calc(100% - 30px);
-  ${flex({ flexDirection: "column", rowGap: "5px" })};
+  ${Flex({ flexDirection: "column", rowGap: "5px" })};
 `;
 
 export const CommenterInfo = styled.div`
   padding-top: 1px;
-  ${flex({ rowGap: "5px", flexDirection: "column" })}
+  ${Flex({ rowGap: "5px", flexDirection: "column" })}
   div {
-    ${flex({ columnGap: "6px", alignItems: "flex-end" })}
+    ${Flex({ columnGap: "6px", alignItems: "flex-end" })}
   }
 `;
 

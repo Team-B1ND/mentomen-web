@@ -1,16 +1,16 @@
-import { CommentType } from "@/src/types/Comment/comment.type";
 import profile from "@/public/icons/user/aprofile.png";
 import * as S from "./style";
-import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue } from "recoil";
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { useState } from "react";
-import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
 import DetailCommentsInput from "../DetailCommentsInput";
-import { useComment } from "@/src/hooks/Comment/useComment";
-import Setting from "@/src/components/Modal/Setting";
-import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
-import ShowMoreContent from "@/src/components/Common/ui/ShowMoreContent";
+import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
+import { ShowMoreContent } from "@/src/stories/ui";
+import { Setting } from "@/src/stories/ui";
+import { GetDateTime } from "@/src/stories/utils";
+import { CommentType } from "@/src/stories/core";
+import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
+import { useComment } from "@/src/hooks/Comment";
 
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();

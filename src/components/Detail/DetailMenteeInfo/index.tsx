@@ -1,16 +1,15 @@
-import { PostItemType } from "@/src/types/Post/post.type";
 import * as S from "./style";
-import { GetDateTime } from "@/src/utils/Date/getDateTime";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { useState } from "react";
-import Setting from "../../Modal/Setting";
-import { useRegistPost } from "@/src/hooks/RequestMentor/useRegistPost";
 import { ExistingPostDataAtom } from "@/src/store/Post/post.store";
 import { useRouter } from "next/router";
-import { useOutSideClickCloseModal } from "@/src/hooks/Modal/useOutSideClickCloseModal";
-import { DotsIcon, DotsIconContainer } from "@/src/styles/common.style";
-import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
+import { PostItemType } from "@/src/stories/core";
+import { Setting } from "@/src/stories/ui";
+import { GetDateTime, GoogleAnalyzer } from "@/src/stories/utils";
+import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
+import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
+import { useRegistPost } from "@/src/hooks/RequestMentor";
 
 const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
@@ -21,7 +20,7 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
 
   const { handleDeletePostClick } = useRegistPost();
   const router = useRouter();
-  const pageView = GoogleAnalyzer.pageView;
+  const pageView = new GoogleAnalyzer().pageView;
 
   const { grade, room, number } = attr.stdInfo;
   const userData = useRecoilValue(UserDataAtom);

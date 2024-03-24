@@ -32,7 +32,7 @@ export const useSeoConfig = ({ title, description }: Type) => {
       site_name: "멘투멘",
       images: [
         {
-          url: "/images/meta-iPhone-image.png",
+          url: "/images/meta/meta-iPhone-image.png",
         },
       ],
     },

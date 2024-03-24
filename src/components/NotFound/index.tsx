@@ -1,6 +1,6 @@
-import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
+import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 
-export default function NotFound() {
+const NotFound = () => {
   useHideHeaderOrNav("Both");
   return (
     <div>
@@ -8,4 +8,6 @@ export default function NotFound() {
       <p>알맞지 않는 페이지입니다.</p>
     </div>
   );
-}
+};
+
+export default NotFound;

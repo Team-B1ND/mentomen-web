@@ -1,9 +1,6 @@
-import {
-  patchCommentType,
-  postCommentType,
-} from "@/src/types/Comment/comment.type";
+import { patchCommentType, postCommentType } from "@/src/stories/core";
 import { useMutation } from "react-query";
-import CommentApi from "./api";
+import CommentApi from "./CommentApi";
 
 export const usePostCommentMutation = () => {
   const mutation = useMutation(({ content, postId }: postCommentType) =>
@@ -16,7 +13,6 @@ export const usePatchCommentMutation = () => {
   const mutation = useMutation(({ commentId, content }: patchCommentType) =>
     CommentApi.patchCommentApi({ commentId, content })
   );
-
   return mutation;
 };
 

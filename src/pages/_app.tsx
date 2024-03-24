@@ -1,17 +1,28 @@
-import Provider from "@/src/components/Common/Provider";
-import { MenToMenToastContainer } from "@/src/utils/Toast/menToMenToastContainer";
+import Provider from "@/src/components/Provider";
 import type { AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { RecoilRoot } from "recoil";
-import "@/src/styles/font.css";
-import useGATracker from "../hooks/Analyze/useGATracker";
 import { DefaultSeo } from "next-seo";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
-import Head from "next/head";
+import { MenToMenToastContainer } from "../stories/utils";
+import { useSeoConfig } from "../hooks/SEO";
+import { useGATracker } from "../hooks/Analyze";
+import "@/src/stories/core/design-token/font.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnReconnect: false,
+            refetchOnWindowFocus: false,
+            // refetchOnMount: false,
+          },
+        },
+      })
+  );
+
   const [isClient, setIsClient] = useState(false);
   const { SeoDefaultConfigProps } = useSeoConfig({
     title: "멘투멘 - 멘토와 멘티를 잇다",

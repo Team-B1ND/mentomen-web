@@ -2,13 +2,19 @@ import upload from "@/public/icons/RequestMentor/upload.svg";
 import cancel from "@/public/icons/RequestMentor/cancel.svg";
 import { Dispatch, RefObject, SetStateAction, useState } from "react";
 import * as S from "../style";
-import ViewImage from "@/src/components/Modal/ReadMoreImage";
-import Portal from "@/src/components/Modal/Portal";
+import { Portal } from "@/src/stories/layout";
+import dynamic from "next/dynamic";
+const ReadMoreImage = dynamic(
+  () => import("@/src/components/Common/Image/ReadMoreImage"),
+  { ssr: false }
+);
 
 interface Props {
   imgUrl: string[];
   setImgUrl: Dispatch<SetStateAction<string[]>>;
   selectFileImage: RefObject<HTMLInputElement>;
+  isRequestImage: boolean;
+
   handleFileUploadClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleFileUploadDrop: (e: React.DragEvent<HTMLDivElement>) => void;
 }
@@ -23,6 +29,10 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
       <S.AttachImageBox>
         <S.AttachImageWrap
           isDrop={isDrop}
+          isRequestImage={hooks.isRequestImage}
+          onClick={() =>
+            !hooks.isRequestImage && hooks.selectFileImage.current?.click()
+          }
           onDrop={(e) => {
             hooks.handleFileUploadDrop(e);
             setIsDrop(false);
@@ -43,12 +53,19 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
             multiple
             accept=".jpeg, .jpg, .png"
           />
-          <button onClick={() => hooks.selectFileImage.current?.click()}>
+          <button>
             <S.UploadIcon src={upload} alt="업로드" />
             <p>이미지 선택</p>
           </button>
           <S.AttachImageText>
-            또는 해당 박스 안에 이미지를 드래그 하세요!
+            {hooks.isRequestImage ? (
+              "로딩 중..."
+            ) : (
+              <>
+                또는 해당 박스 안에 <span>10MB 이하</span>의 이미지들(.jpeg,
+                .jpg, .png)을 드래그 하세요!
+              </>
+            )}
           </S.AttachImageText>
         </S.AttachImageWrap>
 
@@ -84,7 +101,7 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
 
       {isActiveDetailImage && (
         <Portal>
-          <ViewImage
+          <ReadMoreImage
             imgUrl={selectImage}
             setIsActiveDetailImage={setIsActiveDetailImage}
           />

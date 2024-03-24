@@ -1,11 +1,12 @@
 import Detail from "@/src/components/Detail";
-import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
-import { useSeoConfig } from "@/src/hooks/SEO/useSeoConfig";
-import PostApi from "@/src/services/Post/api";
-import { GetStaticPaths, GetStaticProps, NextPageContext } from "next";
+import { QUERY_KEYS } from "@/src/stories/core";
+import { useSeoConfig } from "@/src/hooks/SEO";
+import PostApi from "@/src/services/Post/PostApi";
+import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
+import CommentApi from "@/src/services/Comment/CommentApi";
 
 const DetailPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
@@ -21,21 +22,16 @@ const DetailPage = () => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const queryClient = new QueryClient();
-
-  const id = context.params?.id as string;
+  const id = Number(context.params?.id);
 
   await Promise.all([
-    queryClient.prefetchQuery(QUERY_KEYS.Post.getPostById(Number(id)), () =>
-      PostApi.getPostByIdApi(Number(id))
+    queryClient.prefetchQuery(QUERY_KEYS.Post.getPostById(id), () =>
+      PostApi.getPostByIdApi(id)
+    ),
+    queryClient.prefetchQuery(QUERY_KEYS.Comment.getComment(id), () =>
+      CommentApi.getCommentApi(id)
     ),
   ]);
 
@@ -44,7 +40,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       id,
       dehydratedState: dehydrate(queryClient),
     },
-    revalidate: 2,
   };
 };
 

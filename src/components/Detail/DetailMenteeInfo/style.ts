@@ -1,21 +1,21 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
   height: 45px;
-  ${flex({ justifyContent: "space-between" })}
+  ${Flex({ justifyContent: "space-between" })}
 `;
 
 export const ProfileBox = styled.div`
-  ${flex({ alignItems: "center", columnGap: "18px" })}
+  ${Flex({ alignItems: "center", columnGap: "18px" })}
 `;
 
 export const MenteeInfo = styled.div`
-  ${flex({ flexDirection: "column", rowGap: "5px" })}
+  ${Flex({ flexDirection: "column", rowGap: "5px" })}
   div {
     font-size: 15px;
-    ${flex({ alignItems: "flex-end", columnGap: "6px" })}
+    ${Flex({ alignItems: "flex-end", columnGap: "6px" })}
   }
 `;
 

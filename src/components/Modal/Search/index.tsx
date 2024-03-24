@@ -1,9 +1,9 @@
-import useEscCloseModal from "@/src/hooks/Modal/useEscCloseModal";
-import useLockScroll from "@/src/hooks/common/useLockScroll";
 import { useKeyWordSearch } from "./hooks";
 import { Dispatch, SetStateAction } from "react";
-import searchIcon from "@/public/images/Search.svg";
+import searchIcon from "@/public/icons/Search/ModalSearch.svg";
 import * as S from "./style";
+import { useEscCloseModal } from "@/src/hooks/Modal";
+import { useLockScroll } from "@/src/hooks/Scroll";
 
 interface Props {
   setIsActiveSearch: Dispatch<SetStateAction<boolean>>;
@@ -17,7 +17,7 @@ const Search = ({ setIsActiveSearch }: Props) => {
 
   return (
     <S.Container onClick={() => setIsActiveSearch(false)}>
-      <S.Wrapper onClick={(e) => e.stopPropagation()}>
+      <S.SearchInputWrap onClick={(e) => e.stopPropagation()}>
         <S.Form onSubmit={(e) => handleSearchSubmit(e, setIsActiveSearch)}>
           <button>
             <S.SearchIcon src={searchIcon} alt="검색" />
@@ -28,7 +28,7 @@ const Search = ({ setIsActiveSearch }: Props) => {
             onChange={handleSerachChange}
           />
         </S.Form>
-      </S.Wrapper>
+      </S.SearchInputWrap>
     </S.Container>
   );
 };

@@ -2,12 +2,13 @@ import RequestMentorFormTag from "./Tag";
 import RequestMentorFormInput from "./Input";
 import RequestMentorFormAttachImage from "./AttachImage";
 import { Dispatch, RefObject, SetStateAction } from "react";
-import { PostSubmitType } from "@/src/types/Post/post.type";
+import { PostSubmitType } from "@/src/stories/core";
 
 interface Props {
   tag: string;
   setTag: Dispatch<SetStateAction<string>>;
   existingData: PostSubmitType | null;
+  isRequestImage: boolean;
 
   imgUrl: string[];
   setImgUrl: Dispatch<SetStateAction<string[]>>;

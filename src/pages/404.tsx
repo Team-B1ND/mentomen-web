@@ -1,8 +1,8 @@
-import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
-import flex from "@/src/styles/flex";
 import { NextSeo } from "next-seo";
 import styled from "styled-components";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
+import { useHideHeaderOrNav } from "../hooks/HideHeaderOrNav";
+import { useSeoConfig } from "../hooks/SEO";
+import { Flex } from "../stories/layout";
 
 const NotFound = () => {
   useHideHeaderOrNav("Both");
@@ -25,5 +25,5 @@ export default NotFound;
 const Container = styled.div`
   width: 100%;
   height: 95vh;
-  ${flex({ alignItems: "center", justifyContent: "center" })}
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

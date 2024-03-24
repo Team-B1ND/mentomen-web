@@ -1,12 +1,14 @@
-import { QUERY_KEYS } from "@/src/constants/Auth/auth.constant";
 import {
   useDeleteCommentMutation,
   usePatchCommentMutation,
   usePostCommentMutation,
 } from "@/src/services/Comment/mutations";
-import { MenToMenToast } from "@/src/utils/Toast/menToMenToast";
+import CommentErrorHandler from "@/src/stories/utils/Error/CommentErrorHandler";
+import { AxiosError } from "axios";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useQueryInvalidates } from "../Invalidates/useQueryInvalidates";
+import { QUERY_KEYS } from "../../stories/core";
+import { MenToMenToast } from "../../stories/utils";
+import { useQueryInvalidates } from "../Invalidates";
 
 export const useComment = (exisitComment?: string) => {
   const [comment, setComment] = useState(exisitComment || "");
@@ -17,6 +19,11 @@ export const useComment = (exisitComment?: string) => {
   const deleteComment = useDeleteCommentMutation();
   const editComment = usePatchCommentMutation();
 
+  /**
+   * 댓글을 작성하다가 취소를 누르면 댓글 value를 공백으로 바꾸는데
+   * 이때 chrome에서는 input 깜빡임이 사라지지만 safari에서는 input 깜빡임이 안 사라지기 때문에
+   * 아래 메서드를 만들었음
+   */
   const handleRenderCommentInput = () => {
     setIsSubmitComment(true);
     setTimeout(() => {
@@ -37,7 +44,10 @@ export const useComment = (exisitComment?: string) => {
           queryInvalidates([QUERY_KEYS.Comment.getComment(postId)]);
         },
         onError: (e) => {
-          MenToMenToast.showError("댓글을 삭제하지 못했습니다!");
+          const errorCode = e as AxiosError;
+          MenToMenToast.showError(
+            CommentErrorHandler.deleteComment(errorCode.response?.status!)
+          );
         },
       });
     }
@@ -73,7 +83,10 @@ export const useComment = (exisitComment?: string) => {
             closeCommentInput!();
           },
           onError: (e) => {
-            MenToMenToast.showError("댓글을 수정하지 못하였습니다.");
+            const errorCode = e as AxiosError;
+            MenToMenToast.showError(
+              CommentErrorHandler.modifyComment(errorCode.response?.status!)
+            );
           },
         }
       );
@@ -90,7 +103,10 @@ export const useComment = (exisitComment?: string) => {
             handleRenderCommentInput();
           },
           onError: (e) => {
-            MenToMenToast.showError("댓글을 등록하지 못하였습니다.");
+            const errorCode = e as AxiosError;
+            MenToMenToast.showError(
+              CommentErrorHandler.registComment(errorCode.response?.status!)
+            );
           },
         }
       );

@@ -1,4 +1,4 @@
-import flex from "@/src/styles/flex";
+import { Flex } from "@/src/stories/layout";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -10,7 +10,7 @@ export const Container = styled.div`
   border-right: 1px solid #ddd;
 
   padding-bottom: 2rem;
-  ${flex({ flexDirection: "column", alignItems: "center" })}
+  ${Flex({ flexDirection: "column", alignItems: "center" })}
 `;
 
 export const Content = styled.div`
@@ -23,5 +23,5 @@ export const Content = styled.div`
   }
 
   padding-top: 40px;
-  ${flex({ flexDirection: "column" })}
+  ${Flex({ flexDirection: "column" })}
 `;

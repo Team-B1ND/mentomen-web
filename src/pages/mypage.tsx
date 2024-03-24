@@ -1,10 +1,9 @@
-import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import MyPage from "../components/MyPage";
-import { QUERY_KEYS } from "../constants/Auth/auth.constant";
-import { useSeoConfig } from "../hooks/SEO/useSeoConfig";
-import UserApi from "../services/User/api";
+import { QUERY_KEYS } from "../stories/core";
+import { useSeoConfig } from "../hooks/SEO";
+import UserApi from "../services/User/UserApi";
 
 const MyPagePage = () => {
   const { SeoNextConfigProps } = useSeoConfig({

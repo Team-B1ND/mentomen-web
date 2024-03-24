@@ -1,20 +1,22 @@
-import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import ShowMoreContent from "../Common/ui/ShowMoreContent";
-import Title from "../Common/ui/Title";
 import DetailComments from "./DetailComments";
 import DetailImages from "./DetailImages";
 import DetailMenteeInfo from "./DetailMenteeInfo";
 import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
-import DetailSkeleton from "../Common/ui/Skeleton/Detail";
-import DetailCommentSkeleton from "../Common/ui/Skeleton/Detail/DetailComment";
-import LikeInteraction from "../Common/ui/PostInteraction/LikeInteraction";
-import ShareInteraction from "../Common/ui/PostInteraction/ShareInteraction";
+import DetailSkeleton from "../Common/Skeleton/Detail";
+import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 import { useGetPostByIdQuery } from "@/src/services/Post/queries";
 import profile from "@/public/icons/user/aprofile.png";
+import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
+import { ErrorBoundary } from "@/src/stories/layout";
+import {
+  LikeInteraction,
+  ShareInteraction,
+  ShowMoreContent,
+  Title,
+} from "@/src/stories/ui";
 
 const Detail = () => {
   const router = useRouter();

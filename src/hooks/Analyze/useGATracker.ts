@@ -1,10 +1,10 @@
-import GoogleAnalyzer from "@/src/utils/Analyze/GoogleAnalyzer";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { GoogleAnalyzer } from "../../stories/utils";
 
-const useGATracker = () => {
+export const useGATracker = () => {
   const router = useRouter();
-  const pageView = GoogleAnalyzer.pageView;
+  const pageView = new GoogleAnalyzer().pageView;
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
@@ -17,5 +17,3 @@ const useGATracker = () => {
     };
   }, [router.events]);
 };
-
-export default useGATracker;

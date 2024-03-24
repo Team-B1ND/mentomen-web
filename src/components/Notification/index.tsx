@@ -1,20 +1,22 @@
-import useTokenCheck from "@/src/hooks/Auth/useTokenCheck";
-import useHideHeaderOrNav from "@/src/hooks/common/useHideHeaderOrNav";
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { Suspense } from "react";
 import { useRecoilValue } from "recoil";
-import ErrorBoundary from "../Common/ErrorBoundary";
-import NotificationSkeleton from "../Common/ui/Skeleton/Notification";
-import Title from "../Common/ui/Title";
+import NotificationSkeleton from "../Common/Skeleton/Notification";
 import NotificationItem from "./NotificationItem";
 import bell from "@/public/icons/title/bell.png";
 import * as S from "./style";
-import { NoneDataText } from "@/src/styles/common.style";
+import { NoneDataText } from "@/src/stories/styles";
+import { useTokenCheck } from "@/src/hooks/Auth";
+import { ErrorBoundary } from "@/src/stories/layout";
+import { Title } from "@/src/stories/ui";
+import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 
 const Notification = () => {
   useTokenCheck();
   useHideHeaderOrNav("Nav");
+
   const userData = useRecoilValue(UserDataAtom);
+
   return (
     <S.Container>
       <Title
