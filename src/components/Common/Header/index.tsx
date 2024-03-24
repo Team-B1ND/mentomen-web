@@ -82,6 +82,8 @@ function Header() {
                 <CustomLink href={"/mypage"}>
                   <S.ProfileIcon
                     src={myInfo?.data.profileImage || profile}
+                    width={35}
+                    height={35}
                     isactivemypage={router.pathname}
                     onClick={() => {
                       isActiveSearch && setIsActiveSearch(false);

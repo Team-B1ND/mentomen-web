@@ -13,7 +13,6 @@ export const usePatchCommentMutation = () => {
   const mutation = useMutation(({ commentId, content }: patchCommentType) =>
     CommentApi.patchCommentApi({ commentId, content })
   );
-
   return mutation;
 };
 

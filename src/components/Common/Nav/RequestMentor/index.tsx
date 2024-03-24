@@ -18,7 +18,12 @@ const RequestMentor = () => {
         subTitleText="멘토 요청 글을 작성하여 도움을 받아보세요!"
       />
       <S.RequestMentoBox>
-        <S.Profile src={userData?.profileImage || profile} alt="프로필" />
+        <S.Profile
+          src={userData?.profileImage || profile}
+          width={45}
+          height={45}
+          alt="프로필"
+        />
         <S.RequestButton onClick={() => router.push("/request-mentor/write")}>
           멘토에게 요청할 내용이 무엇인가요?
         </S.RequestButton>

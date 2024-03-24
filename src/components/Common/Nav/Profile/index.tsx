@@ -22,6 +22,8 @@ const Profile = () => {
       <S.UserBox>
         <S.UserWrap>
           <S.ProfileImage
+            width={50}
+            height={50}
             src={userData?.profileImage || profile}
             alt="프로필"
           />

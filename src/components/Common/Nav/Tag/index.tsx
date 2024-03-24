@@ -25,7 +25,12 @@ const Tag = () => {
           const link = `/tag/${item.title}`;
           return (
             <CustomLink href={link} key={item.color} customstyle={S.LinkStyle}>
-              <S.TagItemWrap onClick={() => pageView(link)}>
+              <S.TagItemWrap
+                onClick={() => {
+                  pageView(link);
+                  router.push(link);
+                }}
+              >
                 <Image
                   src={item.image}
                   width={1000}

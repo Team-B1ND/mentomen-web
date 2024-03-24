@@ -2,10 +2,7 @@ import cookie from "js-cookie";
 
 class Token {
   public getCookie(key: string): string | undefined {
-    if (cookie.get(key) !== undefined) {
-      return cookie.get(key);
-    }
-    return undefined;
+    return cookie.get(key);
   }
 
   public setCookie(key: string, value: string): void {

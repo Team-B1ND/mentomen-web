@@ -24,6 +24,8 @@ const RequestMentorFormTag = ({ tag, setTag }: Props) => {
                 ? item.fillTag
                 : item.unFillTag
             }
+            width={74}
+            height={30}
             alt="태그"
           />
         </li>

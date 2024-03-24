@@ -15,7 +15,7 @@ export const TagUl = styled.div`
 `;
 
 export const TagIcon = styled(Image)`
-  width: 68px;
+  width: 74px;
   height: 30px;
 `;
 

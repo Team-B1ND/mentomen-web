@@ -10,6 +10,7 @@ import { MenToMenAxios } from "./MenToMenAxios";
 export const responseHandler = async (error: AxiosError) => {
   const access_token = token.getCookie(ACCESS_TOKEN_KEY);
   const refresh_token = token.getCookie(REFRESH_TOKEN_KEY);
+
   if (error.response) {
     const {
       config: originalRequest,
@@ -37,10 +38,12 @@ export const responseHandler = async (error: AxiosError) => {
       } catch (e) {
         token.removeCookie(ACCESS_TOKEN_KEY);
         token.removeCookie(REFRESH_TOKEN_KEY);
-        window.alert("토큰이 만료되었습니다!");
+
+        window.alert("토큰이 만료되었습니다, 다시 로그인 해주세요!");
         window.location.href = "/";
       }
     }
   }
+
   return Promise.reject(error);
 };

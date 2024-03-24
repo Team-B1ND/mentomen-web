@@ -16,5 +16,6 @@ export const requestHandler = (config: AxiosRequestConfig) => {
       [REQUEST_TOKEN_KEY]: `Bearer ${token.getCookie(ACCESS_TOKEN_KEY)}`,
     };
   }
+
   return config;
 };

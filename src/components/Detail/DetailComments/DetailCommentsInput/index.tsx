@@ -36,6 +36,8 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
       {!attr.commentId && (
         <S.MyProfileImage
           src={userData?.profileImage || profile}
+          width={40}
+          height={40}
           alt="프로필"
         />
       )}
