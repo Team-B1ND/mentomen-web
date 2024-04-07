@@ -9,7 +9,6 @@ import DetailSkeleton from "../Common/Skeleton/Detail";
 import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 import { useGetPostByIdQuery } from "@/src/services/Post/queries";
 import profile from "@/public/icons/user/aprofile.png";
-import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 import { ErrorBoundary } from "@/src/stories/layout";
 import {
   LikeInteraction,
@@ -21,7 +20,7 @@ import {
 const Detail = () => {
   const router = useRouter();
   const { id } = router.query;
-  useHideHeaderOrNav("Nav");
+
   return (
     <S.Container>
       <S.Wrapper>

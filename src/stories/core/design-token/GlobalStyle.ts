@@ -8,12 +8,15 @@ export const GlobalStyle = createGlobalStyle`
       box-sizing: border-box;
       font-family: 'Pretendard-Regular' !important;
      }
+
      body {
       background-color: #f4f4f4;
      }
+     
      img {
       user-select: none;
       user-drag: none;
      }
+
     ${reset}
 `;

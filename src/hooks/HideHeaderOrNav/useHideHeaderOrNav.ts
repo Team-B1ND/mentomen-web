@@ -1,28 +1,50 @@
-import { useEffect } from "react";
-import { useSetRecoilState } from "recoil";
-import { HideHeaderAtom, HideNavAtom } from "@/src/store/common/common.store";
+const hideHeaderInPages = [
+  "/callback",
+  "/request-mentor/write",
+  "/request-mentor/modify",
+];
 
-type HideType = "Header" | "Nav" | "Both";
+const hideNavInPages = ["/detail/[id]", "/notification", ...hideHeaderInPages];
 
-export const useHideHeaderOrNav = (hideType: HideType) => {
-  const setHideHeader = useSetRecoilState(HideHeaderAtom);
-  const setHideNav = useSetRecoilState(HideNavAtom);
+const pageList = [
+  "/",
+  "/search/[keyword]",
+  "/tag/[tag]",
+  "/mypage",
+  ...hideNavInPages,
+];
 
-  useEffect(() => {
-    switch (hideType) {
-      case "Header":
-        setHideHeader(true);
-        return () => setHideHeader(false);
-      case "Nav":
-        setHideNav(true);
-        return () => setHideNav(false);
-      case "Both":
-        setHideHeader(true);
-        setHideNav(true);
-        return () => {
-          setHideHeader(false);
-          setHideNav(false);
-        };
+export const useHideHeaderOrNav = (path: string) => {
+  // 해당 페이지가 유효한 페이지인지 검사
+  const handleIsValidPage = () => {
+    if (pageList.includes(path)) {
+      return true;
     }
-  }, [setHideHeader, setHideNav]);
+
+    return false;
+  };
+
+  const handleIsHideHeader = () => {
+    if (handleIsValidPage()) {
+      if (hideHeaderInPages.includes(path)) {
+        return true; // 
+      }
+      return false;
+    }
+
+    return false;
+  };
+
+  const handleIsHideNav = () => {
+    if (handleIsValidPage()) {
+      if (hideNavInPages.includes(path)) {
+        return true;
+      }
+      return false;
+    }
+
+    return false;
+  };
+
+  return { handleIsHideHeader, handleIsHideNav };
 };

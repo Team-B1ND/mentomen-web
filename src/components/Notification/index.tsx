@@ -9,11 +9,9 @@ import { NoneDataText } from "@/src/stories/styles";
 import { useTokenCheck } from "@/src/hooks/Auth";
 import { ErrorBoundary } from "@/src/stories/layout";
 import { Title } from "@/src/stories/ui";
-import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 
 const Notification = () => {
   useTokenCheck();
-  useHideHeaderOrNav("Nav");
 
   const userData = useRecoilValue(UserDataAtom);
 

@@ -4,12 +4,10 @@ import RequestMentorNavigation from "./RequestMentorNavigation";
 import RequestMentorForm from "./RequestMentorForm";
 import { Title } from "@/src/stories/ui";
 import { useTokenCheck } from "@/src/hooks/Auth";
-import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 import { useRegistPost } from "@/src/hooks/RequestMentor";
 
 const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
   useTokenCheck();
-  useHideHeaderOrNav("Both");
   const { ...hooks } = useRegistPost(type);
 
   return (

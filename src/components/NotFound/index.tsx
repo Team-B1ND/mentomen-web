@@ -1,7 +1,4 @@
-import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
-
 const NotFound = () => {
-  useHideHeaderOrNav("Both");
   return (
     <div>
       <p>404 NotFound</p>
