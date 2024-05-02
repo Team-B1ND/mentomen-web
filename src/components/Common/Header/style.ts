@@ -74,8 +74,8 @@ export const NoticeIcon = styled(Image)<{ isactivenotice: string }>`
 `;
 
 export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 
   border-radius: 4rem;
   border: ${({ isactivemypage }) =>

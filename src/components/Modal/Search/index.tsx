@@ -26,6 +26,7 @@ const Search = ({ setIsActiveSearch }: Props) => {
             placeholder="키워드로 멘토 요청 글 검색"
             value={search}
             onChange={handleSerachChange}
+            autoFocus
           />
         </S.Form>
       </S.SearchInputWrap>
