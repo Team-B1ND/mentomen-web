@@ -30,6 +30,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/core", "npm:7.23.7"],\
           ["@babel/preset-env", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:7.23.8"],\
           ["@babel/runtime", "npm:7.23.8"],\
+          ["@netlify/plugin-nextjs", "npm:5.2.0"],\
           ["@next/bundle-analyzer", "npm:14.1.0"],\
           ["@react-icons/all-files", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:4.1.0"],\
           ["@storybook/addon-essentials", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:7.6.17"],\
@@ -7305,6 +7306,15 @@ const RAW_RUNTIME_STATE =
           ["gunzip-maybe", "npm:1.4.2"],\
           ["pump", "npm:3.0.0"],\
           ["tar-fs", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@netlify/plugin-nextjs", [\
+      ["npm:5.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@netlify-plugin-nextjs-npm-5.2.0-8d096ef593-10c0.zip/node_modules/@netlify/plugin-nextjs/",\
+        "packageDependencies": [\
+          ["@netlify/plugin-nextjs", "npm:5.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -21357,6 +21367,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/core", "npm:7.23.7"],\
           ["@babel/preset-env", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:7.23.8"],\
           ["@babel/runtime", "npm:7.23.8"],\
+          ["@netlify/plugin-nextjs", "npm:5.2.0"],\
           ["@next/bundle-analyzer", "npm:14.1.0"],\
           ["@react-icons/all-files", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:4.1.0"],\
           ["@storybook/addon-essentials", "virtual:28efcf2cd0b1164aac639e8322bdbdd80c6a741bcab8a2d8cf3a0a91eed45fc66da44e310fe8e52883e9b143546b0abe76889583a6cffdf4bad0f46cfd97f7a3#npm:7.6.17"],\

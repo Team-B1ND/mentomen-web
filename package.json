@@ -5,6 +5,7 @@
   "dependencies": {
     "@b1nd/b1nd-styled-components-util": "^1.0.1",
     "@babel/runtime": "^7.23.8",
+    "@netlify/plugin-nextjs": "^5.2.0",
     "@next/bundle-analyzer": "^14.1.0",
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.5",

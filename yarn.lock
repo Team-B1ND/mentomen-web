@@ -3009,6 +3009,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@netlify/plugin-nextjs@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "@netlify/plugin-nextjs@npm:5.2.0"
+  checksum: 8ddfea34237804cf756dc24fc5b268a98d31e601812943349a1bb874ad8543ddb20274b5ef0614a67038a79a6b4423d71df6d7e85c15add3dfd3c5c6c771eb42
+  languageName: node
+  linkType: hard
+
 "@next/bundle-analyzer@npm:^14.1.0":
   version: 14.1.0
   resolution: "@next/bundle-analyzer@npm:14.1.0"
@@ -13857,6 +13864,7 @@ __metadata:
     "@babel/core": "npm:^7.23.7"
     "@babel/preset-env": "npm:^7.23.8"
     "@babel/runtime": "npm:^7.23.8"
+    "@netlify/plugin-nextjs": "npm:^5.2.0"
     "@next/bundle-analyzer": "npm:^14.1.0"
     "@react-icons/all-files": "npm:^4.1.0"
     "@storybook/addon-essentials": "npm:^7.6.17"
