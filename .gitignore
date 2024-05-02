@@ -42,3 +42,5 @@ next-env.d.ts
 # next.js
 /.next/
 /out/
+# Local Netlify folder
+.netlify

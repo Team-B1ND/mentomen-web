@@ -16,6 +16,7 @@
     "babel-runtime": "^6.26.0",
     "dayjs": "1.11.10",
     "js-cookie": "^3.0.5",
+    "netlify-cli": "^17.23.1",
     "next": "14.0.3",
     "next-seo": "^6.5.0",
     "nextjs-progressbar": "^0.0.16",
