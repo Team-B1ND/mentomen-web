@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import styled, { CSSObject } from "styled-components";
+import styled, { css, CSSObject } from "styled-components";
 import Image, { StaticImageData } from "next/image";
-import { Flex } from "../../layout";
+import { Column, Row } from "../../layout";
 
 interface Props {
   titleText: ReactNode;
@@ -17,28 +17,26 @@ export const Title = ({
   customstyle,
 }: Props) => {
   return (
-    <TitleContainer>
-      <MainTitle>
+    <Column
+      $padding={"0 0 15px 3px"}
+      $rowGap={"5px"}
+      $customStyle={css`
+        font-size: 17px;
+      `}
+    >
+      <Row $alignItems={"center"} $columnGap={"5px"}>
         {titleIcon && <Icon src={titleIcon} alt="아이콘" />}
-        <p style={customstyle}>{titleText}</p>
-      </MainTitle>
+        <Text customStyle={customstyle!}>{titleText}</Text>
+      </Row>
+
       <SubTitle>{subTitleText}</SubTitle>
-    </TitleContainer>
+    </Column>
   );
 };
 
-const TitleContainer = styled.div`
-  font-size: 17px;
-  padding-left: 3px;
-  padding-bottom: 15px;
-  ${Flex({ flexDirection: "column", rowGap: "5px" })}
-`;
-
-const MainTitle = styled.div`
-  p {
-    font-family: "Pretendard-Bold" !important;
-  }
-  ${Flex({ alignItems: "center", columnGap: "5px" })}
+const Text = styled.p<{ customStyle: CSSObject }>`
+  font-family: "Pretendard-Bold" !important;
+  ${({ customStyle }) => customStyle};
 `;
 
 const Icon = styled(Image)`

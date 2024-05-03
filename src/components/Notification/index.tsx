@@ -7,8 +7,9 @@ import bell from "@/public/icons/title/bell.png";
 import * as S from "./style";
 import { NoneDataText } from "@/src/stories/styles";
 import { useTokenCheck } from "@/src/hooks/Auth";
-import { ErrorBoundary } from "@/src/stories/layout";
+import { Column, ErrorBoundary } from "@/src/stories/layout";
 import { Title } from "@/src/stories/ui";
+import { css } from "styled-components";
 
 const Notification = () => {
   useTokenCheck();
@@ -16,7 +17,7 @@ const Notification = () => {
   const userData = useRecoilValue(UserDataAtom);
 
   return (
-    <S.Container>
+    <Column $width={"85%"} $height={"100%"} $rowGap={"30px"}>
       <Title
         titleIcon={bell}
         titleText="알림 확인하기"
@@ -24,7 +25,16 @@ const Notification = () => {
         customstyle={{ fontSize: "18px" }}
       />
 
-      <S.NoticeItemContainer>
+      <Column
+        $width={"100%"}
+        $padding={"0 0 0 3px"}
+        $alignItems={"center"}
+        $justifyContent={"space-between"}
+        $rowGap={"10px"}
+        $customStyle={css`
+          min-height: 650px;
+        `}
+      >
         <ErrorBoundary
           fallback={
             <NoneDataText>알림 정보를 불러오지 못했습니다.</NoneDataText>
@@ -34,8 +44,8 @@ const Notification = () => {
             <NotificationItem />
           </Suspense>
         </ErrorBoundary>
-      </S.NoticeItemContainer>
-    </S.Container>
+      </Column>
+    </Column>
   );
 };
 

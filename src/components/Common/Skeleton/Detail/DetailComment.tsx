@@ -1,45 +1,61 @@
-import { InputWrap, Container } from "@/src/components/Detail/DetailComments";
-import { Flex } from "@/src/stories/layout";
+import { Column, Row } from "@/src/stories/layout";
 import { SkeletonBox } from "@/src/stories/ui";
-import styled, { CSSObject } from "styled-components";
+import { css, CSSObject } from "styled-components";
 
 const DetailCommentSkeleton = () => {
   return (
-    <Container>
-      <InputWrap>
+    <Column $width={"100%"} $rowGap={"15px"}>
+      <Column
+        $width={"100%"}
+        $backgroundColor={"#fff"}
+        $padding={"20px 16px 25px 20px"}
+        $rowGap={"23px"}
+        $customStyle={css`
+          border-radius: 5px;
+          border: 1px solid #ddd;
+        `}
+      >
         <SkeletonBox width="85px" height="25px" />
-        <CommentInput>
+        <Row $width={"100%"} $columnGap={"10px"} $alignItems={"center"}>
           <SkeletonBox customStyle={ProfileSkeletonStyle} />
           <SkeletonBox width="100%" height="35px" />
-        </CommentInput>
-      </InputWrap>
+        </Row>
+      </Column>
 
-      <CommentBox>
+      <Column
+        $width={"100%"}
+        $backgroundColor={"#fff"}
+        $customStyle={CommentBox}
+      >
         {Array.from({ length: 8 }).map((_, idx) => (
-          <Item key={idx} isLastIndex={idx === 7}>
+          <Row
+            key={idx}
+            $width={"100%"}
+            $height={"106px"}
+            $padding={"20px 16px 10px 20px"}
+            $customStyle={Item(idx === 7)}
+            $columnGap={"6px"}
+          >
             <SkeletonBox customStyle={ProfileSkeletonStyle} />
-            <ContentWrap>
-              <UserInfo>
-                <div>
+
+            <Column $width={"100%"} $rowGap={"15px"}>
+              <Column $rowGap={"7px"}>
+                <Row $alignItems={"flex-end"} $columnGap={"7px"}>
                   <SkeletonBox width="36px" height="14px" />
                   <SkeletonBox width="48px" height="12px" />
-                </div>
+                </Row>
                 <SkeletonBox width="85px" height="13px" />
-              </UserInfo>
+              </Column>
               <SkeletonBox width="80%" height="18px" />
-            </ContentWrap>
-          </Item>
+            </Column>
+          </Row>
         ))}
-      </CommentBox>
-    </Container>
+      </Column>
+    </Column>
   );
 };
 
 export default DetailCommentSkeleton;
-
-const CommentInput = styled.div`
-  ${Flex({ columnGap: "10px", alignItems: "center" })}
-`;
 
 const ProfileSkeletonStyle: CSSObject = {
   width: "45px",
@@ -47,30 +63,11 @@ const ProfileSkeletonStyle: CSSObject = {
   borderRadius: "100%",
 };
 
-const CommentBox = styled.div`
-  width: 100%;
+const CommentBox = css`
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #fff;
-  ${Flex({ flexDirection: "column" })}
 `;
 
-const Item = styled.div<{ isLastIndex: boolean }>`
-  width: 100%;
-  height: 106px;
-  border-bottom: ${({ isLastIndex }) => !isLastIndex && "1px solid #ddd"};
-  padding: 20px 16px 10px 20px;
-  ${Flex({ columnGap: "20px" })};
-`;
-
-const ContentWrap = styled.div`
-  width: 100%;
-  ${Flex({ flexDirection: "column", rowGap: "15px" })};
-`;
-
-const UserInfo = styled.div`
-  div {
-    ${Flex({ columnGap: "7px", alignItems: "flex-end" })};
-  }
-  ${Flex({ flexDirection: "column", rowGap: "7px" })};
+const Item = (isLastIndex: boolean) => css`
+  border-bottom: ${!isLastIndex && "1px solid #ddd"};
 `;

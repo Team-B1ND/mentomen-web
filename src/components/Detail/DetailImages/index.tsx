@@ -2,8 +2,14 @@ import { SlideOptions } from "@/src/constants/Slide/slide.constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from "react";
-import { Flex, Portal, SlideWrapper, StyledSlider } from "@/src/stories/layout";
-import styled from "styled-components";
+import {
+  Flex,
+  Portal,
+  Row,
+  SlideWrapper,
+  StyledSlider,
+} from "@/src/stories/layout";
+import styled, { css } from "styled-components";
 import dynamic from "next/dynamic";
 const ImageView = dynamic(() => import("../../Common/Image/ImageView"), {
   ssr: false,
@@ -19,7 +25,18 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 
   return (
     <>
-      <ImageContainer>
+      <Row
+        $width={"400px"}
+        $height={"400px"}
+        $backgroundColor={"#000"}
+        $alignItems={"center"}
+        $justifyContent={"center"}
+        $customStyle={css`
+          border-radius: 5px;
+          overflow: hidden;
+          border: 1px solid #ddd;
+        `}
+      >
         <SlideWrapper>
           <StyledSlider {...SlideOptions}>
             {imgUrls.map((item, idx) => (
@@ -39,7 +56,7 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
             ))}
           </StyledSlider>
         </SlideWrapper>
-      </ImageContainer>
+      </Row>
 
       {isActiveDetailImage && (
         <Portal>
@@ -54,15 +71,3 @@ const DetailImages = ({ imgUrls }: { imgUrls: string[] }) => {
 };
 
 export default DetailImages;
-
-const ImageContainer = styled.div`
-  width: 400px;
-  height: 400px;
-
-  background-color: #000;
-  border-radius: 5px;
-
-  overflow: hidden;
-  border: 1px solid #ddd;
-  ${Flex({ alignItems: "center", justifyContent: "center" })}
-`;

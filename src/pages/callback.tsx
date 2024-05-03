@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import b1nd from "@/public/icons/logo/b1nd.png";
 import { NextSeo } from "next-seo";
-import { Flex } from "../stories/layout";
+import { Column } from "../stories/layout";
 import { useDAtuhLogin } from "../hooks/Auth";
 import { useSeoConfig } from "../hooks/SEO";
 
@@ -17,28 +17,23 @@ function AuthLoadingPage() {
   return (
     <>
       <NextSeo {...SeoNextConfigProps} />
-      <Container>
+      <Column
+        $width={"100%"}
+        $height={"95vh"}
+        $rowGap={"10px"}
+        $alignItems={"center"}
+        $justifyContent={"center"}
+      >
         <B1ndLogo src={b1nd} alt="" />
         <Text>
           <span>도담도담</span> 계정으로 로그인 중...
         </Text>
-      </Container>
+      </Column>
     </>
   );
 }
 
 export default AuthLoadingPage;
-
-const Container = styled.div`
-  width: 100%;
-  height: 95vh;
-  ${Flex({
-    flexDirection: "column",
-    rowGap: "10px",
-    alignItems: "center",
-    justifyContent: "center",
-  })}
-`;
 
 const Text = styled.p`
   font-family: "Pretendard-Medium" !important;

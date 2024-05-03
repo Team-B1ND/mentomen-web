@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
 import { ExistingPostDataAtom } from "@/src/store/Post/post.store";
 import { useState } from "react";
-import styled, { CSSObject } from "styled-components";
-import { Flex } from "@/src/stories/layout";
+import styled, { css, CSSObject } from "styled-components";
+import { Column, Row } from "@/src/stories/layout";
 import Image from "next/image";
 import { PostItemType } from "@/src/stories/core";
 import { GetTag } from "@/src/stories/utils";
@@ -25,16 +25,29 @@ export const ListItemProfile = ({ ...attr }: PostItemType) => {
   const { handleDeletePostClick } = useRegistPost();
 
   return (
-    <Profile>
+    <Row
+      $width={"100%"}
+      $alignItems={"flex-start"}
+      $justifyContent={"space-between"}
+      $columnGap={"4px"}
+    >
       <TagIcon src={new GetTag().getTagIcon(attr.tag)} alt="태그" />
 
-      <UserInfo>
-        <StudentInfoWrap>
+      <Row
+        $alignItems={"center"}
+        $columnGap={"10px"}
+        $justifyContent={"space-between"}
+        $padding={"7px 0 0 0"}
+        $customStyle={css`
+          width: calc(100% - 40px);
+        `}
+      >
+        <Column $rowGap={"4px"}>
           <StudentName>{attr.userName}</StudentName>
           <GradeClassNumber>
             {grade}학년 {room}반 {number}번
           </GradeClassNumber>
-        </StudentInfoWrap>
+        </Column>
         {asPath === "/mypage" && (
           <DotsIconContainer style={{ width: "23px" }}>
             <>
@@ -61,38 +74,14 @@ export const ListItemProfile = ({ ...attr }: PostItemType) => {
             </>
           </DotsIconContainer>
         )}
-      </UserInfo>
-    </Profile>
+      </Row>
+    </Row>
   );
 };
-
-const Profile = styled.div`
-  width: 100%;
-
-  ${Flex({
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    columnGap: "4px",
-  })}
-`;
 
 const TagIcon = styled(Image)`
   width: 32px;
   height: 42px;
-`;
-
-const UserInfo = styled.div`
-  width: calc(100% - 40px);
-  padding-top: 7px;
-  ${Flex({
-    alignItems: "center",
-    columnGap: "10px",
-    justifyContent: "space-between",
-  })};
-`;
-
-const StudentInfoWrap = styled.div`
-  ${Flex({ flexDirection: "column", rowGap: "4px" })}
 `;
 
 const StudentName = styled.p`
@@ -102,13 +91,6 @@ const StudentName = styled.p`
 const GradeClassNumber = styled.p`
   color: #858585;
   font-size: 13px;
-`;
-
-export const StudentInfoContainer = styled.div`
-  font-family: "Pretendard-Bold" !important;
-  font-weight: 700;
-  font-size: 15px;
-  ${Flex({ alignItems: "center", columnGap: "3px" })}
 `;
 
 const SettingStyle: CSSObject = {

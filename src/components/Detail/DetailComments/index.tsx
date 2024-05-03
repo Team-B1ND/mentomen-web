@@ -1,36 +1,32 @@
 import DetailCommentsInput from "./DetailCommentsInput";
 import DetailCommentsList from "./DetailCommentsList";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useGetCommentQuery } from "@/src/services/Comment/queries";
-import { Flex } from "@/src/stories/layout";
+import { Column, Flex } from "@/src/stories/layout";
 
 const DetailComments = ({ postId }: { postId: number }) => {
   const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });
   return (
-    <Container>
-      <InputWrap>
+    <Column $width={"100%"} $rowGap={"15px"}>
+      <Column
+        $width={"100%"}
+        $backgroundColor={"#fff"}
+        $padding={"20px 16px 25px 20px"}
+        $rowGap={"23px"}
+        $customStyle={css`
+          border-radius: 5px;
+          border: 1px solid #ddd;
+        `}
+      >
         <CommentCount>댓글 {commentsData?.data.length}개</CommentCount>
         <DetailCommentsInput postId={postId} />
-      </InputWrap>
+      </Column>
       <DetailCommentsList data={commentsData?.data!} />
-    </Container>
+    </Column>
   );
 };
 
 export default DetailComments;
-
-export const Container = styled.div`
-  width: 100%;
-  ${Flex({ flexDirection: "column", rowGap: "15px" })};
-`;
-
-export const InputWrap = styled.div`
-  background-color: #fff;
-  padding: 20px 16px 25px 20px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  ${Flex({ flexDirection: "column", rowGap: "23px" })};
-`;
 
 const CommentCount = styled.p`
   font-size: 22px;
