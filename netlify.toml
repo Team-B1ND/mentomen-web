@@ -1,5 +1,5 @@
 [build]
-  command = "CI= yarn run build"
+  command = "yarn run build"
   publish = ".next"
 
 [[plugins]]
