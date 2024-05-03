@@ -14,7 +14,7 @@ import { UserDataAtom } from "@/src/store/User/user.store";
 import { CustomLink } from "@/src/stories/styles";
 import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
 import { useGetMyInfoQuery } from "@/src/services/User/queries";
-import { Portal } from "@/src/stories/layout";
+import { Portal, Row } from "@/src/stories/layout";
 import { GoogleAnalyzer, redirectToDAuthLogin } from "@/src/stories/utils";
 
 function Header() {
@@ -43,7 +43,12 @@ function Header() {
   return (
     <>
       <S.HeaderContainer>
-        <S.Wrapper>
+        <Row
+          $width={"950px"}
+          $height={"100%"}
+          $alignItems={"center"}
+          $justifyContent={"space-between"}
+        >
           <CustomLink href={"/"}>
             <S.Logo
               src={menTomen}
@@ -53,7 +58,7 @@ function Header() {
             />
           </CustomLink>
 
-          <S.ItemContainer>
+          <Row $alignItems={"center"} $columnGap={"3px"}>
             <S.SearchIcon
               isactivesearch={isActiveSearch.toString()}
               src={searchIcon}
@@ -109,8 +114,8 @@ function Header() {
                 멘투멘 시작하기
               </S.StartMenToMen>
             )}
-          </S.ItemContainer>
-        </S.Wrapper>
+          </Row>
+        </Row>
       </S.HeaderContainer>
 
       <Portal>

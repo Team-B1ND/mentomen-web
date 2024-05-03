@@ -2,24 +2,6 @@ import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 85%;
-  height: 100%;
-  ${Flex({ flexDirection: "column", rowGap: "30px" })}
-`;
-
-export const NoticeItemContainer = styled.div`
-  width: 100%;
-  min-height: 650px;
-  padding-left: 3px;
-  ${Flex({
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    rowGap: "10px",
-  })}
-`;
-
 export const NoticeItemBox = styled.article`
   width: 100%;
   min-height: 95px;
@@ -36,13 +18,6 @@ export const ProfileImage = styled(Image)`
   height: 50px;
   border-radius: 4rem;
   border: 1px solid #cbd5e1;
-`;
-
-export const NoticeContent = styled.div`
-  width: calc(100% - 50px);
-  height: 100%;
-  cursor: pointer;
-  ${Flex({ flexDirection: "column", rowGap: "10px" })}
 `;
 
 export const SenderWrap = styled.div`

@@ -1,6 +1,6 @@
 import { useShowMoreContent } from "@/src/hooks/Content";
 import styled, { CSSObject } from "styled-components";
-import { Flex } from "../../layout";
+import { Column, Flex } from "../../layout";
 
 interface Props {
   content: string;
@@ -13,7 +13,7 @@ export const ShowMoreContent = ({ content, maxHeight, customStyle }: Props) => {
     useShowMoreContent(content);
 
   return (
-    <ContentBox>
+    <Column $rowGap={"6px"} $width={"100%"} $padding={"6px 0 10px 0"}>
       <ContentText
         isShowMoreContent={isShowMoreContent}
         maxHeight={maxHeight}
@@ -30,15 +30,9 @@ export const ShowMoreContent = ({ content, maxHeight, customStyle }: Props) => {
           {isShowMoreContent ? "... 간략히 보기" : "... 더 보기"}
         </ShowMoreText>
       )}
-    </ContentBox>
+    </Column>
   );
 };
-
-const ContentBox = styled.div`
-  width: 100%;
-  padding: 6px 0 10px 0;
-  ${Flex({ flexDirection: "column", rowGap: "6px" })}
-`;
 
 const ContentText = styled.div<{
   isShowMoreContent: boolean;

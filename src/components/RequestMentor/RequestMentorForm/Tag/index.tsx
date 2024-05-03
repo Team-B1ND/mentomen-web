@@ -1,6 +1,7 @@
 import { REQUEST_MENTOR_TAGS_ITEMS } from "./constant";
 import * as S from "../style";
 import { Dispatch, SetStateAction, useState } from "react";
+import { Row } from "@/src/stories/layout";
 
 interface Props {
   tag: string;
@@ -10,7 +11,12 @@ interface Props {
 const RequestMentorFormTag = ({ tag, setTag }: Props) => {
   const [postTagId, setPostTagId] = useState("");
   return (
-    <S.TagUl>
+    <Row
+      $columnGap={"13px"}
+      $width={"100%"}
+      $padding={"5px 0 35px 0"}
+      $customStyle={S.TagWrap}
+    >
       {REQUEST_MENTOR_TAGS_ITEMS.map((item) => (
         <li
           key={item.id}
@@ -30,7 +36,7 @@ const RequestMentorFormTag = ({ tag, setTag }: Props) => {
           />
         </li>
       ))}
-    </S.TagUl>
+    </Row>
   );
 };
 

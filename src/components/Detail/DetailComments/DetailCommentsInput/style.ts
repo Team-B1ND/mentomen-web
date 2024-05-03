@@ -2,11 +2,6 @@ import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
-export const InputContainer = styled.div`
-  width: 100%;
-  ${Flex({ columnGap: "10px" })}
-`;
-
 export const MyProfileImage = styled(Image)`
   width: 40px;
   height: 40px;

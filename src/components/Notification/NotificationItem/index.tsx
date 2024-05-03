@@ -5,9 +5,9 @@ import { NoneDataText } from "@/src/stories/styles";
 import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
 import { GetDateTime, GetText } from "@/src/stories/utils";
 import { Pagination } from "@/src/stories/ui";
-import styled from "styled-components";
-import { Flex } from "@/src/stories/layout";
+import { Column } from "@/src/stories/layout";
 import { useState } from "react";
+import { css } from "styled-components";
 
 const NotificationItem = () => {
   const { data: noticeList } = useGetNoticeListQuery({ suspense: true });
@@ -19,7 +19,7 @@ const NotificationItem = () => {
 
   return (
     <>
-      <Container>
+      <Column $width={"100%"} $justifyContent={"center"} $rowGap={"13px"}>
         {noticeList?.data.length! > 0 ? (
           noticeList?.data.slice(offset, offset + limit).map((item, idx) => (
             <S.NoticeItemBox key={idx}>
@@ -30,7 +30,13 @@ const NotificationItem = () => {
                 alt="프로필"
               />
 
-              <S.NoticeContent
+              <Column
+                $height={"100%"}
+                $rowGap={"10px"}
+                $customStyle={css`
+                  width: calc(100% - 50px);
+                  cursor: pointer;
+                `}
                 onClick={() => router.push(`/detail/${item.postId}`)}
               >
                 <S.SenderWrap>
@@ -49,13 +55,13 @@ const NotificationItem = () => {
                     new Date(item.createDateTime)
                   )}
                 </S.CommentUpdateDate>
-              </S.NoticeContent>
+              </Column>
             </S.NoticeItemBox>
           ))
         ) : (
           <NoneDataText>알림이 없습니다.</NoneDataText>
         )}
-      </Container>
+      </Column>
 
       {noticeList?.data.length! > 0 && (
         <Pagination
@@ -70,8 +76,3 @@ const NotificationItem = () => {
 };
 
 export default NotificationItem;
-
-const Container = styled.div`
-  width: 100%;
-  ${Flex({ flexDirection: "column", justifyContent: "center", rowGap: "13px" })}
-`;

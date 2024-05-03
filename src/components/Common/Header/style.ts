@@ -19,12 +19,6 @@ export const HeaderContainer = styled.header`
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
-export const Wrapper = styled.div`
-  width: 950px;
-  height: 100%;
-  ${Flex({ alignItems: "center", justifyContent: "space-between" })}
-`;
-
 export const Logo = styled(Image)`
   width: 100px;
   height: 32px;
@@ -34,10 +28,6 @@ export const Logo = styled(Image)`
   &:active {
     opacity: 0.5;
   }
-`;
-
-export const ItemContainer = styled.nav`
-  ${Flex({ alignItems: "center", columnGap: "3px" })}
 `;
 
 const HoverAnimation = css`

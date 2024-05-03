@@ -11,11 +11,16 @@ import { GetDateTime } from "@/src/stories/utils";
 import { CommentType } from "@/src/stories/core";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
 import { useComment } from "@/src/hooks/Comment";
+import { Column } from "@/src/stories/layout";
 
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();
   return (
-    <S.Container commentLenght={reverseCommentData.length}>
+    <Column
+      $width={"100%"}
+      $backgroundColor={"#fff"}
+      $customStyle={S.Container(reverseCommentData.length)}
+    >
       {reverseCommentData.map((item, idx) => (
         <DetailCommentsListItem
           key={item.commentId}
@@ -23,7 +28,7 @@ const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
           isLast={idx === reverseCommentData.length - 1}
         />
       ))}
-    </S.Container>
+    </Column>
   );
 };
 

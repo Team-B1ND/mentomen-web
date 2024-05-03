@@ -1,7 +1,6 @@
 import { NextSeo } from "next-seo";
-import styled from "styled-components";
 import { useSeoConfig } from "../hooks/SEO";
-import { Flex } from "../stories/layout";
+import { Row } from "../stories/layout";
 
 const NotFound = () => {
   const { SeoNextConfigProps } = useSeoConfig({
@@ -12,15 +11,16 @@ const NotFound = () => {
   return (
     <>
       <NextSeo {...SeoNextConfigProps} />
-      <Container>404 - 존재하지 않는 페이지입니다.</Container>
+      <Row
+        $width={"100%"}
+        $height={"95vh"}
+        $alignItems={"center"}
+        $justifyContent={"center"}
+      >
+        404 - 존재하지 않는 페이지입니다.
+      </Row>
     </>
   );
 };
 
 export default NotFound;
-
-const Container = styled.div`
-  width: 100%;
-  height: 95vh;
-  ${Flex({ alignItems: "center", justifyContent: "center" })}
-`;

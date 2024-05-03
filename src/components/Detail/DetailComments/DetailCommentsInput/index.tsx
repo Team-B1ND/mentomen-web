@@ -8,6 +8,7 @@ import * as S from "./style";
 import { redirectToDAuthLogin } from "@/src/stories/utils";
 import { useComment } from "@/src/hooks/Comment";
 import { useClipboardPaste } from "@/src/hooks/ClipboardPaste";
+import { Row } from "@/src/stories/layout";
 
 interface Props {
   postId: number;
@@ -32,7 +33,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
   }, [attr.commentId]);
 
   return (
-    <S.InputContainer>
+    <Row $columnGap={"10px"} $width={"100%"}>
       {!attr.commentId && (
         <S.MyProfileImage
           src={userData?.profileImage || profile}
@@ -99,7 +100,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
           </>
         )}
       </S.CommentInputForm>
-    </S.InputContainer>
+    </Row>
   );
 };
 

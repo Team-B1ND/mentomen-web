@@ -9,20 +9,21 @@ import DetailSkeleton from "../Common/Skeleton/Detail";
 import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
 import { useGetPostByIdQuery } from "@/src/services/Post/queries";
 import profile from "@/public/icons/user/aprofile.png";
-import { ErrorBoundary } from "@/src/stories/layout";
+import { Column, ErrorBoundary, Row } from "@/src/stories/layout";
 import {
   LikeInteraction,
   ShareInteraction,
   ShowMoreContent,
   Title,
 } from "@/src/stories/ui";
+import { css } from "styled-components";
 
 const Detail = () => {
   const router = useRouter();
   const { id } = router.query;
 
   return (
-    <S.Container>
+    <Row $width={"100%"} $height={"100%"} $justifyContent={"center"}>
       <S.Wrapper>
         <Title
           titleIcon={hello}
@@ -36,7 +37,7 @@ const Detail = () => {
           </Suspense>
         </ErrorBoundary>
       </S.Wrapper>
-    </S.Container>
+    </Row>
   );
 };
 
@@ -44,7 +45,12 @@ const DetailItem = ({ postId }: { postId: number }) => {
   const { data: detailPost } = useGetPostByIdQuery(postId, { suspense: true });
 
   return (
-    <S.DetailItemContainer>
+    <Column
+      $width={"100%"}
+      $padding={"0 0 30px 0"}
+      $alignItems={"center"}
+      $rowGap={"15px"}
+    >
       <S.PostArticle>
         <S.ProfileImage
           src={detailPost?.data.profileUrl || profile}
@@ -53,10 +59,15 @@ const DetailItem = ({ postId }: { postId: number }) => {
           alt="프로필"
         />
 
-        <S.PostWrap>
+        <Column
+          $padding={"0 0 0 18px"}
+          $customStyle={css`
+            width: calc(100% - 45px);
+          `}
+        >
           <DetailMenteeInfo {...detailPost?.data!} />
 
-          <S.PostContent>
+          <Column $rowGap={"4px"} $padding={"0 23px 0 0"} $width={"97%"}>
             <ShowMoreContent
               content={detailPost?.data.content!}
               customStyle={{ fontSize: "15px", lineHeight: "21px" }}
@@ -65,30 +76,38 @@ const DetailItem = ({ postId }: { postId: number }) => {
             {detailPost?.data.imgUrls !== null && (
               <DetailImages imgUrls={detailPost?.data.imgUrls!} />
             )}
-          </S.PostContent>
+          </Column>
 
-          <S.IconContainer>
+          <Row $width={"100%"} $padding={"8px 0 0 0"} $alignItems={"center"}>
             <LikeInteraction postId={postId} customStyle={S.InteractionStyle} />
             <ShareInteraction
               postId={postId}
               customStyle={S.InteractionStyle}
             />
-          </S.IconContainer>
-        </S.PostWrap>
+          </Row>
+        </Column>
       </S.PostArticle>
 
       <ErrorBoundary
         fallback={
-          <S.NoneCommentDataText>
+          <Row
+            $width={"100%"}
+            $height={"300px"}
+            $alignItems={"center"}
+            $justifyContent={"center"}
+            $customStyle={css`
+              color: gray;
+            `}
+          >
             댓글을 불러오지 못했습니다.
-          </S.NoneCommentDataText>
+          </Row>
         }
       >
         <Suspense fallback={<DetailCommentSkeleton />}>
           <DetailComments postId={postId} />
         </Suspense>
       </ErrorBoundary>
-    </S.DetailItemContainer>
+    </Column>
   );
 };
 

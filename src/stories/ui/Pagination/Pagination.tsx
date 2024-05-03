@@ -1,6 +1,7 @@
 import { FaAngleLeft } from "@react-icons/all-files/fa/FaAngleLeft";
 import { FaAngleRight } from "@react-icons/all-files/fa/FaAngleRight";
 import { Dispatch, SetStateAction } from "react";
+import { Row } from "../../layout";
 import * as S from "./style";
 
 export interface Props {
@@ -27,7 +28,13 @@ export const Pagination = ({ total, limit, page, setPage }: Props) => {
   );
 
   return (
-    <S.Container>
+    <Row
+      $width={"100%"}
+      $height={"80px"}
+      $alignItems={"center"}
+      $justifyContent={"center"}
+      $columnGap={"15px"}
+    >
       <S.Arrow
         onClick={() => page > 1 && handlePageChange(page - 1)}
         disabled={page === 1}
@@ -53,6 +60,6 @@ export const Pagination = ({ total, limit, page, setPage }: Props) => {
       >
         <FaAngleRight />
       </S.Arrow>
-    </S.Container>
+    </Row>
   );
 };
