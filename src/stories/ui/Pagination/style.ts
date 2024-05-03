@@ -1,13 +1,6 @@
 import styled, { css } from "styled-components";
 import { Flex } from "../../layout";
 
-export const Container = styled.div`
-  width: 100%;
-  height: 80px;
-
-  ${Flex({ alignItems: "center", justifyContent: "center", columnGap: "15px" })}
-`;
-
 export const Nav = styled.nav`
   ${Flex({ alignItems: "center", columnGap: "7px" })}
 `;

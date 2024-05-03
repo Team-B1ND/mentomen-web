@@ -10,6 +10,8 @@ import { GetDateTime, GoogleAnalyzer } from "@/src/stories/utils";
 import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
 import { useRegistPost } from "@/src/hooks/RequestMentor";
+import { Column, Row } from "@/src/stories/layout";
+import { css } from "styled-components";
 
 const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
   const setExistingPostData = useSetRecoilState(ExistingPostDataAtom);
@@ -28,21 +30,27 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
   const updatePostStatus = attr.updateStatus;
 
   return (
-    <S.Container>
-      <S.ProfileBox>
-        <S.MenteeInfo>
-          <div>
+    <Row $width={"100%"} $height={"45px"} $justifyContent={"space-between"}>
+      <Row $alignItems={"center"} $columnGap={"18px"}>
+        <Column $rowGap={"5px"}>
+          <Row
+            $alignItems={"flex-end"}
+            $columnGap={"6px"}
+            $customStyle={css`
+              font-size: 15px;
+            `}
+          >
             <S.MenteeName>{attr.userName}</S.MenteeName>
             <S.UploadPostTime>
               {getDate.uploadTimeAgo(new Date(attr.updateDateTime))}
               {updatePostStatus === "UPDATE" && " (수정됨)"}
             </S.UploadPostTime>
-          </div>
+          </Row>
           <S.ClassInfo>
             {grade}학년 {room}반 {number}번
           </S.ClassInfo>
-        </S.MenteeInfo>
-      </S.ProfileBox>
+        </Column>
+      </Row>
 
       {userData?.userId === attr.author && (
         <DotsIconContainer>
@@ -73,7 +81,7 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
           </>
         </DotsIconContainer>
       )}
-    </S.Container>
+    </Row>
   );
 };
 

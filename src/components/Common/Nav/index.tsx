@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
-import { Flex } from "@/src/stories/layout";
+import { Column } from "@/src/stories/layout";
 import token from "@/src/libs/token/token";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -14,7 +14,7 @@ const Nav = () => {
   return (
     <Aside>
       <Container>
-        <Wrapper>
+        <Column $width={"100%"} $height={"850px"} $rowGap={"35px"}>
           {router.pathname === "/mypage" ? <Profile /> : <Tag />}
           {token.getCookie(ACCESS_TOKEN_KEY) ? (
             <RequestMento />
@@ -22,7 +22,7 @@ const Nav = () => {
             <SuggestSignIn />
           )}
           <QRCode />
-        </Wrapper>
+        </Column>
       </Container>
     </Aside>
   );
@@ -44,10 +44,4 @@ const Container = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  height: 850px;
-  ${Flex({ flexDirection: "column", rowGap: "35px" })};
 `;

@@ -3,8 +3,8 @@ import { useLockScroll } from "@/src/hooks/Scroll";
 import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
-import styled from "styled-components";
-import { Flex } from "@/src/stories/layout";
+import styled, { css } from "styled-components";
+import { Row } from "@/src/stories/layout";
 
 interface Props {
   imgUrl: string;
@@ -16,9 +16,20 @@ const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
   useLockScroll();
 
   return (
-    <Container onClick={() => setIsActiveDetailImage(false)}>
+    <Row
+      $width={"100%"}
+      $height={"100%"}
+      $alignItems={"center"}
+      $justifyContent={"center"}
+      $customStyle={Container}
+      onClick={() => setIsActiveDetailImage(false)}
+    >
       <CloseIcon size={27} onClick={() => setIsActiveDetailImage(false)} />
-      <Wrapper onClick={(e) => e.stopPropagation()}>
+      <Row
+        $alignItems={"center"}
+        $justifyContent={"center"}
+        onClick={(e) => e.stopPropagation()}
+      >
         <ReadMoreImg
           src={imgUrl}
           width={1000}
@@ -26,24 +37,20 @@ const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
           style={{ height: "100vh" }}
           alt="전체보기"
         />
-      </Wrapper>
-    </Container>
+      </Row>
+    </Row>
   );
 };
 
 export default ReadMoreImage;
 
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-
+const Container = css`
   position: fixed;
   top: 0;
   left: 0;
 
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.8);
-  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 const CloseIcon = styled(AiOutlineClose)`
@@ -52,10 +59,6 @@ const CloseIcon = styled(AiOutlineClose)`
   right: 10px;
   color: #fff;
   cursor: pointer;
-`;
-
-const Wrapper = styled.div`
-  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 const ReadMoreImg = styled(Image)`

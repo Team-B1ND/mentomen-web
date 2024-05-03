@@ -2,7 +2,7 @@ import upload from "@/public/icons/RequestMentor/upload.svg";
 import cancel from "@/public/icons/RequestMentor/cancel.svg";
 import { Dispatch, RefObject, SetStateAction, useState } from "react";
 import * as S from "../style";
-import { Portal } from "@/src/stories/layout";
+import { Column, Portal } from "@/src/stories/layout";
 import dynamic from "next/dynamic";
 const ReadMoreImage = dynamic(
   () => import("@/src/components/Common/Image/ReadMoreImage"),
@@ -26,7 +26,7 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
 
   return (
     <>
-      <S.AttachImageBox>
+      <Column $width={"100%"} $rowGap={"15px"}>
         <S.AttachImageWrap
           isDrop={isDrop}
           isRequestImage={hooks.isRequestImage}
@@ -97,7 +97,7 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
             ))}
           </S.PreviewAttachImageBox>
         )}
-      </S.AttachImageBox>
+      </Column>
 
       {isActiveDetailImage && (
         <Portal>

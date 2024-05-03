@@ -1,24 +1,33 @@
-import { Flex } from "@/src/stories/layout";
+import { Column, Flex, Row } from "@/src/stories/layout";
 import { SkeletonBox } from "@/src/stories/ui";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const NotificationSkeleton = () => {
   return (
     <Container>
       {Array.from({ length: 20 }).map((_, idx) => (
-        <Box key={idx}>
+        <Row
+          key={idx}
+          $columnGap={"15px"}
+          $width={"100%"}
+          $height={"95px"}
+          $padding={"7px 0 15px 0"}
+          $customStyle={css`
+            border-bottom: 1px solid #cbd5e1;
+          `}
+        >
           <SkeletonBox
             width="50px"
             height="50px"
             customStyle={{ borderRadius: "100%" }}
           />
 
-          <ContentWrap>
+          <Column $rowGap={"10px"}>
             <SkeletonBox width="297px" height="22px" />
             <SkeletonBox width="150px" height="20px" />
             <SkeletonBox width="50px" height="14px" />
-          </ContentWrap>
-        </Box>
+          </Column>
+        </Row>
       ))}
     </Container>
   );
@@ -38,18 +47,4 @@ const Container = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-`;
-
-const Box = styled.div`
-  width: 100%;
-  height: 95px;
-
-  padding-top: 7px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #cbd5e1;
-  ${Flex({ columnGap: "15px" })}
-`;
-
-const ContentWrap = styled.div`
-  ${Flex({ flexDirection: "column", rowGap: "10px" })}
 `;

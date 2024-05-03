@@ -1,13 +1,10 @@
 import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div<{ commentLenght: number }>`
-  width: 100%;
-  background-color: #fff;
+export const Container = (commentLenght: number) => css`
   border-radius: 5px;
-  border: ${({ commentLenght }) => commentLenght > 0 && "1px solid #ddd"};
-  ${Flex({ flexDirection: "column" })}
+  border: ${commentLenght > 0 && "1px solid #ddd"};
 `;
 
 export const CommentsList = styled.article<{ isLast: boolean }>`

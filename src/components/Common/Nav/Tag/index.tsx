@@ -6,6 +6,7 @@ import { CustomLink } from "@/src/stories/styles";
 import { NAV_TAGS_ITEMS } from "./constant";
 import { Title } from "@/src/stories/ui";
 import { GoogleAnalyzer } from "@/src/stories/utils";
+import { Column } from "@/src/stories/layout";
 
 const Tag = () => {
   const router = useRouter();

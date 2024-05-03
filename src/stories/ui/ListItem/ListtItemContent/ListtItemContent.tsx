@@ -1,6 +1,6 @@
-import { Flex } from "@/src/stories/layout";
+import { Row } from "@/src/stories/layout";
 import { GetDateTime } from "@/src/stories/utils";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   CommentInteraction,
   LikeInteraction,
@@ -27,17 +27,25 @@ export const ListItemContent = ({ ...attr }: Props) => {
         <ListItemContentImage imgUrls={attr.imgUrls} />
       )}
 
-      <EtcContainer>
-        <IconContainer>
+      <Row
+        $width={"100%"}
+        $padding={"0 5px 0 0"}
+        $alignItems={"center"}
+        $justifyContent={"space-between"}
+        $customStyle={css`
+          margin-top: 10px;
+        `}
+      >
+        <Row $alignItems={"center"} $columnGap={"5px"}>
           <LikeInteraction postId={attr.postId} />
           <CommentInteraction postId={attr.postId} />
           <ShareInteraction postId={attr.postId} />
-        </IconContainer>
+        </Row>
 
         <UploadDateTime>
           {getDateTime.uploadTimeAgo(new Date(attr.updateDateTime))}
         </UploadDateTime>
-      </EtcContainer>
+      </Row>
     </ContentContainer>
   );
 };
@@ -45,17 +53,6 @@ export const ListItemContent = ({ ...attr }: Props) => {
 const ContentContainer = styled.div`
   width: 100%;
   margin-top: 6px;
-`;
-
-const EtcContainer = styled.div`
-  width: 100%;
-  margin-top: 10px;
-  padding-right: 5px;
-  ${Flex({ alignItems: "center", justifyContent: "space-between" })}
-`;
-
-const IconContainer = styled.div`
-  ${Flex({ alignItems: "center", columnGap: "5px" })}
 `;
 
 const UploadDateTime = styled.p`

@@ -3,12 +3,8 @@ import { skeletonAnimation } from "@/src/stories/ui";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
-export const TagUl = styled.div`
-  width: 100%;
+export const TagWrap = css`
   list-style: none;
-  padding: 5px 0 35px 0;
-
-  ${Flex({ columnGap: "13px" })}
   li {
     cursor: pointer;
   }
@@ -50,11 +46,6 @@ export const ContentInput = styled.span<{ placeholder: string }>`
         font-family: "Pretendard-Light" !important;
       }
     `};
-`;
-
-export const AttachImageBox = styled.div`
-  width: 100%;
-  ${Flex({ flexDirection: "column", rowGap: "15px" })}
 `;
 
 export const AttachImageWrap = styled.div<{
@@ -158,6 +149,7 @@ export const CancelPreviewImage = styled.div`
   &:hover {
     background-color: rgba(255, 55, 66, 0.89);
   }
+
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
