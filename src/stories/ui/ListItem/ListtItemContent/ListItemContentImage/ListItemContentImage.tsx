@@ -1,8 +1,8 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SlideOptions } from "@/src/constants/Slide/slide.constant";
-import { css } from "styled-components";
-import { Row, SlideWrapper, StyledSlider } from "@/src/stories/layout";
+import { css, styled } from "styled-components";
+import { Flex, Row, SlideWrapper, StyledSlider } from "@/src/stories/layout";
 import dynamic from "next/dynamic";
 const ImageView = dynamic(
   () => import("@/src/components/Common/Image/ImageView"),
@@ -11,13 +11,7 @@ const ImageView = dynamic(
 
 export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
   return (
-    <Row
-      $width={"100%"}
-      $height={"470px"}
-      $alignItems={"center"}
-      $justifyContent={"center"}
-      $customStyle={ImageContainer(imgUrls?.length)}
-    >
+    <ImageContainer $sizeOfImages={imgUrls?.length}>
       <SlideWrapper>
         <StyledSlider {...SlideOptions}>
           {imgUrls.map((item, idx) => (
@@ -31,13 +25,19 @@ export const ListItemContentImage = ({ imgUrls }: { imgUrls: string[] }) => {
           ))}
         </StyledSlider>
       </SlideWrapper>
-    </Row>
+    </ImageContainer>
   );
 };
 
-const ImageContainer = (sizeOfImages: number) => css`
+const ImageContainer = styled.div<{ $sizeOfImages: number }>`
+  width: 100%;
+  height: 470px;
+
   border-radius: 5px;
   border: 1px solid #ddd;
   overflow: hidden;
-  background-color: ${sizeOfImages && sizeOfImages > 0 ? "#000" : "#eee"};
+  background-color: ${({ $sizeOfImages }) =>
+    $sizeOfImages && $sizeOfImages > 0 ? "#000" : "#eee"};
+
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;

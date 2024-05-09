@@ -50,11 +50,11 @@ export const TagImg = {
   height: "23px",
 };
 
-export const TagName = styled.p<{ isSelectTag: boolean; selectTag: string }>`
+export const TagName = styled.p<{ $isSelectTag: boolean; $selectTag: string }>`
   height: 30px;
 
-  color: ${({ isSelectTag, selectTag }) =>
-    isSelectTag && new GetTag().getTagColor(selectTag)};
+  color: ${({ $isSelectTag, $selectTag }) =>
+    $isSelectTag && new GetTag().getTagColor($selectTag)};
   font-family: "Pretendard-Medium" !important;
 
   ${Flex({ alignItems: "center", justifyContent: "center" })}

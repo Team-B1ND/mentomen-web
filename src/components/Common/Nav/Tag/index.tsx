@@ -40,8 +40,8 @@ const Tag = () => {
                   alt="태그"
                 />
                 <S.TagName
-                  isSelectTag={item.title === tag}
-                  selectTag={tag as string}
+                  $isSelectTag={item.title === tag}
+                  $selectTag={tag as string}
                 >
                   {item.title}
                 </S.TagName>

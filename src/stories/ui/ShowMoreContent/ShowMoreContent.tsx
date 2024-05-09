@@ -15,16 +15,16 @@ export const ShowMoreContent = ({ content, maxHeight, customStyle }: Props) => {
   return (
     <Column $rowGap={"6px"} $width={"100%"} $padding={"6px 0 10px 0"}>
       <ContentText
-        isShowMoreContent={isShowMoreContent}
-        maxHeight={maxHeight}
-        customstyle={customStyle}
+        $isShowMoreContent={isShowMoreContent}
+        $maxHeight={maxHeight}
+        $customstyle={customStyle}
       >
         <p ref={contentRef}>{content}</p>
       </ContentText>
 
       {contentHeight > maxHeight && (
         <ShowMoreText
-          isShowMoreContent={isShowMoreContent}
+          $isShowMoreContent={isShowMoreContent}
           onClick={() => setIsShowMoreContent((prev) => !prev)}
         >
           {isShowMoreContent ? "... 간략히 보기" : "... 더 보기"}
@@ -35,12 +35,12 @@ export const ShowMoreContent = ({ content, maxHeight, customStyle }: Props) => {
 };
 
 const ContentText = styled.div<{
-  isShowMoreContent: boolean;
-  maxHeight: number;
-  customstyle?: CSSObject;
+  $isShowMoreContent: boolean;
+  $maxHeight: number;
+  $customstyle?: CSSObject;
 }>`
-  max-height: ${({ isShowMoreContent, maxHeight }) =>
-    isShowMoreContent ? "auto" : `${maxHeight}px`};
+  max-height: ${({ $isShowMoreContent, $maxHeight }) =>
+    $isShowMoreContent ? "auto" : `${$maxHeight}px`};
   overflow: hidden;
   font-size: 15px;
   line-height: 18px;
@@ -51,11 +51,11 @@ const ContentText = styled.div<{
     word-break: break-word;
   }
 
-  ${({ customstyle }) => customstyle};
+  ${({ $customstyle }) => $customstyle};
 `;
 
-const ShowMoreText = styled.p<{ isShowMoreContent: boolean }>`
-  width: ${({ isShowMoreContent }) => (isShowMoreContent ? "80px" : "55px")};
+const ShowMoreText = styled.p<{ $isShowMoreContent: boolean }>`
+  width: ${({ $isShowMoreContent }) => ($isShowMoreContent ? "80px" : "55px")};
 
   cursor: pointer;
   color: #64748b;
