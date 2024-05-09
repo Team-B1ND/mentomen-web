@@ -62,6 +62,7 @@ const Profile = () => {
         </Row>
 
         <Row
+          $width={"100%"}
           $alignItems={"center"}
           $justifyContent={"space-between"}
           $padding={"6px 3px 0 3px"}
