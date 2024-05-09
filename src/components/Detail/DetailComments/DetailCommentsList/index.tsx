@@ -16,11 +16,7 @@ import { Column } from "@/src/stories/layout";
 const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
   const reverseCommentData = data.slice(0).reverse();
   return (
-    <Column
-      $width={"100%"}
-      $backgroundColor={"#fff"}
-      $customStyle={S.Container(reverseCommentData.length)}
-    >
+    <S.Container commentLenght={reverseCommentData.length}>
       {reverseCommentData.map((item, idx) => (
         <DetailCommentsListItem
           key={item.commentId}
@@ -28,7 +24,7 @@ const DetailCommentsList = ({ data }: { data: CommentType[] }) => {
           isLast={idx === reverseCommentData.length - 1}
         />
       ))}
-    </Column>
+    </S.Container>
   );
 };
 

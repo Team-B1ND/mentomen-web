@@ -21,20 +21,8 @@ const Profile = () => {
         subTitleText="멘투멘에서 내 정보를 조회할 수 있어요!"
       />
 
-      <Column
-        $width={"100%"}
-        $rowGap={"7px"}
-        $padding={"14px 12px"}
-        $backgroundColor={"#fff"}
-        $customStyle={S.UserBox}
-      >
-        <Row
-          $width={"100%"}
-          $alignItems={"center"}
-          $columnGap={"10px"}
-          $padding={"0 0 15px 0"}
-          $customStyle={S.UserWrap}
-        >
+      <S.UserBox>
+        <S.UserWrap>
           <S.ProfileImage
             width={50}
             height={50}
@@ -42,11 +30,7 @@ const Profile = () => {
             alt="프로필"
           />
 
-          <Column
-            $height={"100%"}
-            $rowGap={"13px"}
-            $customStyle={S.ProfileContent}
-          >
+          <S.ProfileContent>
             <Column $rowGap={"7px"}>
               <S.UserClassInfo>
                 {userData?.stdInfo.grade}학년 {userData?.stdInfo.room}반{" "}
@@ -58,22 +42,16 @@ const Profile = () => {
                 <span> 님, 환영합니다!</span>
               </S.UserName>
             </Column>
-          </Column>
-        </Row>
+          </S.ProfileContent>
+        </S.UserWrap>
 
-        <Row
-          $width={"100%"}
-          $alignItems={"center"}
-          $justifyContent={"space-between"}
-          $padding={"6px 3px 0 3px"}
-          $customStyle={S.MyRequestMentorArticleWrap}
-        >
+        <S.MyRequestMentorArticleWrap>
           <S.CountOfMyPostText>
             내가 쓴 멘토 요청 글 <span>{countOfPost}개</span>
           </S.CountOfMyPostText>
           <S.Logout onClick={handleLogoutClick}>로그아웃</S.Logout>
-        </Row>
-      </Column>
+        </S.MyRequestMentorArticleWrap>
+      </S.UserBox>
     </S.Container>
   );
 };

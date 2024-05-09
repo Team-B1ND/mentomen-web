@@ -1,26 +1,24 @@
 import { BsArrowUpShort } from "@react-icons/all-files/bs/BsArrowUpShort";
 import React from "react";
-import { css } from "styled-components";
-import { Row } from "../../layout";
+import { styled } from "styled-components";
+import { Flex } from "../../layout";
 
 export const ScrollTopButton = () => {
   return (
-    <Row
-      $width={"55px"}
-      $height={"55px"}
-      $backgroundColor={"#29275c"}
-      $alignItems={"center"}
-      $justifyContent={"center"}
-      $customStyle={Container}
+    <Container
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       title="맨 위로 이동"
     >
       <BsArrowUpShort size={34} color={"#fff"} />
-    </Row>
+    </Container>
   );
 };
 
-const Container = css`
+const Container = styled.div`
+  width: 55px;
+  height: 55px;
+  background-color: #29275c;
+
   border-radius: 4rem;
   z-index: 3;
 
@@ -30,6 +28,8 @@ const Container = css`
   position: fixed;
   right: 150px;
   bottom: 40px;
+
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 
   p {
     font-size: 12px;

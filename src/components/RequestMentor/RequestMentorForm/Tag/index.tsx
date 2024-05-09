@@ -11,12 +11,7 @@ interface Props {
 const RequestMentorFormTag = ({ tag, setTag }: Props) => {
   const [postTagId, setPostTagId] = useState("");
   return (
-    <Row
-      $columnGap={"13px"}
-      $width={"100%"}
-      $padding={"5px 0 35px 0"}
-      $customStyle={S.TagWrap}
-    >
+    <S.TagWrap>
       {REQUEST_MENTOR_TAGS_ITEMS.map((item) => (
         <li
           key={item.id}
@@ -36,7 +31,7 @@ const RequestMentorFormTag = ({ tag, setTag }: Props) => {
           />
         </li>
       ))}
-    </Row>
+    </S.TagWrap>
   );
 };
 

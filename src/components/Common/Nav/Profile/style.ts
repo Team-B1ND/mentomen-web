@@ -1,3 +1,4 @@
+import { Flex } from "@/src/stories/layout";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
@@ -5,13 +6,21 @@ export const Container = styled.article`
   width: 100%;
 `;
 
-export const UserBox = css`
+export const UserBox = styled.div`
+  width: 100%;
+  padding: 14px 12px;
+  background-color: #fff;
+
   border: 1px solid #ddd;
   border-radius: 5px;
+  ${Flex({ rowGap: "7px" })}
 `;
 
-export const UserWrap = css`
+export const UserWrap = styled.div`
+  width: 100%;
+  padding-bottom: 15px;
   border-bottom: 1px solid #ddd;
+  ${Flex({ flexDirection: "column", alignItems: "center", columnGap: "10px" })}
 `;
 
 export const ProfileImage = styled(Image)`
@@ -21,8 +30,10 @@ export const ProfileImage = styled(Image)`
   border: 1px solid #ddd;
 `;
 
-export const ProfileContent = css`
+export const ProfileContent = styled.div`
   width: calc(100% - 50px);
+  height: 100%;
+  ${Flex({ flexDirection: "column", rowGap: "13px" })}
 `;
 
 export const UserClassInfo = styled.p`
@@ -48,8 +59,11 @@ export const CountOfMyPostText = styled.p`
   }
 `;
 
-export const MyRequestMentorArticleWrap = css`
+export const MyRequestMentorArticleWrap = styled.div`
+  width: 100%;
+  padding: 6px 3px 0 3px;
   font-size: 13px;
+  ${Flex({ alignItems: "center", justifyContent: "space-between" })}
 `;
 
 export const Logout = styled.p`

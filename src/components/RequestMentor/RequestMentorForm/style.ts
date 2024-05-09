@@ -3,8 +3,13 @@ import { skeletonAnimation } from "@/src/stories/ui";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 
-export const TagWrap = css`
+export const TagWrap = styled.div`
+  width: 100%;
+  padding: 5px 0 35px 0;
+
   list-style: none;
+  ${Flex({ columnGap: "13px" })}
+
   li {
     cursor: pointer;
   }

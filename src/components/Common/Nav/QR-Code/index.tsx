@@ -12,14 +12,8 @@ const QRCode = () => {
         titleText="모바일로 편리하게 사용하기"
         subTitleText="모바일로 멘투멘을 다운로드 받아 사용해 보세요!"
       />
-      <Row
-        $alignItems={"center"}
-        $justifyContent={"center"}
-        $width={"100%"}
-        $backgroundColor={"#fff"}
-        $padding={"15px 10px"}
-        $customStyle={S.QRCodeBox}
-      >
+
+      <S.QRCodeBox>
         {QRCODE_ITEMS.map((item) => (
           <Column key={item.id} $alignItems={"center"}>
             <S.QRCodeImage
@@ -32,7 +26,7 @@ const QRCode = () => {
             <S.QRCodeTitle>{item.title}</S.QRCodeTitle>
           </Column>
         ))}
-      </Row>
+      </S.QRCodeBox>
     </S.Container>
   );
 };

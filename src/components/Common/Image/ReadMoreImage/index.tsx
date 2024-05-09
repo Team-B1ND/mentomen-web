@@ -4,7 +4,7 @@ import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import styled, { css } from "styled-components";
-import { Row } from "@/src/stories/layout";
+import { Flex, Row } from "@/src/stories/layout";
 
 interface Props {
   imgUrl: string;
@@ -16,14 +16,7 @@ const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
   useLockScroll();
 
   return (
-    <Row
-      $width={"100%"}
-      $height={"100%"}
-      $alignItems={"center"}
-      $justifyContent={"center"}
-      $customStyle={Container}
-      onClick={() => setIsActiveDetailImage(false)}
-    >
+    <Container onClick={() => setIsActiveDetailImage(false)}>
       <CloseIcon size={27} onClick={() => setIsActiveDetailImage(false)} />
       <Row
         $alignItems={"center"}
@@ -38,19 +31,24 @@ const ReadMoreImage = ({ imgUrl, setIsActiveDetailImage }: Props) => {
           alt="전체보기"
         />
       </Row>
-    </Row>
+    </Container>
   );
 };
 
 export default ReadMoreImage;
 
-const Container = css`
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+
   position: fixed;
   top: 0;
   left: 0;
 
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.8);
+
+  ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
 const CloseIcon = styled(AiOutlineClose)`

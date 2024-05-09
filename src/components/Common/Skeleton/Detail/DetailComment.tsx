@@ -1,6 +1,6 @@
-import { Column, Row } from "@/src/stories/layout";
+import { Column, Flex, Row } from "@/src/stories/layout";
 import { SkeletonBox } from "@/src/stories/ui";
-import { css, CSSObject } from "styled-components";
+import { css, CSSObject, styled } from "styled-components";
 
 const DetailCommentSkeleton = () => {
   return (
@@ -22,11 +22,7 @@ const DetailCommentSkeleton = () => {
         </Row>
       </Column>
 
-      <Column
-        $width={"100%"}
-        $backgroundColor={"#fff"}
-        $customStyle={CommentBox}
-      >
+      <CommentBox>
         {Array.from({ length: 8 }).map((_, idx) => (
           <Row
             key={idx}
@@ -50,7 +46,7 @@ const DetailCommentSkeleton = () => {
             </Column>
           </Row>
         ))}
-      </Column>
+      </CommentBox>
     </Column>
   );
 };
@@ -63,9 +59,12 @@ const ProfileSkeletonStyle: CSSObject = {
   borderRadius: "100%",
 };
 
-const CommentBox = css`
+const CommentBox = styled.div`
+  width: 100%;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
+  ${Flex({ flexDirection: "column" })}
 `;
 
 const Item = (isLastIndex: boolean) => css`
