@@ -2,14 +2,8 @@ import { SlideOptions } from "@/src/constants/Slide/slide.constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from "react";
-import {
-  Flex,
-  Portal,
-  Row,
-  SlideWrapper,
-  StyledSlider,
-} from "@/src/stories/layout";
-import styled, { css } from "styled-components";
+import { Portal, Row, SlideWrapper, StyledSlider } from "@/src/stories/layout";
+import { css } from "styled-components";
 import dynamic from "next/dynamic";
 const ImageView = dynamic(() => import("../../Common/Image/ImageView"), {
   ssr: false,

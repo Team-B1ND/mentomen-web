@@ -12,14 +12,14 @@ export const ShareInteraction = ({
   return (
     <ShareIcon
       onClick={() => handleSharePostClick(postId)}
-      customstyle={customStyle!}
+      $customstyle={customStyle!}
       title="클립보드 복사"
     />
   );
 };
 
-const ShareIcon = styled(AiOutlineShareAlt)<{ customstyle: CSSObject }>`
+const ShareIcon = styled(AiOutlineShareAlt)<{ $customstyle: CSSObject }>`
   ${S.HoverAnimation}
   ${S.IconStyle}
-  ${({ customstyle }) => customstyle}
+  ${({ $customstyle }) => $customstyle}
 `;

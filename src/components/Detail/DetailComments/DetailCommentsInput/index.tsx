@@ -80,7 +80,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                   취소
                 </S.CancelButton>
                 <S.RegistButton
-                  isSameComment={attr.exisitComment === hooks.comment.trim()}
+                  $isSameComment={attr.exisitComment === hooks.comment.trim()}
                   onClick={(e) => {
                     hooks.handleCommentSubmit(
                       e,
@@ -91,7 +91,7 @@ const DetailCommentsInput = ({ ...attr }: Props) => {
                       attr.closeCommentInput // 댓글을 작성하면 댓글인풋을 비활성화 해야함
                     );
                   }}
-                  lengthOfComment={hooks.comment.trim().length}
+                  $lengthOfComment={hooks.comment.trim().length}
                 >
                   {attr.commentId ? "수정" : "등록"}
                 </S.RegistButton>

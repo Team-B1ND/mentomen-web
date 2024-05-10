@@ -17,15 +17,15 @@ const NotificationSkeleton = () => {
           `}
         >
           <SkeletonBox
-            width="50px"
-            height="50px"
-            customStyle={{ borderRadius: "100%" }}
+            $width="50px"
+            $height="50px"
+            $customStyle={{ borderRadius: "100%" }}
           />
 
           <Column $rowGap={"10px"}>
-            <SkeletonBox width="297px" height="22px" />
-            <SkeletonBox width="150px" height="20px" />
-            <SkeletonBox width="50px" height="14px" />
+            <SkeletonBox $width="297px" $height="22px" />
+            <SkeletonBox $width="150px" $height="20px" />
+            <SkeletonBox $width="50px" $height="14px" />
           </Column>
         </Row>
       ))}

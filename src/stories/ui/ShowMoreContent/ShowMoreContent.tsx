@@ -1,6 +1,6 @@
 import { useShowMoreContent } from "@/src/hooks/Content";
 import styled, { CSSObject } from "styled-components";
-import { Column, Flex } from "../../layout";
+import { Column } from "../../layout";
 
 interface Props {
   content: string;

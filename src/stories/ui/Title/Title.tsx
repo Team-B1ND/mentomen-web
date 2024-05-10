@@ -26,7 +26,7 @@ export const Title = ({
     >
       <Row $alignItems={"center"} $columnGap={"5px"}>
         {titleIcon && <Icon src={titleIcon} alt="아이콘" />}
-        <Text customStyle={customstyle!}>{titleText}</Text>
+        <Text $customStyle={customstyle!}>{titleText}</Text>
       </Row>
 
       <SubTitle>{subTitleText}</SubTitle>
@@ -34,9 +34,9 @@ export const Title = ({
   );
 };
 
-const Text = styled.p<{ customStyle: CSSObject }>`
+const Text = styled.p<{ $customStyle: CSSObject }>`
   font-family: "Pretendard-Bold" !important;
-  ${({ customStyle }) => customStyle};
+  ${({ $customStyle }) => $customStyle};
 `;
 
 const Icon = styled(Image)`

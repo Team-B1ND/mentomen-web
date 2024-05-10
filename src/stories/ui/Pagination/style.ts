@@ -31,10 +31,10 @@ export const Li = styled.li`
   }
 `;
 
-export const Arrow = styled.div<{ disabled?: boolean }>`
+export const Arrow = styled.div<{ $disabled?: boolean }>`
   cursor: pointer;
-  ${({ disabled }) =>
-    disabled &&
+  ${({ $disabled }) =>
+    $disabled &&
     css`
       color: gray;
       cursor: revert;

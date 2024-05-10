@@ -45,31 +45,31 @@ const HoverAnimation = css`
   }
 `;
 
-export const SearchIcon = styled(Image)<{ isactivesearch: string }>`
+export const SearchIcon = styled(Image)<{ $isActiveSearch: string }>`
   width: 34px;
   height: 35px;
   padding: 8px;
-  background-color: ${({ isactivesearch }) =>
-    isactivesearch === "true" && "#ddd"};
+  background-color: ${({ $isActiveSearch }) =>
+    $isActiveSearch === "true" && "#ddd"};
   ${HoverAnimation}
 `;
 
-export const NoticeIcon = styled(Image)<{ isactivenotice: string }>`
+export const NoticeIcon = styled(Image)<{ $isActiveNotice: string }>`
   width: 34px;
   height: 35px;
   padding: 5px;
-  background-color: ${({ isactivenotice }) =>
-    isactivenotice === "/notification" && "#ddd"};
+  background-color: ${({ $isActiveNotice }) =>
+    $isActiveNotice === "/notification" && "#ddd"};
   ${HoverAnimation}
 `;
 
-export const ProfileIcon = styled(Image)<{ isactivemypage: string }>`
+export const ProfileIcon = styled(Image)<{ $isActiveMyPage: string }>`
   width: 40px;
   height: 40px;
 
   border-radius: 4rem;
-  border: ${({ isactivemypage }) =>
-    isactivemypage === "/mypage" ? `2px solid #d9d9d9` : "1px solid #ddd"};
+  border: ${({ $isActiveMyPage }) =>
+    $isActiveMyPage === "/mypage" ? `2px solid #d9d9d9` : "1px solid #ddd"};
   margin: 0 2px 0 5px;
 
   cursor: pointer;

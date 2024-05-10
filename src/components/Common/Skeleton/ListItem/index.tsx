@@ -20,14 +20,14 @@ const ListItemSkeleton = () => {
           <Row $columnGap={"12px"}>
             <TagSkeleton />
             <Column $rowGap={"4px"} $padding={"6px 0 0 0"}>
-              <SkeletonBox width="45px" height="16px" />
-              <SkeletonBox width="75px" height="13px" />
+              <SkeletonBox $width="45px" $height="16px" />
+              <SkeletonBox $width="75px" $height="13px" />
             </Column>
           </Row>
 
           <Column $width={"100%"} $rowGap={"8px"}>
-            <SkeletonBox width="400px" height="22px" />
-            <SkeletonBox width="100%" height="420px" />
+            <SkeletonBox $width="400px" $height="22px" />
+            <SkeletonBox $width="100%" $height="420px" />
           </Column>
 
           <Row
@@ -36,12 +36,12 @@ const ListItemSkeleton = () => {
             $justifyContent={"space-between"}
           >
             <Row $columnGap={"5px"} $alignItems={"center"}>
-              <SkeletonBox width="26px" height="26px" />
-              <SkeletonBox width="26px" height="26px" />
-              <SkeletonBox width="26px" height="26px" />
+              <SkeletonBox $width="26px" $height="26px" />
+              <SkeletonBox $width="26px" $height="26px" />
+              <SkeletonBox $width="26px" $height="26px" />
             </Row>
 
-            <SkeletonBox width="55px" height="16px" />
+            <SkeletonBox $width="55px" $height="16px" />
           </Row>
         </Column>
       ))}
