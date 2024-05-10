@@ -19,15 +19,15 @@ export const skeletonAnimation = css`
 `;
 
 export const SkeletonBox = styled.div<{
-  width?: string;
-  height?: string;
-  customStyle?: CSSObject;
+  $width?: string;
+  $height?: string;
+  $customStyle?: CSSObject;
 }>`
-  width: ${({ width }) => width || "100%"};
-  height: ${({ height }) => height || "350px"};
+  width: ${({ $width }) => $width || "100%"};
+  height: ${({ $height }) => $height || "350px"};
   border-radius: 5px;
   border: 1px solid #ddd;
 
-  ${({ customStyle }) => customStyle};
+  ${({ $customStyle }) => $customStyle};
   ${skeletonAnimation};
 `;

@@ -15,10 +15,10 @@ const DetailCommentSkeleton = () => {
           border: 1px solid #ddd;
         `}
       >
-        <SkeletonBox width="85px" height="25px" />
+        <SkeletonBox $width="85px" $height="25px" />
         <Row $width={"100%"} $columnGap={"10px"} $alignItems={"center"}>
-          <SkeletonBox customStyle={ProfileSkeletonStyle} />
-          <SkeletonBox width="100%" height="35px" />
+          <SkeletonBox $customStyle={ProfileSkeletonStyle} />
+          <SkeletonBox $width="100%" $height="35px" />
         </Row>
       </Column>
 
@@ -36,17 +36,17 @@ const DetailCommentSkeleton = () => {
             $customStyle={Item(idx === 7)}
             $columnGap={"6px"}
           >
-            <SkeletonBox customStyle={ProfileSkeletonStyle} />
+            <SkeletonBox $customStyle={ProfileSkeletonStyle} />
 
             <Column $width={"100%"} $rowGap={"15px"}>
               <Column $rowGap={"7px"}>
                 <Row $alignItems={"flex-end"} $columnGap={"7px"}>
-                  <SkeletonBox width="36px" height="14px" />
-                  <SkeletonBox width="48px" height="12px" />
+                  <SkeletonBox $width="36px" $height="14px" />
+                  <SkeletonBox $width="48px" $height="12px" />
                 </Row>
-                <SkeletonBox width="85px" height="13px" />
+                <SkeletonBox $width="85px" $height="13px" />
               </Column>
-              <SkeletonBox width="80%" height="18px" />
+              <SkeletonBox $width="80%" $height="18px" />
             </Column>
           </Row>
         ))}

@@ -14,13 +14,13 @@ export const CommentInteraction = ({
 
   return (
     <CustomLink href={link}>
-      <CommentIcon customstyle={customStyle!} onClick={() => pageView(link)} />
+      <CommentIcon $customstyle={customStyle!} onClick={() => pageView(link)} />
     </CustomLink>
   );
 };
 
-const CommentIcon = styled(AiOutlineComment)<{ customstyle: CSSObject }>`
+const CommentIcon = styled(AiOutlineComment)<{ $customstyle: CSSObject }>`
   ${S.HoverAnimation}
   ${S.IconStyle}
-  ${({ customstyle }) => customstyle}
+  ${({ $customstyle }) => $customstyle}
 `;

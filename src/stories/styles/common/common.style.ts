@@ -30,14 +30,14 @@ export const NoneDataText = styled.div`
   ${Flex({ alignItems: "center", justifyContent: "center" })}
 `;
 
-export const CustomLink = styled(Link)<{ customstyle?: CSSObject }>`
+export const CustomLink = styled(Link)<{ $customstyle?: CSSObject }>`
   color: #000;
   text-decoration: none;
 
   user-drag: none;
   cursor: pointer;
   ${Flex({ alignItems: "center", justifyContent: "center" })};
-  ${({ customstyle }) => customstyle}
+  ${({ $customstyle }) => $customstyle}
 `;
 
 export const DotsIconContainer = styled.div`

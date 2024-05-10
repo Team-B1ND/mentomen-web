@@ -37,7 +37,7 @@ export const Pagination = ({ total, limit, page, setPage }: Props) => {
     >
       <S.Arrow
         onClick={() => page > 1 && handlePageChange(page - 1)}
-        disabled={page === 1}
+        $disabled={page === 1}
       >
         <FaAngleLeft />
       </S.Arrow>
@@ -56,7 +56,7 @@ export const Pagination = ({ total, limit, page, setPage }: Props) => {
 
       <S.Arrow
         onClick={() => page !== numPages && handlePageChange(page + 1)}
-        disabled={page === numPages}
+        $disabled={page === numPages}
       >
         <FaAngleRight />
       </S.Arrow>

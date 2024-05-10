@@ -1,8 +1,8 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SlideOptions } from "@/src/constants/Slide/slide.constant";
-import { css, styled } from "styled-components";
-import { Flex, Row, SlideWrapper, StyledSlider } from "@/src/stories/layout";
+import { styled } from "styled-components";
+import { Flex, SlideWrapper, StyledSlider } from "@/src/stories/layout";
 import dynamic from "next/dynamic";
 const ImageView = dynamic(
   () => import("@/src/components/Common/Image/ImageView"),

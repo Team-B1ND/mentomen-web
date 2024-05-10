@@ -17,9 +17,9 @@ const RequestMentorNavigation = ({ ...hooks }: Props) => {
 
   return (
     <NavigationBox
-      isRequiredPostData={hooks.isRequiredPostData}
-      isCoincidePostData={hooks.isCoincidePostData}
-      isRequestImage={hooks.isRequestImage}
+      $isRequiredPostData={hooks.isRequiredPostData}
+      $isCoincidePostData={hooks.isCoincidePostData}
+      $isRequestImage={hooks.isRequestImage}
     >
       <PrevArrowIcon
         src={leftArrow}
@@ -38,9 +38,9 @@ const RequestMentorNavigation = ({ ...hooks }: Props) => {
 export default RequestMentorNavigation;
 
 export const NavigationBox = styled.div<{
-  isRequiredPostData: boolean;
-  isCoincidePostData: boolean;
-  isRequestImage: boolean;
+  $isRequiredPostData: boolean;
+  $isCoincidePostData: boolean;
+  $isRequestImage: boolean;
 }>`
   width: 100%;
   height: 60px;
@@ -62,14 +62,14 @@ export const NavigationBox = styled.div<{
     color: gray;
 
     transition: all 0.3s ease-in-out;
-    ${({ isRequiredPostData }) =>
-      isRequiredPostData &&
+    ${({ $isRequiredPostData }) =>
+      $isRequiredPostData &&
       css`
         background-color: #2749dc;
         color: #f2f2f2;
       `}
-    ${({ isCoincidePostData, isRequestImage }) =>
-      (isCoincidePostData || isRequestImage) &&
+    ${({ $isCoincidePostData, $isRequestImage }) =>
+      ($isCoincidePostData || $isRequestImage) &&
       css`
         background-color: #0000000d;
         color: gray;

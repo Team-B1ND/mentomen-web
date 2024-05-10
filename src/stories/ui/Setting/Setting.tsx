@@ -15,12 +15,12 @@ interface Props {
 export const Setting = ({ ...attr }: Props) => {
   useEscCloseModal(attr.closeModalEvent);
   return (
-    <Container ref={attr.modalEl} customstyle={attr.customStyle}>
-      <Button onClick={attr.modifyEvent} buttonType={"MODIFY"}>
+    <Container ref={attr.modalEl} $customstyle={attr.customStyle}>
+      <Button onClick={attr.modifyEvent} $buttonType={"MODIFY"}>
         <EditIcon />
         <p>수정</p>
       </Button>
-      <Button onClick={attr.deleteEvent} buttonType={"DELETE"}>
+      <Button onClick={attr.deleteEvent} $buttonType={"DELETE"}>
         <DeleteIcon />
         <p>삭제</p>
       </Button>
@@ -28,7 +28,7 @@ export const Setting = ({ ...attr }: Props) => {
   );
 };
 
-const Container = styled.div<{ customstyle?: CSSObject }>`
+const Container = styled.div<{ $customstyle?: CSSObject }>`
   width: 115px;
   height: 85px;
 
@@ -47,10 +47,10 @@ const Container = styled.div<{ customstyle?: CSSObject }>`
   z-index: 2;
 
   ${Flex({ flexDirection: "column", justifyContent: "center" })}
-  ${({ customstyle }) => customstyle};
+  ${({ $customstyle }) => $customstyle};
 `;
 
-const Button = styled.button<{ buttonType: "MODIFY" | "DELETE" }>`
+const Button = styled.button<{ $buttonType: "MODIFY" | "DELETE" }>`
   width: 100%;
   height: 41.5%;
 
@@ -69,8 +69,8 @@ const Button = styled.button<{ buttonType: "MODIFY" | "DELETE" }>`
   }
   &:active {
     background-color: #ddd;
-    color: ${({ buttonType }) =>
-      buttonType === "MODIFY" ? "#007aff" : "#ff3b30"};
+    color: ${({ $buttonType }) =>
+      $buttonType === "MODIFY" ? "#007aff" : "#ff3b30"};
   }
 
   ${Flex({ alignItems: "center", columnGap: "10px" })};

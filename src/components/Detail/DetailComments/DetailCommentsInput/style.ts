@@ -76,14 +76,14 @@ export const CancelButton = styled.button`
 `;
 
 export const RegistButton = styled.button<{
-  lengthOfComment: number;
-  isSameComment?: boolean;
+  $lengthOfComment: number;
+  $isSameComment?: boolean;
 }>`
   background-color: #0000000d;
   color: gray;
-  ${({ lengthOfComment, isSameComment }) =>
-    lengthOfComment > 0 &&
-    !isSameComment &&
+  ${({ $lengthOfComment, $isSameComment }) =>
+    $engthOfComment > 0 &&
+    !$isSameComment &&
     css`
       cursor: pointer;
       color: #f2f2f2;

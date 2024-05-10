@@ -20,15 +20,15 @@ export const LikeInteraction = ({
       {isLike ? (
         <FillHeartIcon
           onClick={() => setIsLike(false)}
-          customstyle={customStyle!}
+          $customstyle={customStyle!}
         />
       ) : (
         <UnFillHeartIcon
-          access_token={accessToken}
+          $access_token={accessToken}
           onClick={() =>
             accessToken !== undefined ? setIsLike(true) : redirectToDAuthLogin()
           }
-          customstyle={customStyle!}
+          $customstyle={customStyle!}
         />
       )}
     </>
@@ -36,21 +36,21 @@ export const LikeInteraction = ({
 };
 
 const UnFillHeartIcon = styled(AiOutlineHeart)<{
-  customstyle: CSSObject;
-  access_token: string | undefined;
+  $customstyle: CSSObject;
+  $access_token: string | undefined;
 }>`
-  ${({ access_token }) =>
-    access_token !== undefined &&
+  ${({ $access_token }) =>
+    $access_token !== undefined &&
     css`
       ${S.HoverAnimation}
     `}
   ${S.IconStyle}
-  ${({ customstyle }) => customstyle}
+  ${({ $customstyle }) => $customstyle}
 `;
 
-const FillHeartIcon = styled(AiFillHeart)<{ customstyle: CSSObject }>`
+const FillHeartIcon = styled(AiFillHeart)<{ $customstyle: CSSObject }>`
   color: #ff3742;
   ${S.HoverAnimation}
   ${S.IconStyle}
-  ${({ customstyle }) => customstyle}
+  ${({ $customstyle }) => $customstyle}
 `;

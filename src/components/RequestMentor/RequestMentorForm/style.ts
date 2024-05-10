@@ -20,7 +20,7 @@ export const ContentInputContainer = styled.div`
   padding-bottom: 35px;
 `;
 
-export const ContentInput = styled.span<{ placeholder: string }>`
+export const ContentInput = styled.span<{ $placeholder: string }>`
   width: 100%;
   height: 100%;
   min-height: 100px;
@@ -35,12 +35,12 @@ export const ContentInput = styled.span<{ placeholder: string }>`
   white-space: pre-wrap;
   word-break: break-word;
 
-  ${({ placeholder }) =>
-    placeholder &&
+  ${({ $placeholder }) =>
+    $placeholder &&
     css`
       cursor: text;
       &:empty:before {
-        content: attr(placeholder);
+        content: attr($placeholder);
         color: #64748b;
         line-height: 20px;
         font-family: "Pretendard-Light" !important;

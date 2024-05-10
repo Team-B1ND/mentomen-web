@@ -6,7 +6,6 @@ import { CustomLink } from "@/src/stories/styles";
 import { NAV_TAGS_ITEMS } from "./constant";
 import { Title } from "@/src/stories/ui";
 import { GoogleAnalyzer } from "@/src/stories/utils";
-import { Column } from "@/src/stories/layout";
 
 const Tag = () => {
   const router = useRouter();
@@ -25,7 +24,7 @@ const Tag = () => {
         {NAV_TAGS_ITEMS.map((item) => {
           const link = `/tag/${item.title}`;
           return (
-            <CustomLink href={link} key={item.color} customstyle={S.LinkStyle}>
+            <CustomLink href={link} key={item.color} $customstyle={S.LinkStyle}>
               <S.TagItemWrap
                 onClick={() => {
                   pageView(link);

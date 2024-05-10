@@ -60,7 +60,7 @@ function Header() {
 
           <Row $alignItems={"center"} $columnGap={"3px"}>
             <S.SearchIcon
-              isactivesearch={isActiveSearch.toString()}
+              $isActiveSearch={isActiveSearch.toString()}
               src={searchIcon}
               onClick={() => {
                 isActiveSearch
@@ -73,7 +73,7 @@ function Header() {
               <>
                 <CustomLink href={"/notification"}>
                   <S.NoticeIcon
-                    isactivenotice={router.pathname}
+                    $isActiveNotice={router.pathname}
                     src={isHaveNotice ? existNotice : notExistNotice}
                     onClick={() => {
                       isActiveSearch && setIsActiveSearch(false);
@@ -89,7 +89,7 @@ function Header() {
                     src={myInfo?.data.profileImage || profile}
                     width={40}
                     height={40}
-                    isactivemypage={router.pathname}
+                    $isActiveMyPage={router.pathname}
                     onClick={() => {
                       isActiveSearch && setIsActiveSearch(false);
                       pageView("/mypage");
