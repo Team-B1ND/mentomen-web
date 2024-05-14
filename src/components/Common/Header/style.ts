@@ -105,10 +105,12 @@ export const MenToRequest = styled.div`
 export const StartMenToMen = styled.div`
   font-family: "Pretendard-Medium" !important;
   font-size: 17px;
-  padding: 8px;
 
-  ${HoverAnimation};
+  padding: 8px;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
   &:active {
-    transform: scale(0.96);
+    opacity: 0.5;
   }
 `;
