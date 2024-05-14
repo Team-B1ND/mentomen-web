@@ -7,10 +7,10 @@ export const Container = (commentLenght: number) => css`
   border: ${commentLenght > 0 && "1px solid #ddd"};
 `;
 
-export const CommentsList = styled.article<{ isLast: boolean }>`
+export const CommentsList = styled.article<{ $isLast: boolean }>`
   width: 100%;
   min-height: 106px;
-  border-bottom: ${({ isLast }) => !isLast && "1px solid #ddd"};
+  border-bottom: ${({ $isLast }) => !$isLast && "1px solid #ddd"};
   padding: 20px 16px 10px 20px;
   ${Flex({ columnGap: "20px" })};
 `;

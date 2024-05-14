@@ -25,7 +25,7 @@ const Tag = () => {
           titleIcon={post}
           titleText={
             <>
-              <TagText tag={tag?.toString()!}>{tag}</TagText> 멘토 요청 글
+              <TagText $tag={tag?.toString()!}>{tag}</TagText> 멘토 요청 글
             </>
           }
           subTitleText={`포스팅된 ${tag} 멘토 요청 글을 조회할 수 있어요!`}
@@ -63,7 +63,7 @@ const TagItem = ({ tag }: { tag: string }) => {
 
 export default Tag;
 
-const TagText = styled.span<{ tag: string }>`
+const TagText = styled.span<{ $tag: string }>`
   font-family: "Pretendard-Bold" !important;
-  color: ${({ tag }) => new GetTag().getTagColor(tag)};
+  color: ${({ $tag }) => new GetTag().getTagColor($tag)};
 `;

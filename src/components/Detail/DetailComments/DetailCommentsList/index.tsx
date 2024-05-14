@@ -50,7 +50,7 @@ const DetailCommentsListItem = ({
   const dateTime = new GetDateTime();
 
   return (
-    <S.CommentsList key={attr.commentId} isLast={isLast}>
+    <S.CommentsList key={attr.commentId} $isLast={isLast}>
       <S.ProfileImage
         src={attr.profileUrl || profile}
         width={40}

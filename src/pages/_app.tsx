@@ -7,7 +7,7 @@ import { DefaultSeo } from "next-seo";
 import { MenToMenToastContainer } from "../stories/utils";
 import { useSeoConfig } from "../hooks/SEO";
 import { useGATracker } from "../hooks/Analyze";
-import "@/src/stories/core/design-token/font.css";
+import "../styles/font.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(
