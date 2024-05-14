@@ -1,12 +1,12 @@
 import Header from "../Common/Header";
 import Nav from "../Common/Nav";
-
 import { useRouter } from "next/router";
-import { GlobalStyle, PropsWithChildren } from "@/src/stories/core";
+import { PropsWithChildren } from "@/src/stories/core";
 import { PageProgressBar, ScrollTopButton } from "@/src/stories/ui";
 import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 import { Column, Row } from "@/src/stories/layout";
 import { css } from "styled-components";
+import { GlobalStyle } from "@/src/styles/GlobalStyle";
 
 const Proivder = ({ children }: PropsWithChildren) => {
   const router = useRouter();
