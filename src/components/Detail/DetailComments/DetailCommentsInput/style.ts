@@ -82,7 +82,7 @@ export const RegistButton = styled.button<{
   background-color: #0000000d;
   color: gray;
   ${({ $lengthOfComment, $isSameComment }) =>
-    $engthOfComment > 0 &&
+    $lengthOfComment > 0 &&
     !$isSameComment &&
     css`
       cursor: pointer;

@@ -28,8 +28,8 @@ const RequestMentorFormAttachImage = ({ ...hooks }: Props) => {
     <>
       <Column $width={"100%"} $rowGap={"15px"}>
         <S.AttachImageWrap
-          isDrop={isDrop}
-          isRequestImage={hooks.isRequestImage}
+          $isDrop={isDrop}
+          $isRequestImage={hooks.isRequestImage}
           onClick={() =>
             !hooks.isRequestImage && hooks.selectFileImage.current?.click()
           }

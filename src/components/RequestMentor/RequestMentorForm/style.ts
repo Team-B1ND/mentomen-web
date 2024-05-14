@@ -20,7 +20,7 @@ export const ContentInputContainer = styled.div`
   padding-bottom: 35px;
 `;
 
-export const ContentInput = styled.span<{ $placeholder: string }>`
+export const ContentInput = styled.span<{ placeholder: string }>`
   width: 100%;
   height: 100%;
   min-height: 100px;
@@ -35,12 +35,12 @@ export const ContentInput = styled.span<{ $placeholder: string }>`
   white-space: pre-wrap;
   word-break: break-word;
 
-  ${({ $placeholder }) =>
-    $placeholder &&
+  ${({ placeholder }) =>
+    placeholder &&
     css`
       cursor: text;
       &:empty:before {
-        content: attr($placeholder);
+        content: attr(placeholder);
         color: #64748b;
         line-height: 20px;
         font-family: "Pretendard-Light" !important;
@@ -49,21 +49,21 @@ export const ContentInput = styled.span<{ $placeholder: string }>`
 `;
 
 export const AttachImageWrap = styled.div<{
-  isDrop: boolean;
-  isRequestImage: boolean;
+  $isDrop: boolean;
+  $isRequestImage: boolean;
 }>`
   width: 100%;
   height: 130px;
 
-  cursor: ${({ isRequestImage }) => !isRequestImage && "pointer"};
+  cursor: ${({ $isRequestImage }) => !$isRequestImage && "pointer"};
 
   border-radius: 7px;
   transition: all 0.2s ease-in-out;
   border: 1.7px dashed #ddd;
 
-  ${({ isDrop, isRequestImage }) =>
-    isDrop &&
-    !isRequestImage &&
+  ${({ $isDrop, $isRequestImage }) =>
+    $isDrop &&
+    !$isRequestImage &&
     css`
       transform: scale(0.97);
       border: 1.5px dashed #2745f2;
@@ -84,7 +84,7 @@ export const AttachImageWrap = styled.div<{
     padding: 6px 7px;
     border-radius: 5px;
     background-color: transparent;
-    cursor: ${({ isRequestImage }) => !isRequestImage && "pointer"};
+    cursor: ${({ $isRequestImage }) => !$isRequestImage && "pointer"};
 
     outline: none;
     border: 1px solid #000;
