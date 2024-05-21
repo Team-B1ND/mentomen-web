@@ -27,7 +27,7 @@ const RequestMentorNavigation = ({ ...hooks }: Props) => {
         alt="이전 페이지로 이동"
       />
       <button onClick={hooks.handlePostSubmit}>
-        {router.pathname === "/request-mentor/modify"
+        {router.pathname.includes("/modify")
           ? "멘토 요청 수정하기"
           : "멘토 요청하기"}
       </button>

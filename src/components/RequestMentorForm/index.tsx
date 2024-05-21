@@ -1,13 +1,13 @@
 import request from "@/public/icons/title/request.png";
 import RequestMentorNavigation from "./RequestMentorNavigation";
-import RequestMentorForm from "./RequestMentorForm";
+import RequestMentorContent from "./RequestMentorContent";
 import { Title } from "@/src/stories/ui";
 import { useTokenCheck } from "@/src/hooks/Auth";
 import { useRegistPost } from "@/src/hooks/RequestMentor";
 import { Column } from "@/src/stories/layout";
 import { css } from "styled-components";
 
-const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
+const RequestMentorForm = ({ type }: { type: "WRITE" | "MODIFY" }) => {
   useTokenCheck();
   const { ...hooks } = useRegistPost(type);
 
@@ -50,10 +50,10 @@ const RequestMentor = ({ type }: { type: "WRITE" | "MODIFY" }) => {
           }
           customstyle={{ fontSize: "18px" }}
         />
-        <RequestMentorForm {...hooks} />
+        <RequestMentorContent {...hooks} />
       </Column>
     </Column>
   );
 };
 
-export default RequestMentor;
+export default RequestMentorForm;

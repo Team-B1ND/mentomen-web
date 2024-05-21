@@ -59,7 +59,7 @@ export const ListItemProfile = ({ ...attr }: PostItemType) => {
                     closeModalEvent={() => setIsActiveSetting(false)}
                     modifyEvent={() => {
                       setExistingPostData(attr);
-                      router.push("/request-mentor/modify");
+                      router.push(`/detail/${attr.postId}/modify`);
                     }}
                     deleteEvent={() => handleDeletePostClick(attr.postId)}
                     customStyle={SettingStyle}

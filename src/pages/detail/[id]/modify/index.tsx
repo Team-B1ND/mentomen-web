@@ -1,12 +1,9 @@
-import RequestMentor from "@/src/components/RequestMentor";
+import RequestMentorForm from "@/src/components/RequestMentorForm";
 import { useSeoConfig } from "@/src/hooks/SEO";
 import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
 import React from "react";
 
-const ModifyPage = () => {
-  const router = useRouter();
-
+const ModifyDetailByIdPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
     title: "멘투멘 | 멘토 요청 수정 페이지",
     description: "멘투멘 멘토 요청 수정 페이지입니다.",
@@ -15,11 +12,9 @@ const ModifyPage = () => {
   return (
     <>
       <NextSeo {...SeoNextConfigProps} />
-      <RequestMentor
-        type={router.pathname === "/request-mentor/modify" ? "MODIFY" : "WRITE"}
-      />
+      <RequestMentorForm type={"MODIFY"} />
     </>
   );
 };
 
-export default ModifyPage;
+export default ModifyDetailByIdPage;

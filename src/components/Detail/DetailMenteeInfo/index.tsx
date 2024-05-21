@@ -65,8 +65,8 @@ const DetailMenteeInfo = ({ ...attr }: PostItemType) => {
                   }}
                   modifyEvent={() => {
                     setExistingPostData(attr);
-                    pageView(`/request-mentor/modify`);
-                    router.push("/request-mentor/modify");
+                    pageView(`/detail/${attr.postId}/modify`);
+                    router.push(`/detail/${attr.postId}/modify`);
                   }}
                   deleteEvent={() => handleDeletePostClick(attr.postId)}
                 />

@@ -1,7 +1,7 @@
 const hideHeaderInPages = [
   "/callback",
   "/request-mentor/write",
-  "/request-mentor/modify",
+  "/detail/[id]/modify",
 ];
 
 const hideNavInPages = ["/detail/[id]", "/notification", ...hideHeaderInPages];
@@ -27,7 +27,7 @@ export const useHideHeaderOrNav = (path: string) => {
   const handleIsHideHeader = () => {
     if (handleIsValidPage()) {
       if (hideHeaderInPages.includes(path)) {
-        return true; // 
+        return true; //
       }
       return false;
     }

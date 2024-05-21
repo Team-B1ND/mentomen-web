@@ -96,7 +96,11 @@ export const MenToRequest = styled.div`
   background-color: #2749dc;
 
   ${Flex({ alignItems: "center", justifyContent: "center" })};
-  transition: all 0.1s ease-in-out;
+
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.9;
+  }
   &:active {
     opacity: 0.8;
   }
