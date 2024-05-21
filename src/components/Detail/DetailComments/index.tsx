@@ -1,11 +1,14 @@
 import DetailCommentsInput from "./DetailCommentsInput";
 import DetailCommentsList from "./DetailCommentsList";
 import styled, { css } from "styled-components";
-import { useGetCommentQuery } from "@/src/services/Comment/queries";
+import { useGetCommentByPostIdQuery } from "@/src/services/Comment/comment.query";
 import { Column } from "@/src/stories/layout";
 
 const DetailComments = ({ postId }: { postId: number }) => {
-  const { data: commentsData } = useGetCommentQuery(postId, { suspense: true });
+  const { data: commentsData } = useGetCommentByPostIdQuery(postId, {
+    suspense: true,
+  });
+
   return (
     <Column $width={"100%"} $rowGap={"15px"}>
       <Column

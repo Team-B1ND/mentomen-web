@@ -1,12 +1,12 @@
 import Detail from "@/src/components/Detail";
 import { QUERY_KEYS } from "@/src/stories/core";
 import { useSeoConfig } from "@/src/hooks/SEO";
-import PostApi from "@/src/services/Post/PostApi";
+import { PostApi } from "@/src/services/Post/post.api";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
-import CommentApi from "@/src/services/Comment/CommentApi";
+import { CommentApi } from "@/src/services/Comment/comment.api";
 
 const DetailPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
@@ -28,10 +28,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   await Promise.all([
     queryClient.prefetchQuery(QUERY_KEYS.Post.getPostById(id), () =>
-      PostApi.getPostByIdApi(id)
+      PostApi.getPostById(id)
     ),
     queryClient.prefetchQuery(QUERY_KEYS.Comment.getComment(id), () =>
-      CommentApi.getCommentApi(id)
+      CommentApi.getCommentByPostId(id)
     ),
   ]);
 

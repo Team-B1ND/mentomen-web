@@ -12,8 +12,8 @@ import Search from "@/src/components/Modal/Search";
 import { useRouter } from "next/router";
 import { UserDataAtom } from "@/src/store/User/user.store";
 import { CustomLink } from "@/src/stories/styles";
-import { useGetNoticeCheckQuery } from "@/src/services/Notification/queries";
-import { useGetMyInfoQuery } from "@/src/services/User/queries";
+import { useGetNoticeCheckQuery } from "@/src/services/Notification/notification.query";
+import { useGetMyInfoQuery } from "@/src/services/User/user.query";
 import { Portal, Row } from "@/src/stories/layout";
 import { GoogleAnalyzer, redirectToDAuthLogin } from "@/src/stories/utils";
 

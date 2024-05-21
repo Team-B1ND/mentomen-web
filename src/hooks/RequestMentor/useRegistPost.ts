@@ -6,8 +6,8 @@ import {
   useDeletePostMutation,
   usePatchMyPostMutation,
   usePostMySubmitMutation,
-} from "@/src/services/Post/mutations";
-import { useFileUploadMutation } from "@/src/services/File/mutations";
+} from "@/src/services/Post/post.mutation";
+import { useFileUploadMutation } from "@/src/services/File/file.mutation";
 import { QUERY_KEYS } from "../../stories/core";
 import { useQueryInvalidates } from "../Invalidates";
 import { MenToMenToast } from "../../stories/utils";

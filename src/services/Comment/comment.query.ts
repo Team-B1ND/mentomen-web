@@ -1,9 +1,9 @@
 import { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "react-query";
-import CommentApi from "./CommentApi";
+import { CommentApi } from "./comment.api";
 import { CommentDataType, QUERY_KEYS } from "@/src/stories/core";
 
-export const useGetCommentQuery = (
+export const useGetCommentByPostIdQuery = (
   postId: number,
   options?: UseQueryOptions<
     CommentDataType,
@@ -14,7 +14,7 @@ export const useGetCommentQuery = (
 ) =>
   useQuery(
     QUERY_KEYS.Comment.getComment(postId),
-    () => CommentApi.getCommentApi(postId),
+    () => CommentApi.getCommentByPostId(postId),
     {
       enabled: !!postId,
       cacheTime: 1000 * 60 * 60,

@@ -1,6 +1,6 @@
 import { useQuery, UseQueryOptions } from "react-query";
 import { AxiosError } from "axios";
-import PostApi from "./PostApi";
+import { PostApi } from "./post.api";
 import { PostItemResponse, PostResponse, QUERY_KEYS } from "@/src/stories/core";
 
 export const useGetAllPostQuery = (
@@ -11,7 +11,7 @@ export const useGetAllPostQuery = (
     string
   >
 ) => {
-  return useQuery(QUERY_KEYS.Post.getAllPost, () => PostApi.getAllPostApi(), {
+  return useQuery(QUERY_KEYS.Post.getAllPost, () => PostApi.getAllPost(), {
     staleTime: 1000 * 60 * 60,
     cacheTime: 1000 * 60 * 60,
     ...options,
@@ -29,7 +29,7 @@ export const useGetPostByIdQuery = (
 ) =>
   useQuery(
     QUERY_KEYS.Post.getPostById(postId),
-    () => PostApi.getPostByIdApi(postId),
+    () => PostApi.getPostById(postId),
     {
       enabled: !!postId,
       staleTime: 1000 * 60 * 60,
@@ -47,16 +47,12 @@ export const useGetPostByTagQuery = (
     string[]
   >
 ) =>
-  useQuery(
-    QUERY_KEYS.Post.getPostByTag(tag),
-    () => PostApi.getPostByTagApi(tag),
-    {
-      enabled: !!tag,
-      staleTime: 1000 * 60 * 60,
-      cacheTime: 1000 * 60 * 60,
-      ...options,
-    }
-  );
+  useQuery(QUERY_KEYS.Post.getPostByTag(tag), () => PostApi.getPostByTag(tag), {
+    enabled: !!tag,
+    staleTime: 1000 * 60 * 60,
+    cacheTime: 1000 * 60 * 60,
+    ...options,
+  });
 
 export const useGetPostByKeyWordQuery = (
   keyword: string,
@@ -69,7 +65,7 @@ export const useGetPostByKeyWordQuery = (
 ) =>
   useQuery(
     QUERY_KEYS.Post.getPostByKeyWord(keyword),
-    () => PostApi.getPostByKeyWordApi(keyword),
+    () => PostApi.getPostByKeyWord(keyword),
     {
       enabled: !!keyword,
       staleTime: 1000 * 60 * 60,

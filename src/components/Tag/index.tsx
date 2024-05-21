@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Suspense } from "react";
 import ListItemSkeleton from "../Common/Skeleton/ListItem";
 import post from "@/public/icons/title/post.png";
-import { useGetPostByTagQuery } from "@/src/services/Post/queries";
+import { useGetPostByTagQuery } from "@/src/services/Post/post.query";
 import styled from "styled-components";
 import { ErrorBoundary } from "@/src/stories/layout";
 import { ListItem, Title } from "@/src/stories/ui";
