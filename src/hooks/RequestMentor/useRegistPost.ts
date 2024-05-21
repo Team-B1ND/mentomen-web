@@ -11,7 +11,7 @@ import { useFileUploadMutation } from "@/src/services/File/file.mutation";
 import { QUERY_KEYS } from "../../stories/core";
 import { useQueryInvalidates } from "../Invalidates";
 import { MenToMenToast } from "../../stories/utils";
-import { AxiosError } from "axios";
+import type { AxiosError } from "axios";
 import PostErrorHandler from "@/src/stories/utils/Error/PostErrorHandler";
 import FileErrorHandler from "@/src/stories/utils/Error/FileErrorHandler";
 

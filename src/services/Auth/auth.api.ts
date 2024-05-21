@@ -1,4 +1,4 @@
-import { LoginResponse } from "@/src/stories/core";
+import type { LoginResponse } from "@/src/stories/core";
 import axios from "axios";
 
 export const AuthApi = {

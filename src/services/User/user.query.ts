@@ -1,7 +1,7 @@
-import { AxiosError } from "axios";
+import type { AxiosError } from "axios";
 import { useQuery, UseQueryOptions } from "react-query";
 import { UserApi } from "./user.api";
-import { PostItemResponse, QUERY_KEYS } from "@/src/stories/core";
+import { type PostItemResponse, QUERY_KEYS } from "@/src/stories/core";
 
 export const useGetMyInfoQuery = () =>
   useQuery(QUERY_KEYS.User.getMyInfo, () => UserApi.getMyInfo(), {

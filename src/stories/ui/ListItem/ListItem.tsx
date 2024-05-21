@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PostItemType } from "../../core";
+import type { PostItemType } from "../../core";
 import { Flex } from "../../layout";
 import { ListItemProfile } from "./ListItemProfile/ListItmeProfile";
 import { ListItemContent } from "./ListtItemContent/ListtItemContent";

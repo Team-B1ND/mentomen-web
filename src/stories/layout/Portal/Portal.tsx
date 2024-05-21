@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { PropsWithChildren } from "../../core";
+import type { PropsWithChildren } from "../../core";
 
 export const Portal = ({ children }: PropsWithChildren) => {
   const [mounted, setMounted] = useState<boolean>(false);

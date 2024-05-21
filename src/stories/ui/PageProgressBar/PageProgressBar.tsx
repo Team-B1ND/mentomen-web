@@ -1,4 +1,4 @@
-import NextNProgress, { NextNProgressProps } from "nextjs-progressbar";
+import NextNProgress, { type NextNProgressProps } from "nextjs-progressbar";
 
 export const PageProgressBar = ({ ...attr }: NextNProgressProps) => {
   return (

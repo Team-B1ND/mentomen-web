@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { PageProgressBar } from "./PageProgressBar";
 
 const meta: Meta<typeof PageProgressBar> = {

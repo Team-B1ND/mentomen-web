@@ -5,7 +5,7 @@ import { useState } from "react";
 import styled, { css, CSSObject } from "styled-components";
 import { Column, Row } from "@/src/stories/layout";
 import Image from "next/image";
-import { PostItemType } from "@/src/stories/core";
+import type { PostItemType } from "@/src/stories/core";
 import { GetTag } from "@/src/stories/utils";
 import { Setting } from "../../Setting";
 import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";

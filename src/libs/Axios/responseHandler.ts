@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios, { type AxiosError } from "axios";
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,

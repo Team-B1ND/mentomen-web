@@ -1,4 +1,4 @@
-import { PostItemType } from "@/src/stories/core";
+import type { PostItemType } from "@/src/stories/core";
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 

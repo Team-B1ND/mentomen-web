@@ -1,4 +1,4 @@
-import { useEffect, KeyboardEvent } from "react";
+import { useEffect, type KeyboardEvent } from "react";
 
 export const useEscCloseModal = (
   callback: (e?: KeyboardEvent<Element>) => void,

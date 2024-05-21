@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { ShowMoreContent } from "./ShowMoreContent";
 
 const meta: Meta<typeof ShowMoreContent> = {

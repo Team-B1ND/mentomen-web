@@ -1,7 +1,8 @@
 import { useQuery, UseQueryOptions } from "react-query";
-import { AxiosError } from "axios";
+import type { AxiosError } from "axios";
 import { PostApi } from "./post.api";
-import { PostItemResponse, PostResponse, QUERY_KEYS } from "@/src/stories/core";
+import type { PostItemResponse, PostResponse } from "@/src/stories/core";
+import { QUERY_KEYS } from "@/src/stories/core";
 
 export const useGetAllPostQuery = (
   options?: UseQueryOptions<

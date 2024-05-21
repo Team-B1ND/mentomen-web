@@ -1,4 +1,4 @@
-import { DefaultSeoProps, NextSeoProps } from "next-seo";
+import type { DefaultSeoProps, NextSeoProps } from "next-seo";
 
 interface Type {
   title: string;

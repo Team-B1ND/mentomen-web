@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import styled, { css, CSSObject } from "styled-components";
 import Image, { StaticImageData } from "next/image";
 import { Column, Row } from "../../layout";
