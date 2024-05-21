@@ -5,7 +5,7 @@ import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
 import styled, { css, CSSObject } from "styled-components";
 import * as S from "../style";
-import { PostInteractionProps } from "../type";
+import type { PostInteractionProps } from "../type";
 import { redirectToDAuthLogin } from "@/src/stories/utils";
 
 export const LikeInteraction = ({

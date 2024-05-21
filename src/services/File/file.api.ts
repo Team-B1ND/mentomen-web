@@ -1,4 +1,4 @@
-import { FileResponse } from "@/src/stories/core";
+import type { FileResponse } from "@/src/stories/core";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 
 export const FileApi = {

@@ -4,8 +4,8 @@ import {
   usePostCommentMutation,
 } from "@/src/services/Comment/comment.mutation";
 import CommentErrorHandler from "@/src/stories/utils/Error/CommentErrorHandler";
-import { AxiosError } from "axios";
-import { Dispatch, SetStateAction, useState } from "react";
+import type { AxiosError } from "axios";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import { QUERY_KEYS } from "../../stories/core";
 import { MenToMenToast } from "../../stories/utils";
 import { useQueryInvalidates } from "../Invalidates";

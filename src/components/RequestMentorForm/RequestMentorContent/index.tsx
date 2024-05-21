@@ -21,7 +21,7 @@ interface Props {
   handleFileUploadDrop: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
-const RequestMentorForm = ({ ...hooks }: Props) => {
+const RequestMentorContent = ({ ...hooks }: Props) => {
   return (
     <>
       <RequestMentorFormTag {...hooks} />
@@ -31,4 +31,4 @@ const RequestMentorForm = ({ ...hooks }: Props) => {
   );
 };
 
-export default RequestMentorForm;
+export default RequestMentorContent;

@@ -1,5 +1,5 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import { ISitemapField, getServerSideSitemapLegacy } from "next-sitemap";
+import { type ISitemapField, getServerSideSitemapLegacy } from "next-sitemap";
 import { PostApi } from "@/src/services/Post/post.api";
 
 export const getServerSideProps: GetServerSideProps = async (

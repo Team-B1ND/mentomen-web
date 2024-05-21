@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import * as S from "../style";
 
 interface Props {
+  postId: number;
   existingData: PostSubmitType | null;
   handleRequestMentorInputChange: (
     e: React.ChangeEvent<HTMLDivElement>
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const RequestMentorFormInput = ({
+  postId,
   existingData,
   handleRequestMentorInputChange,
 }: Props) => {
@@ -26,7 +28,7 @@ const RequestMentorFormInput = ({
         onPaste={handlePasteFromClipboard}
         suppressContentEditableWarning
       >
-        {router.pathname === "/request-mentor/modify" && existingData?.content}
+        {router.pathname.includes("modify") && existingData?.content}
       </S.ContentInput>
     </S.ContentInputContainer>
   );

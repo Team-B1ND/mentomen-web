@@ -1,4 +1,4 @@
-import { patchCommentType, postCommentType } from "@/src/stories/core";
+import type { patchCommentType, postCommentType } from "@/src/stories/core";
 import { useMutation } from "react-query";
 import { CommentApi } from "./comment.api";
 

@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN_KEY } from "@/src/constants/Auth/auth.constant";
-import { PostItemResponse, UserResponse } from "@/src/stories/core";
+import type { PostItemResponse, UserResponse } from "@/src/stories/core";
 import { MenToMenAxios } from "@/src/libs/Axios/MenToMenAxios";
 import token from "@/src/libs/token/token";
 
