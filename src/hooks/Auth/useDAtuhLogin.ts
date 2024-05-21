@@ -5,7 +5,7 @@ import {
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import token from "@/src/libs/token/token";
-import AuthApi from "@/src/services/Auth/AuthApi";
+import { AuthApi } from "@/src/services/Auth/auth.api";
 
 export const useDAtuhLogin = () => {
   const router = useRouter();
@@ -16,9 +16,7 @@ export const useDAtuhLogin = () => {
     if (code) {
       const request = async () => {
         try {
-          const { data } = await AuthApi.loginApi({
-            code: code.toString(),
-          });
+          const { data } = await AuthApi.postLogin(code.toString());
 
           token.setCookie(ACCESS_TOKEN_KEY, data.accessToken);
           token.setCookie(REFRESH_TOKEN_KEY, data.refreshToken);

@@ -2,7 +2,7 @@ import {
   useDeleteCommentMutation,
   usePatchCommentMutation,
   usePostCommentMutation,
-} from "@/src/services/Comment/mutations";
+} from "@/src/services/Comment/comment.mutation";
 import CommentErrorHandler from "@/src/stories/utils/Error/CommentErrorHandler";
 import { AxiosError } from "axios";
 import { Dispatch, SetStateAction, useState } from "react";

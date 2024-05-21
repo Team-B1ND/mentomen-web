@@ -7,7 +7,7 @@ import hello from "@/public/icons/title/hello.png";
 import * as S from "./style";
 import DetailSkeleton from "../Common/Skeleton/Detail";
 import DetailCommentSkeleton from "../Common/Skeleton/Detail/DetailComment";
-import { useGetPostByIdQuery } from "@/src/services/Post/queries";
+import { useGetPostByIdQuery } from "@/src/services/Post/post.query";
 import profile from "@/public/icons/user/aprofile.png";
 import { Column, ErrorBoundary, Row } from "@/src/stories/layout";
 import {

@@ -2,7 +2,7 @@ import profile from "@/public/icons/user/aprofile.png";
 import * as S from "../style";
 import { useRouter } from "next/router";
 import { NoneDataText } from "@/src/stories/styles";
-import { useGetNoticeListQuery } from "@/src/services/Notification/queries";
+import { useGetNoticeListQuery } from "@/src/services/Notification/notification.query";
 import { GetDateTime, GetText } from "@/src/stories/utils";
 import { Pagination } from "@/src/stories/ui";
 import { Column } from "@/src/stories/layout";

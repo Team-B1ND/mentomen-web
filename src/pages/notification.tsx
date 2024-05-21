@@ -4,7 +4,7 @@ import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../stories/core";
 import { useSeoConfig } from "../hooks/SEO";
-import NotificationApi from "../services/Notification/NotificationApi";
+import { NotificationApi } from "../services/Notification/notification.api";
 
 const NotificationPage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
@@ -26,7 +26,7 @@ export const getServerSideProps = async () => {
   await Promise.all([
     queryClient.prefetchQuery(
       QUERY_KEYS.Notice.getNoticeList,
-      NotificationApi.getNoticeListApi
+      NotificationApi.getNoticeList
     ),
   ]);
 

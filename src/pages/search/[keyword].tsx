@@ -1,7 +1,7 @@
 import Search from "@/src/components/Search";
 import { QUERY_KEYS } from "@/src/stories/core";
 import { useSeoConfig } from "@/src/hooks/SEO";
-import PostApi from "@/src/services/Post/PostApi";
+import { PostApi } from "@/src/services/Post/post.api";
 import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   await Promise.all([
     queryClient.prefetchQuery(QUERY_KEYS.Post.getPostByKeyWord(keyword), () =>
-      PostApi.getPostByKeyWordApi(keyword)
+      PostApi.getPostByKeyWord(keyword)
     ),
   ]);
 

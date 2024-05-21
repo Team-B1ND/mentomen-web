@@ -2,7 +2,7 @@ import Home from "@/src/components/Home";
 import { NextSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 import { QUERY_KEYS } from "../stories/core";
-import PostApi from "../services/Post/PostApi";
+import { PostApi } from "../services/Post/post.api";
 import { useSeoConfig } from "../hooks/SEO";
 
 const HomePage = () => {
@@ -23,10 +23,7 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await Promise.all([
-    queryClient.prefetchQuery(
-      QUERY_KEYS.Post.getAllPost,
-      PostApi.getAllPostApi
-    ),
+    queryClient.prefetchQuery(QUERY_KEYS.Post.getAllPost, PostApi.getAllPost),
   ]);
 
   return {

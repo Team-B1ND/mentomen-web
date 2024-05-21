@@ -3,7 +3,7 @@ import { dehydrate, QueryClient } from "react-query";
 import MyPage from "../components/MyPage";
 import { QUERY_KEYS } from "../stories/core";
 import { useSeoConfig } from "../hooks/SEO";
-import UserApi from "../services/User/UserApi";
+import { UserApi } from "../services/User/user.api";
 
 const MyPagePage = () => {
   const { SeoNextConfigProps } = useSeoConfig({
@@ -23,7 +23,7 @@ export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
 
   await Promise.all([
-    queryClient.prefetchQuery(QUERY_KEYS.User.getMyPost, UserApi.getMyPostApi),
+    queryClient.prefetchQuery(QUERY_KEYS.User.getMyPost, UserApi.getMyPost),
   ]);
 
   return {
