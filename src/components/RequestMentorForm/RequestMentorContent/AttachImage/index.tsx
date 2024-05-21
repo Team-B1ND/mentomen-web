@@ -1,6 +1,7 @@
 import upload from "@/public/icons/RequestMentor/upload.svg";
 import cancel from "@/public/icons/RequestMentor/cancel.svg";
-import { Dispatch, RefObject, SetStateAction, useState } from "react";
+import type { Dispatch, RefObject, SetStateAction } from "react";
+import { useState } from "react";
 import * as S from "../style";
 import { Column, Portal } from "@/src/stories/layout";
 import dynamic from "next/dynamic";

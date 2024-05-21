@@ -1,6 +1,6 @@
 import { REQUEST_MENTOR_TAGS_ITEMS } from "./constant";
 import * as S from "../style";
-import { Dispatch, SetStateAction, useState } from "react";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import { Row } from "@/src/stories/layout";
 
 interface Props {

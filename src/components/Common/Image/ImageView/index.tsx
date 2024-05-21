@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { CSSObject } from "styled-components";
-import Image, { ImageProps } from "next/image";
+import Image, { type ImageProps } from "next/image";
 
 interface Props extends ImageProps {
   customstyle?: CSSObject;

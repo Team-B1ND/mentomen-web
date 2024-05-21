@@ -1,4 +1,4 @@
-import { PostSubmitType } from "@/src/stories/core";
+import type { PostSubmitType } from "@/src/stories/core";
 import { useClipboardPaste } from "@/src/hooks/ClipboardPaste";
 import { useRouter } from "next/router";
 import * as S from "../style";

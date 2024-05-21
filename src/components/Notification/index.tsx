@@ -4,7 +4,6 @@ import { useRecoilValue } from "recoil";
 import NotificationSkeleton from "../Common/Skeleton/Notification";
 import NotificationItem from "./NotificationItem";
 import bell from "@/public/icons/title/bell.png";
-import * as S from "./style";
 import { NoneDataText } from "@/src/stories/styles";
 import { useTokenCheck } from "@/src/hooks/Auth";
 import { Column, ErrorBoundary } from "@/src/stories/layout";

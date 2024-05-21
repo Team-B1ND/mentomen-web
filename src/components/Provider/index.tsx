@@ -1,7 +1,7 @@
 import Header from "../Common/Header";
 import Nav from "../Common/Nav";
 import { useRouter } from "next/router";
-import { PropsWithChildren } from "@/src/stories/core";
+import type { PropsWithChildren } from "@/src/stories/core";
 import { PageProgressBar, ScrollTopButton } from "@/src/stories/ui";
 import { useHideHeaderOrNav } from "@/src/hooks/HideHeaderOrNav";
 import { Column, Row } from "@/src/stories/layout";

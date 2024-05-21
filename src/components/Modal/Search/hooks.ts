@@ -1,6 +1,6 @@
 import { GoogleAnalyzer, MenToMenToast } from "@/src/stories/utils";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useState } from "react";
+import { type Dispatch, type SetStateAction, useState } from "react";
 
 export const useKeyWordSearch = () => {
   const [search, setSearch] = useState<string>("");

@@ -1,5 +1,5 @@
 import { useKeyWordSearch } from "./hooks";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import searchIcon from "@/public/icons/Search/ModalSearch.svg";
 import * as S from "./style";
 import { useEscCloseModal } from "@/src/hooks/Modal";
