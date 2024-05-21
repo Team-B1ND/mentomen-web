@@ -1,4 +1,4 @@
-import { Column, Flex, Row } from "@/src/stories/layout";
+import { Column, Row } from "@/src/stories/layout";
 import { SkeletonBox } from "@/src/stories/ui";
 import styled, { css } from "styled-components";
 

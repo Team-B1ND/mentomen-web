@@ -2,7 +2,7 @@ import { useEscCloseModal } from "@/src/hooks/Modal";
 import { useLockScroll } from "@/src/hooks/Scroll";
 import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import styled, { css } from "styled-components";
 import { Row } from "@/src/stories/layout";
 

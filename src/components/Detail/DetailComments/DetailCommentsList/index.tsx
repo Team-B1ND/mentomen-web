@@ -8,7 +8,7 @@ import { DotsIcon, DotsIconContainer } from "@/src/stories/styles";
 import { ShowMoreContent } from "@/src/stories/ui";
 import { Setting } from "@/src/stories/ui";
 import { GetDateTime } from "@/src/stories/utils";
-import { CommentType } from "@/src/stories/core";
+import type { CommentType } from "@/src/stories/core";
 import { useOutSideClickCloseModal } from "@/src/hooks/Modal";
 import { useComment } from "@/src/hooks/Comment";
 import { Column } from "@/src/stories/layout";
